@@ -1,0 +1,54 @@
+* Introduction
+
+This project is to build a django database for tracking our part
+of the IGVF mouse experiment.
+
+mousedemo is the example site
+igvf_mice is the app designed to track the wet bench phase of the data collection.
+
+Somehow there will be additional components for tracking
+demultiplexing and analysis.
+
+* igvf_mice
+
+** Sina's schema documents
+
+https://dbdiagram.io/d/63797621c9abfc611173e5cd
+
+Sina's conversion of the spreadsheet to his schema
+https://docs.google.com/spreadsheets/d/1s89hqaMgav5FKBx3jimZU0WuJOgNLCBISEE21ZFpSqc/edit?usp=sharing
+
+** IGVF DACC metadata sheet
+
+https://docs.google.com/spreadsheets/d/1BLMledzmqOqXnJHzpijgw91IOs-9tSlVeZDG_MtXddk/edit#gid=1493755757
+
+** UCI metadata sheet
+
+Liz' metadata sheet. IGVF_Split-Seq
+https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=1838362486
+
+There are so many tabs....
+
+| tab                                     | model             |
+| Planning                                |                   |
+| Mice - 8 founders                       | Mouse             |
+| Line information                        | MouseStrain       |
+| schedule - all                          |                   |
+| nuclei isolation schedule with SampleID |                   |
+| counting                                |                   |
+| Sample - 8 founders                     | DissociatedTissue |
+| Bridge Samples                          |                   |
+| Samples into experiment                 |                   |
+| DCC                                     |                   |
+| Plate setups                            | Plate?            |
+| Experiment                              |                   |
+| PBMCs                                   |                   |
+| IGVF0002 Pilot Samples                  |                   |
+| IGVF0002 Pulverized Samples             |                   |
+| IGVF0002 Plate Setup                    |                   |
+| IGVF0002 Metadata                       |                   |
+| Hypo/Pit testing                        |                   |
+
+*** Mice - 8 founders fields
+
+RMS - ordering number

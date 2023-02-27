@@ -1,0 +1,8 @@
+*~
+*.py[co]
+__pycache__/
+dist
+docs/build/
+*.egg-info
+db*.sqlite3
+.ipynb_checkpoints/
