@@ -312,7 +312,7 @@ class OntologyTerm(models.Model):
         return parse.urljoin("https://data.igvf.org/sample-terms/", safe_curie)
 
     @admin.display
-    def curie_link(self):
+    def link(self):
         """Formatted <a href=> for display in pages"""
         return format_html(
             '<a href="{url}">{curie}</a>',

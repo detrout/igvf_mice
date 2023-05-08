@@ -64,10 +64,9 @@ class MouseOptions(admin.ModelAdmin):
     autocomplete_fields = ["accession",]
 
 
-
 class OntologyTermOptions(admin.ModelAdmin):
     model = OntologyTerm
-    list_display = ("name", "curie_link")
+    list_display = ("name", "link")
 
 
 class TissueOptions(admin.ModelAdmin):
