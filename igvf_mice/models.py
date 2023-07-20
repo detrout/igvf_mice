@@ -241,11 +241,8 @@ class Mouse(models.Model):
     weight_g = models.FloatField(null=True, verbose_name="weight (grams)")
     date_of_birth = models.DateField(null=True, help_text="Date mouse was born")
     date_obtained = models.DateField(null=True, help_text="Date mouse was received")
-    harvest_start_time = models.DateTimeField(
-        null=True, help_text="Date and time dissection started"
-    )
-    harvest_end_time = models.DateTimeField(
-        null=True, help_text="Date and time dissection ended"
+    harvest_date = models.DateField(
+        null=True, help_text="Date of dissection started"
     )
     estrus_cycle = models.CharField(
         max_length=2,
