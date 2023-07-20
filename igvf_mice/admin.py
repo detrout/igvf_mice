@@ -61,6 +61,16 @@ class MouseOptions(admin.ModelAdmin):
     list_display = ("name", "strain", "sex", "date_of_birth", "sample_box")
     list_filter = ("strain", "sex")
     ordering = ("-name",)
+    fields = (
+        ("name", "strain"),
+        ("sample_box", "date_obtained"),
+        ("weight_g", "sex", "estrus_cycle"),
+        ("date_of_birth", "harvest_date"),
+        ("operator"),
+        ("notes"),
+        ("accession"),
+    )
+
     autocomplete_fields = ["accession",]
 
 
@@ -79,6 +89,17 @@ class TissueOptions(admin.ModelAdmin):
     )
     filter_horizontal = ["ontology_term","accession"]
     autocomplete_fields = ["accession",]
+    fields = (
+        ("name", "mouse"),
+        "dissection_time",
+        ("timepoint_description", "life_stage"),
+        "description",
+        "ontology_term",
+        ("tube_label", "tube_weight_g", "total_weight_g"),
+        "dissector",
+        "dissection_notes",
+        "accession",
+    )
 
 
 class FixedSampleOptions(admin.ModelAdmin):
@@ -91,6 +112,15 @@ class FixedSampleOptions(admin.ModelAdmin):
         "fixation_date",
     )
     ordering = ("-name",)
+
+    fields = (
+        ("name", "tube_label"),
+        ("fixation_name", "fixation_date"),
+        ("starting_nuclei", "nuclei_into_fixation", "fixed_nuclei"),
+        ("aliquots_made", "aliquot_volume_ul"),
+        "tissue",
+    )
+
     filter_horizontal = ["tissue",]
 
 
@@ -99,9 +129,21 @@ class SplitSeqPlateOptions(admin.ModelAdmin):
 
     list_display = ("name", "total_nuclei", "aliquots_small_used", "aliquots_small_remaining", "aliquots_large_used", "aliquots_large_remaining")
 
+    fields = (
+        ("name", "pool_location"),
+        ("date_performed", "barcoded_cell_counter", "volume_of_nuclei"),
+    )
+
+
 
 class SplitSeqWellOptions(admin.ModelAdmin):
     model = SplitSeqWell
+
+    fields = (
+        ("plate", "row", "column"),
+        "biosample",
+        "barcode",
+    )
 
     filter_horizontal = ["biosample", "barcode"]
 
@@ -132,12 +174,8 @@ class SubpoolInRunInline(admin.StackedInline):
     model = SubpoolInRun
 
     search_fields = "subpool"
-    fieldsets = (
-        (None, {"fields": (("subpool", "run_date"), ("raw_reads", "status"))}),
-        (None, {
-            "classes": ("wide",),
-            "fields": ("pattern",),
-        }),
+    fields = (
+        ("subpool", "status", "measurement_set"),
     )
 
 
@@ -147,6 +185,11 @@ class SequencingRunOptions(admin.ModelAdmin):
     list_display = ("name", "platform", "plate")
     list_filter = ("platform", "plate")
 
+    fields = (
+        ("name", "plate"),
+        ("platform", "run_date", "stranded"),
+    #    ("accession"),
+    )
     inlines = [SubpoolInRunInline,]
 
     filter_horizontal = ["accession",]
