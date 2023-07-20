@@ -149,7 +149,10 @@ class LibraryBarcode(models.Model):
         return self.kit.name
 
     def __str__(self):
-        return "{} {} {}".format(self.kit_name, self.code, self.sequence)
+        name = [self.kit_name, self.code, self.sequence]
+        if self.barcode_type is not None:
+            name.append(self.barcode_type)
+        return " ".join(name)
 
 
 class StrainType(models.TextChoices):
