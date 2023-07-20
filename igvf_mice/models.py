@@ -495,12 +495,6 @@ class SplitSeqPlate(models.Model):
     date_performed = models.DateTimeField(default=timezone.now, null=True)
     barcoded_cell_counter = models.IntegerField(null=True)
     volume_of_nuclei = models.IntegerField(null=True)
-    aliquots_small_made = models.IntegerField(
-        null=True, help_text="total number of low density aliquots made"
-    )
-    aliquots_large_made = models.IntegerField(
-        null=True, help_text="total number of high density aliquots made"
-    )
 
     def __str__(self):
         return self.name
@@ -513,24 +507,6 @@ class SplitSeqPlate(models.Model):
         else:
             return self.barcoded_cell_counter * self.volume_of_nuclei
 
-    @property
-    def aliquots_small_used(self):
-        """How many small aliquots have been used."""
-        return len(self.sublibrary_set.filter(nuclei__lt=10000))
-
-    @property
-    def aliquots_large_used(self):
-        """How many large aliquots have been used"""
-        return len(self.sublibrary_set.filter(nuclei__gt=10000))
-
-    @property
-    def aliquots_small_remaining(self):
-        """How many small aliquots are left"""
-        return self.aliquots_small_made - self.aliquots_small_used
-
-    def aliquots_large_remaining(self):
-        """How many large aliquots are left"""
-        return self.aliquots_large_made - self.aliquots_large_used
 
 
 #   H (96 well plate)
