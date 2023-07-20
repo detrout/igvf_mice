@@ -49,6 +49,7 @@ class LibraryConstructionKitOptions(admin.ModelAdmin):
 class LibraryBarcodeOptions(admin.ModelAdmin):
     model = LibraryBarcode
     list_display = ("kit", "name", "code", "sequence")
+    search_fields= ("code", "sequence")
 
 
 class MouseStrainOptions(admin.ModelAdmin):
@@ -77,6 +78,7 @@ class MouseOptions(admin.ModelAdmin):
 class OntologyTermOptions(admin.ModelAdmin):
     model = OntologyTerm
     list_display = ("name", "link")
+    search_fields = ("name",)
 
 
 class TissueOptions(admin.ModelAdmin):
@@ -87,8 +89,6 @@ class TissueOptions(admin.ModelAdmin):
         #"timepoint",
         #"timepoint_units",
     )
-    filter_horizontal = ["ontology_term","accession"]
-    autocomplete_fields = ["accession",]
     fields = (
         ("name", "mouse"),
         "dissection_time",
@@ -100,11 +100,14 @@ class TissueOptions(admin.ModelAdmin):
         "dissection_notes",
         "accession",
     )
+    #filter_horizontal = ["ontology_term",]
+    autocomplete_fields = ["ontology_term", "accession",]
 
 
 class FixedSampleOptions(admin.ModelAdmin):
     model = FixedSample
 
+    search_fields = ("name",)
     list_display = (
         "name",
         "tube_label",
