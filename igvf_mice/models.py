@@ -619,6 +619,9 @@ class Platform(models.Model):
     name = models.CharField(
         max_length=20, unique=True, help_text="short unique code for the sequencer"
     )
+    igvf_id = models.CharField(
+        max_length=255, null=True, help_text="id used by igvf to refer to this platform"
+    )
     display_name = models.CharField(
         max_length=100, help_text="friendly name for the sequencer"
     )
