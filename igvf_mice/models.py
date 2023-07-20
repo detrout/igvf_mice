@@ -567,6 +567,11 @@ class SplitSeqWell(models.Model):
         return "{} {}{}".format(self.plate.name, self.row, self.column)
 
 
+class SublibrarySelectionType(models.TextChoices):
+    no_selection = ("NO", "No selection done")
+    exome_capture = ("EX", "Exome capture")
+
+
 class Subpool(models.Model):
     """aloquots of cells that have had an illumina multiplexing barcode added.
 
@@ -584,6 +589,11 @@ class Subpool(models.Model):
     name = models.CharField(max_length=50, unique=True)
     plate = models.ForeignKey("SplitSeqPlate", on_delete=models.PROTECT)
     nuclei = models.IntegerField()
+    selection_type = models.CharField(
+        max_length=2,
+        choices=SublibrarySelectionType.choices,
+        default=SublibrarySelectionType.no_selection
+    )
     cdna_pcr_rounds = models.CharField(max_length=50, null=True)
     cdna_ng_per_ul_in_25ul = models.FloatField(null=True)
 
