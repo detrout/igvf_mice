@@ -383,6 +383,11 @@ class Tissue(models.Model):
     dissection_time = models.DateTimeField(
         default=timezone.now, help_text="when did disection happen"
     )
+    timepoint_description = models.CharField(
+        max_length=20,
+        null=True,
+        help_text="Description of intended time point to group by"
+    )
     life_stage = models.CharField(
         max_length=2,
         choices=LifeStageEnum.choices,
