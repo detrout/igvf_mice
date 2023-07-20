@@ -614,6 +614,7 @@ class Platform(models.Model):
         Source,
         on_delete=models.PROTECT,
         help_text="Describe who the source is for the sequencing platform.",
+        null=True
     )
 
     def __str__(self):
