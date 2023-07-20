@@ -132,6 +132,9 @@ class LibraryBarcode(models.Model):
     to a name and sequence.
     """
 
+    class Meta:
+        ordering = ["kit", "code", "barcode_type"]
+
     kit = models.ForeignKey(LibraryConstructionKit, on_delete=models.PROTECT)
     name = models.CharField(max_length=20, null=True)
     code = models.CharField(max_length=6, null=False)
@@ -355,6 +358,8 @@ class Tissue(models.Model):
 
     # This is heavily inspired by Samples - 8 founders tab
     # this might need to split into tissue & extract?
+    class Meta:
+        ordering = ["name"]
 
     mouse = models.ForeignKey(Mouse, on_delete=models.PROTECT)
     name = models.CharField(
