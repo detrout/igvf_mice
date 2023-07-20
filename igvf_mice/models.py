@@ -551,9 +551,11 @@ class SplitSeqWell(models.Model):
     # should we be tracking the parse protocol here?
 
     biosample = models.ManyToManyField(FixedSample)
+
+    barcode_filter = models.Q(barcode_type="R") | models.Q(barcode_type="T")
     barcode = models.ManyToManyField(
         LibraryBarcode,
-        limit_choices_to={"barcode_type": ["T", "R"]},
+        limit_choices_to=barcode_filter,
     )
 
     def __str__(self):
