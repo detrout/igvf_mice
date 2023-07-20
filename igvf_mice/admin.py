@@ -205,7 +205,8 @@ class SubpoolInRunOptions(admin.ModelAdmin):
 class SubpoolInRunFileOptions(admin.ModelAdmin):
     model = SubpoolInRunFile
 
-    list_display = ("filename", "md5sum")
+    list_display = ("filename", "md5sum", "subpool_run")
+    list_filter = ("subpool_run__sequencing_run",)
 
     filter_horizontal = ["accession",]
 
