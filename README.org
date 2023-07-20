@@ -52,3 +52,34 @@ There are so many tabs....
 *** Mice - 8 founders fields
 
 RMS - ordering number
+
+
+* IGVF_Split-seq spreadsheet cleaning <2023-05-04 Thu>
+
+- [X] Comment in Estrus field on Mice - 8 samples
+- [X] Several Estrus fields were misspelled
+- [ ] extra row on Bridge Samples into experiment
+
+Why is there a space in the empty cells on row 1 in samples into
+experiment?
+
+- [X] On the bridge samples is it just left cortex, and not the
+cortex/hipppcampus from the 8 cube?
+  Liz: The bridge samples are just left cortex
+
+- [ ] Header columns on Bridge samples into experiment were different
+from Samples into experiment. There were a bunch of merged cells
+with a 2 layer index.
+
+- [X] Me: I'm also having trouble finding 093_CASTJ_10M_08 which is listed
+  on Plate setup but not in Samples into experiment Lines 745 to 746.
+  Go from 091_CASTJ_10M_08 to 094_CASTJ_10M_08 on Samples into
+  experiment
+
+  Liz: Why Oh good catch. Yeah 093 failed so we went with 095. Plate
+    setup has typo Same thing with IGVF_010 and 011, had to do 5th rep
+    So plate setups will be off since I didn’t go through and fix the
+    ones that got swapped out, just copy-pasted previous setups
+
+- [ ] Can we call the bridge sample plate IGVF_B01 to be more
+  consistent with others?
