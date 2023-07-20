@@ -738,8 +738,8 @@ class SubpoolInRunFile(models.Model):
 
     subpool_run = models.ForeignKey(SubpoolInRun, on_delete=models.PROTECT)
     md5sum = models.CharField(max_length=32, null=True, blank=False)
-    filename = models.CharField(max_length=255, null=True, blank=False)
-    # lane = models.CharField(max_length=10, null=True, blank=False)
+    filename = models.CharField(max_length=255, null=False, blank=False)
+    flowcell_id = models.CharField(max_length=100, null=False, blank=False)
     lane = models.IntegerField(null=True)
     # fragment = models.CharField(max_length=10, null=True, blank=False)
     fragment = models.IntegerField(null=True)
