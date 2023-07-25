@@ -127,16 +127,35 @@ class FixedSampleOptions(admin.ModelAdmin):
     filter_horizontal = ["tissue",]
 
 
+class SplitSeqWellInline(admin.StackedInline):
+    model = SplitSeqWell
+
+    autocomplete_fields = ["biosample", "barcode"]
+    #filter_horizontal = [
+    #    "biosample",
+    #    "barcode"
+    #]
+
+    fields = (
+        ("row", "column"),
+        ("biosample", "barcode",),
+    )
+
+
 class SplitSeqPlateOptions(admin.ModelAdmin):
     model = SplitSeqPlate
 
-    list_display = ("name", "total_nuclei", "aliquots_small_used", "aliquots_small_remaining", "aliquots_large_used", "aliquots_large_remaining")
+    list_display = (
+        "name",
+        "total_nuclei",
+    )
 
     fields = (
         ("name", "pool_location"),
         ("date_performed", "barcoded_cell_counter", "volume_of_nuclei"),
     )
 
+    inlines = [SplitSeqWellInline,]
 
 
 class SplitSeqWellOptions(admin.ModelAdmin):
