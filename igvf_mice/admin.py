@@ -184,8 +184,10 @@ class SubpoolOptions(admin.ModelAdmin):
         ("library_ng_per_ul", "library_average_bp_length"),
         ("index_pcr_number", "index"),
         ("barcode"),
+        ("accession"),
     )
     filter_horizontal = ["barcode",]
+    autocomplete_fields = ["accession",]
 
 
 class PlatformOptions(admin.ModelAdmin):

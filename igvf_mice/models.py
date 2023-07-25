@@ -610,6 +610,7 @@ class Subpool(models.Model):
     library_ng_per_ul = models.FloatField(null=True)
     library_average_bp_length = models.IntegerField(null=True)
 
+    accession = models.ManyToManyField(Accession)
     # Where should QC & production run information go?
 
     # given what we know about the split seq barcodes and the sequencing
