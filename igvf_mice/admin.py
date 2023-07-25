@@ -210,11 +210,8 @@ class SequencingRunOptions(admin.ModelAdmin):
     fields = (
         ("name", "plate"),
         ("platform", "run_date", "stranded"),
-    #    ("accession"),
     )
     inlines = [SubpoolInRunInline,]
-
-    filter_horizontal = ["accession",]
 
 
 class SubpoolInRunOptions(admin.ModelAdmin):

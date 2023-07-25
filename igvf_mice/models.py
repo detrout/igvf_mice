@@ -679,7 +679,6 @@ class SequencingRun(models.Model):
     stranded = models.CharField(
         max_length=1, choices=Stranded.choices, default=Stranded.REVERSE
     )
-    accession = models.ManyToManyField(Accession)
 
     def __str__(self):
         return self.name
