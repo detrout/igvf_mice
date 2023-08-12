@@ -226,7 +226,7 @@ class SubpoolInRunFileOptions(admin.ModelAdmin):
     list_display = ("filename", "md5sum", "subpool_run")
     list_filter = ("subpool_run__sequencing_run",)
 
-    filter_horizontal = ["accession",]
+    autocomplete_fields = ["accession",]
 
 
 class MeasurementSetOptions(admin.ModelAdmin):
