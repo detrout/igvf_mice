@@ -6,3 +6,7 @@ docs/build/
 *.egg-info
 db*.sqlite3
 .ipynb_checkpoints/
+
+*.xlsx
+*.csv
+*.tsv
