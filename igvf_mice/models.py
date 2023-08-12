@@ -256,6 +256,7 @@ class Mouse(models.Model):
         choices=EstrusCycle.choices,
         default=None,
         null=True,
+        blank=True,
         help_text="State of estrus cycle if applicable",
     )
     # should this be a list of users instead?
