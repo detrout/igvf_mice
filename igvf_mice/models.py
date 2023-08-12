@@ -347,6 +347,7 @@ def require_4_underscores(value):
 
         if underscores != 4:
             raise ValidationError("Wrong number of underscores {}. Expected 4".format(underscores))
+
 # this is closest to being a tissue specific biosample object
 class Tissue(models.Model):
     """Track a tissue or tissues dissected from a mouse as one unit
