@@ -99,7 +99,7 @@ class Source(models.Model):
         """Formatted <a href=> for use in pages"""
         return format_html(
             '<a href="{homepage}">{homepage}</a>',
-            url=self.url,
+            homepage=self.homepage,
         )
 
 
@@ -275,7 +275,7 @@ class Mouse(models.Model):
     @property
     def age_days(self):
         """Calculated age, dissection date - date of birth"""
-        return self.harvest_start_time.date() - self.date_of_birth
+        return self.harvest_date - self.date_of_birth
 
     @property
     def source(self):
