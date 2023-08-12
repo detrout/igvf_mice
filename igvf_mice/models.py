@@ -339,15 +339,15 @@ class LifeStageEnum(models.TextChoices):
     ADULT = ("A", "adult")
 
 
-def require_4_underscores(value):
+def require_3_underscores(value):
     if isinstance(value, str):
         underscores = 0
         for c in value:
             if c == "_":
                 underscores += 1
 
-        if underscores != 4:
-            raise ValidationError("Wrong number of underscores {}. Expected 4".format(underscores))
+        if underscores != 3:
+            raise ValidationError("Wrong number of underscores {}. Expected 3".format(underscores))
 
 # this is closest to being a tissue specific biosample object
 class Tissue(models.Model):
@@ -371,7 +371,7 @@ class Tissue(models.Model):
         max_length=50,
         unique=True,
         help_text="human friendly unique identifier for tissue",
-        validators=[require_4_underscores],
+        validators=[require_3_underscores],
     )
     # this should be a friendly name of whats in represented by ontology many to many
     description = models.CharField(
