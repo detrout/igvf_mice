@@ -650,10 +650,7 @@ class Platform(models.Model):
     )
 
     def __str__(self):
-        if self.display_name is not None:
-            return self.display_name
-        else:
-            return self.name
+        return self.display_name
 
 
 class Stranded(models.TextChoices):
