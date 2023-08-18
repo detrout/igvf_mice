@@ -15,8 +15,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+from igvf_mice import views
+
+router = routers.DefaultRouter()
+router.register(r"accession", views.AccessionViewSet)
+router.register(r"source", views.SourceViewSet)
+router.register(r"library-construction-kit", views.LibraryConstructionKitViewSet)
+router.register(r"library-barcode", views.LibraryBarcodeViewSet)
+router.register(r"mouse-strain", views.MouseStrainViewSet)
+router.register(r"mouse", views.MouseViewSet)
+
+router.register(
+    r"igvf/rodent-donor",
+    views.IgvfRodentDonorViewSet,
+    basename="igvf-rodent-donor",
+)
+router.register(
+    r"igvf/sequence-file",
+    views.IgvfSequenceFileViewSet,
+    basename="igvf-sequence-file",
+)
+
 
 urlpatterns = [
     path("admin/doc/", include("django.contrib.admindocs.urls")),
     path("admin/", admin.site.urls),
+    path("", include(router.urls)),
+    path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
