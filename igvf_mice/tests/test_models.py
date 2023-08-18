@@ -208,7 +208,19 @@ class TestModels(TestCase):
             # measurement_set=
         )
 
-    def test_accession(self):
+    def test_accession_with_uuid(self):
+        test016_B6J_10F = Accession.objects.create(
+            namespace=self.accession_namespace_igvf_test,
+            name="TSTDO36427294",
+            uuid="8bd01581-b4e2-499b-8266-5e1d40634888",
+            url="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
+        )
+
+        test016_B6J_10F.clean_fields()
+        self.assertEqual(str(test016_B6J_10F), "igvf_test:TSTDO36427294")
+        self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
+
+    def test_accession_no_uuid(self):
         test016_B6J_10F = Accession.objects.create(
             namespace=self.accession_namespace_igvf_test,
             name="TSTDO36427294",
