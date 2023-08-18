@@ -509,7 +509,7 @@ class SplitSeqPlate(models.Model):
         null=True,
         help_text="Information to help find any remaining pooled sample",
     )
-    date_performed = models.DateTimeField(default=timezone.now, null=True)
+    date_performed = models.DateField(default=timezone.now, null=True)
     barcoded_cell_counter = models.IntegerField(null=True)
     volume_of_nuclei = models.IntegerField(null=True)
 
