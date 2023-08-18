@@ -50,6 +50,7 @@ class Accession(models.Model):
 
     namespace = models.ForeignKey(AccessionNamespace, on_delete=models.PROTECT)
     name = models.CharField(max_length=255, help_text="Accession ID")
+    uuid = models.UUIDField(null=True, blank=True)
     url = models.URLField(
         unique=True,
         help_text="URL to obtain information about the accessioned data item",
