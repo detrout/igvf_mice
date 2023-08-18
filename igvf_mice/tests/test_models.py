@@ -2,7 +2,7 @@ from datetime import date
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
-from .models import (
+from ..models import (
     AccessionNamespace,
     Accession,
     Source,
