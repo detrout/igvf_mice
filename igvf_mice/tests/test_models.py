@@ -508,6 +508,7 @@ class TestModels(TestCase):
     def test_subpool_in_run_file(self):
         filename_r1 = "next02/002_13B_R1.fastq.gz"
         subpool_run_file_r1 = SubpoolInRunFile.objects.create(
+            sequencing_run=self.sequencing_run_fake,
             subpool_run=self.subpool_run,
             md5sum="68b329da9893e34099c7d8ad5cb9c940",
             filename=filename_r1,
