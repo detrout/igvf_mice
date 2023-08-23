@@ -216,7 +216,7 @@ class TestModels(TestCase):
             url="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
-        test016_B6J_10F.clean_fields()
+        test016_B6J_10F.full_clean()
         self.assertEqual(str(test016_B6J_10F), "igvf_test:TSTDO36427294")
         self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
 
@@ -227,7 +227,7 @@ class TestModels(TestCase):
             url="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
-        test016_B6J_10F.clean_fields()
+        test016_B6J_10F.full_clean()
         self.assertEqual(str(test016_B6J_10F), "igvf_test:TSTDO36427294")
         self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
 
@@ -238,7 +238,7 @@ class TestModels(TestCase):
             name=name, homepage=homepage, igvf_id="/sources/illumina/"
         )
 
-        source.clean_fields()
+        source.full_clean()
         self.assertEqual(source.name, name)
         self.assertEqual(source.link(), f'<a href="{homepage}">{homepage}</a>')
 
@@ -252,7 +252,7 @@ class TestModels(TestCase):
             source=self.source_fake,
         )
 
-        kit.clean_fields()
+        kit.full_clean()
         self.assertEqual(str(kit), f"{name} {version}")
 
     def test_library_barcode(self):
@@ -269,7 +269,7 @@ class TestModels(TestCase):
             barcode_type=barcode_type,
         )
 
-        barcode.clean_fields()
+        barcode.full_clean()
         self.assertEqual(barcode.kit_name, kit.name)
         self.assertEqual(str(barcode), f"{kit.name} {code} {sequence} {barcode_type}")
 
@@ -284,7 +284,7 @@ class TestModels(TestCase):
             source=self.source_fake,
         )
 
-        strain.clean_fields()
+        strain.full_clean()
         self.assertEqual(str(strain), strain.name)
 
     def test_mouse(self):
@@ -302,7 +302,7 @@ class TestModels(TestCase):
             sample_box="791.45/75",
         )
 
-        male_mouse.clean_fields()
+        male_mouse.full_clean()
         self.assertIsInstance(male_mouse.date_of_birth, date)
         self.assertEqual(male_mouse.age_days.days, 1162)
         self.assertEqual(male_mouse.source, self.mouse_strain_fake.source)
@@ -321,7 +321,7 @@ class TestModels(TestCase):
             sample_box="Tower",
         )
 
-        female_mouse.clean_fields()
+        female_mouse.full_clean()
         self.assertIsInstance(female_mouse.date_of_birth, date)
         self.assertEqual(female_mouse.age_days.days, 1162)
         self.assertEqual(female_mouse.source, self.mouse_strain_fake.source)
@@ -353,7 +353,7 @@ class TestModels(TestCase):
             description="A muscle that originates in the upper two-thirds of the lateral surface of the tibia",
         )
 
-        term.clean_fields()
+        term.full_clean()
         self.assertEqual(str(term), f"{curie} ({name})")
         url = "https://data.igvf.org/sample-terms/UBERON_0001385"
         self.assertEqual(term.url, url)
@@ -379,14 +379,14 @@ class TestModels(TestCase):
         )
         tissue.ontology_term.set([self.ontology_term_tail])
 
-        tissue.clean_fields()
+        tissue.full_clean()
         self.assertAlmostEqual(tissue.weight_g, 0.27)
         self.assertAlmostEqual(tissue.weight_mg, 270)
         self.assertEqual(tissue.ontology_names, "tail")
         self.assertEqual(str(tissue), f"{tissue.name} {tissue.description}")
 
         tissue.ontology_term.set([self.ontology_term_tail, self.ontology_term_pbmc])
-        tissue.clean_fields()
+        tissue.full_clean()
         self.assertEqual(
             tissue.ontology_names, "peripheral blood mononuclear cell, tail"
         )
