@@ -326,6 +326,24 @@ class TestModels(TestCase):
         self.assertEqual(female_mouse.age_days.days, 1162)
         self.assertEqual(female_mouse.source, self.mouse_strain_fake.source)
 
+    def test_genderqueer_mouse(self):
+        genderqueer_mouse = Mouse(
+            name="B2",
+            strain=self.mouse_strain_fake,
+            sex=SexEnum.MALE,
+            weight_g=21.3,
+            date_of_birth="1995-9-9",
+            date_obtained="1995-9-9",
+            harvest_date="1998-11-14",
+            estrus_cycle=EstrusCycle.PROESTRUS,
+            operator="WB",
+            notes="very fake mouse",
+            sample_box="791.45/75",
+        )
+
+        self.assertRaises(ValidationError, genderqueer_mouse.full_clean)
+
+
     def test_ontology_term(self):
         curie = "UBERON:0001385"
         name = "tibialis anterior"

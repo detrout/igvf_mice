@@ -208,6 +208,7 @@ class SexEnum(models.TextChoices):
 
 
 class EstrusCycle(models.TextChoices):
+    NA = ("NA", "Not applicable")
     UNKNOWN = ("U", "Unknown")
     ANESTRUS = ("A", "Anestrus")
     ANESTRUS_PROESTRUS = ("AP", "Anestrus>Proestrus")
@@ -255,9 +256,7 @@ class Mouse(models.Model):
     estrus_cycle = models.CharField(
         max_length=2,
         choices=EstrusCycle.choices,
-        default=None,
-        null=True,
-        blank=True,
+        default=EstrusCycle.UNKNOWN,
         help_text="State of estrus cycle if applicable",
     )
     # should this be a list of users instead?
@@ -283,6 +282,11 @@ class Mouse(models.Model):
     def source(self):
         """Helper to return mouse strain source"""
         return self.strain.source
+
+    def clean(self):
+        male_estrus_states = (EstrusCycle.NA, EstrusCycle.UNKNOWN)
+        if self.sex == "M" and self.estrus_cycle not in male_estrus_states:
+            raise ValidationError("Male mice aren't allowed to have an EstrusCycle")
 
 
 # What if we made django-bioontology?
