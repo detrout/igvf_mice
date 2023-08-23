@@ -25,6 +25,16 @@ router.register(r"library-construction-kit", views.LibraryConstructionKitViewSet
 router.register(r"library-barcode", views.LibraryBarcodeViewSet)
 router.register(r"mouse-strain", views.MouseStrainViewSet)
 router.register(r"mouse", views.MouseViewSet)
+router.register(r"ontology-term", views.OntologyTermViewSet)
+router.register(r"tissue", views.TissueViewSet)
+router.register(r"fixed-sample", views.FixedSampleViewSet)
+router.register(r"split-seq-plate", views.SplitSeqPlateViewSet)
+router.register(r"split-seq-well", views.SplitSeqWellViewSet)
+router.register(r"platform", views.PlatformViewSet)
+router.register(r"subpool", views.SubpoolViewSet)
+router.register(r"sequencing-run", views.SequencingRunViewSet)
+router.register(r"subpool-in-run", views.SubpoolInRunViewSet)
+router.register(r"measurement-set", views.MeasurementSetViewSet)
 
 router.register(
     r"igvf/rodent-donor",
