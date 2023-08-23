@@ -754,8 +754,6 @@ class SubpoolInRunFile(models.Model):
     filename = models.CharField(max_length=255, null=False, blank=False)
     flowcell_id = models.CharField(max_length=100, null=False, blank=False)
     lane = models.IntegerField(null=True)
-    # fragment = models.CharField(max_length=10, null=True, blank=False)
-    fragment = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
     accession = models.ManyToManyField(Accession)
 
