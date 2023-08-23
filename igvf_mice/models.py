@@ -749,6 +749,7 @@ class SubpoolInRunFile(models.Model):
 
     """
 
+    sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
     subpool_run = models.ForeignKey(SubpoolInRun, on_delete=models.PROTECT)
     md5sum = models.CharField(max_length=32, null=True, blank=False)
     filename = models.CharField(max_length=255, null=False, blank=False)
