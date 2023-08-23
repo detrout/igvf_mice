@@ -277,7 +277,7 @@ class TestModels(TestCase):
         strain = MouseStrain(
             name="brain",
             strain_type=StrainType.CC_FOUNDER,
-            code="BR",
+            code="BA",
             jax_catalog_number="[redacted]",
             url="https://www.wikidata.org/wiki/Q1500726",
             notes="suffers from delusions of grandeur",
