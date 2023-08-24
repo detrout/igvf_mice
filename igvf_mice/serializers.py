@@ -99,6 +99,7 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
         model = Mouse
         fields = "__all__"
 
+    accession = AccessionSerializer(many=True)
     sex = serializers.ChoiceField(choices=SexEnum.choices)
     estrus_cycle = serializers.ChoiceField(EstrusCycle.choices)
 
@@ -113,6 +114,8 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tissue
         fields = "__all__"
+
+    accession = AccessionSerializer(many=True)
 
 
 class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
@@ -195,7 +198,7 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
         model = MeasurementSet
         fields = "__all__"
 
-    accession = serializers.StringRelatedField(many=True)
+    accession = AccessionSerializer(many=True)
     subpool_in_run = SubpoolInRunSerializer(source="subpoolinrun_set", many=True)
 
 
@@ -228,7 +231,7 @@ class IgvfRodentDonorSerializer(serializers.HyperlinkedModelSerializer, IgvfLabI
             "rodent_identifier",
         ]
 
-    accession = serializers.StringRelatedField(many=True)
+    accession = AccessionSerializer(many=True)
     aliases = serializers.SerializerMethodField()
     award = serializers.SerializerMethodField()
     lab = serializers.SerializerMethodField()
@@ -344,7 +347,7 @@ class IgvfSequenceFileSerializer(serializers.HyperlinkedModelSerializer, IgvfLab
             #"seqspec",
         ]
 
-    accession = serializers.StringRelatedField(many=True)
+    accession = AccessionSerializer(many=True)
     #aliases = serializers.ListField(child=serializers.CharField())
     award = serializers.SerializerMethodField()
     lab = serializers.SerializerMethodField()
