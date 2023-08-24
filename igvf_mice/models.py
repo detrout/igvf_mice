@@ -51,7 +51,7 @@ class Accession(models.Model):
     namespace = models.ForeignKey(AccessionNamespace, on_delete=models.PROTECT)
     name = models.CharField(max_length=255, help_text="Accession ID")
     uuid = models.UUIDField(null=True, blank=True)
-    url = models.URLField(
+    see_also = models.URLField(
         unique=True,
         help_text="URL to obtain information about the accessioned data item",
     )
@@ -65,15 +65,15 @@ class Accession(models.Model):
 
         This will match IGVF DACC (and ENCODE) @id fields.
         """
-        parts = parse.urlsplit(self.url)
+        parts = parse.urlsplit(self.see_also)
         return parts.path
 
     @admin.display
     def link(self) -> str:
         """Formatted <a href=> for use in pages"""
         return format_html(
-            '<a href="{url}">{url}</a>',
-            url=self.url,
+            '<a href="{href}">{href}</a>',
+            href=self.see_also,
         )
 
 
@@ -182,7 +182,7 @@ class MouseStrain(models.Model):
     jax_catalog_number = models.CharField(
         max_length=255, help_text="order number for the mouse strain type"
     )
-    url = models.URLField(null=True, help_text="Information page for mouse")
+    see_also = models.URLField(null=True, help_text="Information page for mouse")
     # price = models.DecimalField(max_digits=5, decimal_places=2)
     # status = models.EnumField()
     # RMS = what is this, why is it a list of numbers?

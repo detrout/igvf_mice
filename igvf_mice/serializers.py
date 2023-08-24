@@ -30,7 +30,7 @@ from igvf_mice.models import (
 class AccessionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Accession
-        fields = ["name", "url"]
+        fields = ["@id", "see_also"]
 
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):

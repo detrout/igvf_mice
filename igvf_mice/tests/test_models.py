@@ -81,7 +81,7 @@ class TestModels(TestCase):
             strain_type=StrainType.CC_FOUNDER,
             code="BR",
             jax_catalog_number="[redacted]",
-            url="https://www.wikidata.org/wiki/Q1500726",
+            see_also="https://www.wikidata.org/wiki/Q1500726",
             notes="tries to escape",
             source=self.source_fake,
         )
@@ -213,7 +213,7 @@ class TestModels(TestCase):
             namespace=self.accession_namespace_igvf_test,
             name="TSTDO36427294",
             uuid="8bd01581-b4e2-499b-8266-5e1d40634888",
-            url="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
+            see_also="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
         test016_B6J_10F.full_clean()
@@ -224,7 +224,7 @@ class TestModels(TestCase):
         test016_B6J_10F = Accession.objects.create(
             namespace=self.accession_namespace_igvf_test,
             name="TSTDO36427294",
-            url="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
+            see_also="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
         test016_B6J_10F.full_clean()
@@ -279,7 +279,7 @@ class TestModels(TestCase):
             strain_type=StrainType.CC_FOUNDER,
             code="BA",
             jax_catalog_number="[redacted]",
-            url="https://www.wikidata.org/wiki/Q1500726",
+            see_also="https://www.wikidata.org/wiki/Q1500726",
             notes="suffers from delusions of grandeur",
             source=self.source_fake,
         )
