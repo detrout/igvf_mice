@@ -355,9 +355,9 @@ class TestModels(TestCase):
 
         term.full_clean()
         self.assertEqual(str(term), f"{curie} ({name})")
-        url = "https://data.igvf.org/sample-terms/UBERON_0001385"
-        self.assertEqual(term.url, url)
-        self.assertEqual(term.link(), f'<a href="{url}">{curie}</a>')
+        href = "https://data.igvf.org/sample-terms/UBERON_0001385"
+        self.assertEqual(term.igvf_href, href)
+        self.assertEqual(term.link(), f'<a href="{href}">{curie}</a>')
 
     def test_validate_3_underscores(self):
         self.assertRaises(ValidationError, require_3_underscores, "a_b_c")

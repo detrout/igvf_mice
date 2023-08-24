@@ -317,7 +317,7 @@ class OntologyTerm(models.Model):
         return "{} ({})".format(self.curie, self.name)
 
     @property
-    def url(self):
+    def igvf_href(self):
         safe_curie = self.curie.replace(":", "_")
         return parse.urljoin("https://data.igvf.org/sample-terms/", safe_curie)
 
@@ -325,8 +325,8 @@ class OntologyTerm(models.Model):
     def link(self):
         """Formatted <a href=> for display in pages"""
         return format_html(
-            '<a href="{url}">{curie}</a>',
-            url=self.url,
+            '<a href="{href}">{curie}</a>',
+            href=self.igvf_href,
             curie=self.curie,
         )
 
