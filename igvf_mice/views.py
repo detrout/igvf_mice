@@ -165,4 +165,5 @@ class IgvfSequenceFileViewSet(viewsets.ModelViewSet):
 
 
     def get_queryset(self):
-        return Subpool.objects.all()
+        return SubpoolInRunFile.objects.all()
+
