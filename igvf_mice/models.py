@@ -80,9 +80,9 @@ class Accession(models.Model):
 class Source(models.Model):
     """Entities that produce products used by the project"""
 
-    name = models.CharField(
+    name = models.CharField(max_length=50, primary_key=True)
+    display_name = models.CharField(
         max_length=255,
-        unique=True,
         help_text="Name of company or organization providing items",
     )
     homepage = models.URLField(
@@ -110,7 +110,8 @@ class LibraryConstructionKit(models.Model):
     References models:`igvf_mice.Source` to describe who is providing the kit
     """
 
-    name = models.CharField(max_length=255, unique=True, help_text="The product name")
+    name = models.CharField(max_length=50, primary_key=True, help_text="url friendly name")
+    display_name = models.CharField(max_length=255, unique=True, help_text="The product name")
     version = models.CharField(
         max_length=50, help_text="description of the kit version"
     )
@@ -119,7 +120,7 @@ class LibraryConstructionKit(models.Model):
     )
 
     def __str__(self):
-        return str("{} {}".format(self.name, self.version))
+        return str("{} {}".format(self.display_name, self.version))
 
 
 class LibraryBarcode(models.Model):
@@ -169,15 +170,18 @@ class MouseStrain(models.Model):
     We order :model:`igvf_mouse.Mouse` from MouseStrains.
     """
 
-    name = models.CharField(max_length=50, unique=True, help_text="Name of mouse type")
+    name = models.CharField(
+        max_length=50, primary_key=True, help_text="short mouse strain code"
+    )
+    display_name = models.CharField(
+        max_length=50, unique=True, help_text="Name of mouse type")
+    igvf_id = models.CharField(
+        max_length=50, unique=True, help_text="Name of mouse strain at IGVF portal")
     strain_type = models.CharField(
         max_length=2,
         choices=StrainType.choices,
         default=StrainType.CC_FOUNDER,
         help_text="code representing strain type",
-    )
-    code = models.CharField(
-        max_length=50, unique=True, help_text="short mouse strain code"
     )
     jax_catalog_number = models.CharField(
         max_length=255, help_text="order number for the mouse strain type"
@@ -237,7 +241,8 @@ class Mouse(models.Model):
     def __str__(self):
         return self.name
 
-    name = models.CharField(max_length=50, unique=True, help_text="individual mouse id")
+    name = models.CharField(
+        max_length=50, primary_key=True, help_text="individual mouse id")
     strain = models.ForeignKey(
         MouseStrain, on_delete=models.PROTECT, help_text="strain type for mouse"
     )
@@ -354,6 +359,7 @@ def require_3_underscores(value):
         if underscores != 3:
             raise ValidationError("Wrong number of underscores {}. Expected 3".format(underscores))
 
+
 # this is closest to being a tissue specific biosample object
 class Tissue(models.Model):
     """Track a tissue or tissues dissected from a mouse as one unit
@@ -371,13 +377,13 @@ class Tissue(models.Model):
     class Meta:
         ordering = ["name"]
 
-    mouse = models.ForeignKey(Mouse, on_delete=models.PROTECT)
     name = models.CharField(
         max_length=50,
-        unique=True,
+        primary_key=True,
         help_text="human friendly unique identifier for tissue",
         validators=[require_3_underscores],
     )
+    mouse = models.ForeignKey(Mouse, on_delete=models.PROTECT)
     # this should be a friendly name of whats in represented by ontology many to many
     description = models.CharField(
         max_length=75, help_text="description of type or types of tissue"
@@ -459,7 +465,7 @@ class FixedSample(models.Model):
     a :model:`igvf_mice.SplitSeqPlate`.
     """
 
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, primary_key=True)
     tube_label = models.CharField(max_length=20, unique=True)
     fixation_name = models.CharField(max_length=20)
     fixation_date = models.DateField(null=True)
@@ -500,7 +506,7 @@ class SplitSeqPlate(models.Model):
     # ideally the UI for this would look like a plate.
     # with 96 wells to start with
     name = models.CharField(
-        max_length=20, unique=True, help_text="Human friendly name for this plate run"
+        max_length=20, primary_key=True, help_text="Human friendly name for this plate run"
     )
     size = models.SmallIntegerField(
         default=PlateSizeEnum.size_96,
@@ -593,7 +599,7 @@ class Subpool(models.Model):
     and runs.
     """
 
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50, primary_key=True)
     plate = models.ForeignKey("SplitSeqPlate", on_delete=models.PROTECT)
     nuclei = models.IntegerField()
     selection_type = models.CharField(
@@ -635,7 +641,7 @@ class Platform(models.Model):
     """List of possible sequencing platforms"""
 
     name = models.CharField(
-        max_length=20, unique=True, help_text="short unique code for the sequencer"
+        max_length=20, primary_key=True, help_text="short unique name for the sequencer"
     )
     igvf_id = models.CharField(
         max_length=255, null=True, help_text="id used by igvf to refer to this platform"

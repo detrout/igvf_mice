@@ -15,7 +15,8 @@ class TestSerializers(APITestCase):
         self.user = User.objects.create(username="test_user")
 
     def test_source(self):
-        name = "test source"
+        name = "test-source"
+        display_name = "test source"
         homepage = "https://example.com/source"
         igvf_id = "/source/test_source"
 
@@ -24,6 +25,7 @@ class TestSerializers(APITestCase):
         url = reverse("source-list")
         payload = {
             "name": name,
+            "display_name": display_name,
             "homepage": homepage,
             "igvf_id": igvf_id,
         }

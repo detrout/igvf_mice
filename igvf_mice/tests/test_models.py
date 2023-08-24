@@ -77,9 +77,10 @@ class TestModels(TestCase):
         )
         self.library_barcode_fake_illumina.save()
         self.mouse_strain_fake = MouseStrain.objects.create(
-            name="CASTJ/human glial cells",
+            name="CASTHUMAN",
+            display_name="CASTJ/human glial cells",
+            igvf_id="CASTJ/human glial cells (CASTHUMAN)",
             strain_type=StrainType.CC_FOUNDER,
-            code="BR",
             jax_catalog_number="[redacted]",
             see_also="https://www.wikidata.org/wiki/Q1500726",
             notes="tries to escape",
@@ -232,10 +233,14 @@ class TestModels(TestCase):
         self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
 
     def test_source(self):
-        name = "Illumina"
+        name = "illumina"
+        display_name = "Illumina"
         homepage = "https://www.illumina.com"
         source = Source.objects.create(
-            name=name, homepage=homepage, igvf_id="/sources/illumina/"
+            name=name,
+            display_name=display_name,
+            homepage=homepage,
+            igvf_id="/sources/illumina/"
         )
 
         source.full_clean()
@@ -243,17 +248,19 @@ class TestModels(TestCase):
         self.assertEqual(source.link(), f'<a href="{homepage}">{homepage}</a>')
 
     def test_library_construction_kit(self):
-        name = "b kit"
+        name = "b-kit",
+        display_name = "B Kit"
         version = "2.7.1"
 
         kit = LibraryConstructionKit(
             name=name,
+            display_name=display_name,
             version=version,
             source=self.source_fake,
         )
 
         kit.full_clean()
-        self.assertEqual(str(kit), f"{name} {version}")
+        self.assertEqual(str(kit), f"{display_name} {version}")
 
     def test_library_barcode(self):
         kit = self.library_construction_kit_fake
@@ -275,9 +282,10 @@ class TestModels(TestCase):
 
     def test_mouse_strain(self):
         strain = MouseStrain(
-            name="brain",
+            name="SG1",
+            display_name="Super brain 1",
+            igvf_id="Super brain 1 (SG1)",
             strain_type=StrainType.CC_FOUNDER,
-            code="BA",
             jax_catalog_number="[redacted]",
             see_also="https://www.wikidata.org/wiki/Q1500726",
             notes="suffers from delusions of grandeur",
@@ -289,7 +297,7 @@ class TestModels(TestCase):
 
     def test_mouse(self):
         male_mouse = Mouse(
-            name="B1",
+            name="SG2",
             strain=self.mouse_strain_fake,
             sex=SexEnum.MALE,
             weight_g=21.3,

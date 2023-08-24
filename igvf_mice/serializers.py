@@ -30,13 +30,19 @@ from igvf_mice.models import (
 class AccessionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Accession
-        fields = ["@id", "see_also"]
+        fields = ["@id", "name", "see_also"]
 
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Source
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "display_name",
+            "homepage",
+            "igvf_id",
+        ]
 
 
 class LibraryConstructionKitSerializer(serializers.HyperlinkedModelSerializer):
@@ -68,7 +74,7 @@ class SequencingRunChildSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SequencingRun
         fields = [
-            "url",
+            "@id",
             "name",
             "run_date",
             "stranded",
@@ -119,7 +125,7 @@ class SplitSeqPlateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SplitSeqPlate
         fields = [
-            "url",
+            "@id",
             "name",
             "size",
             "pool_location",
@@ -142,7 +148,7 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SequencingRun
         fields = [
-            "url",
+            "@id",
             "name",
             "run_date",
             "stranded",
@@ -158,7 +164,7 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Subpool
         fields = [
-            "url",
+            "@id",
             "name",
             "nuclei",
             "selection_type",
@@ -207,6 +213,7 @@ class IgvfRodentDonorSerializer(serializers.HyperlinkedModelSerializer, IgvfLabI
     class Meta:
         model = Mouse
         fields = [
+            "@id",
             "accession",
             "aliases",
             "award",
@@ -214,7 +221,6 @@ class IgvfRodentDonorSerializer(serializers.HyperlinkedModelSerializer, IgvfLabI
             "taxa",
             "sex",
             "strain",
-            "url",
             "source",
             "product_id",
             "strain_background",

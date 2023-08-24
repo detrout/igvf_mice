@@ -131,5 +131,9 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+REST_FRAMEWORK = {
+    "URL_FIELD_NAME": "@id",
+}
+
 LAB_ALIAS = "ali-mortazavi"
 AWARD = "HG012077"
