@@ -587,7 +587,8 @@ class Subpool(models.Model):
         default=SublibrarySelectionType.no_selection
     )
     cdna_pcr_rounds = models.CharField(max_length=50, null=True)
-    cdna_ng_per_ul_in_25ul = models.FloatField(null=True)
+    cdna_ng_per_ul = models.FloatField(null=True)
+    cdna_volume = models.FloatField(null=True)
 
     bioanalyzer_date = models.DateField(null=True)
     cdna_average_bp_length = models.IntegerField(null=True)

@@ -166,7 +166,7 @@ class SplitSeqWellOptions(admin.ModelAdmin):
 class SubpoolOptions(admin.ModelAdmin):
     model = Subpool
 
-    list_display = ("name", "plate", "nuclei", "cdna_pcr_rounds", "cdna_ng_per_ul_in_25ul", "cdna_average_bp_length", "index", "library_ng_per_ul", "library_average_bp_length")
+    list_display = ("name", "plate", "nuclei", "cdna_pcr_rounds", "cdna_ng_per_ul", "cdna_volume", "cdna_average_bp_length", "index", "library_ng_per_ul", "library_average_bp_length")
     list_filter = ("plate",)
 
     fields = (
