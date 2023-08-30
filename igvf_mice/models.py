@@ -445,7 +445,7 @@ class FixedSample(models.Model):
     """
 
     name = models.CharField(max_length=50, primary_key=True)
-    tube_label = models.CharField(max_length=20, unique=True)
+    tube_label = models.CharField(max_length=20, null=True)
     fixation_name = models.CharField(max_length=20)
     fixation_date = models.DateField(null=True)
     tissue = models.ManyToManyField("Tissue")
