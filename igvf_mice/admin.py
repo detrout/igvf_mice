@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from .models import (
-    AccessionNamespace,
     Accession,
     Source,
     LibraryConstructionKit,
@@ -20,12 +19,6 @@ from .models import (
     SubpoolInRunFile,
     MeasurementSet,
 )
-
-
-class AccessionNamespaceOptions(admin.ModelAdmin):
-    model = AccessionNamespace
-
-    list_display = ("name", "prefix", "link")
 
 
 class AccessionOptions(admin.ModelAdmin):
@@ -235,7 +228,6 @@ class MeasurementSetOptions(admin.ModelAdmin):
     filter_horizontal = ["accession"]
 
 
-admin.site.register(AccessionNamespace, AccessionNamespaceOptions)
 admin.site.register(Accession, AccessionOptions)
 admin.site.register(Source, SourceOptions)
 admin.site.register(LibraryConstructionKit, LibraryConstructionKitOptions)

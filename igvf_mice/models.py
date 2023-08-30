@@ -9,36 +9,9 @@ from urllib import parse
 import numpy
 
 
-class AccessionNamespace(models.Model):
-    """Describe a potential source of accession ids."""
-
-    name = models.CharField(
-        max_length=255, unique=True, help_text="name usually used for the entity."
-    )
-    homepage = models.URLField(null=True, help_text="home page URL for entity")
-    accession_prefix = models.CharField(
-        max_length=255,
-        unique=True,
-        null=True,
-        help_text="identifying prefix added to accessions when being displayed in lists",
-    )
-
-    def __str__(self):
-        return self.name
-
-    @property
-    def prefix(self):
-        if self.accession_prefix is not None:
-            return self.accession_prefix
-        else:
-            return self.name.replace(" ", "_")
-
-    @admin.display
-    def link(self):
-        return format_html(
-            '<a href="{homepage}">{homepage}</a>',
-            homepage=self.homepage,
-        )
+class AccessionNamespacesEnum(models.TextChoices):
+    IGVF = ("igvf", "IGVF")
+    IGVF_TEST = ("igvftst", "IGVF sandbox")
 
 
 class Accession(models.Model):
@@ -48,8 +21,12 @@ class Accession(models.Model):
     namespaces
     """
 
-    namespace = models.ForeignKey(AccessionNamespace, on_delete=models.PROTECT)
-    name = models.CharField(max_length=255, help_text="Accession ID")
+    accession_prefix = models.CharField(
+        max_length=10,
+        choices=AccessionNamespacesEnum.choices,
+        default=AccessionNamespacesEnum.IGVF
+    )
+    name = models.CharField(max_length=255, primary_key=True, help_text="Accession ID")
     uuid = models.UUIDField(null=True, blank=True)
     see_also = models.URLField(
         unique=True,
