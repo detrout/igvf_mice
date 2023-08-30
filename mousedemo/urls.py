@@ -34,6 +34,7 @@ router.register(r"platform", views.PlatformViewSet)
 router.register(r"subpool", views.SubpoolViewSet)
 router.register(r"sequencing-run", views.SequencingRunViewSet)
 router.register(r"subpool-in-run", views.SubpoolInRunViewSet)
+router.register(r"subpool-in-run-file", views.SubpoolInRunFileViewSet)
 router.register(r"measurement-set", views.MeasurementSetViewSet)
 
 router.register(

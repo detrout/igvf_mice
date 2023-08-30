@@ -35,6 +35,7 @@ from igvf_mice.serializers import (
     PlatformSerializer,
     SequencingRunRootSerializer,
     SubpoolInRunSerializer,
+    SubpoolInRunFileSerializer,
     MeasurementSetSerializer,
     IgvfRodentDonorSerializer,
     IgvfSequenceFileSerializer,
@@ -130,6 +131,12 @@ class SequencingRunViewSet(viewsets.ModelViewSet):
 class SubpoolInRunViewSet(viewsets.ModelViewSet):
     queryset = SubpoolInRun.objects.all()
     serializer_class = SubpoolInRunSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class SubpoolInRunFileViewSet(viewsets.ModelViewSet):
+    queryset = SubpoolInRunFile.objects.all()
+    serializer_class = SubpoolInRunFileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 

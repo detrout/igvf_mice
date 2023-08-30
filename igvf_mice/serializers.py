@@ -193,6 +193,12 @@ class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
         fields = "__all__"
 
 
+class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SubpoolInRunFile
+        fields = "__all__"
+
+
 class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MeasurementSet
