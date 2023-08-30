@@ -135,8 +135,10 @@ class LibraryBarcode(models.Model):
 
 
 class StrainType(models.TextChoices):
-    CC_FOUNDER = ("FO", "CC Founder")
-    CC_CROSS = ("CR", "CC Cross")
+    FOUNDER = ("FO", "CC Founder")
+    F1 = ("F1", "CC F1")
+    CROSS = ("CR", "CC Cross")
+    MUTANT = ("MB", "Mutant")
 
 
 # This is representing a genetic background
@@ -157,7 +159,7 @@ class MouseStrain(models.Model):
     strain_type = models.CharField(
         max_length=2,
         choices=StrainType.choices,
-        default=StrainType.CC_FOUNDER,
+        default=StrainType.FOUNDER,
         help_text="code representing strain type",
     )
     jax_catalog_number = models.CharField(
