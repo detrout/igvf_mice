@@ -1,0 +1,77 @@
+* Random code & ideas that might be useful or might not.
+
+* Thinking about complex accession ideas
+
+Would it be worthwhile to implement something like the
+CURIE expansion used in RDF and xml?
+
+#+begin_src python
+
+class Namespace(models.Model):
+    """Define a namespace
+    """
+    name = models.CharField(max_length=255)
+    homepage = models.URLField(blank=True)
+    # url_template is expected to have one {} in it.
+    url_template = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.name
+
+
+class Term(models.Model):
+    """Track IDs assigned to our objects.
+    """
+    namespace = models.ForeignKey(Namespace, on_delete=models.CASCADE)
+    reference = models.CharField(max_length=255)
+
+    def __str__(self):
+        return str(self.agency) + ":" + self.accession
+
+    @property
+    def url(self):
+        return self.namespace.url_template.format(self.accession)
+
+    @property
+    def id(self):
+        return parse.urlparse(self.url).path
+
+    @property
+    def name(self):
+        path = self.id
+        return pathlib.PosixPath(path).name
+#+end_src
+
+#+begin_src python
+from igvf_mice.models import (
+    Namespace,
+    Term
+)
+
+
+class TestNamespace(TestCase):
+    def setUp(self):
+        Namespace.create(prefix="encode", url="https://www.encodeproject.org{}")
+        Namespace.create(prefix="igvf", url="https://api.data.igvf.org{}")
+        Namespace.create(prefix="uberon", url="http://purl.obolibrary.org/obo/UBERON_{}")
+
+    def test_namespace(self):
+        uberon = Namespace.object.get(prefix="uberon")
+        hypothalamus = Term.create(namespace=uberon, reference="0001898")
+
+        self.assertEqual(
+            hypothalamus.url,
+            "http://purl.obolibrary.org/obo/UBERON_0001898")
+        self.assertEqual(hypothalamus.id, "/obo/UBERON_0001898")
+        self.assertEqual(hypothalamus.name, "UBERON_0001898")
+
+        encode = Namespace.object.get(prefix="encode")
+        ENCSR000AEG = Term.create(namespace=encode, reference="/experiments/ENCSR000AEG")
+
+        self.assertEqual(
+            ENCSR000AEG.url,
+            "https://www.encodeproject.org/experiments/ENCSR000AEG/")
+        self.assertEqual(ENCSR000AEG.id, "/experiments/ENCSR000AEG/")
+        self.assertEqual(ENCSR000AEG.name, "ENCSR000AEG")
+
+#+end_src
