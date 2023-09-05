@@ -3,7 +3,6 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from ..models import (
-    AccessionNamespace,
     Accession,
     Source,
     LibraryConstructionKit,
@@ -35,14 +34,6 @@ from ..models import (
 
 class TestModels(TestCase):
     def setUp(self):
-        self.accession_namespace_igvf = AccessionNamespace.objects.create(
-            name="IGVF", accession_prefix="igvf"
-        )
-        self.accession_namespace_igvf.save()
-        self.accession_namespace_igvf_test = AccessionNamespace.objects.create(
-            name="IGVF test", accession_prefix="igvf_test"
-        )
-        self.accession_namespace_igvf_test.save()
         self.source_fake = Source.objects.create(
             name="fake source",
             homepage="https://example.edu",
@@ -211,25 +202,25 @@ class TestModels(TestCase):
 
     def test_accession_with_uuid(self):
         test016_B6J_10F = Accession.objects.create(
-            namespace=self.accession_namespace_igvf_test,
+            accession_prefix="igvftst",
             name="TSTDO36427294",
             uuid="8bd01581-b4e2-499b-8266-5e1d40634888",
             see_also="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
         test016_B6J_10F.full_clean()
-        self.assertEqual(str(test016_B6J_10F), "igvf_test:TSTDO36427294")
+        self.assertEqual(str(test016_B6J_10F), "igvftst:TSTDO36427294")
         self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
 
     def test_accession_no_uuid(self):
         test016_B6J_10F = Accession.objects.create(
-            namespace=self.accession_namespace_igvf_test,
+            accession_prefix="igvftst",
             name="TSTDO36427294",
             see_also="https://api.sandbox.igvf.org/rodent-donors/TSTDO36427294/",
         )
 
         test016_B6J_10F.full_clean()
-        self.assertEqual(str(test016_B6J_10F), "igvf_test:TSTDO36427294")
+        self.assertEqual(str(test016_B6J_10F), "igvftst:TSTDO36427294")
         self.assertEqual(test016_B6J_10F.path, "/rodent-donors/TSTDO36427294/")
 
     def test_source(self):

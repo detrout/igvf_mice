@@ -34,7 +34,7 @@ class Accession(models.Model):
     )
 
     def __str__(self):
-        return "{}:{}".format(self.namespace.prefix, self.name)
+        return "{}:{}".format(self.accession_prefix, self.name)
 
     @property
     def path(self):
