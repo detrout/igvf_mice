@@ -212,6 +212,8 @@ class SequencingRunOptions(admin.ModelAdmin):
 class SubpoolInRunOptions(admin.ModelAdmin):
     model = SubpoolInRun
 
+    list_display = ("subpool", "status", "measurement_set")
+
 
 class SubpoolInRunFileOptions(admin.ModelAdmin):
     model = SubpoolInRunFile
