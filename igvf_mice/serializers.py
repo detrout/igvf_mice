@@ -5,7 +5,7 @@ from rest_framework import serializers
 from igvf_mice.models import (
     Accession,
     Source,
-    LibraryConstructionKit,
+    LibraryConstructionReagent,
     LibraryBarcode,
     StrainType,
     MouseStrain,
@@ -45,9 +45,9 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
 
-class LibraryConstructionKitSerializer(serializers.HyperlinkedModelSerializer):
+class LibraryConstructionReagentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = LibraryConstructionKit
+        model = LibraryConstructionReagent
         fields = "__all__"
 
 

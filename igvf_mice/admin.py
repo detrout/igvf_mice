@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import (
     Accession,
     Source,
-    LibraryConstructionKit,
+    LibraryConstructionReagent,
     LibraryBarcode,
     MouseStrain,
     Mouse,
@@ -34,15 +34,15 @@ class SourceOptions(admin.ModelAdmin):
     list_display = ("name",)
 
 
-class LibraryConstructionKitOptions(admin.ModelAdmin):
-    model = LibraryConstructionKit
+class LibraryConstructionReagentOptions(admin.ModelAdmin):
+    model = LibraryConstructionReagent
     list_display = ("name", "version", "source")
 
 
 class LibraryBarcodeOptions(admin.ModelAdmin):
     model = LibraryBarcode
-    list_display = ("kit", "name", "code", "sequence")
-    search_fields= ("code", "sequence")
+    list_display = ("reagent", "name", "code", "i7_sequence", "i5_sequence")
+    search_fields = ("code", "i7_sequence", "i5_sequence")
 
 
 class MouseStrainOptions(admin.ModelAdmin):
@@ -232,7 +232,7 @@ class MeasurementSetOptions(admin.ModelAdmin):
 
 admin.site.register(Accession, AccessionOptions)
 admin.site.register(Source, SourceOptions)
-admin.site.register(LibraryConstructionKit, LibraryConstructionKitOptions)
+admin.site.register(LibraryConstructionReagent, LibraryConstructionReagentOptions)
 admin.site.register(LibraryBarcode, LibraryBarcodeOptions)
 admin.site.register(MouseStrain, MouseStrainOptions)
 admin.site.register(Mouse, MouseOptions)

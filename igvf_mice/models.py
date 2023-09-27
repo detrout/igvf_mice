@@ -81,7 +81,7 @@ class Source(models.Model):
         )
 
 
-class LibraryConstructionKit(models.Model):
+class LibraryConstructionReagent(models.Model):
     """Reference to describe a library construction kit used to make libraries.
 
     References models:`igvf_mice.Source` to describe who is providing the kit
@@ -107,28 +107,39 @@ class LibraryBarcode(models.Model):
     usually use some kind of short name to reference the genome
     sequence for the barcode.
 
-    This links the :model:`igvf_mice.LibraryConstructionKit` part identifier
+    This links the :model:`igvf_mice.LibraryConstructionReagent` part identifier
     to a name and sequence.
     """
 
     class Meta:
-        ordering = ["kit", "code", "barcode_type"]
+        ordering = ["reagent", "code", "barcode_type"]
 
-    kit = models.ForeignKey(LibraryConstructionKit, on_delete=models.PROTECT)
+    reagent = models.ForeignKey(LibraryConstructionReagent, on_delete=models.PROTECT)
     name = models.CharField(max_length=20, null=True)
     code = models.CharField(max_length=6, null=False)
-    sequence = models.CharField(max_length=16, blank=True, null=True)
+    i7_sequence = models.CharField(max_length=20, blank=False, null=True)
+    i5_sequence = models.CharField(max_length=20, blank=False, null=True)
     # should be an enum, but need to check with others
     barcode_type = models.CharField(max_length=2, null=True)
 
     @admin.display
     @property
-    def kit_name(self):
+    def reagent_name(self):
         """Helper property to quickly access the kit name property in the admin pages"""
         return self.kit.name
 
     def __str__(self):
-        name = [self.kit_name, self.code, self.sequence]
+        name = [self.name, self.code]
+        if self.i7_sequence is None and self.i5_sequence is None:
+            print("invalid database record {} no sequence".format(self.id))
+            name.append("Error-no-sequence")
+        elif self.i7_sequence is not None and self.i5_sequence is not None:
+            name.append("{}+{}".format(self.i7_sequence, self.i7_sequence))
+        elif self.i7_sequence is not None:
+            name.append(self.i7_sequence)
+        else:
+            print("invalid database record {} no i7 sequence".format(self.id))
+
         if self.barcode_type is not None:
             name.append(self.barcode_type)
         return " ".join(name)
