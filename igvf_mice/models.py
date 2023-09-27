@@ -121,6 +121,7 @@ class LibraryBarcode(models.Model):
     i5_sequence = models.CharField(max_length=20, blank=False, null=True)
     # should be an enum, but need to check with others
     barcode_type = models.CharField(max_length=2, null=True)
+    well_position = models.CharField(max_length=2, blank=False, null=True)
 
     @admin.display
     @property
