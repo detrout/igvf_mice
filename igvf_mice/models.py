@@ -603,7 +603,7 @@ class Subpool(models.Model):
     bioanalyzer_date = models.DateField(null=True)
     cdna_average_bp_length = models.IntegerField(null=True)
     index_pcr_number = models.IntegerField(null=True)
-    index = models.IntegerField(null=True)
+    index = models.CharField(max_length=20, null=True, blank=False)
 
     barcode = models.ManyToManyField(
         LibraryBarcode,
