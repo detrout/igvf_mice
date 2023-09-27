@@ -21,7 +21,7 @@ from igvf_mice import views
 router = routers.DefaultRouter()
 router.register(r"accession", views.AccessionViewSet)
 router.register(r"source", views.SourceViewSet)
-router.register(r"library-construction-kit", views.LibraryConstructionKitViewSet)
+router.register(r"library-construction-reagent", views.LibraryConstructionReagentViewSet)
 router.register(r"library-barcode", views.LibraryBarcodeViewSet)
 router.register(r"mouse-strain", views.MouseStrainViewSet)
 router.register(r"mouse", views.MouseViewSet)
