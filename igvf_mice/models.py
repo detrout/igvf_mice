@@ -653,13 +653,8 @@ class Platform(models.Model):
     )
     family = models.CharField(
         max_length=100,
-        help_text="term to group sufficiently similar platforms. Such as treating the different Illumina machines",
-    )
-    source = models.ForeignKey(
-        Source,
-        on_delete=models.PROTECT,
-        help_text="Describe who the source is for the sequencing platform.",
-        null=True
+        help_text="term to group sufficiently similar platforms."
+                  "Such as treating the different Illumina machines",
     )
 
     def __str__(self):
