@@ -564,6 +564,11 @@ class SublibrarySelectionType(models.TextChoices):
     exome_capture = ("EX", "Exome capture")
 
 
+class SubcellularComponentEnum(models.TextChoices):
+    nuclei = ("N", "Nuclear")
+    cellular = ("C", "Cellular")
+
+
 class Subpool(models.Model):
     """aloquots of cells that have had an illumina multiplexing barcode added.
 
@@ -585,6 +590,11 @@ class Subpool(models.Model):
         max_length=2,
         choices=SublibrarySelectionType.choices,
         default=SublibrarySelectionType.no_selection
+    )
+    subcellular_component = models.CharField(
+        max_length=2,
+        choices=SubcellularComponentEnum.choices,
+        default=SubcellularComponentEnum.nuclei,
     )
     cdna_pcr_rounds = models.CharField(max_length=50, null=True)
     cdna_ng_per_ul = models.FloatField(null=True)
