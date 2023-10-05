@@ -172,7 +172,7 @@ class SubpoolOptions(admin.ModelAdmin):
     fields = (
         ("name", "plate"),
         "nuclei",
-        ("cdna_pcr_rounds", "cdna_ng_per_ul_in_25ul"),
+        ("cdna_pcr_rounds", "cdna_ng_per_ul", "cdna_volume"),
         ("bioanalyzer_date", "cdna_average_bp_length"),
         ("library_ng_per_ul", "library_average_bp_length"),
         ("index_pcr_number", "index"),
