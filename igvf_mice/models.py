@@ -175,7 +175,10 @@ class MouseStrain(models.Model):
         help_text="code representing strain type",
     )
     jax_catalog_number = models.CharField(
-        max_length=255, help_text="order number for the mouse strain type"
+        max_length=255,
+        blank=True,
+        null=True,
+        help_text="order number for the mouse strain type",
     )
     see_also = models.URLField(null=True, help_text="Information page for mouse")
     # price = models.DecimalField(max_digits=5, decimal_places=2)
