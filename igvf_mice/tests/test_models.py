@@ -185,7 +185,6 @@ class TestModels(TestCase):
             igvf_id="/platform-terms/EFO_0010963/",
             display_name="Novaseq 2000",
             family="illumina",
-            source=self.source_fake,
         )
         self.sequencing_run_fake = SequencingRun.objects.create(
             name="next02",
@@ -468,7 +467,6 @@ class TestModels(TestCase):
             igvf_id="/platform-terms/EFO_0008637/",
             display_name=display_name,
             family="illumina",
-            source=self.source_fake,
         )
 
         self.assertEqual(str(platform), display_name)
