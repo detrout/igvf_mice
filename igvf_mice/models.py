@@ -575,6 +575,10 @@ class SplitSeqWell(models.Model):
     def __str__(self):
         return "{} {}{}".format(self.plate.name, self.row, self.column)
 
+    @property
+    def well(self):
+        return "{}{}".format(self.row, self.column)
+
 
 class SublibrarySelectionType(models.TextChoices):
     no_selection = ("NO", "No selection done")

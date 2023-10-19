@@ -423,10 +423,12 @@ class TestModels(TestCase):
         self.assertEqual(plate.total_nuclei, 1000000)
 
     def test_split_seq_well(self):
+        row="A"
+        column="2"
         well_single = SplitSeqWell.objects.create(
             plate=self.plate_fake,
-            row="A",
-            column="2",
+            row=row,
+            column=column,
         )
         well_single.save()
         well_single.biosample.set([self.fixed_sample_tail])
@@ -435,6 +437,7 @@ class TestModels(TestCase):
         )
 
         self.assertEqual(str(well_single), f"{self.plate_fake.name} A2")
+        self.assertEqual(well_single.well, f"{row}{column}")
 
     def test_subpool(self):
         subpool = Subpool.objects.create(
