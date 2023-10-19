@@ -269,8 +269,8 @@ class TestModels(TestCase):
         )
 
         barcode.full_clean()
-        self.assertEqual(str(barcode), f"{kit.name} {code} {sequence} {barcode_type}")
         self.assertEqual(barcode.reagent_name, reagent.name)
+        self.assertEqual(str(barcode), f"{name} {code} {sequence} {barcode_type}")
 
     def test_mouse_strain(self):
         strain = MouseStrain(
