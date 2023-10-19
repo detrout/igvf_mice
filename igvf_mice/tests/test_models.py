@@ -48,7 +48,7 @@ class TestModels(TestCase):
             reagent=self.library_construction_reagent_fake,
             name="pb123",
             code="1",
-            sequence="GTCTAGGT",
+            i7_sequence="GTCTAGGT",
             barcode_type="T",
         )
         self.library_barcode_fake_t.save()
@@ -56,7 +56,7 @@ class TestModels(TestCase):
             reagent=self.library_construction_reagent_fake,
             name="pb222",
             code="2",
-            sequence="AGCTTAAC",
+            i7_sequence="AGCTTAAC",
             barcode_type="R",
         )
         self.library_barcode_fake_r.save()
@@ -64,7 +64,7 @@ class TestModels(TestCase):
             reagent=self.library_construction_reagent_fake,
             name="I7",
             code="I7",
-            sequence="TTCATGT",
+            i7_sequence="TTCATGT",
         )
         self.library_barcode_fake_illumina.save()
         self.mouse_strain_fake = MouseStrain.objects.create(
@@ -263,7 +263,7 @@ class TestModels(TestCase):
             reagent=reagent,
             name=name,
             code=code,
-            sequence=sequence,
+            i7_sequence=sequence,
             barcode_type=barcode_type,
         )
 
