@@ -160,6 +160,7 @@ class SplitSeqWellOptions(admin.ModelAdmin):
         "barcode",
     )
 
+    list_filter = ["plate__name"]
     filter_horizontal = ["biosample", "barcode"]
 
 
