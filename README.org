@@ -83,3 +83,21 @@ with a 2 layer index.
 
 - [ ] Can we call the bridge sample plate IGVF_B01 to be more
   consistent with others?
+
+
+* dealing with the _25 and _26 samples from F1 samples into experiments
+
+It's around IGVF_FIX_019
+
+_25 is testis left _27 & epydidmus left _29
+_26 is ovary _10 & oviduct _11
+
+the pooled from can be calculated with, though with changing the row number
+=CONCAT(LEFT(AJ403, LEN(AJ403)-3), "_10,",LEFT(AJ403, LEN(AJ403)-3),"_11")
+
+",".join([AJ403[:-3]+x for x in ["_010", "_011"]])
+
+* kidney 09
+
+from kidney left _31 and kidney right _32
+127_B6AF1/J_10M_09	127_B6AF1/J_10M_31,127_B6AF1/J_10M_32
