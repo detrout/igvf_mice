@@ -265,9 +265,7 @@ class Mouse(models.Model):
         help_text="Identifying information for person or team doing the dissection",
     )
     notes = models.TextField(blank=True, help_text="extended information about mouse")
-    sample_box = models.CharField(
-        max_length=10, blank=True, help_text="storage identifier"
-    )
+    housing_number = models.IntegerField(null=True, help_text="mouse cage ID")
     accession = models.ManyToManyField(
         Accession, help_text="external IDs assigned to this mouse"
     )

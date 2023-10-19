@@ -52,12 +52,12 @@ class MouseStrainOptions(admin.ModelAdmin):
 
 class MouseOptions(admin.ModelAdmin):
     model = Mouse
-    list_display = ("name", "strain", "sex", "date_of_birth", "sample_box")
+    list_display = ("name", "strain", "sex", "date_of_birth", "housing_number")
     list_filter = ("strain", "sex")
     ordering = ("-name",)
     fields = (
         ("name", "strain"),
-        ("sample_box", "date_obtained"),
+        ("housing_number", "date_obtained"),
         ("weight_g", "sex", "estrus_cycle"),
         ("date_of_birth", "harvest_date"),
         ("operator"),
