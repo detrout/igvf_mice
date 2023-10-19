@@ -303,7 +303,7 @@ class TestModels(TestCase):
 
         male_mouse.full_clean()
         self.assertIsInstance(male_mouse.date_of_birth, date)
-        self.assertEqual(male_mouse.age_days.days, 1162)
+        self.assertEqual(male_mouse.age_days, 1162)
         self.assertEqual(male_mouse.source, self.mouse_strain_fake.source)
 
         female_mouse = Mouse(
@@ -322,7 +322,7 @@ class TestModels(TestCase):
 
         female_mouse.full_clean()
         self.assertIsInstance(female_mouse.date_of_birth, date)
-        self.assertEqual(female_mouse.age_days.days, 1162)
+        self.assertEqual(female_mouse.age_days, 1162)
         self.assertEqual(female_mouse.source, self.mouse_strain_fake.source)
 
     def test_genderqueer_mouse(self):

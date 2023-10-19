@@ -273,7 +273,11 @@ class Mouse(models.Model):
     @property
     def age_days(self):
         """Calculated age, dissection date - date of birth"""
-        return self.harvest_date - self.date_of_birth
+        if self.harvest_date is None or self.date_of_birth is None:
+            return None
+
+        age = self.harvest_date - self.date_of_birth
+        return age.days
 
     @property
     def source(self):
