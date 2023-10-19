@@ -89,7 +89,7 @@ class TestModels(TestCase):
             # estrus_cycle=None,
             operator="WB",
             notes="very fake mouse",
-            sample_box="791.45/75",
+            housing_number="35689",
         )
         self.mouse_male_fake.save()
         self.mouse_female_fake = Mouse.objects.create(
@@ -103,7 +103,7 @@ class TestModels(TestCase):
             estrus_cycle=EstrusCycle.ANESTRUS,
             operator="WB",
             notes="very fake mouse",
-            sample_box="891.45/75",
+            housing_number="982735",
         )
         self.mouse_female_fake.save()
         self.ontology_term_tail = OntologyTerm.objects.create(
@@ -298,7 +298,7 @@ class TestModels(TestCase):
             # estrus_cycle=None,
             operator="WB",
             notes="very fake mouse",
-            sample_box="791.45/75",
+            housing_number="924387",
         )
 
         male_mouse.full_clean()
@@ -317,7 +317,7 @@ class TestModels(TestCase):
             estrus_cycle=EstrusCycle.ANESTRUS,
             operator="DOT",
             notes="very fake mouse",
-            sample_box="Tower",
+            housing_number="29384",
         )
 
         female_mouse.full_clean()
@@ -337,7 +337,7 @@ class TestModels(TestCase):
             estrus_cycle=EstrusCycle.PROESTRUS,
             operator="WB",
             notes="very fake mouse",
-            sample_box="791.45/75",
+            housing_number="15358",
         )
 
         self.assertRaises(ValidationError, genderqueer_mouse.full_clean)
