@@ -5,7 +5,7 @@ from django.test import TestCase
 from ..models import (
     Accession,
     Source,
-    LibraryConstructionKit,
+    LibraryConstructionReagent,
     LibraryBarcode,
     StrainType,
     MouseStrain,
@@ -40,12 +40,12 @@ class TestModels(TestCase):
             igvf_id="/sources/example",
         )
         self.source_fake.save()
-        self.library_construction_kit_fake = LibraryConstructionKit.objects.create(
+        self.library_construction_reagent_fake = LibraryConstructionReagent.objects.create(
             name="a kit", version="3.14", source=self.source_fake
         )
-        self.library_construction_kit_fake.save()
+        self.library_construction_reagent_fake.save()
         self.library_barcode_fake_t = LibraryBarcode(
-            kit=self.library_construction_kit_fake,
+            reagent=self.library_construction_reagent_fake,
             name="pb123",
             code="1",
             sequence="GTCTAGGT",
@@ -53,7 +53,7 @@ class TestModels(TestCase):
         )
         self.library_barcode_fake_t.save()
         self.library_barcode_fake_r = LibraryBarcode(
-            kit=self.library_construction_kit_fake,
+            reagent=self.library_construction_reagent_fake,
             name="pb222",
             code="2",
             sequence="AGCTTAAC",
@@ -61,7 +61,7 @@ class TestModels(TestCase):
         )
         self.library_barcode_fake_r.save()
         self.library_barcode_fake_illumina = LibraryBarcode(
-            kit=self.library_construction_kit_fake,
+            reagent=self.library_construction_reagent_fake,
             name="I7",
             code="I7",
             sequence="TTCATGT",
@@ -239,29 +239,29 @@ class TestModels(TestCase):
         self.assertEqual(source.name, name)
         self.assertEqual(source.link(), f'<a href="{homepage}">{homepage}</a>')
 
-    def test_library_construction_kit(self):
+    def test_library_construction_reagent(self):
         name = "b-kit",
         display_name = "B Kit"
         version = "2.7.1"
 
-        kit = LibraryConstructionKit(
+        reagent = LibraryConstructionReagent(
             name=name,
             display_name=display_name,
             version=version,
             source=self.source_fake,
         )
 
-        kit.full_clean()
-        self.assertEqual(str(kit), f"{display_name} {version}")
+        reagent.full_clean()
+        self.assertEqual(str(reagent), f"{display_name} {version}")
 
     def test_library_barcode(self):
-        kit = self.library_construction_kit_fake
+        reagent = self.library_construction_reagent_fake
         name = "library name"
         code = "A123"
         sequence = "GATTACA"
         barcode_type = "R"
         barcode = LibraryBarcode(
-            kit=kit,
+            reagent=reagent,
             name=name,
             code=code,
             sequence=sequence,
@@ -269,8 +269,8 @@ class TestModels(TestCase):
         )
 
         barcode.full_clean()
-        self.assertEqual(barcode.kit_name, kit.name)
         self.assertEqual(str(barcode), f"{kit.name} {code} {sequence} {barcode_type}")
+        self.assertEqual(barcode.reagent_name, reagent.name)
 
     def test_mouse_strain(self):
         strain = MouseStrain(

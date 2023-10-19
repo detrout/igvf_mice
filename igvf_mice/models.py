@@ -127,7 +127,7 @@ class LibraryBarcode(models.Model):
     @property
     def reagent_name(self):
         """Helper property to quickly access the kit name property in the admin pages"""
-        return self.kit.name
+        return self.reagent.name
 
     def __str__(self):
         name = [self.name, self.code]
