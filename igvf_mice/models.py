@@ -117,11 +117,11 @@ class LibraryBarcode(models.Model):
     reagent = models.ForeignKey(LibraryConstructionReagent, on_delete=models.PROTECT)
     name = models.CharField(max_length=20, null=True)
     code = models.CharField(max_length=6, null=False)
-    i7_sequence = models.CharField(max_length=20, blank=False, null=True)
-    i5_sequence = models.CharField(max_length=20, blank=False, null=True)
+    i7_sequence = models.CharField(max_length=20, blank=True, null=True)
+    i5_sequence = models.CharField(max_length=20, blank=True, null=True)
     # should be an enum, but need to check with others
     barcode_type = models.CharField(max_length=2, null=True)
-    well_position = models.CharField(max_length=2, blank=False, null=True)
+    well_position = models.CharField(max_length=2, blank=True, null=True)
 
     @admin.display
     @property
