@@ -170,6 +170,15 @@ class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
 
     tissue = TissueSerializer(many=True)
 
+
+class MinimalSplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SplitSeqWell
+        fields = [
+            "@id",
+            "well",
+        ]
+
 class SplitSeqPlateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SplitSeqPlate
@@ -182,9 +191,11 @@ class SplitSeqPlateSerializer(serializers.HyperlinkedModelSerializer):
             "barcoded_cell_counter",
             "volume_of_nuclei",
             "sequencing_runs",
+            "wells",
         ]
 
     sequencing_runs = SequencingRunChildSerializer(source="sequencingrun_set", many=True)
+    wells = MinimalSplitSeqWellSerializer(source="splitseqwell_set", many=True)
 
 
 class SplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
