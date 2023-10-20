@@ -89,7 +89,17 @@ class SequencingRunChildSerializer(serializers.HyperlinkedModelSerializer):
 class MouseStrainSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MouseStrain
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "display_name",
+            "igvf_id",
+            "strain_type",
+            "jax_catalog_number",
+            "see_also",
+            "notes",
+            "source",
+        ]
 
     strain_type = serializers.ChoiceField(choices=StrainType.choices)
 
@@ -97,7 +107,23 @@ class MouseStrainSerializer(serializers.HyperlinkedModelSerializer):
 class MouseSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Mouse
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "strain",
+            "sex",
+            "weight_g",
+            "date_of_birth",
+            "date_obtained",
+            "harvest_date",
+            "timepoint_description",
+            "life_stage",
+            "estrus_cycle",
+            "operator",
+            "notes",
+            "housing_number",
+            "accession",
+        ]
 
     accession = AccessionSerializer(many=True)
     sex = serializers.ChoiceField(choices=SexEnum.choices)
@@ -107,13 +133,32 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
 class OntologyTermSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = OntologyTerm
-        fields = "__all__"
+        fields = [
+            "@id",
+            "curie",
+            "name",
+            "description",
+        ]
 
 
 class TissueSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Tissue
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "mouse",
+            "description",
+            "ontology_term",
+            "dissection_time",
+            "tube_label",
+            "tube_weight_g",
+            "total_weight_g",
+            "weight_mg",
+            "dissector",
+            "dissection_notes",
+            "accession"
+        ]
 
     accession = AccessionSerializer(many=True)
 
