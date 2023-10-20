@@ -427,8 +427,8 @@ class TestModels(TestCase):
         self.assertEqual(plate.total_nuclei, 1000000)
 
     def test_split_seq_well(self):
-        row="A"
-        column="2"
+        row = "A"
+        column = "2"
         well_single = SplitSeqWell.objects.create(
             plate=self.plate_fake,
             row=row,
