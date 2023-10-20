@@ -220,6 +220,12 @@ class EstrusCycle(models.TextChoices):
     DIESTRUS_PROESTRUS = ("DP", "Diestrus>Proestrus")
 
 
+class LifeStageEnum(models.TextChoices):
+    EMBRYONIC = ("EM", "embryonic")
+    POST_NATAL = ("PN", "post-natal")
+    ADULT = ("A", "adult")
+
+
 # this represents an individual donor
 class Mouse(models.Model):
     """An individual mouse
@@ -251,6 +257,17 @@ class Mouse(models.Model):
     date_obtained = models.DateField(null=True, help_text="Date mouse was received")
     harvest_date = models.DateField(
         null=True, help_text="Date of dissection started"
+    )
+    timepoint_description = models.CharField(
+        max_length=20,
+        null=True,
+        help_text="Description of intended time point to group by"
+    )
+    life_stage = models.CharField(
+        max_length=2,
+        choices=LifeStageEnum.choices,
+        default=LifeStageEnum.POST_NATAL,
+        help_text="broad life stage of mouse",
     )
     estrus_cycle = models.CharField(
         max_length=2,
@@ -339,12 +356,6 @@ class AgeUnitsEnum(models.TextChoices):
     YEAR = ("y", "year")
 
 
-class LifeStageEnum(models.TextChoices):
-    EMBRYONIC = ("EM", "embryonic")
-    POST_NATAL = ("PN", "post-natal")
-    ADULT = ("A", "adult")
-
-
 def require_3_underscores(value):
     if isinstance(value, str):
         underscores = 0
@@ -391,17 +402,6 @@ class Tissue(models.Model):
     )
     dissection_time = models.DateTimeField(
         default=timezone.now, help_text="when did disection happen"
-    )
-    timepoint_description = models.CharField(
-        max_length=20,
-        null=True,
-        help_text="Description of intended time point to group by"
-    )
-    life_stage = models.CharField(
-        max_length=2,
-        choices=LifeStageEnum.choices,
-        default=LifeStageEnum.POST_NATAL,
-        help_text="broad life stage of mouse",
     )
     # We have the age on the mouse object.
     # But in the spreadsheet this was used to group samples

@@ -123,6 +123,7 @@ class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
         model = FixedSample
         fields = "__all__"
 
+    tissue = TissueSerializer(many=True)
 
 class SplitSeqPlateSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

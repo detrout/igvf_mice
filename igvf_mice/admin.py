@@ -60,6 +60,7 @@ class MouseOptions(admin.ModelAdmin):
         ("housing_number", "date_obtained"),
         ("weight_g", "sex", "estrus_cycle"),
         ("date_of_birth", "harvest_date"),
+        ("timepoint_description", "life_stage"),
         ("operator"),
         ("notes"),
         ("accession"),
@@ -85,7 +86,6 @@ class TissueOptions(admin.ModelAdmin):
     fields = (
         ("name", "mouse"),
         "dissection_time",
-        ("timepoint_description", "life_stage"),
         "description",
         "ontology_term",
         ("tube_label", "tube_weight_g", "total_weight_g"),
