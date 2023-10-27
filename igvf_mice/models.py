@@ -167,7 +167,11 @@ class MouseStrain(models.Model):
     display_name = models.CharField(
         max_length=50, unique=True, help_text="Name of mouse type")
     igvf_id = models.CharField(
-        max_length=50, unique=True, help_text="Name of mouse strain at IGVF portal")
+        max_length=50,
+        unique=True,
+        null=True,
+        help_text="Name of mouse strain at IGVF portal"
+    )
     strain_type = models.CharField(
         max_length=2,
         choices=StrainType.choices,
