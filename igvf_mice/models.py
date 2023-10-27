@@ -176,7 +176,6 @@ class MouseStrain(models.Model):
     )
     jax_catalog_number = models.CharField(
         max_length=255,
-        blank=True,
         null=True,
         help_text="order number for the mouse strain type",
     )
