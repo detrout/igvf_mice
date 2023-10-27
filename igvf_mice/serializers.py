@@ -48,7 +48,13 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
 class LibraryConstructionReagentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = LibraryConstructionReagent
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "display_name",
+            "version",
+            "source",
+        ]
 
 
 class LibraryBarcodeSerializer(serializers.HyperlinkedModelSerializer):
@@ -166,9 +172,20 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
 class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = FixedSample
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "tube_label",
+            "fixation_name",
+            "fixation_date",
+            "tissue",
+            "starting_nuclei",
+            "nuclei_into_fixation",
+            "fixed_nuclei",
+            "aliquots_made",
+            "aliquot_volume_ul",
+        ]
 
-    tissue = TissueSerializer(many=True)
 
 
 class MinimalSplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
