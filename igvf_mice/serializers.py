@@ -13,6 +13,7 @@ from igvf_mice.models import (
     EstrusCycle,
     Mouse,
     OntologyTerm,
+    LifeStageEnum,
     Tissue,
     FixedSample,
     SplitSeqPlate,
@@ -131,9 +132,10 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
             "accession",
         ]
 
-    sex = serializers.ChoiceField(choices=SexEnum.choices)
     accession = AccessionSerializer(many=True, required=False)
-    estrus_cycle = serializers.ChoiceField(EstrusCycle.choices)
+    sex = serializers.ChoiceField(choices=SexEnum.choices)
+    estrus_cycle = serializers.ChoiceField(choices=EstrusCycle.choices)
+    life_stage = serializers.ChoiceField(choices=LifeStageEnum.choices)
 
 
 class OntologyTermSerializer(serializers.HyperlinkedModelSerializer):
