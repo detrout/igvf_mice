@@ -1,4 +1,5 @@
 import os
+from urllib.parse import urlsplit
 
 from django.conf import settings
 from rest_framework import serializers
@@ -26,6 +27,28 @@ from igvf_mice.models import (
     SubpoolInRunFile,
     MeasurementSet,
 )
+
+
+def expand_field(value, field_model, field_serializer, request):
+    if value is None:
+        return None
+
+    if isinstance(value, list):
+        data = [expand_field(x, field_model, field_serializer, request) for x in value]
+    elif isinstance(value, str):
+        urlpath = urlsplit(value).path
+        parts = [x for x in urlpath.split("/") if len(x) > 0]
+        object_name = parts[-1]
+        obj = field_model.objects.get(name=object_name)
+        # ceral is a pun for serialized
+        context = {"request": request}
+        cereal = field_serializer(obj, context=context)
+        data = cereal.data
+    else:
+        print("Unrecognized type {type(value)}")
+        return None
+
+    return data
 
 
 class AccessionSerializer(serializers.HyperlinkedModelSerializer):
@@ -167,8 +190,17 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
             "dissection_notes",
             "accession"
         ]
+        extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
-    accession = AccessionSerializer(many=True, required=False)
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "mouse" in data:
+            data["mouse"] = expand_field(data["mouse"], Mouse, MouseSerializer, request)
+        if "accession" in data:
+            data["accession"] = expand_field(data["accession"], Accession, AccessionSerializer, request)
+        return data
 
 
 class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
@@ -188,6 +220,13 @@ class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
             "aliquot_volume_ul",
         ]
 
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "tissue" in data:
+            data["tissue"] = expand_field(data["tissue"], Tissue, TissueSerializer, request)
+        return data
 
 
 class MinimalSplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
@@ -273,7 +312,26 @@ class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
 class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SubpoolInRunFile
-        fields = "__all__"
+        fields = [
+            "@id",
+            "md5sum",
+            "filename",
+            "flowcell_id",
+            "lane",
+            "read",
+            "sequencing_run",
+            "subpool_run",
+            "accession",
+        ]
+
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "accession" in data:
+            data["accession"] = expand_field(data["accession"], Accession, AccessionSerializer, request)
+        return data
+
 
 
 class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
