@@ -1,3 +1,4 @@
+from django_filters import rest_framework as filters
 from rest_framework import viewsets
 from rest_framework import permissions
 from igvf_mice.models import (
@@ -77,6 +78,8 @@ class MouseStrainViewSet(viewsets.ModelViewSet):
 class MouseViewSet(viewsets.ModelViewSet):
     queryset = Mouse.objects.all()
     serializer_class = MouseSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("strain",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
@@ -89,6 +92,8 @@ class OntologyTermViewSet(viewsets.ModelViewSet):
 class TissueViewSet(viewsets.ModelViewSet):
     queryset = Tissue.objects.all()
     serializer_class = TissueSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("mouse", "ontology_term",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
@@ -107,12 +112,16 @@ class SplitSeqPlateViewSet(viewsets.ModelViewSet):
 class SplitSeqWellViewSet(viewsets.ModelViewSet):
     queryset = SplitSeqWell.objects.all()
     serializer_class = SplitSeqWellSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("plate",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 class SubpoolViewSet(viewsets.ModelViewSet):
     queryset = Subpool.objects.all()
     serializer_class = SubpoolSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("plate",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
@@ -131,6 +140,8 @@ class SequencingRunViewSet(viewsets.ModelViewSet):
 class SubpoolInRunViewSet(viewsets.ModelViewSet):
     queryset = SubpoolInRun.objects.all()
     serializer_class = SubpoolInRunSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("subpool", "measurement_set", "sequencing_run",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
