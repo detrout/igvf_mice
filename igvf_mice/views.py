@@ -173,15 +173,3 @@ class IgvfSequenceFileViewSet(viewsets.ModelViewSet):
         return SubpoolInRunFile.objects.all()
 
 
-# class IgvfSeqSpecListViewSet(viewsets.ModelViewSet):
-#    serializer_class = IgvfSeqSpecListSerializer
-#    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-#
-#    def get_queryset(self):
-#        return SubpoolInRunFile.objects.all()
-
-
-
-    def get_queryset(self):
-        return SubpoolInRunFile.objects.all()
-
