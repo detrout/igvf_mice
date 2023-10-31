@@ -13,6 +13,16 @@ class TestSerializers(APITestCase):
     def setUp(self):
         self.user = User.objects.create(username="test_user")
 
+    def create_object(self, url, payload, expected_status):
+        response = self.client.post(url, payload)
+        if response.status_code == status.HTTP_201_CREATED:
+            payload = response.json()
+        else:
+            print(response.content)
+        self.assertEqual(response.status_code, expected_status)
+
+        return payload
+
     def create_source(self, expected_status=status.HTTP_201_CREATED):
         payload = {
             "name": "test-source",
@@ -22,14 +32,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("source-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_library_construction_reagent(self, expected_status=status.HTTP_201_CREATED):
         source = self.create_source(expected_status=expected_status)
@@ -41,12 +44,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("libraryconstructionreagent-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content)
-        self.assertEqual(response.status_code, expected_status)
+        return self.create_object(url, payload, expected_status)
 
         return payload
 
@@ -62,14 +60,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("librarybarcode-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_mouse_strain(self, expected_status=status.HTTP_201_CREATED):
         source = self.create_source()
@@ -84,14 +75,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("mousestrain-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content, response.status_code)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_mouse(self, expected_status=status.HTTP_201_CREATED):
         mouse_strain = self.create_mouse_strain()
@@ -109,14 +93,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("mouse-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content, response.status_code)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_ontology_term_lung(self, expected_status=status.HTTP_201_CREATED):
         payload = {
@@ -125,14 +102,7 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("ontologyterm-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content, response.status_code)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_tissue_lung(self, expected_status=status.HTTP_201_CREATED):
         mouse = self.create_mouse()
@@ -152,14 +122,7 @@ class TestSerializers(APITestCase):
             print(tissue.errors)
 
         url = reverse("tissue-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content, response.status_code)
-        self.assertEqual(response.status_code, expected_status)
-
-        return payload
+        return self.create_object(url, payload, expected_status)
 
     def create_fixed_sample_lung(self, expected_status=status.HTTP_201_CREATED):
         lung = self.create_tissue_lung()
@@ -177,14 +140,8 @@ class TestSerializers(APITestCase):
         }
 
         url = reverse("fixedsample-list")
-        response = self.client.post(url, payload)
-        if response.status_code == status.HTTP_201_CREATED:
-            payload = response.json()
-        else:
-            print(response.content, response.status_code)
-        self.assertEqual(response.status_code, expected_status)
+        return self.create_object(url, payload, expected_status)
 
-        return payload
 
     def test_source(self):
         self.failUnlessRaises(
