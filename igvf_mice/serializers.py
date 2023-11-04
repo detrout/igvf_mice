@@ -169,6 +169,7 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
             "housing_number",
             "accession",
         ]
+        extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
     accession = AccessionSerializer(many=True, required=False)
     sex = serializers.ChoiceField(choices=SexEnum.choices)
@@ -345,6 +346,7 @@ class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
             "subpool_run",
             "accession",
         ]
+        extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
     def to_representation(self, value):
         data = super().to_representation(value)
@@ -364,6 +366,7 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
             "accession",
             "subpoolinrun_set",
         ]
+        extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
     accession = AccessionSerializer(many=True, required=False)
     subpool_in_run = SubpoolInRunSerializer(source="subpoolinrun_set", many=True)
