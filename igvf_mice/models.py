@@ -583,7 +583,7 @@ class SplitSeqWell(models.Model):
         return "{}{}".format(self.row, self.column)
 
 
-class SublibrarySelectionType(models.TextChoices):
+class SublibrarySelectionTypeEnum(models.TextChoices):
     no_selection = ("NO", "No selection done")
     exome_capture = ("EX", "Exome capture")
 
@@ -612,8 +612,8 @@ class Subpool(models.Model):
     nuclei = models.IntegerField()
     selection_type = models.CharField(
         max_length=2,
-        choices=SublibrarySelectionType.choices,
-        default=SublibrarySelectionType.no_selection
+        choices=SublibrarySelectionTypeEnum.choices,
+        default=SublibrarySelectionTypeEnum.no_selection
     )
     subcellular_component = models.CharField(
         max_length=2,
@@ -673,7 +673,7 @@ class Platform(models.Model):
         return self.display_name
 
 
-class Stranded(models.TextChoices):
+class StrandedEnum(models.TextChoices):
     FORWARD = ("F", "Forward")
     REVERSE = ("R", "Reverse")
     UNSTRANDED = ("U", "Unstranded")
@@ -697,7 +697,7 @@ class SequencingRun(models.Model):
     platform = models.ForeignKey(Platform, on_delete=models.PROTECT)
     plate = models.ForeignKey(SplitSeqPlate, on_delete=models.PROTECT)
     stranded = models.CharField(
-        max_length=1, choices=Stranded.choices, default=Stranded.REVERSE
+        max_length=1, choices=StrandedEnum.choices, default=StrandedEnum.REVERSE
     )
 
     def __str__(self):
@@ -714,7 +714,7 @@ class SequencingRun(models.Model):
         return self.plate.name
 
 
-class RunStatus(models.TextChoices):
+class RunStatusEnum(models.TextChoices):
     PASS = ("P", "Pass")
     CAUTION = ("C", "Caution")
     FAILED = ("F", "Failed")
@@ -745,7 +745,7 @@ class SubpoolInRun(models.Model):
     )
     sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
     raw_reads = models.IntegerField(null=True)
-    status = models.CharField(max_length=1, choices=RunStatus.choices, null=True)
+    status = models.CharField(max_length=1, choices=RunStatusEnum.choices, null=True)
     measurement_set = models.ForeignKey(
         "MeasurementSet", on_delete=models.PROTECT, null=True
     )

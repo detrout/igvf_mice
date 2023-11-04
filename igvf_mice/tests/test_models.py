@@ -23,9 +23,9 @@ from ..models import (
     SplitSeqWell,
     Subpool,
     Platform,
-    Stranded,
+    StrandedEnum,
     SequencingRun,
-    RunStatus,
+    RunStatusEnum,
     SubpoolInRun,
     SubpoolInRunFile,
     MeasurementSet,
@@ -193,12 +193,12 @@ class TestModels(TestCase):
             run_date="1991-08-25",
             platform=self.platform,
             plate=self.plate_fake,
-            stranded=Stranded.REVERSE,
+            stranded=StrandedEnum.REVERSE,
         )
         self.subpool_run = SubpoolInRun.objects.create(
             subpool=self.subpool_fake,
             sequencing_run=self.sequencing_run_fake,
-            status=RunStatus.PASS,
+            status=RunStatusEnum.PASS,
             # measurement_set=
         )
 
@@ -485,7 +485,6 @@ class TestModels(TestCase):
             run_date="1066-10-14",
             platform=self.platform,
             plate=self.plate_fake,
-            stranded=Stranded.REVERSE,
         )
 
         self.assertEqual(str(run), name)
@@ -496,7 +495,7 @@ class TestModels(TestCase):
         subpool_run = SubpoolInRun.objects.create(
             subpool=self.subpool_fake,
             sequencing_run=self.sequencing_run_fake,
-            status=RunStatus.PASS,
+            status=RunStatusEnum.PASS,
             # measurement_set=
         )
 

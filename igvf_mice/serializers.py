@@ -20,7 +20,7 @@ from igvf_mice.models import (
     SplitSeqPlate,
     SplitSeqWell,
     Subpool,
-    Stranded,
+    StrandedEnum,
     Platform,
     SequencingRun,
     SubpoolInRun,
@@ -113,7 +113,7 @@ class SequencingRunChildSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     platform = PlatformSerializer()
-    stranded = serializers.ChoiceField(choices=Stranded.choices)
+    stranded = serializers.ChoiceField(choices=StrandedEnum.choices)
 
 
 class MouseStrainSerializer(serializers.HyperlinkedModelSerializer):
