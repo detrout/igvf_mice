@@ -84,13 +84,28 @@ class LibraryConstructionReagentSerializer(serializers.HyperlinkedModelSerialize
 class LibraryBarcodeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = LibraryBarcode
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "code",
+            "i7_sequence",
+            "i5_sequence",
+            "barcode_type",
+            "well_position",
+            "reagent",
+        ]
 
 
 class PlatformSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Platform
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "display_name",
+            "igvf_id",
+            "family"
+        ]
 
 
 class SequencingRunChildSerializer(serializers.HyperlinkedModelSerializer):
@@ -306,7 +321,14 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
 class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SubpoolInRun
-        fields = "__all__"
+        fields = [
+            "@id",
+            "subpool",
+            "sequencing_run",
+            "raw_reads",
+            "status",
+            "measurement_set",
+        ]
 
 
 class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
@@ -333,11 +355,15 @@ class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
-
 class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MeasurementSet
-        fields = "__all__"
+        fields = [
+            "@id",
+            "name",
+            "accession",
+            "subpoolinrun_set",
+        ]
 
     accession = AccessionSerializer(many=True, required=False)
     subpool_in_run = SubpoolInRunSerializer(source="subpoolinrun_set", many=True)
