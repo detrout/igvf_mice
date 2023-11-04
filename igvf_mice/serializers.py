@@ -29,17 +29,17 @@ from igvf_mice.models import (
 )
 
 
-def expand_field(value, field_model, field_serializer, request):
+def expand_field(value, field_model, field_serializer, request, pkname="name"):
     if value is None:
         return None
 
     if isinstance(value, list):
-        data = [expand_field(x, field_model, field_serializer, request) for x in value]
+        data = [expand_field(x, field_model, field_serializer, request, pkname) for x in value]
     elif isinstance(value, str):
         urlpath = urlsplit(value).path
         parts = [x for x in urlpath.split("/") if len(x) > 0]
         object_name = parts[-1]
-        obj = field_model.objects.get(name=object_name)
+        obj = field_model.objects.get(**{pkname: object_name})
         # ceral is a pun for serialized
         context = {"request": request}
         cereal = field_serializer(obj, context=context)
