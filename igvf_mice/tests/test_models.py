@@ -485,6 +485,7 @@ class TestModels(TestCase):
             run_date="1066-10-14",
             platform=self.platform,
             plate=self.plate_fake,
+            stranded=StrandedEnum.REVERSE,
         )
 
         self.assertEqual(str(run), name)
