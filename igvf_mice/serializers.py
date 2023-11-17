@@ -291,7 +291,6 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
             "plate",
         ]
 
-    platform = PlatformSerializer()
     plate = SplitSeqPlateSerializer()
 
 
