@@ -268,8 +268,8 @@ class SplitSeqPlateSerializer(serializers.HyperlinkedModelSerializer):
             "wells",
         ]
 
-    sequencing_runs = SequencingRunChildSerializer(source="sequencingrun_set", many=True)
-    wells = MinimalSplitSeqWellSerializer(source="splitseqwell_set", many=True)
+    sequencing_runs = SequencingRunChildSerializer(source="sequencingrun_set", many=True, required=False)
+    wells = MinimalSplitSeqWellSerializer(source="splitseqwell_set", many=True, required=False)
 
 
 class SplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
