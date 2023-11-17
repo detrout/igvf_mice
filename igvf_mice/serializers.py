@@ -375,7 +375,6 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
     accession = AccessionSerializer(many=True, required=False)
-    subpool_in_run = SubpoolInRunSerializer(source="subpoolinrun_set", many=True)
 
 
 class IgvfLabInfoMixin:
