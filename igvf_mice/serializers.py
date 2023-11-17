@@ -173,10 +173,17 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
         ]
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
-    accession = AccessionSerializer(many=True, required=False)
     sex = serializers.ChoiceField(choices=SexEnum.choices)
     estrus_cycle = serializers.ChoiceField(choices=EstrusCycle.choices)
     life_stage = serializers.ChoiceField(choices=LifeStageEnum.choices)
+
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "accession" in data:
+            data["accession"] = expand_field(data["accession"], Accession, AccessionSerializer, request)
+        return data
 
 
 class OntologyTermSerializer(serializers.HyperlinkedModelSerializer):
@@ -292,7 +299,13 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
             "plate",
         ]
 
-    plate = SplitSeqPlateSerializer()
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "plate" in data:
+            data["plate"] = expand_field(data["plate"], SplitSeqPlate, SplitSeqPlateSerializer, request)
+        return data
 
 
 class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
@@ -317,12 +330,19 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
             "subpool_runs",
         ]
 
-    barcode = LibraryBarcodeSerializer(many=True)
     selection_type = serializers.ChoiceField(
         choices=SublibrarySelectionTypeEnum.choices)
     subcellular_component = serializers.ChoiceField(
         choices=SubcellularComponentEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
+
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "barcode" in data:
+            data["barcode"] = expand_field(data["barcode"], LibraryBarcode, LibraryBarcodeSerializer, request, "id")
+        return data
 
 
 class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
@@ -374,7 +394,15 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
         ]
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
-    accession = AccessionSerializer(many=True, required=False)
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "accession" in data:
+            data["accession"] = expand_field(data["accession"], Accession, AccessionSerializer, request)
+        if "subpoolinrun_set" in data:
+            data["subpoolinrun_set"] = expand_field(data["subpoolinrun_set"], SubpoolInRun, SubpoolInRunSerializer, request, pkname="id")
+        return data
 
 
 class IgvfLabInfoMixin:
