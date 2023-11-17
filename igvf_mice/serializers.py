@@ -19,6 +19,7 @@ from igvf_mice.models import (
     FixedSample,
     SplitSeqPlate,
     SplitSeqWell,
+    SublibrarySelectionTypeEnum,
     Subpool,
     StrandedEnum,
     Platform,
@@ -316,6 +317,8 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     barcode = LibraryBarcodeSerializer(many=True)
+    selection_type = serializers.ChoiceField(
+        choices=SublibrarySelectionTypeEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
 
 
