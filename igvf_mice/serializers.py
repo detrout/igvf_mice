@@ -316,7 +316,7 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     barcode = LibraryBarcodeSerializer(many=True)
-    subpool_runs = serializers.StringRelatedField(source="subpoolrun_set")
+    subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
 
 
 class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
