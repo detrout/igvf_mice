@@ -20,6 +20,7 @@ from igvf_mice.models import (
     SplitSeqPlate,
     SplitSeqWell,
     SublibrarySelectionTypeEnum,
+    SubcellularComponentEnum,
     Subpool,
     StrandedEnum,
     Platform,
@@ -302,6 +303,7 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
             "name",
             "nuclei",
             "selection_type",
+            "subcellular_component",
             "cdna_ng_per_ul",
             "cdna_volume",
             "bioanalyzer_date",
@@ -318,6 +320,8 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
     barcode = LibraryBarcodeSerializer(many=True)
     selection_type = serializers.ChoiceField(
         choices=SublibrarySelectionTypeEnum.choices)
+    subcellular_component = serializers.ChoiceField(
+        choices=SubcellularComponentEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
 
 
