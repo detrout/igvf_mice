@@ -24,80 +24,10 @@ https://docs.google.com/spreadsheets/d/1BLMledzmqOqXnJHzpijgw91IOs-9tSlVeZDG_MtX
 
 ** UCI metadata sheet
 
+UCI started sample tracking before there was time to write a database,
+so use the spreadsheet for the initial data load and as a ad-hoc
+specification for the data models.
+
 Liz' metadata sheet. IGVF_Split-Seq
 https://docs.google.com/spreadsheets/d/13M6-Ry6oXgkx94BHZOGioYPI6F_hWDqjGgcaNu2JNYs/edit#gid=1838362486
 
-There are so many tabs....
-
-| tab                                     | model             |
-| Planning                                |                   |
-| Mice - 8 founders                       | Mouse             |
-| Line information                        | MouseStrain       |
-| schedule - all                          |                   |
-| nuclei isolation schedule with SampleID |                   |
-| counting                                |                   |
-| Sample - 8 founders                     | DissociatedTissue |
-| Bridge Samples                          |                   |
-| Samples into experiment                 |                   |
-| DCC                                     |                   |
-| Plate setups                            | Plate?            |
-| Experiment                              |                   |
-| PBMCs                                   |                   |
-| IGVF0002 Pilot Samples                  |                   |
-| IGVF0002 Pulverized Samples             |                   |
-| IGVF0002 Plate Setup                    |                   |
-| IGVF0002 Metadata                       |                   |
-| Hypo/Pit testing                        |                   |
-
-*** Mice - 8 founders fields
-
-RMS - ordering number
-
-
-* IGVF_Split-seq spreadsheet cleaning <2023-05-04 Thu>
-
-- [X] Comment in Estrus field on Mice - 8 samples
-- [X] Several Estrus fields were misspelled
-- [ ] extra row on Bridge Samples into experiment
-
-Why is there a space in the empty cells on row 1 in samples into
-experiment?
-
-- [X] On the bridge samples is it just left cortex, and not the
-cortex/hipppcampus from the 8 cube?
-  Liz: The bridge samples are just left cortex
-
-- [ ] Header columns on Bridge samples into experiment were different
-from Samples into experiment. There were a bunch of merged cells
-with a 2 layer index.
-
-- [X] Me: I'm also having trouble finding 093_CASTJ_10M_08 which is listed
-  on Plate setup but not in Samples into experiment Lines 745 to 746.
-  Go from 091_CASTJ_10M_08 to 094_CASTJ_10M_08 on Samples into
-  experiment
-
-  Liz: Why Oh good catch. Yeah 093 failed so we went with 095. Plate
-    setup has typo Same thing with IGVF_010 and 011, had to do 5th rep
-    So plate setups will be off since I didn’t go through and fix the
-    ones that got swapped out, just copy-pasted previous setups
-
-- [ ] Can we call the bridge sample plate IGVF_B01 to be more
-  consistent with others?
-
-
-* dealing with the _25 and _26 samples from F1 samples into experiments
-
-It's around IGVF_FIX_019
-
-_25 is testis left _27 & epydidmus left _29
-_26 is ovary _10 & oviduct _11
-
-the pooled from can be calculated with, though with changing the row number
-=CONCAT(LEFT(AJ403, LEN(AJ403)-3), "_10,",LEFT(AJ403, LEN(AJ403)-3),"_11")
-
-",".join([AJ403[:-3]+x for x in ["_010", "_011"]])
-
-* kidney 09
-
-from kidney left _31 and kidney right _32
-127_B6AF1/J_10M_09	127_B6AF1/J_10M_31,127_B6AF1/J_10M_32
