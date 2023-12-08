@@ -162,6 +162,7 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
             "weight_g",
             "date_of_birth",
             "date_obtained",
+            "age_days",
             "harvest_date",
             "timepoint_description",
             "life_stage",
