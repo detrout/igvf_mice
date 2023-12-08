@@ -245,6 +245,7 @@ class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
             "fixed_nuclei",
             "aliquots_made",
             "aliquot_volume_ul",
+            "splitseqwell_set",
         ]
 
     def to_representation(self, value):
