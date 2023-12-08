@@ -558,10 +558,12 @@ class SplitSeqWell(models.Model):
     model:`igvf_mice.SplitSeqPlate`
 
     """
+    class Meta:
+        ordering = ("plate", "row", "column")
 
     plate = models.ForeignKey("SplitSeqPlate", on_delete=models.PROTECT)
     row = models.CharField(max_length=2, choices=well_rows)
-    column = models.CharField(max_length=2, choices=well_columns)
+    column = models.PositiveSmallIntegerField()
 
     # what sequence tells us what the the starting sample?
     # Sina had index7, index5 fields
