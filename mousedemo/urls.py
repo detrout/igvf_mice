@@ -48,6 +48,12 @@ router.register(
     basename="igvf-sequence-file",
 )
 
+router.register(
+    r"pipeline/sample-metadata",
+    views.PipelineSampleMetadataViewSet,
+    basename="pipeline-sample-metadata",
+)
+
 
 urlpatterns = [
     path("admin/doc/", include("django.contrib.admindocs.urls")),

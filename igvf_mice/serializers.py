@@ -650,3 +650,103 @@ class IgvfSeqSpecDetailSerializer(serializers.HyperlinkedModelSerializer):
             return ["rna"]
         else:
             raise NotImplementedError("Need to implement other seqspecs")
+
+
+class PipelineBiosampleSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = FixedSample
+        fields = [
+            "@id",
+            "tissue_name",
+            "dissection_time",
+            "tissue_weight_g",
+            "tissue_description",
+            "ontology_terms",
+            "mouse_name",
+            "genotype",
+        ]
+
+    tissue_name = serializers.CharField(source="tissue.name", read_only=True)
+    dissection_time = serializers.DateTimeField(read_only=True)
+    tissue_weight_g = serializers.DecimalField(source="tissue.weight_g", max_digits=8, decimal_places=3, min_value=0)
+    tissue_description = serializers.CharField(source="tissue.description", read_only=True)
+    ontology_terms = serializers.ListField(read_only=True)
+
+    mouse_name = serializers.CharField(source="mouse.name", read_only=True)
+    genotype = serializers.CharField(source="mouse.strain.name", read_only=True)
+
+
+class PipelineMouseSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Mouse
+        fields = [
+            "@id",
+            "name",
+            "estrus_cycle",
+            "date_of_birth",
+            "harvest_date",
+            "age_days",
+            "timepoint_description",
+            "sex",
+            "body_weight_g",
+            "notes",
+            "genotype",
+        ]
+
+    estrus_cycle = serializers.CharField(source="get_estrus_cycle_display")
+    sex = serializers.CharField(source="get_sex_display")
+    body_weight_g = serializers.DecimalField(source="weight_g", max_digits=8, decimal_places=3, min_value=0)
+    genotype = serializers.CharField(source="strain.name")
+
+
+class PipelineTissueSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Tissue
+        fields = [
+            "@id",
+            "name",
+            "mouse",
+            "description",
+            "ontology_term",
+            "fixedsample_set",
+            "dissection_time",
+            "tube_label",
+            "tube_weight_g",
+            "total_weight_g",
+            "weight_mg",
+            "dissector",
+            "dissection_notes",
+            "accession"
+        ]
+
+    mouse = PipelineMouseSerializer()
+    ontology_term = OntologyTermSerializer(many=True)
+    accession = AccessionSerializer(many=True)
+
+
+class PipelineFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = FixedSample
+        fields = [
+            "tissue"
+        ]
+
+    tissue = PipelineTissueSerializer(many=True)
+
+
+class PipelineSampleMetadataSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SplitSeqWell
+        fields = [
+            "plate_name",
+            "well",
+            "row",
+            "column",
+            "biosample",
+            "barcode",
+        ]
+
+    plate_name = serializers.CharField(source="plate.name", read_only=True)
+    well = serializers.CharField(read_only=True)
+    barcode = LibraryBarcodeSerializer(many=True)
+    biosample = PipelineFixedSampleSerializer(many=True)

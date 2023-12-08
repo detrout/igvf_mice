@@ -42,6 +42,7 @@ from igvf_mice.serializers import (
     IgvfSequenceFileSerializer,
     IgvfSeqSpecListSerializer,
     IgvfSeqSpecDetailSerializer,
+    PipelineSampleMetadataSerializer,
 )
 
 
@@ -173,3 +174,9 @@ class IgvfSequenceFileViewSet(viewsets.ModelViewSet):
         return SubpoolInRunFile.objects.all()
 
 
+class PipelineSampleMetadataViewSet(viewsets.ModelViewSet):
+    queryset = SplitSeqWell.objects.order_by("plate", "row", "column")
+    serializer_class = PipelineSampleMetadataSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ("plate__name",)
