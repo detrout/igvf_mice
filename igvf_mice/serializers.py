@@ -207,6 +207,7 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
             "mouse",
             "description",
             "ontology_term",
+            "fixedsample_set",
             "dissection_time",
             "tube_label",
             "tube_weight_g",
