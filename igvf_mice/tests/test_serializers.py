@@ -148,7 +148,8 @@ class TestSerializers(APITestCase):
             "estrus_cycle": "D",
             "weight_g": 21.1,
             "date_of_birth": "2022-08-16",
-            "harvest_date": "2022-10-27",
+            "dissection_start_time": "2022-10-27T09:00:00-07:00",
+            "dissection_end_time": "2022-10-27T10:00:00-07:00",
             "timepoint_description": "10 weeks",
             "life_stage": "A",
             "housing_number": 400802,
@@ -174,7 +175,7 @@ class TestSerializers(APITestCase):
         payload = {
             "name": "016_B6J_10F_07",
             "mouse": mouse["@id"],
-            "dissection_time": "2023-10-27T11:15:30",
+            "dissection_time": "2023-10-27T11:15:30-07:00",
             "description": "lung",
             "ontology_term": [lung["@id"]],
             "tube_label": "016-07",

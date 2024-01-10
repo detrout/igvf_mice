@@ -258,8 +258,11 @@ class Mouse(models.Model):
     weight_g = models.FloatField(null=True, verbose_name="weight (grams)")
     date_of_birth = models.DateField(null=True, help_text="Date mouse was born")
     date_obtained = models.DateField(null=True, help_text="Date mouse was received")
-    harvest_date = models.DateField(
-        null=True, help_text="Date of dissection started"
+    dissection_start_time = models.DateTimeField(
+        null=True, help_text="Date and time that dissection started"
+    )
+    dissection_end_time = models.DateTimeField(
+        null=True, help_text="Date and time that dissection finished"
     )
     timepoint_description = models.CharField(
         max_length=20,
@@ -293,10 +296,10 @@ class Mouse(models.Model):
     @property
     def age_days(self):
         """Calculated age, dissection date - date of birth"""
-        if self.harvest_date is None or self.date_of_birth is None:
+        if self.dissection_start_time is None or self.date_of_birth is None:
             return None
 
-        age = self.harvest_date - self.date_of_birth
+        age = self.dissection_start_time.date() - self.date_of_birth
         return age.days
 
     @property

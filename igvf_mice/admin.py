@@ -59,7 +59,7 @@ class MouseOptions(admin.ModelAdmin):
         ("name", "strain"),
         ("housing_number", "date_obtained"),
         ("weight_g", "sex", "estrus_cycle"),
-        ("date_of_birth", "harvest_date"),
+        ("date_of_birth", "dissection_start_time", "dissection_end_time"),
         ("timepoint_description", "life_stage"),
         ("operator"),
         ("notes"),
