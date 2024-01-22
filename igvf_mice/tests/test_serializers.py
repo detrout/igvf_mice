@@ -69,6 +69,17 @@ class TestSerializers(APITestCase):
         url = reverse("source-list")
         return self.create_object(url, payload, expected_status)
 
+    def create_protocol_link(self, expected_status=status.HTTP_201_CREATED):
+        payload = {
+            "name": "splitseq_100k_v2",
+            "version": "1",
+            "see_also": "https://www.protocols.io/view/evercode-wt-v2-2-1-eq2lyj9relx9/v1",
+            "description": "Parse Bio snRNA-seq for 100,000 cells or nuclei using v2 reagents",
+        }
+
+        url = reverse("protocollink-list")
+        return self.create_object(url, payload, expected_status)
+
     def create_library_construction_reagent(self, expected_status=status.HTTP_201_CREATED):
         source = self.create_source(expected_status=expected_status)
         payload = {
@@ -340,6 +351,17 @@ class TestSerializers(APITestCase):
         self.assertEqual(s.homepage, payload["homepage"])
         self.assertEqual(s.igvf_id, payload["igvf_id"])
         self.assertIn("@id", payload)
+
+    def test_create_protocol_link(self):
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_protocol_link()
+        self.assertIn("@id", payload)
+
+        protocol = models.ProtocolLink.objects.get(name=payload["name"])
+        self.assertEqual(protocol.name, payload["name"])
+        self.assertEqual(protocol.version, payload["version"])
+        self.assertEqual(protocol.see_also, payload["see_also"])
+        self.assertEqual(protocol.description, payload["description"])
 
     def test_create_library_reagent(self):
         self.client.force_authenticate(user=self.user)

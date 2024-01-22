@@ -6,6 +6,7 @@ from rest_framework import serializers
 from igvf_mice.models import (
     Accession,
     Source,
+    ProtocolLink,
     LibraryConstructionReagent,
     LibraryBarcode,
     StrainType,
@@ -68,6 +69,18 @@ class SourceSerializer(serializers.HyperlinkedModelSerializer):
             "display_name",
             "homepage",
             "igvf_id",
+        ]
+
+
+class ProtocolLinkSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = ProtocolLink
+        fields = [
+            "@id",
+            "name",
+            "version",
+            "see_also",
+            "description",
         ]
 
 

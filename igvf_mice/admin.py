@@ -3,6 +3,7 @@ from django.contrib import admin
 from .models import (
     Accession,
     Source,
+    ProtocolLink,
     LibraryConstructionReagent,
     LibraryBarcode,
     MouseStrain,
@@ -32,6 +33,12 @@ class AccessionOptions(admin.ModelAdmin):
 class SourceOptions(admin.ModelAdmin):
     model = Source
     list_display = ("name",)
+
+
+class ProtocolLinkOptions(admin.ModelAdmin):
+    model = ProtocolLink
+    list_display = ("name", "version", "see_also", "description")
+    ordering = ("name",)
 
 
 class LibraryConstructionReagentOptions(admin.ModelAdmin):

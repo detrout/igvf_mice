@@ -81,6 +81,18 @@ class Source(models.Model):
         )
 
 
+class ProtocolLink(models.Model):
+    """Link to online protocol repository
+
+    For IGVF this is currently protocols.io
+    """
+    name = models.CharField(
+        max_length=100, primary_key=True, help_text="short name for protocol")
+    see_also = models.URLField(unique=True, help_text="Link to protocols.io page")
+    version = models.PositiveIntegerField(help_text="integer protocol version number")
+    description = models.TextField(help_text="Summary of the protocol")
+
+
 class LibraryConstructionReagent(models.Model):
     """Reference to describe a library construction kit used to make libraries.
 
@@ -642,6 +654,7 @@ class Subpool(models.Model):
     library_ng_per_ul = models.FloatField(null=True)
     library_average_bp_length = models.IntegerField(null=True)
 
+    protocols = models.ManyToManyField(ProtocolLink)
     accession = models.ManyToManyField(Accession)
     # Where should QC & production run information go?
 

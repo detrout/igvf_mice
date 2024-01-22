@@ -5,6 +5,7 @@ from rest_framework import permissions
 from igvf_mice.models import (
     Accession,
     Source,
+    ProtocolLink,
     LibraryConstructionReagent,
     LibraryBarcode,
     MouseStrain,
@@ -24,6 +25,7 @@ from igvf_mice.models import (
 from igvf_mice.serializers import (
     AccessionSerializer,
     SourceSerializer,
+    ProtocolLinkSerializer,
     LibraryConstructionReagentSerializer,
     LibraryBarcodeSerializer,
     MouseStrainSerializer,
@@ -56,6 +58,12 @@ class AccessionViewSet(viewsets.ModelViewSet):
 class SourceViewSet(viewsets.ModelViewSet):
     queryset = Source.objects.all()
     serializer_class = SourceSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class ProtocolLinkSet(viewsets.ModelViewSet):
+    queryset = ProtocolLink.objects.all()
+    serializer_class = ProtocolLinkSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
