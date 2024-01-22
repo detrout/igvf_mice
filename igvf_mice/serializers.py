@@ -218,7 +218,10 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
             "dissection_notes",
             "accession"
         ]
-        extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
+        extra_kwargs = {
+            "accession": {"required": False, "allow_empty": True},
+            "fixedsample_set": {"required": False, "allow_empty": True},
+        }
 
     def to_representation(self, value):
         data = super().to_representation(value)
