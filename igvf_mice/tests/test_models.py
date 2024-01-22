@@ -255,7 +255,7 @@ class TestModels(TestCase):
         )
 
         reagent.full_clean()
-        self.assertEqual(str(reagent), f"{display_name} {version}")
+        self.assertEqual(str(reagent), f"{display_name} v{version}")
 
     def test_library_barcode(self):
         reagent = self.library_construction_reagent_fake

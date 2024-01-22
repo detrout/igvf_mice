@@ -97,7 +97,7 @@ class LibraryConstructionReagent(models.Model):
     )
 
     def __str__(self):
-        return str("{} {}".format(self.display_name, self.version))
+        return str("{} v{}".format(self.display_name, self.version))
 
 
 class LibraryBarcode(models.Model):
