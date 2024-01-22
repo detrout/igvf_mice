@@ -88,7 +88,7 @@ class LibraryConstructionReagent(models.Model):
     """
 
     name = models.CharField(max_length=50, primary_key=True, help_text="url friendly name")
-    display_name = models.CharField(max_length=255, unique=True, help_text="The product name")
+    display_name = models.CharField(max_length=255, help_text="The product name")
     version = models.CharField(
         max_length=50, help_text="description of the kit version"
     )
