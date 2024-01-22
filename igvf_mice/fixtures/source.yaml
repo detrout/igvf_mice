@@ -1,0 +1,24 @@
+- model: igvf_mice.source
+  pk: illumina
+  fields:
+    display_name: 'Illumina'
+    homepage: https://www.illumina.com
+    igvf_id: /sources/illumina/
+- model: igvf_mice.source
+  pk: jackson-labs
+  fields:
+    display_name: 'The Jackson Laboratory'
+    homepage: http://www.jax.org/index.html
+    igvf_id: /sources/jackson-labs/
+- model: igvf_mice.source
+  pk: parse-biosciences
+  fields:
+    display_name: 'Parse Bioscience'
+    homepage: https://www.parsebiosciences.com/
+    igvf_id: /sources/parse-biosciences/
+- model: igvf_mice.source
+  pk: unc-csbio
+  fields:
+    display_name: 'UNC Systems Genetics'
+    homepage: https://csbio.unc.edu
+    igvf_id: /sources/unc-csbio/

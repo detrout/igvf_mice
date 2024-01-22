@@ -1,0 +1,320 @@
+- fields:
+    description: A specialized brain region of the ventral diencephalon arising near
+      the end of the segmentation period; the embryonic hypothalamic region will give
+      rise to the posterior pituitary gland as well as a number of brain nuclei. [ZFA].
+      One of the most important functions of the hypothalamus is to link the nervous
+      system to the endocrine system via the pituitary gland (hypophysis).[Wikipedia].
+    name: Hypothalamus/Pituitary
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001898
+- fields:
+    description: The pituitary gland is an endocrine gland that secretes hormones
+      that regulate many other glands [GO]. An endocrine gland located ventral to
+      the diencephalon and derived from mixed neuroectodermal and non neuroectodermal
+      origin [ZFIN].
+    name: Hypothalamus/Pituitary
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000007
+- fields:
+    description: Part of the metencephalon that lies in the posterior cranial fossa
+      behind the brain stem. It is concerned with the coordination of movement[MESH].
+      A large dorsally projecting part of the brain concerned especially with the
+      coordination of muscles and the maintenance of bodily equilibrium, situated
+      between the brain stem and the back of the cerebrum , and formed in humans of
+      two lateral lobes and a median lobe[BTO]. Brain structure derived from the anterior
+      hindbrain, and perhaps including posterior midbrain. The cerebellum plays a
+      role in somatic motor function, the control of muscle tone, and balance[ZFA].
+    name: Cerebellum
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002037
+- fields:
+    description: null
+    name: Cortex/Hippocampus left
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000646
+- fields:
+    description: null
+    name: Cortex/Hippocampus left
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000750
+- fields:
+    description: null
+    name: Cortex/Hippocampus right
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000647
+- fields:
+    description: null
+    name: Cortex/Hippocampus right
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000751
+- fields:
+    description: An exocrine gland which secretes bile and functions in metabolism
+      of protein and carbohydrate and fat, synthesizes substances involved in the
+      clotting of the blood, synthesizes vitamin A, detoxifies poisonous substances,
+      stores glycogen, and breaks down worn-out erythrocytes[GO].
+    name: Liver
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002107
+- fields:
+    description: A myogenic muscular circulatory organ found in the vertebrate cardiovascular
+      system composed of chambers of cardiac muscle. It is the primary circulatory
+      organ.
+    name: Heart
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000948
+- fields:
+    description: Respiration organ that develops as an outpocketing of the esophagus.
+    name: Lung
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002048
+- fields:
+    description: Either of a pair of complex endocrine organs near the anterior medial
+      border of the kidney consisting of a mesodermal cortex that produces glucocorticoid,
+      mineralocorticoid, and androgenic hormones and an ectodermal medulla that produces
+      epinephrine and norepinephrine[BTO].
+    name: Adrenal
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002369
+- fields:
+    description: A paired organ of the urinary tract which has the production of urine
+      as its primary function.
+    name: Kidney
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002113
+- fields:
+    description: A paired organ of the urinary tract which has the production of urine
+      as its primary function.
+    name: Kidney left
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002113
+- fields:
+    description: A paired organ of the urinary tract which has the production of urine
+      as its primary function.
+    name: Kidney right
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002113
+- fields:
+    description: The gonad of a female organism which contains germ cells.
+    name: Ovary
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000992
+- fields:
+    description: The gonad of a female organism which contains germ cells.
+    name: Gonads -1 Ovary
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000992
+- fields:
+    description: The gonad of a female organism which contains germ cells.
+    name: Gonads -1 (Ovary)
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000992
+- fields:
+    description: A tube or collection of tubes in an animal from the ovaries to the
+      outside of the body.
+    name: Oviduct
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000993
+- fields:
+    description: A tube or collection of tubes in an animal from the ovaries to the
+      outside of the body.
+    name: Gonads -2 Oviduct
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000993
+- fields:
+    description: A tube or collection of tubes in an animal from the ovaries to the
+      outside of the body.
+    name: Gonads -2 (Oviduct)
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000993
+- fields:
+    description: A tube or collection of tubes in an animal from the ovaries to the
+      outside of the body.
+    name: Gonads - 2 (Oviduct)
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000993
+- fields:
+    description: The encapsulated adipose tissue associated with the ovaries or testes.
+    name: Perigonadal fat
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0003428
+- fields:
+    description: A thermogenic form of adipose tissue that is composed of brown adipocytes[MP,modified].
+    name: Brown fat
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001348
+- fields:
+    description: A deep muscle of the triceps surae group, in the superficial posterior
+      compartment of the leg.
+    name: Soleus
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001389
+- fields:
+    description: Plantaris is a vestigial structure and one of the superficial muscles
+      of the posterior crural compartment of the leg. It is innervated by the tibial
+      nerve (S1, S2) . It is composed of a thin muscle belly and a long thin tendon.
+      It is approximately 2-4 inches long, and is absent in 7 - 10% of the human population.
+      It is one of the plantar flexors in the superior compartment of the leg along
+      with the gastrocnemius, and soleus. The plantaris is considered an unimportant
+      muscle, it mainly acts with gastrocnemius[WP].
+    name: Plantaris
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0011905
+- fields:
+    description: The most superficial muscle of the triceps surae group, in the posterior
+      portion of the lower hindleg.
+    name: Gastrocnemius
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001388
+- fields:
+    description: The most superficial muscle of the triceps surae group, in the posterior
+      portion of the lower hindleg.
+    name: Gastrocnemius left
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001388
+- fields:
+    description: The most superficial muscle of the triceps surae group, in the posterior
+      portion of the lower hindleg.
+    name: Gastrocnemius right
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001388
+- fields:
+    description: A muscle that originates in the upper two-thirds of the lateral surface
+      of the tibia and inserts into the medial cuneiform and first metatarsal bones
+      of the foot. Its acts to invert the foot. It is situated on the lateral side
+      of the tibia; it is thick and fleshy above, tendinous below. This muscle overlaps
+      the anterior tibial vessels and deep peroneal nerve in the upper part of the
+      leg. [WP,unvetted]. The M. tibialis cranialis is a muscle that flexes the tarsometatarsus.
+      It originates on the craniodistal aspect of the femur and proximal tibiotarsus
+      and inserts on the cranial surface of the tarsometarsus[EvoWiki].
+    name: TA
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001385
+- fields:
+    description: A muscle that originates in the upper two-thirds of the lateral surface
+      of the tibia and inserts into the medial cuneiform and first metatarsal bones
+      of the foot. Its acts to invert the foot. It is situated on the lateral side
+      of the tibia; it is thick and fleshy above, tendinous below. This muscle overlaps
+      the anterior tibial vessels and deep peroneal nerve in the upper part of the
+      leg. [WP,unvetted]. The M. tibialis cranialis is a muscle that flexes the tarsometatarsus.
+      It originates on the craniodistal aspect of the femur and proximal tibiotarsus
+      and inserts on the cranial surface of the tarsometarsus[EvoWiki].
+    name: TA left
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001385
+- fields:
+    description: A muscle that originates in the upper two-thirds of the lateral surface
+      of the tibia and inserts into the medial cuneiform and first metatarsal bones
+      of the foot. Its acts to invert the foot. It is situated on the lateral side
+      of the tibia; it is thick and fleshy above, tendinous below. This muscle overlaps
+      the anterior tibial vessels and deep peroneal nerve in the upper part of the
+      leg. [WP,unvetted]. The M. tibialis cranialis is a muscle that flexes the tarsometatarsus.
+      It originates on the craniodistal aspect of the femur and proximal tibiotarsus
+      and inserts on the cranial surface of the tarsometarsus[EvoWiki].
+    name: TA right
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001385
+- fields:
+    description: A penniform muscle of the lateral front part of the hindlimb responsible
+      for extension of the digits and dorsiflexion of the ankle.
+    name: EDL
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001386
+- fields:
+    description: An external caudal extension of the body. In chordates, the tail
+      is post-anal, in other animals the anus ends in the tail.
+    name: Tail
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002415
+- fields:
+    description: A leukocyte with a single non-segmented nucleus in the mature form
+      found in the circulatory pool of blood.
+    name: PBMC - WBC
+  model: igvf_mice.ontologyterm
+  pk: CL:2000001
+- fields:
+    description: A gonad of a male animal. A gonad produces and releases sperm.
+    name: Gonads -1 Testis
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000473
+- fields:
+    description: The elongated structure connected to the posterior surface of the
+      testis that transports, stores, and matures spermatozoa between testis and vas
+      deferens.
+    name: Gonads -2 Epididymis
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001301
+- fields:
+    description: null
+    name: Left cortex
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000646
+- fields:
+    description: null
+    name: Cortex left
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000646
+- fields:
+    description: null
+    name: Right cortex
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000647
+- fields:
+    description: null
+    name: Cortex right
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000647
+- fields:
+    description: null
+    name: Left hippocampus
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000750
+- fields:
+    description: null
+    name: Hippocampus left
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000750
+- fields:
+    description: null
+    name: Right hippocampus
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000751
+- fields:
+    description: null
+    name: Hippocampus right
+  model: igvf_mice.ontologyterm
+  pk: NTR:0000751
+- fields:
+    description: A gonad of a male animal. A gonad produces and releases sperm.
+    name: Testis left
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000473
+- fields:
+    description: A gonad of a male animal. A gonad produces and releases sperm.
+    name: Testis right
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0000473
+- fields:
+    description: The elongated structure connected to the posterior surface of the
+      testis that transports, stores, and matures spermatozoa between testis and vas
+      deferens.
+    name: Epididymis left
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001301
+- fields:
+    description: The elongated structure connected to the posterior surface of the
+      testis that transports, stores, and matures spermatozoa between testis and vas
+      deferens.
+    name: Epididymis right
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001301
+- fields:
+    description: An endoderm derived structure that produces precursors of digestive
+      enzymes and blood glucose regulating hormones[GO].
+    name: Pancreas
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001264
+- fields:
+    description: Respiration organ that develops as an outpocketing of the esophagus.
+    name: Lungs
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0002048

@@ -1,0 +1,30 @@
+- model: igvf_mice.platform
+  pk: minion
+  fields:
+    igvf_id: /platform-terms/EFO_0008632/
+    display_name: Oxford Nanopore MinION
+    family: nanopore
+- model: igvf_mice.platform
+  pk: nextseq2000
+  fields:
+    igvf_id: /platform-terms/EFO_0010963/
+    display_name: Nextseq 2000
+    family: illumina
+- model: igvf_mice.platform
+  pk: novaseq6000
+  fields:
+    igvf_id: /platform-terms/EFO_0008637/
+    display_name: Novaseq 6000
+    family: illumina
+- model: igvf_mice.platform
+  pk: pacbio
+  fields:
+    igvf_id: null
+    display_name: Pac Bio
+    family: pacbio
+- model: igvf_mice.platform
+  pk: promethion
+  fields:
+    igvf_id: /platform-terms/EFO_0008634/
+    display_name: Oxford Nanopore PromethION
+    family: nanopore

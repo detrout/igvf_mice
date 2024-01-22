@@ -1,0 +1,3192 @@
+- fields:
+    barcode_type: T
+    code: A1
+    i7_sequence: CATTCCTA
+    name: pbs_1239
+    reagent: wt-mega-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 1
+- fields:
+    barcode_type: T
+    code: A2
+    i7_sequence: CTTCATCA
+    name: pbs_1205
+    reagent: wt-mega-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 2
+- fields:
+    barcode_type: T
+    code: A3
+    i7_sequence: CCTATATC
+    name: pbs_1247
+    reagent: wt-mega-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 3
+- fields:
+    barcode_type: T
+    code: A4
+    i7_sequence: ACATTTAC
+    name: pbs_1211
+    reagent: wt-mega-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 4
+- fields:
+    barcode_type: T
+    code: A5
+    i7_sequence: ACTTAGCT
+    name: pbs_1218
+    reagent: wt-mega-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 5
+- fields:
+    barcode_type: T
+    code: A6
+    i7_sequence: CCAATTCT
+    name: pbs_1243
+    reagent: wt-mega-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 6
+- fields:
+    barcode_type: T
+    code: A7
+    i7_sequence: GCCTATCT
+    name: pbs_1273
+    reagent: wt-mega-v2
+    well_position: A7
+  model: igvf_mice.librarybarcode
+  pk: 7
+- fields:
+    barcode_type: T
+    code: A8
+    i7_sequence: ATGCTGCT
+    name: pbs_1227
+    reagent: wt-mega-v2
+    well_position: A8
+  model: igvf_mice.librarybarcode
+  pk: 8
+- fields:
+    barcode_type: T
+    code: A9
+    i7_sequence: CATTTACA
+    name: pbs_1242
+    reagent: wt-mega-v2
+    well_position: A9
+  model: igvf_mice.librarybarcode
+  pk: 9
+- fields:
+    barcode_type: T
+    code: A10
+    i7_sequence: ACTCGTAA
+    name: pbs_1100
+    reagent: wt-mega-v2
+    well_position: A10
+  model: igvf_mice.librarybarcode
+  pk: 10
+- fields:
+    barcode_type: T
+    code: A11
+    i7_sequence: CCTTTGCA
+    name: pbs_1255
+    reagent: wt-mega-v2
+    well_position: A11
+  model: igvf_mice.librarybarcode
+  pk: 11
+- fields:
+    barcode_type: T
+    code: A12
+    i7_sequence: ACTCCTGC
+    name: pbs_1215
+    reagent: wt-mega-v2
+    well_position: A12
+  model: igvf_mice.librarybarcode
+  pk: 12
+- fields:
+    barcode_type: T
+    code: B1
+    i7_sequence: ATTTGGCA
+    name: pbs_1231
+    reagent: wt-mega-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 13
+- fields:
+    barcode_type: T
+    code: B2
+    i7_sequence: TTATTCTG
+    name: pbs_1118
+    reagent: wt-mega-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 14
+- fields:
+    barcode_type: T
+    code: B3
+    i7_sequence: TCATGCTC
+    name: pbs_1285
+    reagent: wt-mega-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 15
+- fields:
+    barcode_type: T
+    code: B4
+    i7_sequence: CATACTTC
+    name: pbs_1202
+    reagent: wt-mega-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 16
+- fields:
+    barcode_type: T
+    code: B5
+    i7_sequence: CCGTTCTA
+    name: pbs_1111
+    reagent: wt-mega-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 17
+- fields:
+    barcode_type: T
+    code: B6
+    i7_sequence: GCTTCATA
+    name: pbs_1279
+    reagent: wt-mega-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 18
+- fields:
+    barcode_type: T
+    code: B7
+    i7_sequence: CTCTGTGC
+    name: pbs_1204
+    reagent: wt-mega-v2
+    well_position: B7
+  model: igvf_mice.librarybarcode
+  pk: 19
+- fields:
+    barcode_type: T
+    code: B8
+    i7_sequence: CCCTTATA
+    name: pbs_1246
+    reagent: wt-mega-v2
+    well_position: B8
+  model: igvf_mice.librarybarcode
+  pk: 20
+- fields:
+    barcode_type: T
+    code: B9
+    i7_sequence: ACTGCTCT
+    name: pbs_1200
+    reagent: wt-mega-v2
+    well_position: B9
+  model: igvf_mice.librarybarcode
+  pk: 21
+- fields:
+    barcode_type: T
+    code: B10
+    i7_sequence: CTCTAATC
+    name: pbs_1257
+    reagent: wt-mega-v2
+    well_position: B10
+  model: igvf_mice.librarybarcode
+  pk: 22
+- fields:
+    barcode_type: T
+    code: B11
+    i7_sequence: ACCCTTGC
+    name: pbs_1213
+    reagent: wt-mega-v2
+    well_position: B11
+  model: igvf_mice.librarybarcode
+  pk: 23
+- fields:
+    barcode_type: T
+    code: B12
+    i7_sequence: ATCTTAGG
+    name: pbs_1224
+    reagent: wt-mega-v2
+    well_position: B12
+  model: igvf_mice.librarybarcode
+  pk: 24
+- fields:
+    barcode_type: T
+    code: C1
+    i7_sequence: CATGTCTC
+    name: pbs_1238
+    reagent: wt-mega-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 25
+- fields:
+    barcode_type: T
+    code: C2
+    i7_sequence: TCATTGCA
+    name: pbs_1288
+    reagent: wt-mega-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 26
+- fields:
+    barcode_type: T
+    code: C3
+    i7_sequence: ACACCTTT
+    name: pbs_1209
+    reagent: wt-mega-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 27
+- fields:
+    barcode_type: T
+    code: C4
+    i7_sequence: AATTTCTC
+    name: pbs_1115
+    reagent: wt-mega-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 28
+- fields:
+    barcode_type: T
+    code: C5
+    i7_sequence: ATTCATGG
+    name: pbs_1108
+    reagent: wt-mega-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 29
+- fields:
+    barcode_type: T
+    code: C6
+    i7_sequence: ACTTTACC
+    name: pbs_1220
+    reagent: wt-mega-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 30
+- fields:
+    barcode_type: T
+    code: C7
+    i7_sequence: CTTCTAAC
+    name: pbs_1267
+    reagent: wt-mega-v2
+    well_position: C7
+  model: igvf_mice.librarybarcode
+  pk: 31
+- fields:
+    barcode_type: T
+    code: C8
+    i7_sequence: CTATTTCA
+    name: pbs_1145
+    reagent: wt-mega-v2
+    well_position: C8
+  model: igvf_mice.librarybarcode
+  pk: 32
+- fields:
+    barcode_type: T
+    code: C9
+    i7_sequence: TCTCATGC
+    name: pbs_1292
+    reagent: wt-mega-v2
+    well_position: C9
+  model: igvf_mice.librarybarcode
+  pk: 33
+- fields:
+    barcode_type: T
+    code: C10
+    i7_sequence: ATCCTTAC
+    name: pbs_1223
+    reagent: wt-mega-v2
+    well_position: C10
+  model: igvf_mice.librarybarcode
+  pk: 34
+- fields:
+    barcode_type: T
+    code: C11
+    i7_sequence: TAAATATC
+    name: pbs_1125
+    reagent: wt-mega-v2
+    well_position: C11
+  model: igvf_mice.librarybarcode
+  pk: 35
+- fields:
+    barcode_type: T
+    code: C12
+    i7_sequence: TTACCTGC
+    name: pbs_1295
+    reagent: wt-mega-v2
+    well_position: C12
+  model: igvf_mice.librarybarcode
+  pk: 36
+- fields:
+    barcode_type: T
+    code: D1
+    i7_sequence: CACTTTCA
+    name: pbs_1236
+    reagent: wt-mega-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 37
+- fields:
+    barcode_type: T
+    code: D2
+    i7_sequence: CACCTTTA
+    name: pbs_1233
+    reagent: wt-mega-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 38
+- fields:
+    barcode_type: T
+    code: D3
+    i7_sequence: CTGACTTC
+    name: pbs_1261
+    reagent: wt-mega-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 39
+- fields:
+    barcode_type: T
+    code: D4
+    i7_sequence: CATTTGGA
+    name: pbs_1141
+    reagent: wt-mega-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 40
+- fields:
+    barcode_type: T
+    code: D5
+    i7_sequence: GCTCTACT
+    name: pbs_1277
+    reagent: wt-mega-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 41
+- fields:
+    barcode_type: T
+    code: D6
+    i7_sequence: GTTACGTA
+    name: pbs_1144
+    reagent: wt-mega-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 42
+- fields:
+    barcode_type: T
+    code: D7
+    i7_sequence: CCTGTTGC
+    name: pbs_1251
+    reagent: wt-mega-v2
+    well_position: D7
+  model: igvf_mice.librarybarcode
+  pk: 43
+- fields:
+    barcode_type: T
+    code: D8
+    i7_sequence: CTATCATC
+    name: pbs_1203
+    reagent: wt-mega-v2
+    well_position: D8
+  model: igvf_mice.librarybarcode
+  pk: 44
+- fields:
+    barcode_type: T
+    code: D9
+    i7_sequence: GCTATCAT
+    name: pbs_1276
+    reagent: wt-mega-v2
+    well_position: D9
+  model: igvf_mice.librarybarcode
+  pk: 45
+- fields:
+    barcode_type: T
+    code: D10
+    i7_sequence: ACATTCAT
+    name: pbs_1210
+    reagent: wt-mega-v2
+    well_position: D10
+  model: igvf_mice.librarybarcode
+  pk: 46
+- fields:
+    barcode_type: T
+    code: D11
+    i7_sequence: TTCGCTAC
+    name: pbs_1132
+    reagent: wt-mega-v2
+    well_position: D11
+  model: igvf_mice.librarybarcode
+  pk: 47
+- fields:
+    barcode_type: T
+    code: D12
+    i7_sequence: CATTCTAC
+    name: pbs_1240
+    reagent: wt-mega-v2
+    well_position: D12
+  model: igvf_mice.librarybarcode
+  pk: 48
+- fields:
+    barcode_type: T
+    code: E1
+    i7_sequence: CACTTATC
+    name: pbs_1234
+    reagent: wt-mega-v2
+    well_position: E1
+  model: igvf_mice.librarybarcode
+  pk: 49
+- fields:
+    barcode_type: T
+    code: E2
+    i7_sequence: ATAAGCTC
+    name: pbs_1107
+    reagent: wt-mega-v2
+    well_position: E2
+  model: igvf_mice.librarybarcode
+  pk: 50
+- fields:
+    barcode_type: T
+    code: E3
+    i7_sequence: TCATCCTG
+    name: pbs_1284
+    reagent: wt-mega-v2
+    well_position: E3
+  model: igvf_mice.librarybarcode
+  pk: 51
+- fields:
+    barcode_type: T
+    code: E4
+    i7_sequence: CCTGGTAT
+    name: pbs_1250
+    reagent: wt-mega-v2
+    well_position: E4
+  model: igvf_mice.librarybarcode
+  pk: 52
+- fields:
+    barcode_type: T
+    code: E5
+    i7_sequence: TGGTATAC
+    name: pbs_1104
+    reagent: wt-mega-v2
+    well_position: E5
+  model: igvf_mice.librarybarcode
+  pk: 53
+- fields:
+    barcode_type: T
+    code: E6
+    i7_sequence: TTGGGAGA
+    name: pbs_1123
+    reagent: wt-mega-v2
+    well_position: E6
+  model: igvf_mice.librarybarcode
+  pk: 54
+- fields:
+    barcode_type: T
+    code: E7
+    i7_sequence: ACTTCATC
+    name: pbs_1201
+    reagent: wt-mega-v2
+    well_position: E7
+  model: igvf_mice.librarybarcode
+  pk: 55
+- fields:
+    barcode_type: T
+    code: E8
+    i7_sequence: TCTCTAGC
+    name: pbs_1293
+    reagent: wt-mega-v2
+    well_position: E8
+  model: igvf_mice.librarybarcode
+  pk: 56
+- fields:
+    barcode_type: T
+    code: E9
+    i7_sequence: ATGCCCTT
+    name: pbs_1226
+    reagent: wt-mega-v2
+    well_position: E9
+  model: igvf_mice.librarybarcode
+  pk: 57
+- fields:
+    barcode_type: T
+    code: E10
+    i7_sequence: CCCAATTT
+    name: pbs_1245
+    reagent: wt-mega-v2
+    well_position: E10
+  model: igvf_mice.librarybarcode
+  pk: 58
+- fields:
+    barcode_type: T
+    code: E11
+    i7_sequence: ACTATATA
+    name: pbs_1146
+    reagent: wt-mega-v2
+    well_position: E11
+  model: igvf_mice.librarybarcode
+  pk: 59
+- fields:
+    barcode_type: T
+    code: E12
+    i7_sequence: CTCTATAC
+    name: pbs_1258
+    reagent: wt-mega-v2
+    well_position: E12
+  model: igvf_mice.librarybarcode
+  pk: 60
+- fields:
+    barcode_type: T
+    code: F1
+    i7_sequence: CTGTCTCA
+    name: pbs_1263
+    reagent: wt-mega-v2
+    well_position: F1
+  model: igvf_mice.librarybarcode
+  pk: 61
+- fields:
+    barcode_type: T
+    code: F2
+    i7_sequence: GACCTTTC
+    name: pbs_1138
+    reagent: wt-mega-v2
+    well_position: F2
+  model: igvf_mice.librarybarcode
+  pk: 62
+- fields:
+    barcode_type: T
+    code: F3
+    i7_sequence: GATTTGGC
+    name: pbs_1271
+    reagent: wt-mega-v2
+    well_position: F3
+  model: igvf_mice.librarybarcode
+  pk: 63
+- fields:
+    barcode_type: T
+    code: F4
+    i7_sequence: CGTCTAGG
+    name: pbs_1135
+    reagent: wt-mega-v2
+    well_position: F4
+  model: igvf_mice.librarybarcode
+  pk: 64
+- fields:
+    barcode_type: T
+    code: F5
+    i7_sequence: TACTCGAA
+    name: pbs_1140
+    reagent: wt-mega-v2
+    well_position: F5
+  model: igvf_mice.librarybarcode
+  pk: 65
+- fields:
+    barcode_type: T
+    code: F6
+    i7_sequence: CAGCCTTT
+    name: pbs_1237
+    reagent: wt-mega-v2
+    well_position: F6
+  model: igvf_mice.librarybarcode
+  pk: 66
+- fields:
+    barcode_type: T
+    code: F7
+    i7_sequence: CCTCATTA
+    name: pbs_1248
+    reagent: wt-mega-v2
+    well_position: F7
+  model: igvf_mice.librarybarcode
+  pk: 67
+- fields:
+    barcode_type: T
+    code: F8
+    i7_sequence: CTTATACC
+    name: pbs_1264
+    reagent: wt-mega-v2
+    well_position: F8
+  model: igvf_mice.librarybarcode
+  pk: 68
+- fields:
+    barcode_type: T
+    code: F9
+    i7_sequence: TCTATTAC
+    name: pbs_1106
+    reagent: wt-mega-v2
+    well_position: F9
+  model: igvf_mice.librarybarcode
+  pk: 69
+- fields:
+    barcode_type: T
+    code: F10
+    i7_sequence: CCTGCATT
+    name: pbs_1249
+    reagent: wt-mega-v2
+    well_position: F10
+  model: igvf_mice.librarybarcode
+  pk: 70
+- fields:
+    barcode_type: T
+    code: F11
+    i7_sequence: CAATCCTT
+    name: pbs_1232
+    reagent: wt-mega-v2
+    well_position: F11
+  model: igvf_mice.librarybarcode
+  pk: 71
+- fields:
+    barcode_type: T
+    code: F12
+    i7_sequence: TTGTCTTA
+    name: pbs_1121
+    reagent: wt-mega-v2
+    well_position: F12
+  model: igvf_mice.librarybarcode
+  pk: 72
+- fields:
+    barcode_type: T
+    code: G1
+    i7_sequence: TCACTTTA
+    name: pbs_1147
+    reagent: wt-mega-v2
+    well_position: G1
+  model: igvf_mice.librarybarcode
+  pk: 73
+- fields:
+    barcode_type: T
+    code: G2
+    i7_sequence: TGCTTGGG
+    name: pbs_1124
+    reagent: wt-mega-v2
+    well_position: G2
+  model: igvf_mice.librarybarcode
+  pk: 74
+- fields:
+    barcode_type: T
+    code: G3
+    i7_sequence: CGCTCATT
+    name: pbs_1256
+    reagent: wt-mega-v2
+    well_position: G3
+  model: igvf_mice.librarybarcode
+  pk: 75
+- fields:
+    barcode_type: T
+    code: G4
+    i7_sequence: GCCTCTAT
+    name: pbs_1274
+    reagent: wt-mega-v2
+    well_position: G4
+  model: igvf_mice.librarybarcode
+  pk: 76
+- fields:
+    barcode_type: T
+    code: G5
+    i7_sequence: GAGCACAA
+    name: pbs_1142
+    reagent: wt-mega-v2
+    well_position: G5
+  model: igvf_mice.librarybarcode
+  pk: 77
+- fields:
+    barcode_type: T
+    code: G6
+    i7_sequence: CTCTTAAC
+    name: pbs_1260
+    reagent: wt-mega-v2
+    well_position: G6
+  model: igvf_mice.librarybarcode
+  pk: 78
+- fields:
+    barcode_type: T
+    code: G7
+    i7_sequence: TCTAGGCT
+    name: pbs_1291
+    reagent: wt-mega-v2
+    well_position: G7
+  model: igvf_mice.librarybarcode
+  pk: 79
+- fields:
+    barcode_type: T
+    code: G8
+    i7_sequence: AATTCTGC
+    name: pbs_1396
+    reagent: wt-mega-v2
+    well_position: G8
+  model: igvf_mice.librarybarcode
+  pk: 80
+- fields:
+    barcode_type: T
+    code: G9
+    i7_sequence: CATTCTCA
+    name: pbs_1241
+    reagent: wt-mega-v2
+    well_position: G9
+  model: igvf_mice.librarybarcode
+  pk: 81
+- fields:
+    barcode_type: T
+    code: G10
+    i7_sequence: ACTTGCCT
+    name: pbs_1219
+    reagent: wt-mega-v2
+    well_position: G10
+  model: igvf_mice.librarybarcode
+  pk: 82
+- fields:
+    barcode_type: T
+    code: G11
+    i7_sequence: ATCATTGC
+    name: pbs_1222
+    reagent: wt-mega-v2
+    well_position: G11
+  model: igvf_mice.librarybarcode
+  pk: 83
+- fields:
+    barcode_type: T
+    code: G12
+    i7_sequence: GTTCAACA
+    name: pbs_1119
+    reagent: wt-mega-v2
+    well_position: G12
+  model: igvf_mice.librarybarcode
+  pk: 84
+- fields:
+    barcode_type: T
+    code: H1
+    i7_sequence: CCATTTGC
+    name: pbs_1244
+    reagent: wt-mega-v2
+    well_position: H1
+  model: igvf_mice.librarybarcode
+  pk: 85
+- fields:
+    barcode_type: T
+    code: H2
+    i7_sequence: GACTTTGC
+    name: pbs_1269
+    reagent: wt-mega-v2
+    well_position: H2
+  model: igvf_mice.librarybarcode
+  pk: 86
+- fields:
+    barcode_type: T
+    code: H3
+    i7_sequence: ATTGGCTC
+    name: pbs_1081
+    reagent: wt-mega-v2
+    well_position: H3
+  model: igvf_mice.librarybarcode
+  pk: 87
+- fields:
+    barcode_type: T
+    code: H4
+    i7_sequence: GTGCTAGC
+    name: pbs_1127
+    reagent: wt-mega-v2
+    well_position: H4
+  model: igvf_mice.librarybarcode
+  pk: 88
+- fields:
+    barcode_type: T
+    code: H5
+    i7_sequence: CTTTCAAC
+    name: pbs_1268
+    reagent: wt-mega-v2
+    well_position: H5
+  model: igvf_mice.librarybarcode
+  pk: 89
+- fields:
+    barcode_type: T
+    code: H6
+    i7_sequence: ACTATTGC
+    name: pbs_1214
+    reagent: wt-mega-v2
+    well_position: H6
+  model: igvf_mice.librarybarcode
+  pk: 90
+- fields:
+    barcode_type: T
+    code: H7
+    i7_sequence: ACTGGCTT
+    name: pbs_1216
+    reagent: wt-mega-v2
+    well_position: H7
+  model: igvf_mice.librarybarcode
+  pk: 91
+- fields:
+    barcode_type: T
+    code: H8
+    i7_sequence: ATTAGGCT
+    name: pbs_1228
+    reagent: wt-mega-v2
+    well_position: H8
+  model: igvf_mice.librarybarcode
+  pk: 92
+- fields:
+    barcode_type: T
+    code: H9
+    i7_sequence: GCCTTTCA
+    name: pbs_1275
+    reagent: wt-mega-v2
+    well_position: H9
+  model: igvf_mice.librarybarcode
+  pk: 93
+- fields:
+    barcode_type: T
+    code: H10
+    i7_sequence: ATTCTAGG
+    name: pbs_1229
+    reagent: wt-mega-v2
+    well_position: H10
+  model: igvf_mice.librarybarcode
+  pk: 94
+- fields:
+    barcode_type: T
+    code: H11
+    i7_sequence: CCTTACAT
+    name: pbs_1252
+    reagent: wt-mega-v2
+    well_position: H11
+  model: igvf_mice.librarybarcode
+  pk: 95
+- fields:
+    barcode_type: T
+    code: H12
+    i7_sequence: ACATTTGG
+    name: pbs_1212
+    reagent: wt-mega-v2
+    well_position: H12
+  model: igvf_mice.librarybarcode
+  pk: 96
+- fields:
+    barcode_type: R
+    code: A1
+    i7_sequence: CATCATCC
+    name: pbs_1327
+    reagent: wt-mega-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 97
+- fields:
+    barcode_type: R
+    code: A2
+    i7_sequence: CTGCTTTG
+    name: pbs_1148
+    reagent: wt-mega-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 98
+- fields:
+    barcode_type: R
+    code: A3
+    i7_sequence: CTAAGGGA
+    name: pbs_1162
+    reagent: wt-mega-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 99
+- fields:
+    barcode_type: R
+    code: A4
+    i7_sequence: GCTTATAG
+    name: pbs_1166
+    reagent: wt-mega-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 100
+- fields:
+    barcode_type: R
+    code: A5
+    i7_sequence: TCTGATCC
+    name: pbs_1371
+    reagent: wt-mega-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 101
+- fields:
+    barcode_type: R
+    code: A6
+    i7_sequence: TCTCTTGG
+    name: pbs_1370
+    reagent: wt-mega-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 102
+- fields:
+    barcode_type: R
+    code: A7
+    i7_sequence: CAATTTCC
+    name: pbs_1326
+    reagent: wt-mega-v2
+    well_position: A7
+  model: igvf_mice.librarybarcode
+  pk: 103
+- fields:
+    barcode_type: R
+    code: A8
+    i7_sequence: AGTCTCTT
+    name: pbs_1312
+    reagent: wt-mega-v2
+    well_position: A8
+  model: igvf_mice.librarybarcode
+  pk: 104
+- fields:
+    barcode_type: R
+    code: A9
+    i7_sequence: TGCTGCTC
+    name: pbs_1377
+    reagent: wt-mega-v2
+    well_position: A9
+  model: igvf_mice.librarybarcode
+  pk: 105
+- fields:
+    barcode_type: R
+    code: A10
+    i7_sequence: GTATTTCC
+    name: pbs_1346
+    reagent: wt-mega-v2
+    well_position: A10
+  model: igvf_mice.librarybarcode
+  pk: 106
+- fields:
+    barcode_type: R
+    code: A11
+    i7_sequence: TTCCTGTG
+    name: pbs_1388
+    reagent: wt-mega-v2
+    well_position: A11
+  model: igvf_mice.librarybarcode
+  pk: 107
+- fields:
+    barcode_type: R
+    code: A12
+    i7_sequence: GCTGCTTC
+    name: pbs_1345
+    reagent: wt-mega-v2
+    well_position: A12
+  model: igvf_mice.librarybarcode
+  pk: 108
+- fields:
+    barcode_type: R
+    code: B1
+    i7_sequence: TATGTGTC
+    name: pbs_1362
+    reagent: wt-mega-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 109
+- fields:
+    barcode_type: R
+    code: B2
+    i7_sequence: CAATTCTC
+    name: pbs_1301
+    reagent: wt-mega-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 110
+- fields:
+    barcode_type: R
+    code: B3
+    i7_sequence: TGGTCTCC
+    name: pbs_1380
+    reagent: wt-mega-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 111
+- fields:
+    barcode_type: R
+    code: B4
+    i7_sequence: GCTCTTTA
+    name: pbs_1344
+    reagent: wt-mega-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 112
+- fields:
+    barcode_type: R
+    code: B5
+    i7_sequence: GCTGCATG
+    name: pbs_1159
+    reagent: wt-mega-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 113
+- fields:
+    barcode_type: R
+    code: B6
+    i7_sequence: ACTCATTT
+    name: pbs_1310
+    reagent: wt-mega-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 114
+- fields:
+    barcode_type: R
+    code: B7
+    i7_sequence: AGTCTTGG
+    name: pbs_1313
+    reagent: wt-mega-v2
+    well_position: B7
+  model: igvf_mice.librarybarcode
+  pk: 115
+- fields:
+    barcode_type: R
+    code: B8
+    i7_sequence: GGTTCTTC
+    name: pbs_1181
+    reagent: wt-mega-v2
+    well_position: B8
+  model: igvf_mice.librarybarcode
+  pk: 116
+- fields:
+    barcode_type: R
+    code: B9
+    i7_sequence: TCATGTTG
+    name: pbs_1367
+    reagent: wt-mega-v2
+    well_position: B9
+  model: igvf_mice.librarybarcode
+  pk: 117
+- fields:
+    barcode_type: R
+    code: B10
+    i7_sequence: ATTTTGCC
+    name: pbs_1324
+    reagent: wt-mega-v2
+    well_position: B10
+  model: igvf_mice.librarybarcode
+  pk: 118
+- fields:
+    barcode_type: R
+    code: B11
+    i7_sequence: CTTCTGTA
+    name: pbs_1339
+    reagent: wt-mega-v2
+    well_position: B11
+  model: igvf_mice.librarybarcode
+  pk: 119
+- fields:
+    barcode_type: R
+    code: B12
+    i7_sequence: GTCCATCT
+    name: pbs_1348
+    reagent: wt-mega-v2
+    well_position: B12
+  model: igvf_mice.librarybarcode
+  pk: 120
+- fields:
+    barcode_type: R
+    code: C1
+    i7_sequence: GCTATCTC
+    name: pbs_1304
+    reagent: wt-mega-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 121
+- fields:
+    barcode_type: R
+    code: C2
+    i7_sequence: TAGTTTCC
+    name: pbs_1359
+    reagent: wt-mega-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 122
+- fields:
+    barcode_type: R
+    code: C3
+    i7_sequence: TCCATTAT
+    name: pbs_1368
+    reagent: wt-mega-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 123
+- fields:
+    barcode_type: R
+    code: C4
+    i7_sequence: AGGATTAA
+    name: pbs_1175
+    reagent: wt-mega-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 124
+- fields:
+    barcode_type: R
+    code: C5
+    i7_sequence: AATCTTTC
+    name: pbs_1309
+    reagent: wt-mega-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 125
+- fields:
+    barcode_type: R
+    code: C6
+    i7_sequence: GTCATATG
+    name: pbs_1160
+    reagent: wt-mega-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 126
+- fields:
+    barcode_type: R
+    code: C7
+    i7_sequence: GTGCTTCC
+    name: pbs_1351
+    reagent: wt-mega-v2
+    well_position: C7
+  model: igvf_mice.librarybarcode
+  pk: 127
+- fields:
+    barcode_type: R
+    code: C8
+    i7_sequence: ATGTGTTG
+    name: pbs_1319
+    reagent: wt-mega-v2
+    well_position: C8
+  model: igvf_mice.librarybarcode
+  pk: 128
+- fields:
+    barcode_type: R
+    code: C9
+    i7_sequence: CCATCTTG
+    name: pbs_1169
+    reagent: wt-mega-v2
+    well_position: C9
+  model: igvf_mice.librarybarcode
+  pk: 129
+- fields:
+    barcode_type: R
+    code: C10
+    i7_sequence: TACTGTCT
+    name: pbs_1357
+    reagent: wt-mega-v2
+    well_position: C10
+  model: igvf_mice.librarybarcode
+  pk: 130
+- fields:
+    barcode_type: R
+    code: C11
+    i7_sequence: TTCATCGC
+    name: pbs_1173
+    reagent: wt-mega-v2
+    well_position: C11
+  model: igvf_mice.librarybarcode
+  pk: 131
+- fields:
+    barcode_type: R
+    code: C12
+    i7_sequence: ACTGTGGG
+    name: pbs_1311
+    reagent: wt-mega-v2
+    well_position: C12
+  model: igvf_mice.librarybarcode
+  pk: 132
+- fields:
+    barcode_type: R
+    code: D1
+    i7_sequence: TCTGTGCC
+    name: pbs_1373
+    reagent: wt-mega-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 133
+- fields:
+    barcode_type: R
+    code: D2
+    i7_sequence: TCAATCTC
+    name: pbs_1364
+    reagent: wt-mega-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 134
+- fields:
+    barcode_type: R
+    code: D3
+    i7_sequence: GTCCTCTG
+    name: pbs_1349
+    reagent: wt-mega-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 135
+- fields:
+    barcode_type: R
+    code: D4
+    i7_sequence: TTACATTC
+    name: pbs_1386
+    reagent: wt-mega-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 136
+- fields:
+    barcode_type: R
+    code: D5
+    i7_sequence: ATTCTGTC
+    name: pbs_1322
+    reagent: wt-mega-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 137
+- fields:
+    barcode_type: R
+    code: D6
+    i7_sequence: TGTGTATG
+    name: pbs_1383
+    reagent: wt-mega-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 138
+- fields:
+    barcode_type: R
+    code: D7
+    i7_sequence: TCCATTTG
+    name: pbs_1369
+    reagent: wt-mega-v2
+    well_position: D7
+  model: igvf_mice.librarybarcode
+  pk: 139
+- fields:
+    barcode_type: R
+    code: D8
+    i7_sequence: TTAGCTTC
+    name: pbs_1387
+    reagent: wt-mega-v2
+    well_position: D8
+  model: igvf_mice.librarybarcode
+  pk: 140
+- fields:
+    barcode_type: R
+    code: D9
+    i7_sequence: GTGCTTGA
+    name: pbs_1352
+    reagent: wt-mega-v2
+    well_position: D9
+  model: igvf_mice.librarybarcode
+  pk: 141
+- fields:
+    barcode_type: R
+    code: D10
+    i7_sequence: GTTTGTGA
+    name: pbs_1179
+    reagent: wt-mega-v2
+    well_position: D10
+  model: igvf_mice.librarybarcode
+  pk: 142
+- fields:
+    barcode_type: R
+    code: D11
+    i7_sequence: GAAATTAG
+    name: pbs_1174
+    reagent: wt-mega-v2
+    well_position: D11
+  model: igvf_mice.librarybarcode
+  pk: 143
+- fields:
+    barcode_type: R
+    code: D12
+    i7_sequence: GCAAATTC
+    name: pbs_1182
+    reagent: wt-mega-v2
+    well_position: D12
+  model: igvf_mice.librarybarcode
+  pk: 144
+- fields:
+    barcode_type: R
+    code: E1
+    i7_sequence: GAGGTTGA
+    name: pbs_1171
+    reagent: wt-mega-v2
+    well_position: E1
+  model: igvf_mice.librarybarcode
+  pk: 145
+- fields:
+    barcode_type: R
+    code: E2
+    i7_sequence: CCTGTCTG
+    name: pbs_1334
+    reagent: wt-mega-v2
+    well_position: E2
+  model: igvf_mice.librarybarcode
+  pk: 146
+- fields:
+    barcode_type: R
+    code: E3
+    i7_sequence: GTGGGTTC
+    name: pbs_1185
+    reagent: wt-mega-v2
+    well_position: E3
+  model: igvf_mice.librarybarcode
+  pk: 147
+- fields:
+    barcode_type: R
+    code: E4
+    i7_sequence: TTTGCATC
+    name: pbs_1394
+    reagent: wt-mega-v2
+    well_position: E4
+  model: igvf_mice.librarybarcode
+  pk: 148
+- fields:
+    barcode_type: R
+    code: E5
+    i7_sequence: AGGTAATA
+    name: pbs_1189
+    reagent: wt-mega-v2
+    well_position: E5
+  model: igvf_mice.librarybarcode
+  pk: 149
+- fields:
+    barcode_type: R
+    code: E6
+    i7_sequence: GTGCCTTC
+    name: pbs_1350
+    reagent: wt-mega-v2
+    well_position: E6
+  model: igvf_mice.librarybarcode
+  pk: 150
+- fields:
+    barcode_type: R
+    code: E7
+    i7_sequence: ATGTTTCC
+    name: pbs_1320
+    reagent: wt-mega-v2
+    well_position: E7
+  model: igvf_mice.librarybarcode
+  pk: 151
+- fields:
+    barcode_type: R
+    code: E8
+    i7_sequence: CTTAATTC
+    name: pbs_1338
+    reagent: wt-mega-v2
+    well_position: E8
+  model: igvf_mice.librarybarcode
+  pk: 152
+- fields:
+    barcode_type: R
+    code: E9
+    i7_sequence: TCTGGCTC
+    name: pbs_1372
+    reagent: wt-mega-v2
+    well_position: E9
+  model: igvf_mice.librarybarcode
+  pk: 153
+- fields:
+    barcode_type: R
+    code: E10
+    i7_sequence: CATCATTT
+    name: pbs_1328
+    reagent: wt-mega-v2
+    well_position: E10
+  model: igvf_mice.librarybarcode
+  pk: 154
+- fields:
+    barcode_type: R
+    code: E11
+    i7_sequence: GTTGTCTC
+    name: pbs_1397
+    reagent: wt-mega-v2
+    well_position: E11
+  model: igvf_mice.librarybarcode
+  pk: 155
+- fields:
+    barcode_type: R
+    code: E12
+    i7_sequence: ATCTTCTG
+    name: pbs_1316
+    reagent: wt-mega-v2
+    well_position: E12
+  model: igvf_mice.librarybarcode
+  pk: 156
+- fields:
+    barcode_type: R
+    code: F1
+    i7_sequence: TGTTTGCC
+    name: pbs_1385
+    reagent: wt-mega-v2
+    well_position: F1
+  model: igvf_mice.librarybarcode
+  pk: 157
+- fields:
+    barcode_type: R
+    code: F2
+    i7_sequence: TTCTGTCA
+    name: pbs_1389
+    reagent: wt-mega-v2
+    well_position: F2
+  model: igvf_mice.librarybarcode
+  pk: 158
+- fields:
+    barcode_type: R
+    code: F3
+    i7_sequence: ACGGACTC
+    name: pbs_1152
+    reagent: wt-mega-v2
+    well_position: F3
+  model: igvf_mice.librarybarcode
+  pk: 159
+- fields:
+    barcode_type: R
+    code: F4
+    i7_sequence: TTTGGTCA
+    name: pbs_1395
+    reagent: wt-mega-v2
+    well_position: F4
+  model: igvf_mice.librarybarcode
+  pk: 160
+- fields:
+    barcode_type: R
+    code: F5
+    i7_sequence: TATCCGGG
+    name: pbs_1188
+    reagent: wt-mega-v2
+    well_position: F5
+  model: igvf_mice.librarybarcode
+  pk: 161
+- fields:
+    barcode_type: R
+    code: F6
+    i7_sequence: TGTCATTC
+    name: pbs_1381
+    reagent: wt-mega-v2
+    well_position: F6
+  model: igvf_mice.librarybarcode
+  pk: 162
+- fields:
+    barcode_type: R
+    code: F7
+    i7_sequence: ATTCTCTG
+    name: pbs_1321
+    reagent: wt-mega-v2
+    well_position: F7
+  model: igvf_mice.librarybarcode
+  pk: 163
+- fields:
+    barcode_type: R
+    code: F8
+    i7_sequence: TGGCTTCC
+    name: pbs_1379
+    reagent: wt-mega-v2
+    well_position: F8
+  model: igvf_mice.librarybarcode
+  pk: 164
+- fields:
+    barcode_type: R
+    code: F9
+    i7_sequence: TTGTTGCC
+    name: pbs_1393
+    reagent: wt-mega-v2
+    well_position: F9
+  model: igvf_mice.librarybarcode
+  pk: 165
+- fields:
+    barcode_type: R
+    code: F10
+    i7_sequence: GTCATCTC
+    name: pbs_1347
+    reagent: wt-mega-v2
+    well_position: F10
+  model: igvf_mice.librarybarcode
+  pk: 166
+- fields:
+    barcode_type: R
+    code: F11
+    i7_sequence: TTGCTCAT
+    name: pbs_1391
+    reagent: wt-mega-v2
+    well_position: F11
+  model: igvf_mice.librarybarcode
+  pk: 167
+- fields:
+    barcode_type: R
+    code: F12
+    i7_sequence: CTGTCTGC
+    name: pbs_1302
+    reagent: wt-mega-v2
+    well_position: F12
+  model: igvf_mice.librarybarcode
+  pk: 168
+- fields:
+    barcode_type: R
+    code: G1
+    i7_sequence: TATATTCC
+    name: pbs_1360
+    reagent: wt-mega-v2
+    well_position: G1
+  model: igvf_mice.librarybarcode
+  pk: 169
+- fields:
+    barcode_type: R
+    code: G2
+    i7_sequence: ATATTGGC
+    name: pbs_1161
+    reagent: wt-mega-v2
+    well_position: G2
+  model: igvf_mice.librarybarcode
+  pk: 170
+- fields:
+    barcode_type: R
+    code: G3
+    i7_sequence: GTGTCCTC
+    name: pbs_1353
+    reagent: wt-mega-v2
+    well_position: G3
+  model: igvf_mice.librarybarcode
+  pk: 171
+- fields:
+    barcode_type: R
+    code: G4
+    i7_sequence: ATCTTCAT
+    name: pbs_1315
+    reagent: wt-mega-v2
+    well_position: G4
+  model: igvf_mice.librarybarcode
+  pk: 172
+- fields:
+    barcode_type: R
+    code: G5
+    i7_sequence: CGTGGTTG
+    name: pbs_1190
+    reagent: wt-mega-v2
+    well_position: G5
+  model: igvf_mice.librarybarcode
+  pk: 173
+- fields:
+    barcode_type: R
+    code: G6
+    i7_sequence: TTGCATCC
+    name: pbs_1390
+    reagent: wt-mega-v2
+    well_position: G6
+  model: igvf_mice.librarybarcode
+  pk: 174
+- fields:
+    barcode_type: R
+    code: G7
+    i7_sequence: TCTTAATC
+    name: pbs_1177
+    reagent: wt-mega-v2
+    well_position: G7
+  model: igvf_mice.librarybarcode
+  pk: 175
+- fields:
+    barcode_type: R
+    code: G8
+    i7_sequence: TGCATTTC
+    name: pbs_1375
+    reagent: wt-mega-v2
+    well_position: G8
+  model: igvf_mice.librarybarcode
+  pk: 176
+- fields:
+    barcode_type: R
+    code: G9
+    i7_sequence: GATGTTTC
+    name: pbs_1341
+    reagent: wt-mega-v2
+    well_position: G9
+  model: igvf_mice.librarybarcode
+  pk: 177
+- fields:
+    barcode_type: R
+    code: G10
+    i7_sequence: ATCTTGTC
+    name: pbs_1317
+    reagent: wt-mega-v2
+    well_position: G10
+  model: igvf_mice.librarybarcode
+  pk: 178
+- fields:
+    barcode_type: R
+    code: G11
+    i7_sequence: TCATATTC
+    name: pbs_1365
+    reagent: wt-mega-v2
+    well_position: G11
+  model: igvf_mice.librarybarcode
+  pk: 179
+- fields:
+    barcode_type: R
+    code: G12
+    i7_sequence: TGGCCTCT
+    name: pbs_1378
+    reagent: wt-mega-v2
+    well_position: G12
+  model: igvf_mice.librarybarcode
+  pk: 180
+- fields:
+    barcode_type: R
+    code: H1
+    i7_sequence: CGTTGTCT
+    name: pbs_1335
+    reagent: wt-mega-v2
+    well_position: H1
+  model: igvf_mice.librarybarcode
+  pk: 181
+- fields:
+    barcode_type: R
+    code: H2
+    i7_sequence: TCTTGTCA
+    name: pbs_1374
+    reagent: wt-mega-v2
+    well_position: H2
+  model: igvf_mice.librarybarcode
+  pk: 182
+- fields:
+    barcode_type: R
+    code: H3
+    i7_sequence: TATTCCTG
+    name: pbs_1363
+    reagent: wt-mega-v2
+    well_position: H3
+  model: igvf_mice.librarybarcode
+  pk: 183
+- fields:
+    barcode_type: R
+    code: H4
+    i7_sequence: TCCATGTC
+    name: pbs_1306
+    reagent: wt-mega-v2
+    well_position: H4
+  model: igvf_mice.librarybarcode
+  pk: 184
+- fields:
+    barcode_type: R
+    code: H5
+    i7_sequence: TTGTCATC
+    name: pbs_1392
+    reagent: wt-mega-v2
+    well_position: H5
+  model: igvf_mice.librarybarcode
+  pk: 185
+- fields:
+    barcode_type: R
+    code: H6
+    i7_sequence: ATTTCCTG
+    name: pbs_1323
+    reagent: wt-mega-v2
+    well_position: H6
+  model: igvf_mice.librarybarcode
+  pk: 186
+- fields:
+    barcode_type: R
+    code: H7
+    i7_sequence: GTGTCTCC
+    name: pbs_1354
+    reagent: wt-mega-v2
+    well_position: H7
+  model: igvf_mice.librarybarcode
+  pk: 187
+- fields:
+    barcode_type: R
+    code: H8
+    i7_sequence: GTGTGTGT
+    name: pbs_1355
+    reagent: wt-mega-v2
+    well_position: H8
+  model: igvf_mice.librarybarcode
+  pk: 188
+- fields:
+    barcode_type: R
+    code: H9
+    i7_sequence: TATGCTTC
+    name: pbs_1361
+    reagent: wt-mega-v2
+    well_position: H9
+  model: igvf_mice.librarybarcode
+  pk: 189
+- fields:
+    barcode_type: R
+    code: H10
+    i7_sequence: ATGGTGTT
+    name: pbs_1318
+    reagent: wt-mega-v2
+    well_position: H10
+  model: igvf_mice.librarybarcode
+  pk: 190
+- fields:
+    barcode_type: R
+    code: H11
+    i7_sequence: GAATAATG
+    name: pbs_1164
+    reagent: wt-mega-v2
+    well_position: H11
+  model: igvf_mice.librarybarcode
+  pk: 191
+- fields:
+    barcode_type: R
+    code: H12
+    i7_sequence: CCTCTGTG
+    name: pbs_1332
+    reagent: wt-mega-v2
+    well_position: H12
+  model: igvf_mice.librarybarcode
+  pk: 192
+- fields:
+    code: '1'
+    i7_sequence: CAGATC
+    name: '1'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 193
+- fields:
+    code: '2'
+    i7_sequence: ACTTGA
+    name: '2'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 194
+- fields:
+    code: '3'
+    i7_sequence: GATCAG
+    name: '3'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 195
+- fields:
+    code: '4'
+    i7_sequence: TAGCTT
+    name: '4'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 196
+- fields:
+    code: '5'
+    i7_sequence: ATGTCA
+    name: '5'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 197
+- fields:
+    code: '6'
+    i7_sequence: CTTGTA
+    name: '6'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 198
+- fields:
+    code: '7'
+    i7_sequence: AGTCAA
+    name: '7'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 199
+- fields:
+    code: '8'
+    i7_sequence: AGTTCC
+    name: '8'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 200
+- fields:
+    code: '9'
+    i7_sequence: GAGTGG
+    name: '9'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 201
+- fields:
+    code: '10'
+    i7_sequence: CCGTCC
+    name: '10'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 202
+- fields:
+    code: '11'
+    i7_sequence: GTAGAG
+    name: '11'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 203
+- fields:
+    code: '12'
+    i7_sequence: GTCCGC
+    name: '12'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 204
+- fields:
+    code: '13'
+    i7_sequence: GTGAAA
+    name: '13'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 205
+- fields:
+    code: '14'
+    i7_sequence: GTGGCC
+    name: '14'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 206
+- fields:
+    code: '15'
+    i7_sequence: GTTTCG
+    name: '15'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 207
+- fields:
+    code: '16'
+    i7_sequence: CGTACG
+    name: '16'
+    reagent: wt-mega-v2
+  model: igvf_mice.librarybarcode
+  pk: 208
+- fields:
+    barcode_type: T
+    code: A1
+    i7_sequence: CATTCCTA
+    name: pbs_1239
+    reagent: wt-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 209
+- fields:
+    barcode_type: T
+    code: A2
+    i7_sequence: CTTCATCA
+    name: pbs_1205
+    reagent: wt-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 210
+- fields:
+    barcode_type: T
+    code: A3
+    i7_sequence: CCTATATC
+    name: pbs_1247
+    reagent: wt-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 211
+- fields:
+    barcode_type: T
+    code: A4
+    i7_sequence: ACATTTAC
+    name: pbs_1211
+    reagent: wt-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 212
+- fields:
+    barcode_type: T
+    code: A5
+    i7_sequence: ACTTAGCT
+    name: pbs_1218
+    reagent: wt-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 213
+- fields:
+    barcode_type: T
+    code: A6
+    i7_sequence: CCAATTCT
+    name: pbs_1243
+    reagent: wt-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 214
+- fields:
+    barcode_type: T
+    code: A7
+    i7_sequence: GCCTATCT
+    name: pbs_1273
+    reagent: wt-v2
+    well_position: A7
+  model: igvf_mice.librarybarcode
+  pk: 215
+- fields:
+    barcode_type: T
+    code: A8
+    i7_sequence: ATGCTGCT
+    name: pbs_1227
+    reagent: wt-v2
+    well_position: A8
+  model: igvf_mice.librarybarcode
+  pk: 216
+- fields:
+    barcode_type: T
+    code: A9
+    i7_sequence: CATTTACA
+    name: pbs_1242
+    reagent: wt-v2
+    well_position: A9
+  model: igvf_mice.librarybarcode
+  pk: 217
+- fields:
+    barcode_type: T
+    code: A10
+    i7_sequence: ACTCGTAA
+    name: pbs_1100
+    reagent: wt-v2
+    well_position: A10
+  model: igvf_mice.librarybarcode
+  pk: 218
+- fields:
+    barcode_type: T
+    code: A11
+    i7_sequence: CCTTTGCA
+    name: pbs_1255
+    reagent: wt-v2
+    well_position: A11
+  model: igvf_mice.librarybarcode
+  pk: 219
+- fields:
+    barcode_type: T
+    code: A12
+    i7_sequence: ACTCCTGC
+    name: pbs_1215
+    reagent: wt-v2
+    well_position: A12
+  model: igvf_mice.librarybarcode
+  pk: 220
+- fields:
+    barcode_type: T
+    code: B1
+    i7_sequence: ATTTGGCA
+    name: pbs_1231
+    reagent: wt-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 221
+- fields:
+    barcode_type: T
+    code: B2
+    i7_sequence: TTATTCTG
+    name: pbs_1118
+    reagent: wt-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 222
+- fields:
+    barcode_type: T
+    code: B3
+    i7_sequence: TCATGCTC
+    name: pbs_1285
+    reagent: wt-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 223
+- fields:
+    barcode_type: T
+    code: B4
+    i7_sequence: CATACTTC
+    name: pbs_1202
+    reagent: wt-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 224
+- fields:
+    barcode_type: T
+    code: B5
+    i7_sequence: CCGTTCTA
+    name: pbs_1111
+    reagent: wt-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 225
+- fields:
+    barcode_type: T
+    code: B6
+    i7_sequence: GCTTCATA
+    name: pbs_1279
+    reagent: wt-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 226
+- fields:
+    barcode_type: T
+    code: B7
+    i7_sequence: CTCTGTGC
+    name: pbs_1204
+    reagent: wt-v2
+    well_position: B7
+  model: igvf_mice.librarybarcode
+  pk: 227
+- fields:
+    barcode_type: T
+    code: B8
+    i7_sequence: CCCTTATA
+    name: pbs_1246
+    reagent: wt-v2
+    well_position: B8
+  model: igvf_mice.librarybarcode
+  pk: 228
+- fields:
+    barcode_type: T
+    code: B9
+    i7_sequence: ACTGCTCT
+    name: pbs_1200
+    reagent: wt-v2
+    well_position: B9
+  model: igvf_mice.librarybarcode
+  pk: 229
+- fields:
+    barcode_type: T
+    code: B10
+    i7_sequence: CTCTAATC
+    name: pbs_1257
+    reagent: wt-v2
+    well_position: B10
+  model: igvf_mice.librarybarcode
+  pk: 230
+- fields:
+    barcode_type: T
+    code: B11
+    i7_sequence: ACCCTTGC
+    name: pbs_1213
+    reagent: wt-v2
+    well_position: B11
+  model: igvf_mice.librarybarcode
+  pk: 231
+- fields:
+    barcode_type: T
+    code: B12
+    i7_sequence: ATCTTAGG
+    name: pbs_1224
+    reagent: wt-v2
+    well_position: B12
+  model: igvf_mice.librarybarcode
+  pk: 232
+- fields:
+    barcode_type: T
+    code: C1
+    i7_sequence: CATGTCTC
+    name: pbs_1238
+    reagent: wt-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 233
+- fields:
+    barcode_type: T
+    code: C2
+    i7_sequence: TCATTGCA
+    name: pbs_1288
+    reagent: wt-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 234
+- fields:
+    barcode_type: T
+    code: C3
+    i7_sequence: ACACCTTT
+    name: pbs_1209
+    reagent: wt-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 235
+- fields:
+    barcode_type: T
+    code: C4
+    i7_sequence: AATTTCTC
+    name: pbs_1115
+    reagent: wt-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 236
+- fields:
+    barcode_type: T
+    code: C5
+    i7_sequence: ATTCATGG
+    name: pbs_1108
+    reagent: wt-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 237
+- fields:
+    barcode_type: T
+    code: C6
+    i7_sequence: ACTTTACC
+    name: pbs_1220
+    reagent: wt-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 238
+- fields:
+    barcode_type: T
+    code: C7
+    i7_sequence: CTTCTAAC
+    name: pbs_1267
+    reagent: wt-v2
+    well_position: C7
+  model: igvf_mice.librarybarcode
+  pk: 239
+- fields:
+    barcode_type: T
+    code: C8
+    i7_sequence: CTATTTCA
+    name: pbs_1145
+    reagent: wt-v2
+    well_position: C8
+  model: igvf_mice.librarybarcode
+  pk: 240
+- fields:
+    barcode_type: T
+    code: C9
+    i7_sequence: TCTCATGC
+    name: pbs_1292
+    reagent: wt-v2
+    well_position: C9
+  model: igvf_mice.librarybarcode
+  pk: 241
+- fields:
+    barcode_type: T
+    code: C10
+    i7_sequence: ATCCTTAC
+    name: pbs_1223
+    reagent: wt-v2
+    well_position: C10
+  model: igvf_mice.librarybarcode
+  pk: 242
+- fields:
+    barcode_type: T
+    code: C11
+    i7_sequence: TAAATATC
+    name: pbs_1125
+    reagent: wt-v2
+    well_position: C11
+  model: igvf_mice.librarybarcode
+  pk: 243
+- fields:
+    barcode_type: T
+    code: C12
+    i7_sequence: TTACCTGC
+    name: pbs_1295
+    reagent: wt-v2
+    well_position: C12
+  model: igvf_mice.librarybarcode
+  pk: 244
+- fields:
+    barcode_type: T
+    code: D1
+    i7_sequence: CACTTTCA
+    name: pbs_1236
+    reagent: wt-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 245
+- fields:
+    barcode_type: T
+    code: D2
+    i7_sequence: CACCTTTA
+    name: pbs_1233
+    reagent: wt-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 246
+- fields:
+    barcode_type: T
+    code: D3
+    i7_sequence: CTGACTTC
+    name: pbs_1261
+    reagent: wt-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 247
+- fields:
+    barcode_type: T
+    code: D4
+    i7_sequence: CATTTGGA
+    name: pbs_1141
+    reagent: wt-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 248
+- fields:
+    barcode_type: T
+    code: D5
+    i7_sequence: GCTCTACT
+    name: pbs_1277
+    reagent: wt-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 249
+- fields:
+    barcode_type: T
+    code: D6
+    i7_sequence: GTTACGTA
+    name: pbs_1144
+    reagent: wt-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 250
+- fields:
+    barcode_type: T
+    code: D7
+    i7_sequence: CCTGTTGC
+    name: pbs_1251
+    reagent: wt-v2
+    well_position: D7
+  model: igvf_mice.librarybarcode
+  pk: 251
+- fields:
+    barcode_type: T
+    code: D8
+    i7_sequence: CTATCATC
+    name: pbs_1203
+    reagent: wt-v2
+    well_position: D8
+  model: igvf_mice.librarybarcode
+  pk: 252
+- fields:
+    barcode_type: T
+    code: D9
+    i7_sequence: GCTATCAT
+    name: pbs_1276
+    reagent: wt-v2
+    well_position: D9
+  model: igvf_mice.librarybarcode
+  pk: 253
+- fields:
+    barcode_type: T
+    code: D10
+    i7_sequence: ACATTCAT
+    name: pbs_1210
+    reagent: wt-v2
+    well_position: D10
+  model: igvf_mice.librarybarcode
+  pk: 254
+- fields:
+    barcode_type: T
+    code: D11
+    i7_sequence: TTCGCTAC
+    name: pbs_1132
+    reagent: wt-v2
+    well_position: D11
+  model: igvf_mice.librarybarcode
+  pk: 255
+- fields:
+    barcode_type: T
+    code: D12
+    i7_sequence: CATTCTAC
+    name: pbs_1240
+    reagent: wt-v2
+    well_position: D12
+  model: igvf_mice.librarybarcode
+  pk: 256
+- fields:
+    barcode_type: R
+    code: A1
+    i7_sequence: CATCATCC
+    name: pbs_1327
+    reagent: wt-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 257
+- fields:
+    barcode_type: R
+    code: A2
+    i7_sequence: CTGCTTTG
+    name: pbs_1148
+    reagent: wt-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 258
+- fields:
+    barcode_type: R
+    code: A3
+    i7_sequence: CTAAGGGA
+    name: pbs_1162
+    reagent: wt-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 259
+- fields:
+    barcode_type: R
+    code: A4
+    i7_sequence: GCTTATAG
+    name: pbs_1166
+    reagent: wt-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 260
+- fields:
+    barcode_type: R
+    code: A5
+    i7_sequence: TCTGATCC
+    name: pbs_1371
+    reagent: wt-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 261
+- fields:
+    barcode_type: R
+    code: A6
+    i7_sequence: TCTCTTGG
+    name: pbs_1370
+    reagent: wt-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 262
+- fields:
+    barcode_type: R
+    code: A7
+    i7_sequence: CAATTTCC
+    name: pbs_1326
+    reagent: wt-v2
+    well_position: A7
+  model: igvf_mice.librarybarcode
+  pk: 263
+- fields:
+    barcode_type: R
+    code: A8
+    i7_sequence: AGTCTCTT
+    name: pbs_1312
+    reagent: wt-v2
+    well_position: A8
+  model: igvf_mice.librarybarcode
+  pk: 264
+- fields:
+    barcode_type: R
+    code: A9
+    i7_sequence: TGCTGCTC
+    name: pbs_1377
+    reagent: wt-v2
+    well_position: A9
+  model: igvf_mice.librarybarcode
+  pk: 265
+- fields:
+    barcode_type: R
+    code: A10
+    i7_sequence: GTATTTCC
+    name: pbs_1346
+    reagent: wt-v2
+    well_position: A10
+  model: igvf_mice.librarybarcode
+  pk: 266
+- fields:
+    barcode_type: R
+    code: A11
+    i7_sequence: TTCCTGTG
+    name: pbs_1388
+    reagent: wt-v2
+    well_position: A11
+  model: igvf_mice.librarybarcode
+  pk: 267
+- fields:
+    barcode_type: R
+    code: A12
+    i7_sequence: GCTGCTTC
+    name: pbs_1345
+    reagent: wt-v2
+    well_position: A12
+  model: igvf_mice.librarybarcode
+  pk: 268
+- fields:
+    barcode_type: R
+    code: B1
+    i7_sequence: TATGTGTC
+    name: pbs_1362
+    reagent: wt-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 269
+- fields:
+    barcode_type: R
+    code: B2
+    i7_sequence: CAATTCTC
+    name: pbs_1301
+    reagent: wt-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 270
+- fields:
+    barcode_type: R
+    code: B3
+    i7_sequence: TGGTCTCC
+    name: pbs_1380
+    reagent: wt-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 271
+- fields:
+    barcode_type: R
+    code: B4
+    i7_sequence: GCTCTTTA
+    name: pbs_1344
+    reagent: wt-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 272
+- fields:
+    barcode_type: R
+    code: B5
+    i7_sequence: GCTGCATG
+    name: pbs_1159
+    reagent: wt-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 273
+- fields:
+    barcode_type: R
+    code: B6
+    i7_sequence: ACTCATTT
+    name: pbs_1310
+    reagent: wt-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 274
+- fields:
+    barcode_type: R
+    code: B7
+    i7_sequence: AGTCTTGG
+    name: pbs_1313
+    reagent: wt-v2
+    well_position: B7
+  model: igvf_mice.librarybarcode
+  pk: 275
+- fields:
+    barcode_type: R
+    code: B8
+    i7_sequence: GGTTCTTC
+    name: pbs_1181
+    reagent: wt-v2
+    well_position: B8
+  model: igvf_mice.librarybarcode
+  pk: 276
+- fields:
+    barcode_type: R
+    code: B9
+    i7_sequence: TCATGTTG
+    name: pbs_1367
+    reagent: wt-v2
+    well_position: B9
+  model: igvf_mice.librarybarcode
+  pk: 277
+- fields:
+    barcode_type: R
+    code: B10
+    i7_sequence: ATTTTGCC
+    name: pbs_1324
+    reagent: wt-v2
+    well_position: B10
+  model: igvf_mice.librarybarcode
+  pk: 278
+- fields:
+    barcode_type: R
+    code: B11
+    i7_sequence: CTTCTGTA
+    name: pbs_1339
+    reagent: wt-v2
+    well_position: B11
+  model: igvf_mice.librarybarcode
+  pk: 279
+- fields:
+    barcode_type: R
+    code: B12
+    i7_sequence: GTCCATCT
+    name: pbs_1348
+    reagent: wt-v2
+    well_position: B12
+  model: igvf_mice.librarybarcode
+  pk: 280
+- fields:
+    barcode_type: R
+    code: C1
+    i7_sequence: GCTATCTC
+    name: pbs_1304
+    reagent: wt-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 281
+- fields:
+    barcode_type: R
+    code: C2
+    i7_sequence: TAGTTTCC
+    name: pbs_1359
+    reagent: wt-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 282
+- fields:
+    barcode_type: R
+    code: C3
+    i7_sequence: TCCATTAT
+    name: pbs_1368
+    reagent: wt-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 283
+- fields:
+    barcode_type: R
+    code: C4
+    i7_sequence: AGGATTAA
+    name: pbs_1175
+    reagent: wt-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 284
+- fields:
+    barcode_type: R
+    code: C5
+    i7_sequence: AATCTTTC
+    name: pbs_1309
+    reagent: wt-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 285
+- fields:
+    barcode_type: R
+    code: C6
+    i7_sequence: GTCATATG
+    name: pbs_1160
+    reagent: wt-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 286
+- fields:
+    barcode_type: R
+    code: C7
+    i7_sequence: GTGCTTCC
+    name: pbs_1351
+    reagent: wt-v2
+    well_position: C7
+  model: igvf_mice.librarybarcode
+  pk: 287
+- fields:
+    barcode_type: R
+    code: C8
+    i7_sequence: ATGTGTTG
+    name: pbs_1319
+    reagent: wt-v2
+    well_position: C8
+  model: igvf_mice.librarybarcode
+  pk: 288
+- fields:
+    barcode_type: R
+    code: C9
+    i7_sequence: CCATCTTG
+    name: pbs_1169
+    reagent: wt-v2
+    well_position: C9
+  model: igvf_mice.librarybarcode
+  pk: 289
+- fields:
+    barcode_type: R
+    code: C10
+    i7_sequence: TACTGTCT
+    name: pbs_1357
+    reagent: wt-v2
+    well_position: C10
+  model: igvf_mice.librarybarcode
+  pk: 290
+- fields:
+    barcode_type: R
+    code: C11
+    i7_sequence: TTCATCGC
+    name: pbs_1173
+    reagent: wt-v2
+    well_position: C11
+  model: igvf_mice.librarybarcode
+  pk: 291
+- fields:
+    barcode_type: R
+    code: C12
+    i7_sequence: ACTGTGGG
+    name: pbs_1311
+    reagent: wt-v2
+    well_position: C12
+  model: igvf_mice.librarybarcode
+  pk: 292
+- fields:
+    barcode_type: R
+    code: D1
+    i7_sequence: TCTGTGCC
+    name: pbs_1373
+    reagent: wt-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 293
+- fields:
+    barcode_type: R
+    code: D2
+    i7_sequence: TCAATCTC
+    name: pbs_1364
+    reagent: wt-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 294
+- fields:
+    barcode_type: R
+    code: D3
+    i7_sequence: GTCCTCTG
+    name: pbs_1349
+    reagent: wt-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 295
+- fields:
+    barcode_type: R
+    code: D4
+    i7_sequence: TTACATTC
+    name: pbs_1386
+    reagent: wt-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 296
+- fields:
+    barcode_type: R
+    code: D5
+    i7_sequence: ATTCTGTC
+    name: pbs_1322
+    reagent: wt-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 297
+- fields:
+    barcode_type: R
+    code: D6
+    i7_sequence: TGTGTATG
+    name: pbs_1383
+    reagent: wt-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 298
+- fields:
+    barcode_type: R
+    code: D7
+    i7_sequence: TCCATTTG
+    name: pbs_1369
+    reagent: wt-v2
+    well_position: D7
+  model: igvf_mice.librarybarcode
+  pk: 299
+- fields:
+    barcode_type: R
+    code: D8
+    i7_sequence: TTAGCTTC
+    name: pbs_1387
+    reagent: wt-v2
+    well_position: D8
+  model: igvf_mice.librarybarcode
+  pk: 300
+- fields:
+    barcode_type: R
+    code: D9
+    i7_sequence: GTGCTTGA
+    name: pbs_1352
+    reagent: wt-v2
+    well_position: D9
+  model: igvf_mice.librarybarcode
+  pk: 301
+- fields:
+    barcode_type: R
+    code: D10
+    i7_sequence: GTTTGTGA
+    name: pbs_1179
+    reagent: wt-v2
+    well_position: D10
+  model: igvf_mice.librarybarcode
+  pk: 302
+- fields:
+    barcode_type: R
+    code: D11
+    i7_sequence: GAAATTAG
+    name: pbs_1174
+    reagent: wt-v2
+    well_position: D11
+  model: igvf_mice.librarybarcode
+  pk: 303
+- fields:
+    barcode_type: R
+    code: D12
+    i7_sequence: GCAAATTC
+    name: pbs_1182
+    reagent: wt-v2
+    well_position: D12
+  model: igvf_mice.librarybarcode
+  pk: 304
+- fields:
+    code: '1'
+    i7_sequence: CAGATC
+    name: '1'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 305
+- fields:
+    code: '2'
+    i7_sequence: ACTTGA
+    name: '2'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 306
+- fields:
+    code: '3'
+    i7_sequence: GATCAG
+    name: '3'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 307
+- fields:
+    code: '4'
+    i7_sequence: TAGCTT
+    name: '4'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 308
+- fields:
+    code: '5'
+    i7_sequence: ATGTCA
+    name: '5'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 309
+- fields:
+    code: '6'
+    i7_sequence: CTTGTA
+    name: '6'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 310
+- fields:
+    code: '7'
+    i7_sequence: AGTCAA
+    name: '7'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 311
+- fields:
+    code: '8'
+    i7_sequence: AGTTCC
+    name: '8'
+    reagent: wt-v2
+  model: igvf_mice.librarybarcode
+  pk: 312
+- fields:
+    code: UDI01
+    i5_sequence: CTTCACAT
+    i7_sequence: CAGATCAC
+    name: UDI_Plate_WT_1
+    reagent: wt-mega-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 313
+- fields:
+    code: UDI02
+    i5_sequence: GGTTGGAC
+    i7_sequence: ACTGATAG
+    name: UDI_Plate_WT_2
+    reagent: wt-mega-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 314
+- fields:
+    code: UDI03
+    i5_sequence: TTGACTCT
+    i7_sequence: GATCAGTC
+    name: UDI_Plate_WT_3
+    reagent: wt-mega-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 315
+- fields:
+    code: UDI04
+    i5_sequence: AGCCAACT
+    i7_sequence: CTTGTAAT
+    name: UDI_Plate_WT_4
+    reagent: wt-mega-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 316
+- fields:
+    code: UDI05
+    i5_sequence: CGCCTTAT
+    i7_sequence: AGTCAAGA
+    name: UDI_Plate_WT_5
+    reagent: wt-mega-v2
+    well_position: E1
+  model: igvf_mice.librarybarcode
+  pk: 317
+- fields:
+    code: UDI06
+    i5_sequence: CTGTACGG
+    i7_sequence: CCGTCCTA
+    name: UDI_Plate_WT_6
+    reagent: wt-mega-v2
+    well_position: F1
+  model: igvf_mice.librarybarcode
+  pk: 318
+- fields:
+    code: UDI07
+    i5_sequence: CATGAATG
+    i7_sequence: GTAGAGTA
+    name: UDI_Plate_WT_7
+    reagent: wt-mega-v2
+    well_position: G1
+  model: igvf_mice.librarybarcode
+  pk: 319
+- fields:
+    code: UDI08
+    i5_sequence: CCGTATCT
+    i7_sequence: GTCCGCCT
+    name: UDI_Plate_WT_8
+    reagent: wt-mega-v2
+    well_position: H1
+  model: igvf_mice.librarybarcode
+  pk: 320
+- fields:
+    code: UDI09
+    i5_sequence: AGTCTGTA
+    i7_sequence: GTGAAACT
+    name: UDI_Plate_WT_9
+    reagent: wt-mega-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 321
+- fields:
+    code: UDI10
+    i5_sequence: CAGGCATT
+    i7_sequence: TCATTCCT
+    name: UDI_Plate_WT_10
+    reagent: wt-mega-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 322
+- fields:
+    code: UDI11
+    i5_sequence: GGCAAGCA
+    i7_sequence: GGTAGCAT
+    name: UDI_Plate_WT_11
+    reagent: wt-mega-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 323
+- fields:
+    code: UDI12
+    i5_sequence: CACCCAAA
+    i7_sequence: ACTTGATC
+    name: UDI_Plate_WT_12
+    reagent: wt-mega-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 324
+- fields:
+    code: UDI13
+    i5_sequence: TCAGATTC
+    i7_sequence: ATGAGCAT
+    name: UDI_Plate_WT_13
+    reagent: wt-mega-v2
+    well_position: E2
+  model: igvf_mice.librarybarcode
+  pk: 325
+- fields:
+    code: UDI14
+    i5_sequence: TCCAGTCG
+    i7_sequence: GCGCTATC
+    name: UDI_Plate_WT_14
+    reagent: wt-mega-v2
+    well_position: F2
+  model: igvf_mice.librarybarcode
+  pk: 326
+- fields:
+    code: UDI15
+    i5_sequence: GCCAATGT
+    i7_sequence: TGACCAGT
+    name: UDI_Plate_WT_15
+    reagent: wt-mega-v2
+    well_position: G2
+  model: igvf_mice.librarybarcode
+  pk: 327
+- fields:
+    code: UDI16
+    i5_sequence: ACAGTGGT
+    i7_sequence: TATAATCA
+    name: UDI_Plate_WT_16
+    reagent: wt-mega-v2
+    well_position: H2
+  model: igvf_mice.librarybarcode
+  pk: 328
+- fields:
+    code: UDI17
+    i5_sequence: AACAACCG
+    i7_sequence: CAAAAGTC
+    name: UDI_Plate_WT_17
+    reagent: wt-mega-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 329
+- fields:
+    code: UDI18
+    i5_sequence: TCCTCATG
+    i7_sequence: CGATGTCA
+    name: UDI_Plate_WT_18
+    reagent: wt-mega-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 330
+- fields:
+    code: UDI19
+    i5_sequence: ACTCTCCA
+    i7_sequence: CTCAGAGT
+    name: UDI_Plate_WT_19
+    reagent: wt-mega-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 331
+- fields:
+    code: UDI20
+    i5_sequence: CGAAGTCA
+    i7_sequence: TAATCGAC
+    name: UDI_Plate_WT_20
+    reagent: wt-mega-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 332
+- fields:
+    code: UDI21
+    i5_sequence: ATCCTTCC
+    i7_sequence: CATTTTCT
+    name: UDI_Plate_WT_21
+    reagent: wt-mega-v2
+    well_position: E3
+  model: igvf_mice.librarybarcode
+  pk: 333
+- fields:
+    code: UDI22
+    i5_sequence: CTCGAACA
+    i7_sequence: CTATACTC
+    name: UDI_Plate_WT_22
+    reagent: wt-mega-v2
+    well_position: F3
+  model: igvf_mice.librarybarcode
+  pk: 334
+- fields:
+    code: UDI23
+    i5_sequence: TCAGCCTT
+    i7_sequence: CACTCACA
+    name: UDI_Plate_WT_23
+    reagent: wt-mega-v2
+    well_position: G3
+  model: igvf_mice.librarybarcode
+  pk: 335
+- fields:
+    code: UDI24
+    i5_sequence: CACTCGAG
+    i7_sequence: CTCGAACA
+    name: UDI_Plate_WT_24
+    reagent: wt-mega-v2
+    well_position: H3
+  model: igvf_mice.librarybarcode
+  pk: 336
+- fields:
+    code: UDI25
+    i5_sequence: CCACCGAT
+    i7_sequence: CTCTATCG
+    name: UDI_Plate_WT_25
+    reagent: wt-mega-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 337
+- fields:
+    code: UDI26
+    i5_sequence: CAAGACCT
+    i7_sequence: TCCTCATG
+    name: UDI_Plate_WT_26
+    reagent: wt-mega-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 338
+- fields:
+    code: UDI27
+    i5_sequence: CGCTTCCT
+    i7_sequence: AACAACCG
+    name: UDI_Plate_WT_27
+    reagent: wt-mega-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 339
+- fields:
+    code: UDI28
+    i5_sequence: ACACATGT
+    i7_sequence: GCCAATGT
+    name: UDI_Plate_WT_28
+    reagent: wt-mega-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 340
+- fields:
+    code: UDI29
+    i5_sequence: AACTGTAT
+    i7_sequence: TGGTTGTT
+    name: UDI_Plate_WT_29
+    reagent: wt-mega-v2
+    well_position: E4
+  model: igvf_mice.librarybarcode
+  pk: 341
+- fields:
+    code: UDI30
+    i5_sequence: AAGGCGAT
+    i7_sequence: TCTGCTGT
+    name: UDI_Plate_WT_30
+    reagent: wt-mega-v2
+    well_position: F4
+  model: igvf_mice.librarybarcode
+  pk: 342
+- fields:
+    code: UDI31
+    i5_sequence: GCGTCGAA
+    i7_sequence: TTGGAGGT
+    name: UDI_Plate_WT_31
+    reagent: wt-mega-v2
+    well_position: G4
+  model: igvf_mice.librarybarcode
+  pk: 343
+- fields:
+    code: UDI32
+    i5_sequence: GAACGACA
+    i7_sequence: TCGAGCGT
+    name: UDI_Plate_WT_32
+    reagent: wt-mega-v2
+    well_position: H4
+  model: igvf_mice.librarybarcode
+  pk: 344
+- fields:
+    code: UDI33
+    i5_sequence: GCTATGGA
+    i7_sequence: TGCGATCT
+    name: UDI_Plate_WT_33
+    reagent: wt-mega-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 345
+- fields:
+    code: UDI34
+    i5_sequence: GACACTTA
+    i7_sequence: TTCCTGCT
+    name: UDI_Plate_WT_34
+    reagent: wt-mega-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 346
+- fields:
+    code: UDI35
+    i5_sequence: TATGCCAG
+    i7_sequence: TTCCATTG
+    name: UDI_Plate_WT_35
+    reagent: wt-mega-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 347
+- fields:
+    code: UDI36
+    i5_sequence: TGGCTCAG
+    i7_sequence: TAACGCTG
+    name: UDI_Plate_WT_36
+    reagent: wt-mega-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 348
+- fields:
+    code: UDI37
+    i5_sequence: TCATTGAG
+    i7_sequence: TTGGTATG
+    name: UDI_Plate_WT_37
+    reagent: wt-mega-v2
+    well_position: E5
+  model: igvf_mice.librarybarcode
+  pk: 349
+- fields:
+    code: UDI38
+    i5_sequence: TGTATGCG
+    i7_sequence: TGAACTGG
+    name: UDI_Plate_WT_38
+    reagent: wt-mega-v2
+    well_position: F5
+  model: igvf_mice.librarybarcode
+  pk: 350
+- fields:
+    code: UDI39
+    i5_sequence: TACTTCGG
+    i7_sequence: TCCAGTCG
+    name: UDI_Plate_WT_39
+    reagent: wt-mega-v2
+    well_position: G5
+  model: igvf_mice.librarybarcode
+  pk: 351
+- fields:
+    code: UDI40
+    i5_sequence: TGAACTGG
+    i7_sequence: TGTATGCG
+    name: UDI_Plate_WT_40
+    reagent: wt-mega-v2
+    well_position: H5
+  model: igvf_mice.librarybarcode
+  pk: 352
+- fields:
+    code: UDI41
+    i5_sequence: TAACGCTG
+    i7_sequence: TGGCTCAG
+    name: UDI_Plate_WT_41
+    reagent: wt-mega-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 353
+- fields:
+    code: UDI42
+    i5_sequence: TTCCATTG
+    i7_sequence: TATGCCAG
+    name: UDI_Plate_WT_42
+    reagent: wt-mega-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 354
+- fields:
+    code: UDI43
+    i5_sequence: TACAGGAT
+    i7_sequence: GGTTGGAC
+    name: UDI_Plate_WT_43
+    reagent: wt-mega-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 355
+- fields:
+    code: UDI44
+    i5_sequence: TTCCTGCT
+    i7_sequence: GACACTTA
+    name: UDI_Plate_WT_44
+    reagent: wt-mega-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 356
+- fields:
+    code: UDI45
+    i5_sequence: TCGAGCGT
+    i7_sequence: GAACGACA
+    name: UDI_Plate_WT_45
+    reagent: wt-mega-v2
+    well_position: E6
+  model: igvf_mice.librarybarcode
+  pk: 357
+- fields:
+    code: UDI46
+    i5_sequence: TCTGCTGT
+    i7_sequence: AAGGCGAT
+    name: UDI_Plate_WT_46
+    reagent: wt-mega-v2
+    well_position: F6
+  model: igvf_mice.librarybarcode
+  pk: 358
+- fields:
+    code: UDI47
+    i5_sequence: TAGCTTGT
+    i7_sequence: ATGCTTGA
+    name: UDI_Plate_WT_47
+    reagent: wt-mega-v2
+    well_position: G6
+  model: igvf_mice.librarybarcode
+  pk: 359
+- fields:
+    code: UDI48
+    i5_sequence: ACTTGATG
+    i7_sequence: AGTATCTG
+    name: UDI_Plate_WT_48
+    reagent: wt-mega-v2
+    well_position: H6
+  model: igvf_mice.librarybarcode
+  pk: 360

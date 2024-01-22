@@ -1,0 +1,18 @@
+- model: igvf_mice.libraryconstructionreagent
+  pk: wt-v1
+  fields:
+    display_name: Parse WT
+    version: 1
+    source: parse-biosciences
+- model: igvf_mice.libraryconstructionreagent
+  pk: wt-v2
+  fields:
+    display_name: Parse WT
+    version: 2
+    source: parse-biosciences
+- model: igvf_mice.libraryconstructionreagent
+  pk: wt-mega-v2
+  fields:
+    display_name: Parse WT Mega
+    version: 2
+    source: parse-biosciences
