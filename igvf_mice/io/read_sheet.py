@@ -70,6 +70,7 @@ def import_mice(mice, submitted_accessions=None):
     mouse_strains = {x.name: x for x in models.MouseStrain.objects.all()}
     current_mice  = {x.name for x in models.Mouse.objects.all()}
     failed = 0
+    added = 0
 
     for i, row in mice.iterrows():
         name = row["Mouse Name"]
@@ -92,6 +93,7 @@ def import_mice(mice, submitted_accessions=None):
                 housing_number=housing_number,
             )
             record.save()
+            added += 1
         else:
             record = models.Mouse.objects.get(pk=name)
 
@@ -101,3 +103,4 @@ def import_mice(mice, submitted_accessions=None):
     print("Currently have {} mice loaded".format(models.Mouse.objects.count()))
     assert not failed, "Check warning messages"
     
+    return added
