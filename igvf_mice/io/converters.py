@@ -122,6 +122,13 @@ def parse_mouse_tissue(mouse_tissue):
     
     return mouse_tissue_tuple(mouse_id, mouse_strain, mouse_age_sex, tissue_id)
 
+
+def get_genotype_from_mouse_tissue(mouse_tissue):
+    fields = parse_mouse_tissue(mouse_tissue)
+
+    return fields[1]
+
+
 def uci_tz_or_none(value):
     los_angeles_tz = zoneinfo.ZoneInfo("America/Los_Angeles")
 

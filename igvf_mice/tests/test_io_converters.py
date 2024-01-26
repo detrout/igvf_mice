@@ -16,6 +16,7 @@ from ..io.converters import (
     normalize_subpool_submission_status,
     parse_mouse_name,
     parse_mouse_tissue,
+    get_genotype_from_mouse_tissue,
 )
 
 
@@ -86,3 +87,9 @@ class TestConverters(TestCase):
         self.assertEqual(parse_mouse_tissue("096_WSBJ_10F_15"), ("096", "WSBJ", "10F", "15"))
         self.assertEqual(parse_mouse_tissue("239_TREM2R47HNSS_HO_10M_01"), ("239", "TREM2R47HNSS_HO", "10M", "01"))
         self.assertEqual(parse_mouse_tissue("656_B6NODF1/J_6moF_10"), ("656", "B6NODF1J", "6moF", "10"))
+
+    def test_get_genotype_from_mouse_tissue(self):
+        self.assertEqual(get_genotype_from_mouse_tissue("016_B6J_10F_20"), "B6J")
+        self.assertEqual(get_genotype_from_mouse_tissue("046_NZOJ_10F_03"), "NZOJ")
+        self.assertEqual(get_genotype_from_mouse_tissue("198_B6CASTF1/J_10F_20"), "B6CASTF1J")
+        self.assertEqual(get_genotype_from_mouse_tissue("239_TREM2R47HNSS_HO_10M_01"), "TREM2R47HNSS_HO")
