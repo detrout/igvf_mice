@@ -4,7 +4,11 @@ import zoneinfo
 from django.test import TestCase
 
 from .. import models
-from ..io import read_sheet
+from ..io.read_sheet import (
+    import_accessions,
+    import_mice,
+    import_protocols,
+)
 from ..io.converters import (
     str_or_none,
     uci_tz_or_none,
@@ -34,10 +38,10 @@ class TestReadSheet(TestCase):
         first = protocols[protocols["Protocol"] == "splitseq_100k"]
         self.assertEqual(first.shape[0], 1)
 
-        read_sheet.import_protocols(first)
+        import_protocols(first)
         self.assertEqual(models.ProtocolLink.objects.count(), 1)
 
-        read_sheet.import_protocols(protocols)
+        import_protocols(protocols)
         self.assertEqual(models.ProtocolLink.objects.count(), 2)
 
         for i, row in enumerate(models.ProtocolLink.objects.all()):
@@ -101,16 +105,18 @@ class TestReadSheet(TestCase):
         }
 
         first = mice[mice["Mouse Name"] == "016_B6J_10F"]
-        read_sheet.import_mice(first)
+        added = import_mice(first)
 
         self.assertEqual(models.Mouse.objects.count(), 1)
+        self.assertEqual(added, 1)
 
         record = models.Mouse.objects.get(name="016_B6J_10F")
         self.assertEqual(record.accession.count(), 0)
-        read_sheet.import_accessions(submitted["016_B6J_10F"], record)
+        import_accessions(submitted["016_B6J_10F"], record)
         self.assertEqual(record.accession.count(), 2)
 
-        read_sheet.import_mice(mice, submitted)
+        added = import_mice(mice, submitted)
+        self.assertEqual(added, 2)
 
         for mouse_i, row in enumerate(models.Mouse.objects.all()):
             dissection_start_time = uci_tz_or_none(mice.iloc[mouse_i]["Dissection start time"])
@@ -138,3 +144,6 @@ class TestReadSheet(TestCase):
                 self.assertEqual(accession.name, expected["name"])
                 self.assertEqual(str(accession.uuid), expected["uuid"])
                 self.assertEqual(accession.see_also, expected["see_also"])
+
+        added = import_mice(mice, submitted)
+        self.assertEqual(added, 0)
