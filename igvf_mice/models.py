@@ -418,8 +418,11 @@ class Tissue(models.Model):
         OntologyTerm,
         help_text="Links to ontology terms that describe this tissue or set of tissues",
     )
-    dissection_time = models.DateTimeField(
-        default=timezone.now, help_text="when did disection happen"
+    dissection_start_time = models.DateTimeField(
+        blank=True, null=True, help_text="when did disection happen"
+    )
+    dissection_end_time = models.DateTimeField(
+        blank=True, null=True, help_text="when did disection happen"
     )
     # We have the age on the mouse object.
     # But in the spreadsheet this was used to group samples

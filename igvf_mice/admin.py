@@ -92,7 +92,7 @@ class TissueOptions(admin.ModelAdmin):
     )
     fields = (
         ("name", "mouse"),
-        "dissection_time",
+        ("dissection_start_time", "dissection_end_time"),
         "description",
         "ontology_term",
         ("tube_label", "tube_weight_g", "total_weight_g"),

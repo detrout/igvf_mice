@@ -222,7 +222,8 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
             "description",
             "ontology_term",
             "fixedsample_set",
-            "dissection_time",
+            "dissection_start_time",
+            "dissection_end_time",
             "tube_label",
             "tube_weight_g",
             "total_weight_g",
@@ -675,7 +676,8 @@ class PipelineBiosampleSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             "@id",
             "tissue_name",
-            "dissection_time",
+            "dissection_start_time",
+            "dissection_end_time",
             "tissue_weight_g",
             "tissue_description",
             "ontology_terms",
@@ -684,7 +686,8 @@ class PipelineBiosampleSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     tissue_name = serializers.CharField(source="tissue.name", read_only=True)
-    dissection_time = serializers.DateTimeField(read_only=True)
+    dissection_start_time = serializers.DateTimeField(read_only=True)
+    dissection_end_time = serializers.DateTimeField(read_only=True)
     tissue_weight_g = serializers.DecimalField(source="tissue.weight_g", max_digits=8, decimal_places=3, min_value=0)
     tissue_description = serializers.CharField(source="tissue.description", read_only=True)
     ontology_terms = serializers.ListField(read_only=True)
@@ -727,7 +730,8 @@ class PipelineTissueSerializer(serializers.HyperlinkedModelSerializer):
             "description",
             "ontology_term",
             "fixedsample_set",
-            "dissection_time",
+            "dissection_start_time",
+            "dissection_end_time",
             "tube_label",
             "tube_weight_g",
             "total_weight_g",
