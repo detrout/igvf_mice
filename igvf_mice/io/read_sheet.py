@@ -104,3 +104,73 @@ def import_mice(mice, submitted_accessions=None):
     assert not failed, "Check warning messages"
     
     return added
+
+
+def import_tissues(tissue_sheets, submitted_tissues=None):
+    if submitted_tissues is None:
+        submitted_tissues = {}
+
+    los_angeles_tz = zoneinfo.ZoneInfo("America/Los_Angeles")
+
+    loaded_mice = {x.name: x for x in models.Mouse.objects.all()}
+    loaded_tissues = {x.name: x for x in models.Tissues.objects.all()}
+
+    failed = False
+    for i, row in tissue_sheets.iterrows():
+        mouse_name = row["Mouse name"]
+        try:
+            mouse = loaded_mice[mouse_name]
+        except KeyError:
+            print("row {}, {} was not found".format(i+2, mouse_name))
+            failed = True
+            continue
+
+        mouse_tissue = row["Mouse_Tissue ID"]
+
+        genotype = row["Genotype"]
+
+        validate_tissue_genotype(mouse.strain.name, genotype)
+
+        tissue_terms = []
+        for term_curie, term_name in tissue_dissection_to_ontology_map[row["Tissue"]]:
+            tissue_terms.append(ontology_map[term_curie])
+
+        if pandas.isnull(row["Approx. sac time"]):
+            sac_time = datetime.time(0,0,0)
+        else:
+            sac_time = datetime.time(
+                row["Approx. sac time"].hour,
+                row["Approx. sac time"].minute,
+                row["Approx. sac time"].second,
+            )
+
+        record = models.Tissue(
+            mouse=mouse,
+            name = mouse_tissue,
+            description = row["Tissue"],
+            #dissection_time=dissection,
+            #age=age,
+            #age_units=age_units,
+            tube_label=row["Tube label"],
+            dissector=str_or_empty(row["Dissector"]),
+            dissection_notes=str_or_empty(row["Comment"]),
+        )
+
+        if not pandas.isnull(row["Dissection date"]):
+            record.dissection = datetime.combine(row["Dissection date"], sac_time).astimezone(los_angeles_tz)
+
+        tube_weight_label = "tube weight (g)"
+        if not pandas.isnull(row[tube_weight_label]):
+            record.tube_weight_g = float(row[tube_weight_label])
+
+        total_weight_label = "tube+tissue weight (g)"
+        if not pandas.isnull(row[total_weight_label]):
+            record.total_weight_g = float(row[total_weight_label])
+
+        record.save()
+        record.ontology_term.set(tissue_terms)
+        record.save()
+
+        import_accessions(submitted_accessions.get(row["Mouse_Tissue ID"]), record)
+
+    assert not failed, "Check warning messages."
