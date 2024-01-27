@@ -183,6 +183,13 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
 
 WellContent = namedtuple("well_content", ["genotype", "tissue_id"])
 
+
+class ValidationError(ValueError):
+    """Validators failed on a layout.
+    """
+    pass
+
+
 class PlateLayoutParser:
     def __init__(self):
         self.plate_label = 1
@@ -278,6 +285,7 @@ class PlateLayoutParser:
         row_labels = list(self.get_block_column_labels(sheet, block_row_start))
         row_validators = list(self.get_validation_label_rules(row_labels))
 
+        validation_errors = 0
         well_contents = {}
         row_offset = 0
         for start in self.get_merged_well_definition_start(sheet, block_row_start):
@@ -298,14 +306,19 @@ class PlateLayoutParser:
                     # Really could use some validation rules here...
                     if callable(row_validators[row_offset]):
                         if not row_validators[row_offset](cell):
-                            print(f"Failed row_validator[{row_offset},{col_offset}]({cell})")
+                            validation_errors += 1
+                            print(f"Failed row_validator[{row_offset},{col_offset}]({cell}) rule {row_validators[row_offset]}")
                     if callable(column_validators[col_offset]):
                         if not column_validators[col_offset](cell):
-                            print(f"Failed column_validator[{row_offset},{col_offset}]({cell})")
+                            validation_errors += 1
+                            print(f"Failed column_validator[{row_offset},{col_offset}]({cell}) rule {row_validators[row_offset]}")
                     genotype = get_genotype_from_mouse_tissue(cell)
 
                     well_contents.setdefault(well_id, []).append(WellContent(genotype, cell))
                 row_offset += 1
+
+        if validation_errors > 0:
+            raise ValidationError(f"there were {validation_errors} reading the block at {block_row_start}")
 
         return well_contents
 
@@ -389,16 +402,18 @@ class PlateLayoutParser:
         data_row_range = slice(data_row_start, data_row_start + len(row_labels))
         column_range = slice(self.well_start_column, column_end)
 
+        validation_errors = 0
         well_contents = {}
         for row_offset, (i, row) in enumerate(sheet.iloc[data_row_range, column_range].iterrows()):
             for col_offset, cell in enumerate(row):
-                #print(cell)
-                if callable(row_validators[row_offset]):
+                if len(row_validators) > 0 and callable(row_validators[row_offset]):
                     if not row_validators[row_offset](cell):
                         print(f"Failed row_validator[{row_offset},{col_offset}]({cell})")
-                if callable(column_validators[col_offset]):
+                        validation_errors += 1
+                if len(column_validators) > 0 and callable(column_validators[col_offset]):
                     if not column_validators[col_offset](cell):
                         print(f"Failed column_validator[{row_offset},{col_offset}]({cell})")
+                        validation_errors += 1
                 genotype = get_genotype_from_mouse_tissue(cell)
 
                 row_id = str(row_ids[row_offset])
@@ -407,6 +422,8 @@ class PlateLayoutParser:
 
 
         #well_contents.update(self.get_merged_well_contents(sheet, plate_start))
+        if validation_errors > 0:
+            raise ValidationError(f"there were {validation_errors} reading the block at {block_row_start}")
 
         return well_contents
 
