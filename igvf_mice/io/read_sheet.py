@@ -280,16 +280,16 @@ class PlateLayoutParser:
             elif started:
                 break
 
-    def get_merged_well_contents(self, sheet, block_row_start):
+    def get_merged_well_contents(self, plate_name, sheet, block_row_start):
         """Return the well content lists for well containing multiple tissues"""
         well_end_column = self.get_block_simple_column_end(sheet, block_row_start)
         well_range = range(self.well_start_column, well_end_column)
 
         column_labels = list(self.get_block_column_labels(sheet, block_row_start))
-        column_validators = list(self.get_validation_label_rules(column_labels))
+        column_validators = list(self.get_validation_label_rules(plate_name, column_labels))
 
-        row_labels = list(self.get_block_column_labels(sheet, block_row_start))
-        row_validators = list(self.get_validation_label_rules(row_labels))
+        row_labels = list(self.get_block_row_labels(sheet, block_row_start))
+        row_validators = list(self.get_validation_label_rules(plate_name, row_labels))
 
         validation_errors = 0
         well_contents = {}
@@ -366,7 +366,7 @@ class PlateLayoutParser:
                 break
 
     @staticmethod
-    def _validate_sex(value, expected_sex):
+    def _validate_sex(value, expected_sex, overrides=None):
         try:
             tissue = parse_mouse_tissue(value)
             sex = tissue.mouse_age_sex[-1]
@@ -375,34 +375,45 @@ class PlateLayoutParser:
         return sex == expected_sex
 
     @staticmethod
-    def _validate_strain(value, expected_strain):
+    def _validate_strain(value, expected_strain, overrides=None):
         try:
             tissue = parse_mouse_tissue(value)
             strain = tissue.mouse_strain
         except ValueError:
             return False
 
+        if overrides is not None:
+            expected_strain = overrides.get(value, expected_strain)
+
         return strain == expected_strain
 
-    def get_validation_label_rules(self, labels):
+    def get_validation_label_rules(self, plate_name, labels):
+        tissue_overrides = {
+            "IGVF_003": {"092_CASTJ_10F_03": "CASTJ"},
+            "IGVF_005": {"092_CASTJ_10F_01": "CASTJ"},
+            "IGVF_006": {"092_CASTJ_10F_01": "CASTJ"},
+            "IGVF_007": {"092_CASTJ_10F_01": "CASTJ"},
+            "IGVF_011": {"092_CASTJ_10F_03": "CASTJ"},
+        }.get(plate_name)
+
         for l in labels:
             sex = self._sex_re.match(l)
             if sex:
                 yield functools.partial(PlateLayoutParser._validate_sex, expected_sex=sex.group("sex"))
             elif l in self._mouse_strains:
-                yield functools.partial(PlateLayoutParser._validate_strain, expected_strain=l)
+                yield functools.partial(PlateLayoutParser._validate_strain, expected_strain=l, overrides=tissue_overrides)
             else:
                 yield None
 
-    def get_well_contents_from_block(self, sheet, plate_start):
+    def get_well_contents_from_block(self, plate_name, sheet, plate_start):
         column_ids = list(self.get_block_column_ids(sheet, plate_start))
         column_labels = list(self.get_block_column_labels(sheet, plate_start))
-        column_validators = list(self.get_validation_label_rules(column_labels))
+        column_validators = list(self.get_validation_label_rules(plate_name, column_labels))
         column_end = self.get_block_simple_column_end(sheet, plate_start)
 
         row_ids = list(self.get_block_row_ids(sheet, plate_start))
         row_labels = list(self.get_block_row_labels(sheet, plate_start))
-        row_validators = list(self.get_validation_label_rules(row_labels))
+        row_validators = list(self.get_validation_label_rules(plate_name, row_labels))
 
         data_row_start = plate_start + 2
         data_row_range = slice(data_row_start, data_row_start + len(row_labels))

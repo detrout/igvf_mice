@@ -1,4 +1,5 @@
 import datetime
+import functools
 from io import StringIO
 import pandas
 import zoneinfo
@@ -505,7 +506,7 @@ class TestPlateLayoutParser(TestCase):
         layouts = read_layout(igvf_003_csv)
 
         parser = PlateLayoutParser()
-        wells = parser.get_merged_well_contents(layouts, igvf_003_row_start)
+        wells = parser.get_merged_well_contents("IGVF_003", layouts, igvf_003_row_start)
 
         self.assertEqual(wells["A", "9"], [WellContent("B6J", "016_B6J_10F_06"), WellContent("NODJ", "066_NODJ_10F_06")])
         self.assertEqual(wells["B", "12"], [WellContent("B6J", "025_B6J_10M_06"), WellContent("NODJ", "073_NODJ_10M_06")])
@@ -523,39 +524,53 @@ class TestPlateLayoutParser(TestCase):
         labels = ["Tissue1_F_rep1", "Tissue2_M_rep3", "F", "M"]
         data = ["016_B6J_10F_03", "017_B6J_10M_03", "018_B6J_10F_03", "019_B6J_10M_03"]
 
-        for rule, value in zip(PlateLayoutParser().get_validation_label_rules(labels), data):
+        for rule, value in zip(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels), data):
             self.assertTrue(callable(rule))
             self.assertTrue(rule(value))
 
         data = ["016_B6J_10M_03", "017_B6J_10F_03", "018_B6J_10M_03", "019_B6J_10F_03"]
-        for rule, value in zip(PlateLayoutParser().get_validation_label_rules(labels), data):
+        for rule, value in zip(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels), data):
             self.assertFalse(rule(value))
 
     def test_get_validation_label_rules_complex_cells(self):
         labels = ["Tissue2_M_rep3/4", "Tissue1_AB_1"]
         data = ["016_B6J_10F_03", "Foo_F1_26"]
 
-        for rule, value in zip(PlateLayoutParser().get_validation_label_rules(labels), data):
+        for rule, value in zip(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels), data):
             self.assertFalse(callable(rule))
 
     def test_get_validation_label_rules_genotype(self):
         labels = ["B6J", "NODJ", "AJ", "CC003"]
         data = ["016_B6J_10F_20", "066_NODJ_10F_20", "026_AJ_10F_20", "076_CC003_10F_20"]
 
-        for rule, value in zip(PlateLayoutParser().get_validation_label_rules(labels), data):
+        for rule, value in zip(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels), data):
             self.assertTrue(callable(rule))
             self.assertTrue(rule(value))
 
         wrong_data = ["AB_F1_03", "AB_M1_03", "AB_F2_03", "AB_M2_03"]
 
-        for rule, value in zip(PlateLayoutParser().get_validation_label_rules(labels), wrong_data):
+        for rule, value in zip(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels), wrong_data):
             self.assertTrue(callable(rule))
             self.assertFalse(rule(value))
+
+    def test_get_validation_label_rule_genotype_override(self):
+        labels = ["NZOJ"]
+        data = ["092_CASTJ_10F_03"]
+
+        rules = list(PlateLayoutParser().get_validation_label_rules("IGVF_003", labels))
+        self.assertTrue(rules[0](data[0]))
+
+    def test_validate_strain_092_CASTJ_10F_03(self):
+        override = {"092_CASTJ_10F_03": "CASTJ"}
+        rule = functools.partial(PlateLayoutParser._validate_strain, expected_strain="NZOJ", overrides=override)
+
+        tissue_name = list(override.keys())[0]
+        self.assertTrue(rule(tissue_name))
 
     def test_get_well_contents_from_igvf_003(self):
         layouts = read_layout(igvf_003_csv)
 
-        well_contents = PlateLayoutParser().get_well_contents_from_block(layouts, igvf_003_row_start)
+        well_contents = PlateLayoutParser().get_well_contents_from_block("IGVF_003", layouts, igvf_003_row_start)
 
         self.assertEqual(len(well_contents), 64)
         self.assertEqual(well_contents["A", "1"], [WellContent("B6J", "016_B6J_10F_03")])
@@ -566,7 +581,7 @@ class TestPlateLayoutParser(TestCase):
     def test_get_well_contents_from_igvf_b01(self):
         layouts = read_layout(igvf_b01_csv)
 
-        well_contents = PlateLayoutParser().get_well_contents_from_block(layouts, igvf_b01_row_start)
+        well_contents = PlateLayoutParser().get_well_contents_from_block("IGVF_b01", layouts, igvf_b01_row_start)
 
         self.assertEqual(len(well_contents), 48)
         self.assertEqual(well_contents["A", "1"], [WellContent("B6J", "118_B6J_10F_21")])
