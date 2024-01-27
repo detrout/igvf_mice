@@ -636,3 +636,55 @@ class TestPlateLayoutParser(TestCase):
             "GH_F3_06", "GH_M3_06", "GH_F4_06", "GH_M4_06",
         ]
         self.assertEqual(merged_well_ids, expected)
+
+    def test_parse_plate(self):
+        layouts = read_layout(
+            "".join([igvf_003_csv, igvf_005_csv, igvf_b01_csv, igvf_012_csv, igvf_0xx_1_csv, igvf_015_csv]))
+
+        parser = PlateLayoutParser()
+
+        # will only test subset of expected well contents... there's a lot of them.
+        expected = [
+            ("IGVF_003", {
+                ("A", "1"): [WellContent("B6J", "016_B6J_10F_03")],
+                ("A", "8"): [WellContent("B6J", "025_B6J_10M_03")],
+                ("A", "9"): [WellContent("B6J", "016_B6J_10F_06"), WellContent("NODJ", "066_NODJ_10F_06")],
+                ("H", "1"): [WellContent("CASTJ", "092_CASTJ_10F_03")],
+                ("H", "8"): [WellContent("NZOJ", "053_NZOJ_10M_03")],
+                ("H", "12"): [WellContent("WSBJ", "063_WSBJ_10M_06"), WellContent("NZOJ", "053_NZOJ_10M_06")],
+            }),
+            ("IGVF_005", {
+                ("A", "1"): [WellContent("B6J", "016_B6J_10F_05")],
+                ("A", "8"): [WellContent("B6J", "025_B6J_10M_05")],
+                ("A", "9"): [WellContent("B6J", "016_B6J_10F_01"), WellContent("NODJ", "066_NODJ_10F_01")],
+                ("H", "1"): [WellContent("NZOJ", "046_NZOJ_10F_05")],
+                ("H", "8"): [WellContent("NZOJ", "053_NZOJ_10M_05")],
+                ("H", "12"): [WellContent("WSBJ", "063_WSBJ_10M_01"), WellContent("NZOJ", "053_NZOJ_10M_01")],
+            }),
+            ("IGVF_B01", {
+                ("A", "1"): [WellContent("B6J", "118_B6J_10F_21")],
+                ("A", "12"): [WellContent("B6J", "117_B6J_10M_21")],
+                ("D", "1"): [WellContent("CASTJ", "108_CASTJ_10F_21")],
+                ("D", "12"): [WellContent("CASTJ", "107_CASTJ_10M_21")],
+            }),
+            ("IGVF_012", {
+                ("A", "1"): [WellContent("B6J", "016_B6J_10F_08")],
+                ("A", "8"): [WellContent("B6J", "022_B6J_10F_16")],
+                ("D", "1"): [WellContent("WSBJ", "057_WSBJ_10M_06")],
+                ("D", "12"): [WellContent("WSBJ", "062_WSBJ_10F_06")],
+            }),
+            ("IGVF_015", {
+                ("A", "1"): [WellContent("TREM2", "239_TREM2_10F_01")],
+                ("A", "12"): [WellContent("TREM2", "239_TREM2_10F_08")],
+                ("H", "1"): [WellContent("TREM2", "248_TREM2_10M_01")],
+                ("H", "12"): [WellContent("TREM2", "248_TREM2_10M_08")],
+            }),
+        ]
+        for expected_plate, actual_plate in zip(expected, parser.parse_plates(layouts)):
+            expected_name, expected_wells = expected_plate
+            actual_name, actual_wells = actual_plate
+
+            self.assertEqual(expected_name, actual_name)
+
+            for key in expected_wells:
+                self.assertEqual(expected_wells[key], actual_wells[key])

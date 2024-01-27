@@ -444,5 +444,10 @@ class PlateLayoutParser:
 
         return well_contents
 
+    def parse_plates(self, sheet):
+        for plate_name, plate_start in self.find_plate_start(sheet):
+            contents = self.get_well_contents_from_block(plate_name, sheet, plate_start)
+            yield plate_name, contents
+
     def is_plate_name(self, name):
         return not pandas.isnull(name) and name.startswith("IGVF_")
