@@ -416,7 +416,7 @@ class PlateLayoutParser:
         row_validators = list(self.get_validation_label_rules(plate_name, row_labels))
 
         data_row_start = plate_start + 2
-        data_row_range = slice(data_row_start, data_row_start + len(row_labels))
+        data_row_range = slice(data_row_start, data_row_start + len(row_ids))
         column_range = slice(self.well_start_column, column_end)
 
         validation_errors = 0
