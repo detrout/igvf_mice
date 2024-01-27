@@ -501,17 +501,17 @@ class TestPlateLayoutParser(TestCase):
         parser = PlateLayoutParser()
         wells = parser.get_merged_well_contents(layouts, igvf_003_row_start)
 
-        self.assertEqual(wells[("A", "9")], [WellContent("B6J", "016_B6J_10F_06"), WellContent("NODJ", "066_NODJ_10F_06")])
-        self.assertEqual(wells[("B", "12")], [WellContent("B6J", "025_B6J_10M_06"), WellContent("NODJ", "073_NODJ_10M_06")])
+        self.assertEqual(wells["A", "9"], [WellContent("B6J", "016_B6J_10F_06"), WellContent("NODJ", "066_NODJ_10F_06")])
+        self.assertEqual(wells["B", "12"], [WellContent("B6J", "025_B6J_10M_06"), WellContent("NODJ", "073_NODJ_10M_06")])
 
-        self.assertEqual(wells[("C", "9")], [WellContent("AJ", "026_AJ_10F_06"), WellContent("PWKJ", "076_PWKJ_10F_06")])
-        self.assertEqual(wells[("D", "12")], [WellContent("AJ", "035_AJ_10M_06"), WellContent("PWKJ", "085_PWKJ_10M_06")])
+        self.assertEqual(wells["C", "9"], [WellContent("AJ", "026_AJ_10F_06"), WellContent("PWKJ", "076_PWKJ_10F_06")])
+        self.assertEqual(wells["D", "12"], [WellContent("AJ", "035_AJ_10M_06"), WellContent("PWKJ", "085_PWKJ_10M_06")])
 
-        self.assertEqual(wells[("E", "9")], [WellContent("129S1J", "036_129S1J_10F_06"), WellContent("CASTJ", "086_CASTJ_10F_06")])
-        self.assertEqual(wells[("F", "12")], [WellContent("129S1J", "045_129S1J_10M_06"), WellContent("CASTJ", "093_CASTJ_10M_06")])
+        self.assertEqual(wells["E", "9"], [WellContent("129S1J", "036_129S1J_10F_06"), WellContent("CASTJ", "086_CASTJ_10F_06")])
+        self.assertEqual(wells["F", "12"], [WellContent("129S1J", "045_129S1J_10M_06"), WellContent("CASTJ", "093_CASTJ_10M_06")])
 
-        self.assertEqual(wells[("G", "9")], [WellContent("WSBJ", "058_WSBJ_10F_06"), WellContent("NZOJ", "046_NZOJ_10F_06")])
-        self.assertEqual(wells[("H", "12")], [WellContent("WSBJ", "063_WSBJ_10M_06"), WellContent("NZOJ", "053_NZOJ_10M_06")])
+        self.assertEqual(wells["G", "9"], [WellContent("WSBJ", "058_WSBJ_10F_06"), WellContent("NZOJ", "046_NZOJ_10F_06")])
+        self.assertEqual(wells["H", "12"], [WellContent("WSBJ", "063_WSBJ_10M_06"), WellContent("NZOJ", "053_NZOJ_10M_06")])
 
     def test_get_validation_label_rules_sex(self):
         labels = ["Tissue1_F_rep1", "Tissue2_M_rep3", "F", "M"]
