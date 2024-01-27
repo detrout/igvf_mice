@@ -572,11 +572,13 @@ class TestPlateLayoutParser(TestCase):
 
         well_contents = PlateLayoutParser().get_well_contents_from_block("IGVF_003", layouts, igvf_003_row_start)
 
-        self.assertEqual(len(well_contents), 64)
+        self.assertEqual(len(well_contents), 96)
         self.assertEqual(well_contents["A", "1"], [WellContent("B6J", "016_B6J_10F_03")])
         self.assertEqual(well_contents["A", "8"], [WellContent("B6J", "025_B6J_10M_03")])
+        self.assertEqual(well_contents["A", "9"], [WellContent("B6J", "016_B6J_10F_06"), WellContent("NODJ", "066_NODJ_10F_06")])
         self.assertEqual(well_contents["H", "1"], [WellContent("CASTJ", "092_CASTJ_10F_03")])
         self.assertEqual(well_contents["H", "8"], [WellContent("NZOJ", "053_NZOJ_10M_03")])
+        self.assertEqual(well_contents["H", "12"], [WellContent("WSBJ", "063_WSBJ_10M_06"), WellContent("NZOJ", "053_NZOJ_10M_06")])
 
     def test_get_well_contents_from_igvf_b01(self):
         layouts = read_layout(igvf_b01_csv)

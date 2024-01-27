@@ -437,8 +437,8 @@ class PlateLayoutParser:
                 col_id = str(column_ids[col_offset])
                 well_contents[row_id, col_id] = [WellContent(genotype, cell)]
 
+        well_contents.update(self.get_merged_well_contents(plate_name, sheet, plate_start))
 
-        #well_contents.update(self.get_merged_well_contents(sheet, plate_start))
         if validation_errors > 0:
             raise ValidationError(f"there were {validation_errors} reading the block at {block_row_start}")
 
