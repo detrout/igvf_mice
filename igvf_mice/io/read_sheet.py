@@ -255,8 +255,11 @@ class PlateLayoutParser:
 
         started = False
         for i, row in sheet.iloc[label_start_row:].iterrows():
-            if pandas.notnull(row[self.well_row_id_column]) and pandas.notnull(row[self.well_start_column]):
+            # once we see a A..H label we're in a block and should be ready to abort
+            if pandas.notnull(row[self.well_row_id_column]):
                 started = True
+
+            if pandas.notnull(row[self.well_row_id_column]) and pandas.notnull(row[self.well_start_column]):
                 yield row[self.well_row_id_column]
             # if we've seen the start of the row ids, and we hit a blank we should stop
             elif started:
@@ -267,8 +270,11 @@ class PlateLayoutParser:
 
         started = False
         for i, row in sheet.iloc[label_start_row:].iterrows():
-            if pandas.notnull(row[self.well_row_label_column]) and pandas.notnull(row[self.well_start_column]):
+            # once we see a A..H label we're in a block and should be ready to abort
+            if pandas.notnull(row[self.well_row_id_column]):
                 started = True
+
+            if pandas.notnull(row[self.well_row_label_column]) and pandas.notnull(row[self.well_start_column]):
                 yield row[self.well_row_label_column]
             # if we've seen the start of the row ids, and we hit a blank we should stop
             elif started:

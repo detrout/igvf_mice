@@ -495,6 +495,12 @@ class TestPlateLayoutParser(TestCase):
         row_labels = list(PlateLayoutParser().get_block_row_labels(layouts, igvf_012_row_start))
         self.assertEqual(row_labels, [])
 
+    def test_get_simple_block_column_end(self):
+        layouts = read_layout(igvf_012_csv)
+
+        column_end = PlateLayoutParser().get_block_simple_column_end(layouts, igvf_012_row_start)
+        self.assertEqual(column_end, 15)
+
     def test_get_merged_well_contents(self):
         layouts = read_layout(igvf_003_csv)
 
@@ -568,6 +574,16 @@ class TestPlateLayoutParser(TestCase):
         self.assertEqual(well_contents["D", "1"], [WellContent("CASTJ", "108_CASTJ_10F_21")])
         self.assertEqual(well_contents["D", "12"], [WellContent("CASTJ", "107_CASTJ_10M_21")])
 
+    def test_get_well_contents_from_igvf_12(self):
+        layouts = read_layout(igvf_012_csv)
+
+        well_contents = PlateLayoutParser().get_well_contents_from_block("IGVF_012", layouts, igvf_012_row_start)
+
+        self.assertEqual(len(well_contents), 48)
+        self.assertEqual(well_contents["A", "1"], [WellContent("B6J", "016_B6J_10F_08")])
+        self.assertEqual(well_contents["A", "12"], [WellContent("AJ", "029_AJ_10M_06")])
+        self.assertEqual(well_contents["D", "1"], [WellContent("WSBJ", "057_WSBJ_10M_06")])
+        self.assertEqual(well_contents["D", "12"], [WellContent("WSBJ", "062_WSBJ_10F_06")])
 
     def test_get_merged_well_definition_start_003(self):
         layouts = read_layout(igvf_003_csv)
