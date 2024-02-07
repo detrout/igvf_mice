@@ -6,6 +6,7 @@ import re
 from .. import models
 from .converters import (
     normalize_plate_name,
+    normalize_strain,
     parse_mouse_tissue,
     get_genotype_from_mouse_tissue,
     str_or_empty,
