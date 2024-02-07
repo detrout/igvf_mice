@@ -126,7 +126,7 @@ def get_test_tissue_sheet():
 
 
 class TestReadSheet(TestCase):
-    fixtures = ["source", "mousestrain"]
+    fixtures = ["source", "mousestrain", "ontologyterm"]
 
     def test_import_protocol(self):
         self.assertEqual(models.ProtocolLink.objects.count(), 0)
