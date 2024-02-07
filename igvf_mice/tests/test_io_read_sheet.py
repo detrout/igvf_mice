@@ -36,6 +36,35 @@ def get_test_protocols_sheet():
         }
     )
     return protocols
+
+
+def get_test_mice_sheet():
+    dob_aug16 = datetime.datetime(2022, 8, 16)#, tzinfo=los_angeles)
+    dob_jun20 = datetime.datetime(2023, 6, 20)#, tzinfo=los_angeles)
+
+    start_016 = datetime.datetime(2022, 10, 27, 9, 1)#, tzinfo=los_angeles)
+    start_017 = datetime.datetime(2022, 10, 27, 11, 44)#, tzinfo=los_angeles)
+    start_144 = datetime.datetime(2023, 8, 28, 11, 15)#, tzinfo=los_angeles)
+    finish_144 = datetime.datetime(2023, 8, 28, 11, 33)#, tzinfo=los_angeles)
+
+    mice = pandas.DataFrame(
+        {
+            "Mouse Name": ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F"],
+            "Strain code": ["B6J", "B6J", "B6129S1F1J"],
+            "Sex": ["M", "F", "F"],
+            "Weight (g)": [21.1, 26.3, 19.9],
+            "DOB": [dob_aug16, dob_aug16, dob_jun20],
+            "Dissection start time": [start_016, start_017, start_144],
+            "Dissection finish time": [None, None, finish_144],
+            "Timepoint": ["10 weeks"] * 3,
+            "estrus_cycle": ["D", "NA", "DP"],
+            "Operator": ["T1", "T2", "T1"],
+            "Comments": ["", "", ""],
+            "Housing number": [14669, 14670, None],
+        }
+    )
+
+    return mice
 class TestReadSheet(TestCase):
     fixtures = ["source", "mousestrain"]
 
@@ -62,31 +91,7 @@ class TestReadSheet(TestCase):
     def test_import_mice(self):
         self.assertEqual(models.Mouse.objects.count(), 0)
 
-        los_angeles = zoneinfo.ZoneInfo("America/Los_Angeles")
-        dob_aug16 = datetime.datetime(2022, 8, 16)#, tzinfo=los_angeles)
-        dob_jun20 = datetime.datetime(2023, 6, 20)#, tzinfo=los_angeles)
-
-        start_016 = datetime.datetime(2022, 10, 27, 9, 1)#, tzinfo=los_angeles)
-        start_017 = datetime.datetime(2022, 10, 27, 11, 44)#, tzinfo=los_angeles)
-        start_144 = datetime.datetime(2023, 8, 28, 11, 15)#, tzinfo=los_angeles)
-        finish_144 = datetime.datetime(2023, 8, 28, 11, 33)#, tzinfo=los_angeles)
-
-        mice = pandas.DataFrame(
-            {
-                "Mouse Name": ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F"],
-                "Strain code": ["B6J", "B6J", "B6129S1F1J"],
-                "Sex": ["M", "F", "F"],
-                "Weight (g)": [21.1, 26.3, 19.9],
-                "DOB": [dob_aug16, dob_aug16, dob_jun20],
-                "Dissection start time": [start_016, start_017, start_144],
-                "Dissection finish time": [None, None, finish_144],
-                "Timepoint": ["10 weeks"] * 3,
-                "estrus_cycle": ["D", "NA", "DP"],
-                "Operator": ["T1", "T2", "T1"],
-                "Comments": ["", "", ""],
-                "Housing number": [14669, 14670, None],
-            }
-        )
+        mice = get_test_mice_sheet()
 
         submitted = {
             "016_B6J_10F": [
