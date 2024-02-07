@@ -116,8 +116,6 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
     if submitted_tissues is None:
         submitted_tissues = {}
 
-    los_angeles_tz = zoneinfo.ZoneInfo("America/Los_Angeles")
-
     loaded_mice = {x.name: x for x in models.Mouse.objects.all()}
     loaded_tissues = {x.name: x for x in models.Tissue.objects.all()}
 
@@ -162,8 +160,8 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
             dissection_notes=str_or_empty(row["Comment"]),
         )
 
-        if not pandas.isnull(row["Dissection date"]):
-            record.dissection = datetime.combine(row["Dissection date"], sac_time).astimezone(los_angeles_tz)
+        if not pandas.isnull(row["dissection start"]):
+            record.dissection_start_time = uci_tz_or_none(row["dissection start"])
 
         tube_weight_label = "tube weight (g)"
         if not pandas.isnull(row[tube_weight_label]):
