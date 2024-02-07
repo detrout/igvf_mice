@@ -20,25 +20,29 @@ from ..io.converters import (
 )
 
 
+def get_test_protocols_sheet():
+    protocols = pandas.DataFrame(
+        {
+            "Protocol": ["splitseq_100k", "splitseq_1M_v2"],
+            "Protocols.io version": [1, 1],
+            "Link": [
+                "https://www.protocols.io/view/evercode-wt-v2-2-1-eq2lyj9relx9/v1",
+                "https://www.protocols.io/view/evercode-wt-mega-v2-2-1-8epv5xxrng1b/v1",
+            ],
+            "Description": [
+                "Parse Bio snRNA-seq for 100,000 cells or nuclei using v2 reagents",
+                "Parse Bio snRNA-seq for 1M cells or nuclei using v2 reagents",
+            ],
+        }
+    )
+    return protocols
 class TestReadSheet(TestCase):
     fixtures = ["source", "mousestrain"]
 
     def test_import_protocol(self):
         self.assertEqual(models.ProtocolLink.objects.count(), 0)
-        protocols = pandas.DataFrame(
-            {
-                "Protocol": ["splitseq_100k", "splitseq_1M_v2"],
-                "Protocols.io version": [1, 1],
-                "Link": [
-                    "https://www.protocols.io/view/evercode-wt-v2-2-1-eq2lyj9relx9/v1",
-                    "https://www.protocols.io/view/evercode-wt-mega-v2-2-1-8epv5xxrng1b/v1",
-                ],
-                "Description": [
-                    "Parse Bio snRNA-seq for 100,000 cells or nuclei using v2 reagents",
-                    "Parse Bio snRNA-seq for 1M cells or nuclei using v2 reagents",
-                ],
-            }
-        )
+
+        protocols = get_test_protocols_sheet()
 
         first = protocols[protocols["Protocol"] == "splitseq_100k"]
         self.assertEqual(first.shape[0], 1)
