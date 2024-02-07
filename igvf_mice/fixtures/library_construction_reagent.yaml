@@ -5,6 +5,12 @@
     version: 1
     source: parse-biosciences
 - model: igvf_mice.libraryconstructionreagent
+  pk: wt-mega-v1
+  fields:
+    display_name: Parse WT Mega
+    version: 1
+    source: parse-biosciences
+- model: igvf_mice.libraryconstructionreagent
   pk: wt-v2
   fields:
     display_name: Parse WT
