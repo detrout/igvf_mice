@@ -65,6 +65,66 @@ def get_test_mice_sheet():
     )
 
     return mice
+
+
+def get_test_tissue_sheet():
+    start_016 = datetime.datetime(2022, 10, 27, 9, 1)#, tzinfo=los_angeles)
+    start_aug28 = datetime.datetime(2023, 8, 28, 11, 15)
+    finish_aug28 = datetime.datetime(2023, 8, 28, 11, 33)
+
+    tissues = pandas.DataFrame({
+        "Mouse_Tissue ID": [
+            "016_B6J_10F_01",
+            "016_B6J_10F_02",
+            "017_B6J_10M_01",
+            "017_B6J_10M_02",
+            "144_B6129S1F1J_10F_01",
+            "144_B6129S1F1J_10F_03"
+        ],
+        "Mouse name": [
+            "016_B6J_10F",
+            "016_B6J_10F",
+            "017_B6J_10M",
+            "017_B6J_10M",
+            "144_B6129S1F1J_10F",
+            "144_B6129S1F1J_10F"
+        ],
+        "tissue": [
+            "Hypothalamus/Pituitary",
+            "Cerebellum",
+            "Hypothalamus/Pituitary",
+            "Cerebellum",
+            "Hypothalamus/Pituitary",
+            "Cortex/Hippocampus left",
+        ],
+        "tissue_id": [
+            ["UBERON:0001898","UBERON:0000007"],
+            ["UBERON:0002037"],
+            ["UBERON:0001898","UBERON:0000007"],
+            ["UBERON:0002037"],
+            ["UBERON:0001898","UBERON:0000007"],
+            ["NTR:0000646","NTR:0000750"],
+        ],
+        "Genotype": ["B6J", "B6J", "B6J", "B6J", "B6129S1F1J", "B6129S1F1J"],
+        "Tube label": ["016-01", "016-02", "017-01", "017-02", "144-01", "144-02"],
+        "tube weight (g)": [1.046, 1.046, 1.041, 1.041, 1.043, 1.037],
+        "tube+tissue weight (g)": [1.118, None, 1.126, None, 1.132, 1.181],
+        "Dissection start": [
+            start_016,
+            start_016,
+            start_016,
+            start_016,
+            start_aug28,
+            start_aug28
+        ],
+        "Dissection end": [None, None, None, None, finish_aug28, finish_aug28],
+        "Body weight (g)": [21.1, 21.1, 26.3, 26.3, 19.9, 19.9],
+        "Dissector": ["AA", "AA", "BB", None, "CC", "CC"],
+        "comment": ["comment", None, None, "", "comment", None]
+    })
+    return tissues
+
+
 class TestReadSheet(TestCase):
     fixtures = ["source", "mousestrain"]
 
