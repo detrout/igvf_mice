@@ -2,7 +2,6 @@ import datetime
 import functools
 from io import StringIO
 import pandas
-import zoneinfo
 from django.test import TestCase
 
 from .. import models
