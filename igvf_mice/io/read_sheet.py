@@ -3,6 +3,8 @@ import functools
 import pandas
 import re
 
+from django.db import transaction
+
 from .. import models
 from .converters import (
     normalize_plate_name,
@@ -461,3 +463,66 @@ class PlateLayoutParser:
             yield plate_name, contents
 
 
+    def _get_or_create_plate(self, plate_name):
+        try:
+            plate_record = models.SplitSeqPlate.objects.get(name=plate_name)
+        except models.SplitSeqPlate.DoesNotExist:
+            plate_record = models.SplitSeqPlate(
+                name=plate_name,
+                size=models.PlateSizeEnum.size_96,
+                pool_location=None,
+                date_performed=None,
+            )
+            plate_record.save()
+        return plate_record
+
+    def _get_or_create_well(self, well_id, plate, barcodes, biosamples):
+        try:
+            well = models.SplitSeqWell.objects.get(
+                plate=plate,
+                row=well_id[0],
+                column=well_id[1],
+            )
+        except models.SplitSeqWell.DoesNotExist:
+            well = models.SplitSeqWell(
+                plate=plate,
+                row=well_id[0],
+                column=well_id[1],
+            )
+            well.save()
+            well.biosample.set(biosamples)
+            well.barcode.set(barcodes)
+            well.save()
+
+
+    def _guess_barcode_reagent_from_plate(self, plate_name, plate_contents):
+        wt_mega_2_reagent = models.LibraryConstructionReagent.objects.get(name="wt-mega-v2")
+        wt_regular_2_reagent = models.LibraryConstructionReagent.objects.get(name="wt-v2")
+        if len(plate_contents) == 48:
+            return wt_regular_2_reagent
+        elif len(plate_contents) == 96:
+            return wt_mega_2_reagent
+        else:
+            raise RuntimeError("Unrecognized plate {} size {}".format(
+                plate_name, len(plate_contents)))
+
+    def import_plates(self, sheet):
+        biosample_table = {x.name: x for x in models.FixedSample.objects.all()}
+        with transaction.atomic():
+            for plate_name, plate_contents in self.parse_plates(sheet):
+                plate = self._get_or_create_plate(plate_name)
+
+                biosamples = []
+                for well_id in plate_contents:
+                    well_contents = plate_contents[well_id]
+
+                    biosamples.extend([biosample_table[item.tissue_id] for item in well_contents])
+                    reagent = self._guess_barcode_reagent_from_plate(plate_name, plate_contents)
+                    barcodes = models.LibraryBarcode.objects.filter(
+                        reagent=reagent,
+                        code="{}{}".format(well_id[0], well_id[1]),
+                    )
+
+                    assert len(barcodes) > 0, "We should find bar codes to attach to a well"
+
+                    well = self._get_or_create_well(well_id, plate, barcodes, biosamples)

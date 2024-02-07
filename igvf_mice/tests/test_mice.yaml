@@ -1,0 +1,1793 @@
+- model: igvf_mice.mouse
+  pk: 016_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 21.1
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 16:01:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/SK/HL/ER/GF
+    notes: More fat around heart and lungs (in whole strain)
+    housing_number: 400802
+    accession: []
+- model: igvf_mice.mouse
+  pk: 017_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 26.3
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 18:44:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400803
+    accession: []
+- model: igvf_mice.mouse
+  pk: 018_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 21.0
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 16:38:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400802
+    accession: []
+- model: igvf_mice.mouse
+  pk: 019_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 29.0
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 19:12:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400804
+    accession: []
+- model: igvf_mice.mouse
+  pk: 020_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 18.5
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 17:14:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400802
+    accession: []
+- model: igvf_mice.mouse
+  pk: 021_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 27.8
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 19:38:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400805
+    accession: []
+- model: igvf_mice.mouse
+  pk: 022_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 20.8
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 17:43:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/SK/HL/ER/GF
+    notes: Muscle parts picture was taken with 020 B6J barcode
+    housing_number: 400802
+    accession: []
+- model: igvf_mice.mouse
+  pk: 023_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 28.1
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 20:06:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400806
+    accession: []
+- model: igvf_mice.mouse
+  pk: 024_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 20.7
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 18:13:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400802
+    accession: []
+- model: igvf_mice.mouse
+  pk: 025_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 27.7
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-27 20:39:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/HL/ER/GF
+    notes: ''
+    housing_number: 400807
+    accession: []
+- model: igvf_mice.mouse
+  pk: 026_AJ_10F
+  fields:
+    strain: AJ
+    sex: F
+    weight_g: 23.8
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 16:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 397016
+    accession: []
+- model: igvf_mice.mouse
+  pk: 027_AJ_10M
+  fields:
+    strain: AJ
+    sex: M
+    weight_g: 25.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 19:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395324
+    accession: []
+- model: igvf_mice.mouse
+  pk: 028_AJ_10F
+  fields:
+    strain: AJ
+    sex: F
+    weight_g: 22.8
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 17:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 397016
+    accession: []
+- model: igvf_mice.mouse
+  pk: 029_AJ_10M
+  fields:
+    strain: AJ
+    sex: M
+    weight_g: 21.1
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 19:20:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395325
+    accession: []
+- model: igvf_mice.mouse
+  pk: 030_AJ_10F
+  fields:
+    strain: AJ
+    sex: F
+    weight_g: 23.9
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 17:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395323
+    accession: []
+- model: igvf_mice.mouse
+  pk: 031_AJ_10M
+  fields:
+    strain: AJ
+    sex: M
+    weight_g: 18.3
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 19:40:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395326
+    accession: []
+- model: igvf_mice.mouse
+  pk: 032_AJ_10F
+  fields:
+    strain: AJ
+    sex: F
+    weight_g: 25.0
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 18:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395323
+    accession: []
+- model: igvf_mice.mouse
+  pk: 033_AJ_10M
+  fields:
+    strain: AJ
+    sex: M
+    weight_g: 23.7
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 20:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395327
+    accession: []
+- model: igvf_mice.mouse
+  pk: 034_AJ_10F
+  fields:
+    strain: AJ
+    sex: F
+    weight_g: 24.0
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 18:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395323
+    accession: []
+- model: igvf_mice.mouse
+  pk: 035_AJ_10M
+  fields:
+    strain: AJ
+    sex: M
+    weight_g: 26.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-03 20:20:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: Probably SK forgot to collect Cerebelum.  Tubes were shifted.  LC-02, RC-03
+      tubes.  04 tube was left behind
+    housing_number: 397017
+    accession: []
+- model: igvf_mice.mouse
+  pk: 036_129S1J_10F
+  fields:
+    strain: 129S1J
+    sex: F
+    weight_g: 19.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 15:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 397014
+    accession: []
+- model: igvf_mice.mouse
+  pk: 037_129S1J_10M
+  fields:
+    strain: 129S1J
+    sex: M
+    weight_g: 24.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 17:40:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: Right cortex/hippocampus, there is a pearly white sphere structure.  The
+      ball is wrapped with pigmented cell strand. Has abnormally shaped adrenals
+    housing_number: 395330
+    accession: []
+- model: igvf_mice.mouse
+  pk: 038_129S1J_10F
+  fields:
+    strain: 129S1J
+    sex: F
+    weight_g: 21.1
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 16:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: Has more than usual amount of fat around heart.  Adipose seemed to be soft.  Muscle
+      parts (14-18) placed into 037 129S1J tubes
+    housing_number: 397014
+    accession: []
+- model: igvf_mice.mouse
+  pk: 039_129S1J_10M
+  fields:
+    strain: 129S1J
+    sex: M
+    weight_g: 25.6
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 18:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395329
+    accession: []
+- model: igvf_mice.mouse
+  pk: 040_129S1J_10F
+  fields:
+    strain: 129S1J
+    sex: F
+    weight_g: 20.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 16:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395328
+    accession: []
+- model: igvf_mice.mouse
+  pk: 041_129S1J_10M
+  fields:
+    strain: 129S1J
+    sex: M
+    weight_g: 25.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 18:20:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395331
+    accession: []
+- model: igvf_mice.mouse
+  pk: 042_129S1J_10F
+  fields:
+    strain: 129S1J
+    sex: F
+    weight_g: 21.5
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 16:50:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395328
+    accession: []
+- model: igvf_mice.mouse
+  pk: 043_129S1J_10M
+  fields:
+    strain: 129S1J
+    sex: M
+    weight_g: 25.0
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 18:40:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395332
+    accession: []
+- model: igvf_mice.mouse
+  pk: 044_129S1J_10F
+  fields:
+    strain: 129S1J
+    sex: F
+    weight_g: 20.6
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 17:20:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395328
+    accession: []
+- model: igvf_mice.mouse
+  pk: 045_129S1J_10M
+  fields:
+    strain: 129S1J
+    sex: M
+    weight_g: 24.8
+    date_of_birth: 2022-07-26
+    date_obtained: null
+    dissection_start_time: 2022-10-06 19:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 397015
+    accession: []
+- model: igvf_mice.mouse
+  pk: 046_NZOJ_10F
+  fields:
+    strain: NZOJ
+    sex: F
+    weight_g: 43.6
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 18:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: Brain parts (1-4) placed into 092 CAST tube... Sorry
+    housing_number: 394117
+    accession: []
+- model: igvf_mice.mouse
+  pk: 047_NZOJ_10M
+  fields:
+    strain: NZOJ
+    sex: M
+    weight_g: 42.8
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 21:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394118
+    accession: []
+- model: igvf_mice.mouse
+  pk: 048_NZOJ_10F
+  fields:
+    strain: NZOJ
+    sex: F
+    weight_g: 44.9
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 18:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394117
+    accession: []
+- model: igvf_mice.mouse
+  pk: 049_NZOJ_10M
+  fields:
+    strain: NZOJ
+    sex: M
+    weight_g: 42.4
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 22:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394119
+    accession: []
+- model: igvf_mice.mouse
+  pk: 050_NZOJ_10F
+  fields:
+    strain: NZOJ
+    sex: F
+    weight_g: 41.8
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 19:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394117
+    accession: []
+- model: igvf_mice.mouse
+  pk: 051_NZOJ_10M
+  fields:
+    strain: NZOJ
+    sex: M
+    weight_g: 45.5
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 22:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394120
+    accession: []
+- model: igvf_mice.mouse
+  pk: 052_NZOJ_10F
+  fields:
+    strain: NZOJ
+    sex: F
+    weight_g: 40.2
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 19:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398325
+    accession: []
+- model: igvf_mice.mouse
+  pk: 053_NZOJ_10M
+  fields:
+    strain: NZOJ
+    sex: M
+    weight_g: 42.4
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 23:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394121
+    accession: []
+- model: igvf_mice.mouse
+  pk: 054_NZOJ_10F
+  fields:
+    strain: NZOJ
+    sex: F
+    weight_g: 43.5
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 20:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398325
+    accession: []
+- model: igvf_mice.mouse
+  pk: 055_NZOJ_10M
+  fields:
+    strain: NZOJ
+    sex: M
+    weight_g: 40.2
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398326
+    accession: []
+- model: igvf_mice.mouse
+  pk: 056_PWKJ_9F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.5
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-17 16:11:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 056WSBJ has PWKJ9F (mistake by SK) Ignore or reuse for some other experiment
+    housing_number: 389010
+    accession: []
+- model: igvf_mice.mouse
+  pk: 057_WSBJ_10M
+  fields:
+    strain: WSBJ
+    sex: M
+    weight_g: 15.8
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 18:07:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 389008
+    accession: []
+- model: igvf_mice.mouse
+  pk: 058_WSBJ_10F
+  fields:
+    strain: WSBJ
+    sex: F
+    weight_g: 12.9
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 16:46:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 'Sticky discharge: unable to call the estrus stage.'
+    housing_number: 389007
+    accession: []
+- model: igvf_mice.mouse
+  pk: 059_WSBJ_10M
+  fields:
+    strain: WSBJ
+    sex: M
+    weight_g: 16.9
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 18:28:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 399908
+    accession: []
+- model: igvf_mice.mouse
+  pk: 060_WSBJ_10F
+  fields:
+    strain: WSBJ
+    sex: F
+    weight_g: 12.5
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 17:14:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 'Sticky discharge: unable to call the estrus stage.'
+    housing_number: 389007
+    accession: []
+- model: igvf_mice.mouse
+  pk: 061_WSBJ_10M
+  fields:
+    strain: WSBJ
+    sex: M
+    weight_g: 15.7
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 19:10:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 399907
+    accession: []
+- model: igvf_mice.mouse
+  pk: 062_WSBJ_10F
+  fields:
+    strain: WSBJ
+    sex: F
+    weight_g: 12.8
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 17:38:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 'Sticky discharge: unable to call the estrus stage.'
+    housing_number: 399906
+    accession: []
+- model: igvf_mice.mouse
+  pk: 063_WSBJ_10M
+  fields:
+    strain: WSBJ
+    sex: M
+    weight_g: 15.5
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 19:31:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 389009
+    accession: []
+- model: igvf_mice.mouse
+  pk: 064_WSBJ_10F
+  fields:
+    strain: WSBJ
+    sex: F
+    weight_g: 12.4
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 20:20:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 'She ran away from the cage.  Captured after 30 min (about 11:30 am) 2nd
+      run-away was just after  063 dissection.  She was captured after 15 min.  Sticky
+      discharge: unable to call the estrus stage.'
+    housing_number: 399906
+    accession: []
+- model: igvf_mice.mouse
+  pk: 065_WSBJ_10M
+  fields:
+    strain: WSBJ
+    sex: M
+    weight_g: 14.7
+    date_of_birth: 2022-08-23
+    date_obtained: null
+    dissection_start_time: 2022-10-31 18:48:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK//ER/GF
+    notes: ''
+    housing_number: 401478
+    accession: []
+- model: igvf_mice.mouse
+  pk: 066_NODJ_10F
+  fields:
+    strain: NODJ
+    sex: F
+    weight_g: 15.8
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 16:07:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398324
+    accession: []
+- model: igvf_mice.mouse
+  pk: 067_NODJ_10M
+  fields:
+    strain: NODJ
+    sex: M
+    weight_g: 26.0
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 17:42:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398323
+    accession: []
+- model: igvf_mice.mouse
+  pk: 068_NODJ_10F
+  fields:
+    strain: NODJ
+    sex: F
+    weight_g: 20.0
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 16:29:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 398324
+    accession: []
+- model: igvf_mice.mouse
+  pk: 069_NODJ_10M
+  fields:
+    strain: NODJ
+    sex: M
+    weight_g: 25.5
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 18:10:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395333
+    accession: []
+- model: igvf_mice.mouse
+  pk: 070_NODJ_10F
+  fields:
+    strain: NODJ
+    sex: F
+    weight_g: 21.0
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 16:54:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395337
+    accession: []
+- model: igvf_mice.mouse
+  pk: 071_NODJ_10M
+  fields:
+    strain: NODJ
+    sex: M
+    weight_g: 26.0
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 18:36:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395334
+    accession: []
+- model: igvf_mice.mouse
+  pk: 072_NODJ_10F
+  fields:
+    strain: NODJ
+    sex: F
+    weight_g: 16.4
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 17:18:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/BW/SK/HL/ER/GF
+    notes: Muscle parts picture was taken with 067 NODJ barcode
+    housing_number: 395337
+    accession: []
+- model: igvf_mice.mouse
+  pk: 073_NODJ_10M
+  fields:
+    strain: NODJ
+    sex: M
+    weight_g: 27.6
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 19:02:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 395335
+    accession: []
+- model: igvf_mice.mouse
+  pk: 074_NODJ_10F
+  fields:
+    strain: NODJ
+    sex: F
+    weight_g: 19.0
+    date_of_birth: 2022-08-23
+    date_obtained: null
+    dissection_start_time: 2022-10-31 18:13:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: GM/SK//ER/GF
+    notes: ''
+    housing_number: 401479
+    accession: []
+- model: igvf_mice.mouse
+  pk: 075_NODJ_10M
+  fields:
+    strain: NODJ
+    sex: M
+    weight_g: 26.1
+    date_of_birth: 2022-08-23
+    date_obtained: null
+    dissection_start_time: 2022-10-31 19:22:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK//ER/GF
+    notes: ''
+    housing_number: 401480
+    accession: []
+- model: igvf_mice.mouse
+  pk: 076_PWKJ_10F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.2
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 16:32:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/ER/GF
+    notes: Cytology analysis-- not much cells on the slideglass.
+    housing_number: 389010
+    accession: []
+- model: igvf_mice.mouse
+  pk: 077_PWKJ_10M
+  fields:
+    strain: PWKJ
+    sex: M
+    weight_g: 16.6
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 18:21:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 389011
+    accession: []
+- model: igvf_mice.mouse
+  pk: 078_PWKJ_10F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.6
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 16:58:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 389010
+    accession: []
+- model: igvf_mice.mouse
+  pk: 079_PWKJ_10M
+  fields:
+    strain: PWKJ
+    sex: M
+    weight_g: 13.7
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 18:47:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 389012
+    accession: []
+- model: igvf_mice.mouse
+  pk: 080_PWKJ_10F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.6
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 17:23:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 389010
+    accession: []
+- model: igvf_mice.mouse
+  pk: 081_PWKJ_10M
+  fields:
+    strain: PWKJ
+    sex: M
+    weight_g: 15.1
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 19:15:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 400703
+    accession: []
+- model: igvf_mice.mouse
+  pk: 082_PWKJ_10F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.4
+    date_of_birth: 2022-09-20
+    date_obtained: null
+    dissection_start_time: 2022-12-01 18:32:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/SK/GF
+    notes: On 11/21/22, a female mouse was dissected and was labeled 84 instead of
+      82, so 84 was included in the experiment instead. Input was corrected accordingly.
+    housing_number: 403885
+    accession: []
+- model: igvf_mice.mouse
+  pk: 083_PWKJ_10M
+  fields:
+    strain: PWKJ
+    sex: M
+    weight_g: 14.8
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 19:43:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 400704
+    accession: []
+- model: igvf_mice.mouse
+  pk: 084_PWKJ_10F
+  fields:
+    strain: PWKJ
+    sex: F
+    weight_g: 13.9
+    date_of_birth: 2022-09-13
+    date_obtained: null
+    dissection_start_time: 2022-11-21 18:31:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: GM/SK/ER/GF
+    notes: On 11/21/22, a female mouse was dissected and was labeled 84 instead of
+      82, so 84 was included in the experiment instead. Input was corrected accordingly.
+    housing_number: 401481
+    accession: []
+- model: igvf_mice.mouse
+  pk: 085_PWKJ_10M
+  fields:
+    strain: PWKJ
+    sex: M
+    weight_g: 17.1
+    date_of_birth: 2022-09-13
+    date_obtained: null
+    dissection_start_time: 2022-11-21 19:05:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/SK/ER/GF
+    notes: ''
+    housing_number: 401482
+    accession: []
+- model: igvf_mice.mouse
+  pk: 086_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 11.8
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 16:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394694
+    accession: []
+- model: igvf_mice.mouse
+  pk: 087_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 15.2
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 19:57:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 399909
+    accession: []
+- model: igvf_mice.mouse
+  pk: 088_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 13.0
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 17:00:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394694
+    accession: []
+- model: igvf_mice.mouse
+  pk: 089_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 15.8
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-17 20:43:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394698
+    accession: []
+- model: igvf_mice.mouse
+  pk: 090_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 12.4
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 17:30:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: DP
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394694
+    accession: []
+- model: igvf_mice.mouse
+  pk: 091_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 16.4
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 19:38:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394697
+    accession: []
+- model: igvf_mice.mouse
+  pk: 092_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 12.7
+    date_of_birth: 2022-08-02
+    date_obtained: null
+    dissection_start_time: 2022-10-10 23:40:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: DP
+    operator: GM/BW/SK/HL/ER/GF
+    notes: 'Brain parts (1-4) placed into 046 NOZ tube... Sorry: this mouse was chaced
+      for 15 min.  We gave her 2hrs of break before the dissection'
+    housing_number: 394694
+    accession: []
+- model: igvf_mice.mouse
+  pk: 093_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 16.6
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 20:05:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394696
+    accession: []
+- model: igvf_mice.mouse
+  pk: 094_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 13.6
+    date_of_birth: 2022-08-16
+    date_obtained: null
+    dissection_start_time: 2022-10-24 17:48:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: GM/BW/SK/ER/GF
+    notes: ''
+    housing_number: 398342
+    accession: []
+- model: igvf_mice.mouse
+  pk: 095_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 15.1
+    date_of_birth: 2022-08-09
+    date_obtained: null
+    dissection_start_time: 2022-10-20 20:31:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: GM/BW/SK/HL/ER/GF
+    notes: ''
+    housing_number: 394695
+    accession: []
+- model: igvf_mice.mouse
+  pk: 096_WSBJ_10F
+  fields:
+    strain: WSBJ
+    sex: F
+    weight_g: 12.2
+    date_of_birth: 2022-08-23
+    date_obtained: null
+    dissection_start_time: 2022-10-31 17:35:00+00:00
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: GM/SK/ER/GF
+    notes: ''
+    housing_number: 401477
+    accession: []
+- model: igvf_mice.mouse
+  pk: 097_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 16.4
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408737
+    accession: []
+- model: igvf_mice.mouse
+  pk: 098_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 13.8
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408735
+    accession: []
+- model: igvf_mice.mouse
+  pk: 099_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 15.5
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408737
+    accession: []
+- model: igvf_mice.mouse
+  pk: 100_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 12.8
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: P
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408735
+    accession: []
+- model: igvf_mice.mouse
+  pk: 101_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 15.2
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408737
+    accession: []
+- model: igvf_mice.mouse
+  pk: 102_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 12.0
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: U
+    operator: SK/ER/GF
+    notes: '? No cell on the slides'
+    housing_number: 408735
+    accession: []
+- model: igvf_mice.mouse
+  pk: 103_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 14.9
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408737
+    accession: []
+- model: igvf_mice.mouse
+  pk: 104_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 12.6
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408735
+    accession: []
+- model: igvf_mice.mouse
+  pk: 105_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 14.9
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408738
+    accession: []
+- model: igvf_mice.mouse
+  pk: 106_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 13.2
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: D
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408736
+    accession: []
+- model: igvf_mice.mouse
+  pk: 107_CASTJ_10M
+  fields:
+    strain: CASTJ
+    sex: M
+    weight_g: 14.9
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408738
+    accession: []
+- model: igvf_mice.mouse
+  pk: 108_CASTJ_10F
+  fields:
+    strain: CASTJ
+    sex: F
+    weight_g: 13.8
+    date_of_birth: 2022-11-08
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: SK/ER/GF
+    notes: ''
+    housing_number: 408736
+    accession: []
+- model: igvf_mice.mouse
+  pk: 109_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 23.9
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414716
+    accession: []
+- model: igvf_mice.mouse
+  pk: 110_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 19.4
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414718
+    accession: []
+- model: igvf_mice.mouse
+  pk: 111_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 25.1
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414715
+    accession: []
+- model: igvf_mice.mouse
+  pk: 112_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 19.9
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414718
+    accession: []
+- model: igvf_mice.mouse
+  pk: 113_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 25.7
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414717
+    accession: []
+- model: igvf_mice.mouse
+  pk: 114_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 19.2
+    date_of_birth: 2022-11-15
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: E
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 414718
+    accession: []
+- model: igvf_mice.mouse
+  pk: 115_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 24.0
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 417151
+    accession: []
+- model: igvf_mice.mouse
+  pk: 116_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 18.9
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 417150
+    accession: []
+- model: igvf_mice.mouse
+  pk: 117_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 24.0
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 417152
+    accession: []
+- model: igvf_mice.mouse
+  pk: 118_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 20.4
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 417150
+    accession: []
+- model: igvf_mice.mouse
+  pk: 119_B6J_10M
+  fields:
+    strain: B6J
+    sex: M
+    weight_g: 24.9
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: NA
+    operator: SK/HL/GF
+    notes: Malocclusion; teeth are trimmed abnormally
+    housing_number: 417153
+    accession: []
+- model: igvf_mice.mouse
+  pk: 120_B6J_10F
+  fields:
+    strain: B6J
+    sex: F
+    weight_g: 21.3
+    date_of_birth: 2022-11-22
+    date_obtained: null
+    dissection_start_time: null
+    dissection_end_time: null
+    timepoint_description: 10 weeks
+    life_stage: A
+    estrus_cycle: M
+    operator: SK/HL/GF
+    notes: ''
+    housing_number: 417150
+    accession: []

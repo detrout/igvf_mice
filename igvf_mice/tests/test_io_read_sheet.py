@@ -430,7 +430,16 @@ def validate_plate_row_ids(plate_row_labels):
 
 
 class TestPlateLayoutParser(TestCase):
-    fixtures = ["source", "mousestrain"]
+    fixtures = [
+        "source",
+        "library_construction_reagent",
+        "librarybarcode",
+        "mousestrain",
+        "ontologyterm",
+        "igvf_mice/tests/test_mice.yaml",
+        "igvf_mice/tests/test_tissue.yaml",
+        "igvf_mice/tests/test_fixedsample.yaml"
+    ]
 
     def test_is_plate_name(self):
         parser = PlateLayoutParser()
@@ -784,3 +793,19 @@ class TestPlateLayoutParser(TestCase):
 
             for key in expected_wells:
                 self.assertEqual(expected_wells[key], actual_wells[key])
+
+    def test_import_plate_igvf_003(self):
+        layouts = read_layout(igvf_003_csv)
+
+        parser = PlateLayoutParser()
+        parser.import_plates(layouts)
+
+        self.assertEqual(models.SplitSeqPlate.objects.count(), 1)
+        self.assertEqual(models.SplitSeqWell.objects.count(), 96)
+
+        # it should auto-detect the 96 well barcode set.
+        wt_mega_2_reagent = models.LibraryConstructionReagent.objects.get(name="wt-mega-v2")
+        for well in models.SplitSeqWell.objects.all():
+            self.assertGreater(well.barcode.count(), 0)
+            for barcode in well.barcode.all():
+                self.assertEqual(barcode.reagent, wt_mega_2_reagent)
