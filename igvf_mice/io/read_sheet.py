@@ -190,6 +190,9 @@ class ValidationError(ValueError):
     pass
 
 
+def is_plate_name(name):
+    return not pandas.isnull(name) and name.startswith("IGVF_")
+
 class PlateLayoutParser:
     def __init__(self):
         self.plate_label = 1
@@ -211,7 +214,7 @@ class PlateLayoutParser:
     def find_plate_start(self, sheet):
         """Search for the start of a plate layout block
         """
-        for plate_id_row in sheet[sheet[self.plate_label].apply(self.is_plate_name)].index:
+        for plate_id_row in sheet[sheet[self.plate_label].apply(is_plate_name)].index:
             plate_name = normalize_plate_name(sheet.iloc[plate_id_row][self.plate_label])
             if plate_name.endswith("XX"):
                 continue
@@ -449,5 +452,4 @@ class PlateLayoutParser:
             contents = self.get_well_contents_from_block(plate_name, sheet, plate_start)
             yield plate_name, contents
 
-    def is_plate_name(self, name):
-        return not pandas.isnull(name) and name.startswith("IGVF_")
+

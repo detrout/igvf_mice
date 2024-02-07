@@ -10,6 +10,7 @@ from ..io.read_sheet import (
     import_accessions,
     import_mice,
     import_protocols,
+    is_plate_name,
     WellContent,
     PlateLayoutParser,
 )
@@ -338,10 +339,10 @@ class TestPlateLayoutParser(TestCase):
 
     def test_is_plate_name(self):
         parser = PlateLayoutParser()
-        self.assertEqual(parser.is_plate_name(None), False)
-        self.assertEqual(parser.is_plate_name("Foo"), False)
-        self.assertEqual(parser.is_plate_name("IGVF_123"), True)
-        self.assertEqual(parser.is_plate_name("IGVF_0XX"), True)
+        self.assertEqual(is_plate_name(None), False)
+        self.assertEqual(is_plate_name("Foo"), False)
+        self.assertEqual(is_plate_name("IGVF_123"), True)
+        self.assertEqual(is_plate_name("IGVF_0XX"), True)
 
     def test_find_plate_start_one_large_plate(self):
         layout = read_layout(igvf_003_csv)
