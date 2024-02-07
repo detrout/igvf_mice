@@ -10,6 +10,7 @@ from ..io.read_sheet import (
     import_accessions,
     import_mice,
     import_protocols,
+    import_tissues,
     is_plate_name,
     WellContent,
     PlateLayoutParser,
@@ -152,6 +153,32 @@ class TestReadSheet(TestCase):
 
         added = import_mice(mice, submitted)
         self.assertEqual(added, 0)
+
+    def test_import_tissues(self):
+        mice = get_test_mice_sheet()
+        import_mice(mice)
+        self.assertEqual(models.Tissue.objects.count(), 0)
+
+        tissues = get_test_tissue_sheet()
+
+        first = tissues[tissues["Mouse_Tissue ID"] == "016_B6J_10F_01"]
+        import_tissues(first)
+        self.assertEqual(models.Tissue.objects.count(), 1)
+
+        import_tissues(tissues)
+        self.assertEqual(models.Tissue.objects.count(), 6)
+
+        for tissue_i, row in enumerate(models.Tissue.objects.all()):
+            dissection_start_time = uci_tz_or_none(tissues.iloc[tissue_i]["Dissection start"])
+            dissection_end_time = uci_tz_or_none(tissues.iloc[tissue_i]["Dissection end"])
+
+            self.assertEqual(row.name, tissues.iloc[tissue_i]["Mouse_Tissue ID"])
+            self.assertEqual(row.mouse.name, tissues.iloc[tissue_i]["Mouse name"])
+            self.assertEqual(row.dissection_start_time, dissection_start_time)
+            self.assertEqual(row.dissection_end_time, dissection_end_time)
+            self.assertEqual(row.tube_label, tissues.iloc[tissue_i]["Tube label"])
+            self.assertEqual(row.mouse.strain.name, tissues.iloc[tissue_i]["Genotype"])
+            self.assertEqual(row.mouse.weight_g, tissues.iloc[tissue_i]["Body weight (g)"])
 
 
 igvf_003_csv = """,IGVF_003,,,,,,,,,,,,,,,

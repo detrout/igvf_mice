@@ -119,50 +119,56 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
 
     loaded_mice = {x.name: x for x in models.Mouse.objects.all()}
     loaded_tissues = {x.name: x for x in models.Tissue.objects.all()}
+    ontology_map = {x.curie: x for x in models.OntologyTerm.objects.all()}
 
-    failed = False
+    tissue_sheets = tissue_sheets.copy()
+    tissue_sheets.columns = [x.lower() for x in tissue_sheets.columns]
+    added = 0
+    failed = 0
     for i, row in tissue_sheets.iterrows():
-        mouse_name = row["Mouse name"]
+        tissue_name = row["mouse_tissue id"]
+        mouse_name = row["mouse name"]
         try:
             mouse = loaded_mice[mouse_name]
         except KeyError:
             print("row {}, {} was not found".format(i+2, mouse_name))
-            failed = True
+            failed += 1
             continue
 
-        mouse_tissue = row["Mouse_Tissue ID"]
+        mouse_tissue = row["mouse_tissue id"]
 
-        genotype = row["Genotype"]
+        genotype = normalize_strain(row["genotype"])
 
-        validate_tissue_genotype(mouse.strain.name, genotype)
+        # this is the "label swap" on spreadsheet rows 602-605.
+        if mouse_name == "092_CASTJ_10F":
+            genotype = "CASTJ"
+        # this is the other half the swap on spreadsheet rows 1522-1525
+        elif mouse_name == "046_NZOJ_10F":
+            genotype = 'NZOJ'
+
+        if mouse.strain.name != genotype:
+            print(f"{tissue_name} Mouse strain {mouse.strain.name} != {genotype}")
+            failed += 1
+            continue
 
         tissue_terms = []
-        for term_curie, term_name in tissue_dissection_to_ontology_map[row["Tissue"]]:
+        for term_curie in row["tissue_id"]:
             tissue_terms.append(ontology_map[term_curie])
-
-        if pandas.isnull(row["Approx. sac time"]):
-            sac_time = datetime.time(0,0,0)
-        else:
-            sac_time = datetime.time(
-                row["Approx. sac time"].hour,
-                row["Approx. sac time"].minute,
-                row["Approx. sac time"].second,
-            )
 
         record = models.Tissue(
             mouse=mouse,
-            name = mouse_tissue,
-            description = row["Tissue"],
-            #dissection_time=dissection,
-            #age=age,
-            #age_units=age_units,
-            tube_label=row["Tube label"],
-            dissector=str_or_empty(row["Dissector"]),
-            dissection_notes=str_or_empty(row["Comment"]),
+            name=mouse_tissue,
+            description=row["tissue"],
+            tube_label=row["tube label"],
+            dissector=str_or_empty(row["dissector"]),
+            dissection_notes=str_or_empty(row["comment"]),
         )
 
         if not pandas.isnull(row["dissection start"]):
             record.dissection_start_time = uci_tz_or_none(row["dissection start"])
+
+        if not pandas.isnull(row["dissection end"]):
+            record.dissection_end_time = uci_tz_or_none(row["dissection end"])
 
         tube_weight_label = "tube weight (g)"
         if not pandas.isnull(row[tube_weight_label]):
@@ -175,10 +181,13 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
         record.save()
         record.ontology_term.set(tissue_terms)
         record.save()
+        added += 1
 
-        import_accessions(submitted_accessions.get(row["Mouse_Tissue ID"]), record)
+        import_accessions(submitted_tissues.get(tissue_name), record)
 
-    assert not failed, "Check warning messages."
+    if failed > 0:
+        raise ValidationError(f"Check warning messages. {failed} records failed")
+    return added
 
 WellContent = namedtuple("well_content", ["genotype", "tissue_id"])
 
