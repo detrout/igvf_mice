@@ -119,7 +119,7 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
     los_angeles_tz = zoneinfo.ZoneInfo("America/Los_Angeles")
 
     loaded_mice = {x.name: x for x in models.Mouse.objects.all()}
-    loaded_tissues = {x.name: x for x in models.Tissues.objects.all()}
+    loaded_tissues = {x.name: x for x in models.Tissue.objects.all()}
 
     failed = False
     for i, row in tissue_sheets.iterrows():
