@@ -3190,3 +3190,435 @@
     well_position: H6
   model: igvf_mice.librarybarcode
   pk: 360
+- fields:
+    code: UDI01
+    i5_sequence: CTTCACAT
+    i7_sequence: CAGATCAC
+    name: UDI_Plate_WT_1
+    reagent: wt-v2
+    well_position: A1
+  model: igvf_mice.librarybarcode
+  pk: 361
+- fields:
+    code: UDI02
+    i5_sequence: GGTTGGAC
+    i7_sequence: ACTGATAG
+    name: UDI_Plate_WT_2
+    reagent: wt-v2
+    well_position: B1
+  model: igvf_mice.librarybarcode
+  pk: 362
+- fields:
+    code: UDI03
+    i5_sequence: TTGACTCT
+    i7_sequence: GATCAGTC
+    name: UDI_Plate_WT_3
+    reagent: wt-v2
+    well_position: C1
+  model: igvf_mice.librarybarcode
+  pk: 363
+- fields:
+    code: UDI04
+    i5_sequence: AGCCAACT
+    i7_sequence: CTTGTAAT
+    name: UDI_Plate_WT_4
+    reagent: wt-v2
+    well_position: D1
+  model: igvf_mice.librarybarcode
+  pk: 364
+- fields:
+    code: UDI05
+    i5_sequence: CGCCTTAT
+    i7_sequence: AGTCAAGA
+    name: UDI_Plate_WT_5
+    reagent: wt-v2
+    well_position: E1
+  model: igvf_mice.librarybarcode
+  pk: 365
+- fields:
+    code: UDI06
+    i5_sequence: CTGTACGG
+    i7_sequence: CCGTCCTA
+    name: UDI_Plate_WT_6
+    reagent: wt-v2
+    well_position: F1
+  model: igvf_mice.librarybarcode
+  pk: 366
+- fields:
+    code: UDI07
+    i5_sequence: CATGAATG
+    i7_sequence: GTAGAGTA
+    name: UDI_Plate_WT_7
+    reagent: wt-v2
+    well_position: G1
+  model: igvf_mice.librarybarcode
+  pk: 367
+- fields:
+    code: UDI08
+    i5_sequence: CCGTATCT
+    i7_sequence: GTCCGCCT
+    name: UDI_Plate_WT_8
+    reagent: wt-v2
+    well_position: H1
+  model: igvf_mice.librarybarcode
+  pk: 368
+- fields:
+    code: UDI09
+    i5_sequence: AGTCTGTA
+    i7_sequence: GTGAAACT
+    name: UDI_Plate_WT_9
+    reagent: wt-v2
+    well_position: A2
+  model: igvf_mice.librarybarcode
+  pk: 369
+- fields:
+    code: UDI10
+    i5_sequence: CAGGCATT
+    i7_sequence: TCATTCCT
+    name: UDI_Plate_WT_10
+    reagent: wt-v2
+    well_position: B2
+  model: igvf_mice.librarybarcode
+  pk: 370
+- fields:
+    code: UDI11
+    i5_sequence: GGCAAGCA
+    i7_sequence: GGTAGCAT
+    name: UDI_Plate_WT_11
+    reagent: wt-v2
+    well_position: C2
+  model: igvf_mice.librarybarcode
+  pk: 371
+- fields:
+    code: UDI12
+    i5_sequence: CACCCAAA
+    i7_sequence: ACTTGATC
+    name: UDI_Plate_WT_12
+    reagent: wt-v2
+    well_position: D2
+  model: igvf_mice.librarybarcode
+  pk: 372
+- fields:
+    code: UDI13
+    i5_sequence: TCAGATTC
+    i7_sequence: ATGAGCAT
+    name: UDI_Plate_WT_13
+    reagent: wt-v2
+    well_position: E2
+  model: igvf_mice.librarybarcode
+  pk: 373
+- fields:
+    code: UDI14
+    i5_sequence: TCCAGTCG
+    i7_sequence: GCGCTATC
+    name: UDI_Plate_WT_14
+    reagent: wt-v2
+    well_position: F2
+  model: igvf_mice.librarybarcode
+  pk: 374
+- fields:
+    code: UDI15
+    i5_sequence: GCCAATGT
+    i7_sequence: TGACCAGT
+    name: UDI_Plate_WT_15
+    reagent: wt-v2
+    well_position: G2
+  model: igvf_mice.librarybarcode
+  pk: 375
+- fields:
+    code: UDI16
+    i5_sequence: ACAGTGGT
+    i7_sequence: TATAATCA
+    name: UDI_Plate_WT_16
+    reagent: wt-v2
+    well_position: H2
+  model: igvf_mice.librarybarcode
+  pk: 376
+- fields:
+    code: UDI17
+    i5_sequence: AACAACCG
+    i7_sequence: CAAAAGTC
+    name: UDI_Plate_WT_17
+    reagent: wt-v2
+    well_position: A3
+  model: igvf_mice.librarybarcode
+  pk: 377
+- fields:
+    code: UDI18
+    i5_sequence: TCCTCATG
+    i7_sequence: CGATGTCA
+    name: UDI_Plate_WT_18
+    reagent: wt-v2
+    well_position: B3
+  model: igvf_mice.librarybarcode
+  pk: 378
+- fields:
+    code: UDI19
+    i5_sequence: ACTCTCCA
+    i7_sequence: CTCAGAGT
+    name: UDI_Plate_WT_19
+    reagent: wt-v2
+    well_position: C3
+  model: igvf_mice.librarybarcode
+  pk: 379
+- fields:
+    code: UDI20
+    i5_sequence: CGAAGTCA
+    i7_sequence: TAATCGAC
+    name: UDI_Plate_WT_20
+    reagent: wt-v2
+    well_position: D3
+  model: igvf_mice.librarybarcode
+  pk: 380
+- fields:
+    code: UDI21
+    i5_sequence: ATCCTTCC
+    i7_sequence: CATTTTCT
+    name: UDI_Plate_WT_21
+    reagent: wt-v2
+    well_position: E3
+  model: igvf_mice.librarybarcode
+  pk: 381
+- fields:
+    code: UDI22
+    i5_sequence: CTCGAACA
+    i7_sequence: CTATACTC
+    name: UDI_Plate_WT_22
+    reagent: wt-v2
+    well_position: F3
+  model: igvf_mice.librarybarcode
+  pk: 382
+- fields:
+    code: UDI23
+    i5_sequence: TCAGCCTT
+    i7_sequence: CACTCACA
+    name: UDI_Plate_WT_23
+    reagent: wt-v2
+    well_position: G3
+  model: igvf_mice.librarybarcode
+  pk: 383
+- fields:
+    code: UDI24
+    i5_sequence: CACTCGAG
+    i7_sequence: CTCGAACA
+    name: UDI_Plate_WT_24
+    reagent: wt-v2
+    well_position: H3
+  model: igvf_mice.librarybarcode
+  pk: 384
+- fields:
+    code: UDI25
+    i5_sequence: CCACCGAT
+    i7_sequence: CTCTATCG
+    name: UDI_Plate_WT_25
+    reagent: wt-v2
+    well_position: A4
+  model: igvf_mice.librarybarcode
+  pk: 385
+- fields:
+    code: UDI26
+    i5_sequence: CAAGACCT
+    i7_sequence: TCCTCATG
+    name: UDI_Plate_WT_26
+    reagent: wt-v2
+    well_position: B4
+  model: igvf_mice.librarybarcode
+  pk: 386
+- fields:
+    code: UDI27
+    i5_sequence: CGCTTCCT
+    i7_sequence: AACAACCG
+    name: UDI_Plate_WT_27
+    reagent: wt-v2
+    well_position: C4
+  model: igvf_mice.librarybarcode
+  pk: 387
+- fields:
+    code: UDI28
+    i5_sequence: ACACATGT
+    i7_sequence: GCCAATGT
+    name: UDI_Plate_WT_28
+    reagent: wt-v2
+    well_position: D4
+  model: igvf_mice.librarybarcode
+  pk: 388
+- fields:
+    code: UDI29
+    i5_sequence: AACTGTAT
+    i7_sequence: TGGTTGTT
+    name: UDI_Plate_WT_29
+    reagent: wt-v2
+    well_position: E4
+  model: igvf_mice.librarybarcode
+  pk: 389
+- fields:
+    code: UDI30
+    i5_sequence: AAGGCGAT
+    i7_sequence: TCTGCTGT
+    name: UDI_Plate_WT_30
+    reagent: wt-v2
+    well_position: F4
+  model: igvf_mice.librarybarcode
+  pk: 390
+- fields:
+    code: UDI31
+    i5_sequence: GCGTCGAA
+    i7_sequence: TTGGAGGT
+    name: UDI_Plate_WT_31
+    reagent: wt-v2
+    well_position: G4
+  model: igvf_mice.librarybarcode
+  pk: 391
+- fields:
+    code: UDI32
+    i5_sequence: GAACGACA
+    i7_sequence: TCGAGCGT
+    name: UDI_Plate_WT_32
+    reagent: wt-v2
+    well_position: H4
+  model: igvf_mice.librarybarcode
+  pk: 392
+- fields:
+    code: UDI33
+    i5_sequence: GCTATGGA
+    i7_sequence: TGCGATCT
+    name: UDI_Plate_WT_33
+    reagent: wt-v2
+    well_position: A5
+  model: igvf_mice.librarybarcode
+  pk: 393
+- fields:
+    code: UDI34
+    i5_sequence: GACACTTA
+    i7_sequence: TTCCTGCT
+    name: UDI_Plate_WT_34
+    reagent: wt-v2
+    well_position: B5
+  model: igvf_mice.librarybarcode
+  pk: 394
+- fields:
+    code: UDI35
+    i5_sequence: TATGCCAG
+    i7_sequence: TTCCATTG
+    name: UDI_Plate_WT_35
+    reagent: wt-v2
+    well_position: C5
+  model: igvf_mice.librarybarcode
+  pk: 395
+- fields:
+    code: UDI36
+    i5_sequence: TGGCTCAG
+    i7_sequence: TAACGCTG
+    name: UDI_Plate_WT_36
+    reagent: wt-v2
+    well_position: D5
+  model: igvf_mice.librarybarcode
+  pk: 396
+- fields:
+    code: UDI37
+    i5_sequence: TCATTGAG
+    i7_sequence: TTGGTATG
+    name: UDI_Plate_WT_37
+    reagent: wt-v2
+    well_position: E5
+  model: igvf_mice.librarybarcode
+  pk: 397
+- fields:
+    code: UDI38
+    i5_sequence: TGTATGCG
+    i7_sequence: TGAACTGG
+    name: UDI_Plate_WT_38
+    reagent: wt-v2
+    well_position: F5
+  model: igvf_mice.librarybarcode
+  pk: 398
+- fields:
+    code: UDI39
+    i5_sequence: TACTTCGG
+    i7_sequence: TCCAGTCG
+    name: UDI_Plate_WT_39
+    reagent: wt-v2
+    well_position: G5
+  model: igvf_mice.librarybarcode
+  pk: 399
+- fields:
+    code: UDI40
+    i5_sequence: TGAACTGG
+    i7_sequence: TGTATGCG
+    name: UDI_Plate_WT_40
+    reagent: wt-v2
+    well_position: H5
+  model: igvf_mice.librarybarcode
+  pk: 400
+- fields:
+    code: UDI41
+    i5_sequence: TAACGCTG
+    i7_sequence: TGGCTCAG
+    name: UDI_Plate_WT_41
+    reagent: wt-v2
+    well_position: A6
+  model: igvf_mice.librarybarcode
+  pk: 401
+- fields:
+    code: UDI42
+    i5_sequence: TTCCATTG
+    i7_sequence: TATGCCAG
+    name: UDI_Plate_WT_42
+    reagent: wt-v2
+    well_position: B6
+  model: igvf_mice.librarybarcode
+  pk: 402
+- fields:
+    code: UDI43
+    i5_sequence: TACAGGAT
+    i7_sequence: GGTTGGAC
+    name: UDI_Plate_WT_43
+    reagent: wt-v2
+    well_position: C6
+  model: igvf_mice.librarybarcode
+  pk: 403
+- fields:
+    code: UDI44
+    i5_sequence: TTCCTGCT
+    i7_sequence: GACACTTA
+    name: UDI_Plate_WT_44
+    reagent: wt-v2
+    well_position: D6
+  model: igvf_mice.librarybarcode
+  pk: 404
+- fields:
+    code: UDI45
+    i5_sequence: TCGAGCGT
+    i7_sequence: GAACGACA
+    name: UDI_Plate_WT_45
+    reagent: wt-v2
+    well_position: E6
+  model: igvf_mice.librarybarcode
+  pk: 405
+- fields:
+    code: UDI46
+    i5_sequence: TCTGCTGT
+    i7_sequence: AAGGCGAT
+    name: UDI_Plate_WT_46
+    reagent: wt-v2
+    well_position: F6
+  model: igvf_mice.librarybarcode
+  pk: 406
+- fields:
+    code: UDI47
+    i5_sequence: TAGCTTGT
+    i7_sequence: ATGCTTGA
+    name: UDI_Plate_WT_47
+    reagent: wt-v2
+    well_position: G6
+  model: igvf_mice.librarybarcode
+  pk: 407
+- fields:
+    code: UDI48
+    i5_sequence: ACTTGATG
+    i7_sequence: AGTATCTG
+    name: UDI_Plate_WT_48
+    reagent: wt-v2
+    well_position: H6
+  model: igvf_mice.librarybarcode
+  pk: 408
