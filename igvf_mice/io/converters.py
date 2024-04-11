@@ -73,6 +73,14 @@ def str_or_none(x):
         return x
     
 
+def normalize_barcode_index(value):
+    if isinstance(value, str):
+        if value.startswith("UDI_WT_"):
+            return "UDI{}".format(value[len("UDI_WT_"):])
+
+    return value
+
+
 def normalize_plate_name(name):
     name = name.upper()
 

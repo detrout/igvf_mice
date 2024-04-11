@@ -11,6 +11,7 @@ from ..io.converters import (
     int_or_0,
     str_or_empty,
     str_or_none,
+    normalize_barcode_index,
     normalize_plate_name,
     normalize_strain,
     normalize_subpool_submission_status,
@@ -60,6 +61,12 @@ class TestConverters(TestCase):
         for value in [numpy.nan, None]:
             self.assertIsNone(str_or_none(value))
         self.assertEqual(str_or_empty("hello"), "hello")
+
+    def test_normalize_barcode_index(self):
+        self.assertEqual(normalize_barcode_index("1"), "1")
+        self.assertEqual(normalize_barcode_index(1), 1)
+        self.assertEqual(normalize_barcode_index(""), "")
+        self.assertEqual(normalize_barcode_index("UDI_WT_01"), "UDI01")
 
     def test_normalize_plate_name(self):
         self.assertEqual(normalize_plate_name("igvf_003"), "IGVF_003")
