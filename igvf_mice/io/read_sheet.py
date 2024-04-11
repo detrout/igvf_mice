@@ -11,6 +11,7 @@ from .converters import (
     normalize_strain,
     parse_mouse_tissue,
     get_genotype_from_mouse_tissue,
+    int_or_none,
     str_or_empty,
     uci_tz_or_none,
 )
@@ -89,6 +90,7 @@ def import_mice(mice, submitted_accessions=None):
             record = models.Mouse(
                 # should i use liz's disection id?
                 name=name,
+                dissection=int_or_none(row["Dissection ID"]),
                 strain=mouse_strains[row["Strain code"]],
                 sex=row["Sex"],
                 weight_g=row["Weight (g)"],

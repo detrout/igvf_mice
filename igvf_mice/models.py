@@ -258,6 +258,7 @@ class Mouse(models.Model):
 
     name = models.CharField(
         max_length=50, primary_key=True, help_text="individual mouse id")
+    dissection = models.IntegerField(unique=True)
     strain = models.ForeignKey(
         MouseStrain, on_delete=models.PROTECT, help_text="strain type for mouse"
     )
