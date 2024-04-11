@@ -57,7 +57,7 @@ def expand_field(value, field_model, field_serializer, request, pkname="name"):
 class AccessionSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Accession
-        fields = ["@id", "name", "see_also"]
+        fields = ["@id", "name", "see_also", "accession_prefix"]
 
 
 class SourceSerializer(serializers.HyperlinkedModelSerializer):
