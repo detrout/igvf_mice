@@ -9,6 +9,11 @@ igvf_mice is the app designed to track the wet bench phase of the data collectio
 Somehow there will be additional components for tracking
 demultiplexing and analysis.
 
+* Debian packages needed
+python3-django >= 3.3
+python3-djangorestframework
+python3-djangorestframework-filters
+python3-django-oauth-toolkit
 * igvf_mice
 
 ** Sina's schema documents
