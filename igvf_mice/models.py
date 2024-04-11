@@ -241,6 +241,13 @@ class LifeStageEnum(models.TextChoices):
     ADULT = ("A", "adult")
 
 
+class TimepointEnum(models.TextChoices):
+    DAY = ("D", "Day")
+    WEEK = ("W", "Week")
+    MONTH = ("M", "Month")
+    YEAR = ("Y", "Year")
+
+
 # this represents an individual donor
 class Mouse(models.Model):
     """An individual mouse
@@ -277,10 +284,16 @@ class Mouse(models.Model):
     dissection_end_time = models.DateTimeField(
         null=True, help_text="Date and time that dissection finished"
     )
-    timepoint_description = models.CharField(
-        max_length=20,
+    timepoint = models.IntegerField(
         null=True,
-        help_text="Description of intended time point to group by"
+        help_text="Time point to group by"
+    )
+    timepoint_unit = models.CharField(
+        max_length=2,
+        choices=TimepointEnum.choices,
+        default=TimepointEnum.WEEK,
+        null=True,
+        help_text="the unit of time for timepoint"
     )
     life_stage = models.CharField(
         max_length=2,
