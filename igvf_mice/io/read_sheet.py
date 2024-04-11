@@ -15,6 +15,7 @@ from .converters import (
     uci_tz_or_none,
 )
 
+
 def import_accessions(submitted_accessions, record):
     if submitted_accessions is None:
         return
@@ -40,7 +41,7 @@ def import_accessions(submitted_accessions, record):
         record.accession.set(current_accessions)
         record.save()
 
-    
+
 def import_protocols(sheet):
     current_protocols = {x.name for x in models.ProtocolLink.objects.all()}
 
