@@ -3,7 +3,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 from pathlib import Path
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urljoin
 
 from igvf_mice import models
 from igvf_mice import serializers
@@ -247,6 +247,7 @@ class TestSerializers(APITestCase):
     def create_subpool(self, expected_status=status.HTTP_201_CREATED):
         plate = self.create_split_seq_plate(expected_status=expected_status)
         udi01 = self.create_udi01_library_barcode(expected_status=expected_status)
+        protocol = self.create_protocol_link(expected_status=expected_status)
 
         payload = {
             "name": "003_8A",
@@ -264,6 +265,7 @@ class TestSerializers(APITestCase):
             "library_average_bp_length": 443,
             "plate": plate["@id"],
             "barcode": [udi01["@id"]],
+            "protocols": [protocol["@id"]],
         }
 
         url = reverse("subpool-list")
@@ -502,6 +504,12 @@ class TestSerializers(APITestCase):
         subpool = models.Subpool.objects.get(name=payload["name"])
         self.assertEqual(subpool.nuclei, payload["nuclei"])
         self.assertEqual(subpool.selection_type, payload["selection_type"])
+        self.assertIn("protocols", payload)
+        self.assertEqual(subpool.protocols.count(), len(payload["protocols"]))
+        protocol_link = reverse("protocollink-list")
+        for db, json_id in zip(subpool.protocols.all(), payload["protocols"]):
+            db_id = urljoin(protocol_link, db.name) + "/"
+            self.assertTrue(json_id.endswith(db_id))
 
     def test_create_platform(self):
         self.client.force_authenticate(user=self.user)

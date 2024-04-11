@@ -348,6 +348,7 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
             "library_average_bp_length",
             "plate",
             "barcode",
+            "protocols",
             "subpool_runs",
         ]
 
