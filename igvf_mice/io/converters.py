@@ -4,6 +4,7 @@ The way that pandas and django represent missing data needs a bits of
 conversion.
 """
 from collections import namedtuple
+from collections.abc import Sequence
 import datetime
 import pandas
 import zoneinfo
