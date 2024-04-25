@@ -121,9 +121,17 @@ def normalize_subpool_submission_status(value):
     elif value in (1, True, "yes", "Yes"):
         return str(models.RunStatusEnum.PASS)
 
-    
-mouse_name_tuple = namedtuple("mouse_name_tuple", ["mouse_id", "mouse_strain", "mouse_age_sex"])
-def parse_mouse_name(mouse_name):    
+mouse_name_tuple = namedtuple(
+    "mouse_name_tuple",
+    ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex"])
+
+
+mouse_tissue_tuple = namedtuple(
+    "mouse_tissue_tuple",
+    ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex", "tissue_id"])
+
+
+def parse_mouse_name(mouse_name):
     mouse_id_end = mouse_name.find("_")
     mouse_age_sex_start = mouse_name.rfind("_") + 1
     
@@ -134,7 +142,6 @@ def parse_mouse_name(mouse_name):
     return mouse_name_tuple(mouse_id, mouse_strain, mouse_age_sex)
 
 
-mouse_tissue_tuple = namedtuple("mouse_tissue_tuple", ["mouse_id", "mouse_strain", "mouse_age_sex", "tissue_id"])
 def parse_mouse_tissue(mouse_tissue):
     fields = mouse_tissue.split("_")
     
