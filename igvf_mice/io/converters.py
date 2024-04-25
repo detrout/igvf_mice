@@ -51,6 +51,19 @@ def int_or_none(x):
     else:
         return int(x)
 
+
+def positive_int_or_none(x):
+    if x in ("N/A", "#DIV/0!", "#VALUE!", "-"):
+        return None
+    elif pandas.isnull(x):
+        return None
+    else:
+        x = int(x)
+        if x < 0:
+            return None
+        else:
+            return x
+
     
 def int_or_0(x):
     if pandas.isnull(x):
