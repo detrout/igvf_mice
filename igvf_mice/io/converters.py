@@ -121,6 +121,10 @@ def normalize_subpool_submission_status(value):
     elif value in (1, True, "yes", "Yes"):
         return str(models.RunStatusEnum.PASS)
 
+
+mouse_age_sex_tuple = namedtuple("mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
+
+
 mouse_name_tuple = namedtuple(
     "mouse_name_tuple",
     ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex"])
@@ -131,31 +135,108 @@ mouse_tissue_tuple = namedtuple(
     ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex", "tissue_id"])
 
 
+def parse_mouse_age_sex(mouse_age_sex):
+    """Parse age/sex combined files like 10F or 6moM"""
+    sex = mouse_age_sex[-1]
+    age = mouse_age_sex[0:-1]
+
+    if not sex in models.SexEnum.values:
+        raise ValueError(
+            "Invalid sex value {}. Allowed values {}".format(sex, models.SexEnum.values))
+
+    valid_ages = ("6mo",)
+    if not (age in valid_ages or isinstance(int(age), int)):
+        raise ValueError("Age must be an integer or in {}".format(valid_ages))
+
+    return mouse_age_sex_tuple(age, sex)
+
+
+def join_mouse_age_sex(value):
+    if isinstance(value, mouse_age_sex_tuple):
+        mouse_age = str(value.mouse_age)
+        mouse_sex = str(value.mouse_sex)
+    elif isinstance(value, Sequence) and len(value) == 2:
+        mouse_age = str(value[0])
+        mouse_sex = str(value[1])
+    else:
+        raise ValueError("Value {} not compatible with mouse_age_sex_tuple".format(value))
+
+    # TODO: Could probably add validators here too
+    return mouse_age + mouse_sex
+
+
 def parse_mouse_name(mouse_name):
     mouse_id_end = mouse_name.find("_")
     mouse_age_sex_start = mouse_name.rfind("_") + 1
-    
+
     mouse_id = mouse_name[0:mouse_id_end]
     mouse_strain = normalize_strain(mouse_name[mouse_id_end+1:mouse_age_sex_start-1])
-    mouse_age_sex = mouse_name[mouse_age_sex_start:]
-    validate_mouse_age_sex(mouse_age_sex)
-    return mouse_name_tuple(mouse_id, mouse_strain, mouse_age_sex)
+    mouse_age, mouse_sex = parse_mouse_age_sex(mouse_name[mouse_age_sex_start:])
+    return mouse_name_tuple(mouse_id, mouse_strain, mouse_age, mouse_sex)
+
+
+def join_mouse_name(value):
+    if isinstance(value, mouse_name_tuple):
+        mouse_id = value.mouse_id
+        mouse_strain = value.mouse_strain
+        mouse_age = value.mouse_age
+        mouse_sex = value.mouse_sex
+    elif isinstance(value, mouse_tissue_tuple):
+        mouse_id = value.mouse_id
+        mouse_strain = value.mouse_strain
+        mouse_age = value.mouse_age
+        mouse_sex = value.mouse_sex
+    elif isinstance(value, Sequence) and len(value) == 4:
+        mouse_id = value[0]
+        mouse_strain = value[1]
+        mouse_age = value[2]
+        mouse_sex = value[3]
+    else:
+        raise ValueError("{} does not look like a parsed mouse_name".format(value))
+
+    #mouse_strain = reverse_normalize_strain(mouse_strain)
+    mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
+    return "_".join([mouse_id, mouse_strain, mouse_age_sex])
 
 
 def parse_mouse_tissue(mouse_tissue):
     fields = mouse_tissue.split("_")
-    
+
     mouse_id = fields.pop(0)
     mouse_strain = fields.pop(0)
     if mouse_strain in ("TREM2R47HNSS",):
         mouse_strain = "_".join([mouse_strain, fields.pop(0)])
     mouse_strain = normalize_strain(mouse_strain)
     mouse_age_sex = fields.pop(0)
+    mouse_age, mouse_sex = parse_mouse_age_sex(mouse_age_sex)
     validate_mouse_age_sex(mouse_age_sex)
     tissue_id = fields.pop(0)
     assert len(fields) == 0
-    
-    return mouse_tissue_tuple(mouse_id, mouse_strain, mouse_age_sex, tissue_id)
+
+    return mouse_tissue_tuple(
+        mouse_id, mouse_strain, mouse_age, mouse_sex, tissue_id)
+
+
+def join_mouse_tissue(value):
+    if isinstance(value, mouse_tissue_tuple):
+        mouse_id = value.mouse_id
+        mouse_strain = value.mouse_strain
+        mouse_age = value.mouse_age
+        mouse_sex = value.mouse_sex
+        mouse_tissue = value.tissue_id
+    elif isinstance(value, Sequence) and len(value) == 5:
+        mouse_id = value[0]
+        mouse_strain = value[1]
+        mouse_age = value[2]
+        mouse_sex = value[3]
+        mouse_tissue = value[4]
+    else:
+        raise ValueError(
+            "{} does not look like a parsed mouse_name".format(value))
+
+    mouse_strain = reverse_normalize_strain(mouse_strain)
+    mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
+    return "_".join([mouse_id, mouse_strain, mouse_age_sex, mouse_tissue])
 
 
 def get_genotype_from_mouse_tissue(mouse_tissue):
