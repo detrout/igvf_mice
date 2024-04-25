@@ -101,8 +101,15 @@ def normalize_plate_name(name):
 
 
 def normalize_strain(strain):
-    strain = strain.replace("F1/J", "F1J").replace("B6129SF1J", "B6129S1F1J")
-    
+    replacements = {
+        "F1/J": "F1J",
+        "B6129SF1J": "B6129S1F1J",
+    }
+    for current, desired in replacements.items():
+        strain = strain.replace(current, desired)
+
+    return strain
+
     return strain
 
 
