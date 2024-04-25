@@ -86,7 +86,7 @@ def import_mice(mice, submitted_accessions=None):
     for i, row in mice.iterrows():
         name = row["Mouse Name"]
         if name not in current_mice:
-            housing_number = None if pandas.isnull(row["Housing number"]) else row["Housing number"]        
+            housing_number = None if pandas.isnull(row["Housing number"]) else row["Housing number"]
             record = models.Mouse(
                 # should i use liz's disection id?
                 name=name,
