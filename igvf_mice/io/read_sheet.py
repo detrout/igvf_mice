@@ -124,7 +124,6 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
         submitted_tissues = {}
 
     loaded_mice = {x.name: x for x in models.Mouse.objects.all()}
-    loaded_tissues = {x.name: x for x in models.Tissue.objects.all()}
     ontology_map = {x.curie: x for x in models.OntologyTerm.objects.all()}
 
     tissue_sheets = tissue_sheets.copy()
