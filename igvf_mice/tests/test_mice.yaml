@@ -1,6 +1,7 @@
 - model: igvf_mice.mouse
   pk: 016_B6J_10F
   fields:
+    dissection: 16
     strain: B6J
     sex: F
     weight_g: 21.1
@@ -19,6 +20,7 @@
 - model: igvf_mice.mouse
   pk: 017_B6J_10M
   fields:
+    dissection: 17
     strain: B6J
     sex: M
     weight_g: 26.3
@@ -37,6 +39,7 @@
 - model: igvf_mice.mouse
   pk: 018_B6J_10F
   fields:
+    dissection: 18
     strain: B6J
     sex: F
     weight_g: 21.0
@@ -55,6 +58,7 @@
 - model: igvf_mice.mouse
   pk: 019_B6J_10M
   fields:
+    dissection: 19
     strain: B6J
     sex: M
     weight_g: 29.0
@@ -73,6 +77,7 @@
 - model: igvf_mice.mouse
   pk: 020_B6J_10F
   fields:
+    dissection: 20
     strain: B6J
     sex: F
     weight_g: 18.5
@@ -91,6 +96,7 @@
 - model: igvf_mice.mouse
   pk: 021_B6J_10M
   fields:
+    dissection: 21
     strain: B6J
     sex: M
     weight_g: 27.8
@@ -109,6 +115,7 @@
 - model: igvf_mice.mouse
   pk: 022_B6J_10F
   fields:
+    dissection: 22
     strain: B6J
     sex: F
     weight_g: 20.8
@@ -127,6 +134,7 @@
 - model: igvf_mice.mouse
   pk: 023_B6J_10M
   fields:
+    dissection: 23
     strain: B6J
     sex: M
     weight_g: 28.1
@@ -145,6 +153,7 @@
 - model: igvf_mice.mouse
   pk: 024_B6J_10F
   fields:
+    dissection: 24
     strain: B6J
     sex: F
     weight_g: 20.7
@@ -163,6 +172,7 @@
 - model: igvf_mice.mouse
   pk: 025_B6J_10M
   fields:
+    dissection: 25
     strain: B6J
     sex: M
     weight_g: 27.7
@@ -181,6 +191,7 @@
 - model: igvf_mice.mouse
   pk: 026_AJ_10F
   fields:
+    dissection: 26
     strain: AJ
     sex: F
     weight_g: 23.8
@@ -199,6 +210,7 @@
 - model: igvf_mice.mouse
   pk: 027_AJ_10M
   fields:
+    dissection: 27
     strain: AJ
     sex: M
     weight_g: 25.5
@@ -217,6 +229,7 @@
 - model: igvf_mice.mouse
   pk: 028_AJ_10F
   fields:
+    dissection: 28
     strain: AJ
     sex: F
     weight_g: 22.8
@@ -235,6 +248,7 @@
 - model: igvf_mice.mouse
   pk: 029_AJ_10M
   fields:
+    dissection: 29
     strain: AJ
     sex: M
     weight_g: 21.1
@@ -253,6 +267,7 @@
 - model: igvf_mice.mouse
   pk: 030_AJ_10F
   fields:
+    dissection: 30
     strain: AJ
     sex: F
     weight_g: 23.9
@@ -271,6 +286,7 @@
 - model: igvf_mice.mouse
   pk: 031_AJ_10M
   fields:
+    dissection: 31
     strain: AJ
     sex: M
     weight_g: 18.3
@@ -289,6 +305,7 @@
 - model: igvf_mice.mouse
   pk: 032_AJ_10F
   fields:
+    dissection: 32
     strain: AJ
     sex: F
     weight_g: 25.0
@@ -307,6 +324,7 @@
 - model: igvf_mice.mouse
   pk: 033_AJ_10M
   fields:
+    dissection: 33
     strain: AJ
     sex: M
     weight_g: 23.7
@@ -325,6 +343,7 @@
 - model: igvf_mice.mouse
   pk: 034_AJ_10F
   fields:
+    dissection: 34
     strain: AJ
     sex: F
     weight_g: 24.0
@@ -343,6 +362,7 @@
 - model: igvf_mice.mouse
   pk: 035_AJ_10M
   fields:
+    dissection: 35
     strain: AJ
     sex: M
     weight_g: 26.5
@@ -362,6 +382,7 @@
 - model: igvf_mice.mouse
   pk: 036_129S1J_10F
   fields:
+    dissection: 36
     strain: 129S1J
     sex: F
     weight_g: 19.5
@@ -380,6 +401,7 @@
 - model: igvf_mice.mouse
   pk: 037_129S1J_10M
   fields:
+    dissection: 37
     strain: 129S1J
     sex: M
     weight_g: 24.5
@@ -399,6 +421,7 @@
 - model: igvf_mice.mouse
   pk: 038_129S1J_10F
   fields:
+    dissection: 38
     strain: 129S1J
     sex: F
     weight_g: 21.1
@@ -418,6 +441,7 @@
 - model: igvf_mice.mouse
   pk: 039_129S1J_10M
   fields:
+    dissection: 39
     strain: 129S1J
     sex: M
     weight_g: 25.6
@@ -436,6 +460,7 @@
 - model: igvf_mice.mouse
   pk: 040_129S1J_10F
   fields:
+    dissection: 40
     strain: 129S1J
     sex: F
     weight_g: 20.5
@@ -454,6 +479,7 @@
 - model: igvf_mice.mouse
   pk: 041_129S1J_10M
   fields:
+    dissection: 41
     strain: 129S1J
     sex: M
     weight_g: 25.5
@@ -472,6 +498,7 @@
 - model: igvf_mice.mouse
   pk: 042_129S1J_10F
   fields:
+    dissection: 42
     strain: 129S1J
     sex: F
     weight_g: 21.5
@@ -490,6 +517,7 @@
 - model: igvf_mice.mouse
   pk: 043_129S1J_10M
   fields:
+    dissection: 43
     strain: 129S1J
     sex: M
     weight_g: 25.0
@@ -508,6 +536,7 @@
 - model: igvf_mice.mouse
   pk: 044_129S1J_10F
   fields:
+    dissection: 44
     strain: 129S1J
     sex: F
     weight_g: 20.6
@@ -526,6 +555,7 @@
 - model: igvf_mice.mouse
   pk: 045_129S1J_10M
   fields:
+    dissection: 45
     strain: 129S1J
     sex: M
     weight_g: 24.8
@@ -544,6 +574,7 @@
 - model: igvf_mice.mouse
   pk: 046_NZOJ_10F
   fields:
+    dissection: 46
     strain: NZOJ
     sex: F
     weight_g: 43.6
@@ -562,6 +593,7 @@
 - model: igvf_mice.mouse
   pk: 047_NZOJ_10M
   fields:
+    dissection: 47
     strain: NZOJ
     sex: M
     weight_g: 42.8
@@ -580,6 +612,7 @@
 - model: igvf_mice.mouse
   pk: 048_NZOJ_10F
   fields:
+    dissection: 48
     strain: NZOJ
     sex: F
     weight_g: 44.9
@@ -598,6 +631,7 @@
 - model: igvf_mice.mouse
   pk: 049_NZOJ_10M
   fields:
+    dissection: 49
     strain: NZOJ
     sex: M
     weight_g: 42.4
@@ -616,6 +650,7 @@
 - model: igvf_mice.mouse
   pk: 050_NZOJ_10F
   fields:
+    dissection: 50
     strain: NZOJ
     sex: F
     weight_g: 41.8
@@ -634,6 +669,7 @@
 - model: igvf_mice.mouse
   pk: 051_NZOJ_10M
   fields:
+    dissection: 51
     strain: NZOJ
     sex: M
     weight_g: 45.5
@@ -652,6 +688,7 @@
 - model: igvf_mice.mouse
   pk: 052_NZOJ_10F
   fields:
+    dissection: 52
     strain: NZOJ
     sex: F
     weight_g: 40.2
@@ -670,6 +707,7 @@
 - model: igvf_mice.mouse
   pk: 053_NZOJ_10M
   fields:
+    dissection: 53
     strain: NZOJ
     sex: M
     weight_g: 42.4
@@ -688,6 +726,7 @@
 - model: igvf_mice.mouse
   pk: 054_NZOJ_10F
   fields:
+    dissection: 54
     strain: NZOJ
     sex: F
     weight_g: 43.5
@@ -706,6 +745,7 @@
 - model: igvf_mice.mouse
   pk: 055_NZOJ_10M
   fields:
+    dissection: 55
     strain: NZOJ
     sex: M
     weight_g: 40.2
@@ -724,6 +764,7 @@
 - model: igvf_mice.mouse
   pk: 056_PWKJ_9F
   fields:
+    dissection: 56
     strain: PWKJ
     sex: F
     weight_g: 13.5
@@ -742,6 +783,7 @@
 - model: igvf_mice.mouse
   pk: 057_WSBJ_10M
   fields:
+    dissection: 57
     strain: WSBJ
     sex: M
     weight_g: 15.8
@@ -760,6 +802,7 @@
 - model: igvf_mice.mouse
   pk: 058_WSBJ_10F
   fields:
+    dissection: 58
     strain: WSBJ
     sex: F
     weight_g: 12.9
@@ -778,6 +821,7 @@
 - model: igvf_mice.mouse
   pk: 059_WSBJ_10M
   fields:
+    dissection: 59
     strain: WSBJ
     sex: M
     weight_g: 16.9
@@ -796,6 +840,7 @@
 - model: igvf_mice.mouse
   pk: 060_WSBJ_10F
   fields:
+    dissection: 60
     strain: WSBJ
     sex: F
     weight_g: 12.5
@@ -814,6 +859,7 @@
 - model: igvf_mice.mouse
   pk: 061_WSBJ_10M
   fields:
+    dissection: 61
     strain: WSBJ
     sex: M
     weight_g: 15.7
@@ -832,6 +878,7 @@
 - model: igvf_mice.mouse
   pk: 062_WSBJ_10F
   fields:
+    dissection: 62
     strain: WSBJ
     sex: F
     weight_g: 12.8
@@ -850,6 +897,7 @@
 - model: igvf_mice.mouse
   pk: 063_WSBJ_10M
   fields:
+    dissection: 63
     strain: WSBJ
     sex: M
     weight_g: 15.5
@@ -868,6 +916,7 @@
 - model: igvf_mice.mouse
   pk: 064_WSBJ_10F
   fields:
+    dissection: 64
     strain: WSBJ
     sex: F
     weight_g: 12.4
@@ -888,6 +937,7 @@
 - model: igvf_mice.mouse
   pk: 065_WSBJ_10M
   fields:
+    dissection: 65
     strain: WSBJ
     sex: M
     weight_g: 14.7
@@ -906,6 +956,7 @@
 - model: igvf_mice.mouse
   pk: 066_NODJ_10F
   fields:
+    dissection: 66
     strain: NODJ
     sex: F
     weight_g: 15.8
@@ -924,6 +975,7 @@
 - model: igvf_mice.mouse
   pk: 067_NODJ_10M
   fields:
+    dissection: 67
     strain: NODJ
     sex: M
     weight_g: 26.0
@@ -942,6 +994,7 @@
 - model: igvf_mice.mouse
   pk: 068_NODJ_10F
   fields:
+    dissection: 68
     strain: NODJ
     sex: F
     weight_g: 20.0
@@ -960,6 +1013,7 @@
 - model: igvf_mice.mouse
   pk: 069_NODJ_10M
   fields:
+    dissection: 69
     strain: NODJ
     sex: M
     weight_g: 25.5
@@ -978,6 +1032,7 @@
 - model: igvf_mice.mouse
   pk: 070_NODJ_10F
   fields:
+    dissection: 70
     strain: NODJ
     sex: F
     weight_g: 21.0
@@ -996,6 +1051,7 @@
 - model: igvf_mice.mouse
   pk: 071_NODJ_10M
   fields:
+    dissection: 71
     strain: NODJ
     sex: M
     weight_g: 26.0
@@ -1014,6 +1070,7 @@
 - model: igvf_mice.mouse
   pk: 072_NODJ_10F
   fields:
+    dissection: 72
     strain: NODJ
     sex: F
     weight_g: 16.4
@@ -1032,6 +1089,7 @@
 - model: igvf_mice.mouse
   pk: 073_NODJ_10M
   fields:
+    dissection: 73
     strain: NODJ
     sex: M
     weight_g: 27.6
@@ -1050,6 +1108,7 @@
 - model: igvf_mice.mouse
   pk: 074_NODJ_10F
   fields:
+    dissection: 74
     strain: NODJ
     sex: F
     weight_g: 19.0
@@ -1068,6 +1127,7 @@
 - model: igvf_mice.mouse
   pk: 075_NODJ_10M
   fields:
+    dissection: 75
     strain: NODJ
     sex: M
     weight_g: 26.1
@@ -1086,6 +1146,7 @@
 - model: igvf_mice.mouse
   pk: 076_PWKJ_10F
   fields:
+    dissection: 76
     strain: PWKJ
     sex: F
     weight_g: 13.2
@@ -1104,6 +1165,7 @@
 - model: igvf_mice.mouse
   pk: 077_PWKJ_10M
   fields:
+    dissection: 77
     strain: PWKJ
     sex: M
     weight_g: 16.6
@@ -1122,6 +1184,7 @@
 - model: igvf_mice.mouse
   pk: 078_PWKJ_10F
   fields:
+    dissection: 78
     strain: PWKJ
     sex: F
     weight_g: 13.6
@@ -1140,6 +1203,7 @@
 - model: igvf_mice.mouse
   pk: 079_PWKJ_10M
   fields:
+    dissection: 79
     strain: PWKJ
     sex: M
     weight_g: 13.7
@@ -1158,6 +1222,7 @@
 - model: igvf_mice.mouse
   pk: 080_PWKJ_10F
   fields:
+    dissection: 80
     strain: PWKJ
     sex: F
     weight_g: 13.6
@@ -1176,6 +1241,7 @@
 - model: igvf_mice.mouse
   pk: 081_PWKJ_10M
   fields:
+    dissection: 81
     strain: PWKJ
     sex: M
     weight_g: 15.1
@@ -1194,6 +1260,7 @@
 - model: igvf_mice.mouse
   pk: 082_PWKJ_10F
   fields:
+    dissection: 82
     strain: PWKJ
     sex: F
     weight_g: 13.4
@@ -1213,6 +1280,7 @@
 - model: igvf_mice.mouse
   pk: 083_PWKJ_10M
   fields:
+    dissection: 83
     strain: PWKJ
     sex: M
     weight_g: 14.8
@@ -1231,6 +1299,7 @@
 - model: igvf_mice.mouse
   pk: 084_PWKJ_10F
   fields:
+    dissection: 84
     strain: PWKJ
     sex: F
     weight_g: 13.9
@@ -1250,6 +1319,7 @@
 - model: igvf_mice.mouse
   pk: 085_PWKJ_10M
   fields:
+    dissection: 85
     strain: PWKJ
     sex: M
     weight_g: 17.1
@@ -1268,6 +1338,7 @@
 - model: igvf_mice.mouse
   pk: 086_CASTJ_10F
   fields:
+    dissection: 86
     strain: CASTJ
     sex: F
     weight_g: 11.8
@@ -1286,6 +1357,7 @@
 - model: igvf_mice.mouse
   pk: 087_CASTJ_10M
   fields:
+    dissection: 87
     strain: CASTJ
     sex: M
     weight_g: 15.2
@@ -1304,6 +1376,7 @@
 - model: igvf_mice.mouse
   pk: 088_CASTJ_10F
   fields:
+    dissection: 88
     strain: CASTJ
     sex: F
     weight_g: 13.0
@@ -1322,6 +1395,7 @@
 - model: igvf_mice.mouse
   pk: 089_CASTJ_10M
   fields:
+    dissection: 89
     strain: CASTJ
     sex: M
     weight_g: 15.8
@@ -1340,6 +1414,7 @@
 - model: igvf_mice.mouse
   pk: 090_CASTJ_10F
   fields:
+    dissection: 90
     strain: CASTJ
     sex: F
     weight_g: 12.4
@@ -1358,6 +1433,7 @@
 - model: igvf_mice.mouse
   pk: 091_CASTJ_10M
   fields:
+    dissection: 91
     strain: CASTJ
     sex: M
     weight_g: 16.4
@@ -1376,6 +1452,7 @@
 - model: igvf_mice.mouse
   pk: 092_CASTJ_10F
   fields:
+    dissection: 92
     strain: CASTJ
     sex: F
     weight_g: 12.7
@@ -1395,6 +1472,7 @@
 - model: igvf_mice.mouse
   pk: 093_CASTJ_10M
   fields:
+    dissection: 93
     strain: CASTJ
     sex: M
     weight_g: 16.6
@@ -1413,6 +1491,7 @@
 - model: igvf_mice.mouse
   pk: 094_CASTJ_10F
   fields:
+    dissection: 94
     strain: CASTJ
     sex: F
     weight_g: 13.6
@@ -1431,6 +1510,7 @@
 - model: igvf_mice.mouse
   pk: 095_CASTJ_10M
   fields:
+    dissection: 95
     strain: CASTJ
     sex: M
     weight_g: 15.1
@@ -1449,6 +1529,7 @@
 - model: igvf_mice.mouse
   pk: 096_WSBJ_10F
   fields:
+    dissection: 96
     strain: WSBJ
     sex: F
     weight_g: 12.2
@@ -1467,6 +1548,7 @@
 - model: igvf_mice.mouse
   pk: 097_CASTJ_10M
   fields:
+    dissection: 97
     strain: CASTJ
     sex: M
     weight_g: 16.4
@@ -1485,6 +1567,7 @@
 - model: igvf_mice.mouse
   pk: 098_CASTJ_10F
   fields:
+    dissection: 98
     strain: CASTJ
     sex: F
     weight_g: 13.8
@@ -1503,6 +1586,7 @@
 - model: igvf_mice.mouse
   pk: 099_CASTJ_10M
   fields:
+    dissection: 99
     strain: CASTJ
     sex: M
     weight_g: 15.5
@@ -1521,6 +1605,7 @@
 - model: igvf_mice.mouse
   pk: 100_CASTJ_10F
   fields:
+    dissection: 100
     strain: CASTJ
     sex: F
     weight_g: 12.8
@@ -1539,6 +1624,7 @@
 - model: igvf_mice.mouse
   pk: 101_CASTJ_10M
   fields:
+    dissection: 101
     strain: CASTJ
     sex: M
     weight_g: 15.2
@@ -1557,6 +1643,7 @@
 - model: igvf_mice.mouse
   pk: 102_CASTJ_10F
   fields:
+    dissection: 102
     strain: CASTJ
     sex: F
     weight_g: 12.0
@@ -1575,6 +1662,7 @@
 - model: igvf_mice.mouse
   pk: 103_CASTJ_10M
   fields:
+    dissection: 103
     strain: CASTJ
     sex: M
     weight_g: 14.9
@@ -1593,6 +1681,7 @@
 - model: igvf_mice.mouse
   pk: 104_CASTJ_10F
   fields:
+    dissection: 104
     strain: CASTJ
     sex: F
     weight_g: 12.6
@@ -1611,6 +1700,7 @@
 - model: igvf_mice.mouse
   pk: 105_CASTJ_10M
   fields:
+    dissection: 105
     strain: CASTJ
     sex: M
     weight_g: 14.9
@@ -1629,6 +1719,7 @@
 - model: igvf_mice.mouse
   pk: 106_CASTJ_10F
   fields:
+    dissection: 106
     strain: CASTJ
     sex: F
     weight_g: 13.2
@@ -1647,6 +1738,7 @@
 - model: igvf_mice.mouse
   pk: 107_CASTJ_10M
   fields:
+    dissection: 107
     strain: CASTJ
     sex: M
     weight_g: 14.9
@@ -1665,6 +1757,7 @@
 - model: igvf_mice.mouse
   pk: 108_CASTJ_10F
   fields:
+    dissection: 108
     strain: CASTJ
     sex: F
     weight_g: 13.8
@@ -1683,6 +1776,7 @@
 - model: igvf_mice.mouse
   pk: 109_B6J_10M
   fields:
+    dissection: 109
     strain: B6J
     sex: M
     weight_g: 23.9
@@ -1701,6 +1795,7 @@
 - model: igvf_mice.mouse
   pk: 110_B6J_10F
   fields:
+    dissection: 110
     strain: B6J
     sex: F
     weight_g: 19.4
@@ -1719,6 +1814,7 @@
 - model: igvf_mice.mouse
   pk: 111_B6J_10M
   fields:
+    dissection: 111
     strain: B6J
     sex: M
     weight_g: 25.1
@@ -1737,6 +1833,7 @@
 - model: igvf_mice.mouse
   pk: 112_B6J_10F
   fields:
+    dissection: 112
     strain: B6J
     sex: F
     weight_g: 19.9
@@ -1755,6 +1852,7 @@
 - model: igvf_mice.mouse
   pk: 113_B6J_10M
   fields:
+    dissection: 113
     strain: B6J
     sex: M
     weight_g: 25.7
@@ -1773,6 +1871,7 @@
 - model: igvf_mice.mouse
   pk: 114_B6J_10F
   fields:
+    dissection: 114
     strain: B6J
     sex: F
     weight_g: 19.2
@@ -1791,6 +1890,7 @@
 - model: igvf_mice.mouse
   pk: 115_B6J_10M
   fields:
+    dissection: 115
     strain: B6J
     sex: M
     weight_g: 24.0
@@ -1809,6 +1909,7 @@
 - model: igvf_mice.mouse
   pk: 116_B6J_10F
   fields:
+    dissection: 116
     strain: B6J
     sex: F
     weight_g: 18.9
@@ -1827,6 +1928,7 @@
 - model: igvf_mice.mouse
   pk: 117_B6J_10M
   fields:
+    dissection: 117
     strain: B6J
     sex: M
     weight_g: 24.0
@@ -1845,6 +1947,7 @@
 - model: igvf_mice.mouse
   pk: 118_B6J_10F
   fields:
+    dissection: 118
     strain: B6J
     sex: F
     weight_g: 20.4
@@ -1863,6 +1966,7 @@
 - model: igvf_mice.mouse
   pk: 119_B6J_10M
   fields:
+    dissection: 119
     strain: B6J
     sex: M
     weight_g: 24.9
@@ -1881,6 +1985,7 @@
 - model: igvf_mice.mouse
   pk: 120_B6J_10F
   fields:
+    dissection: 120
     strain: B6J
     sex: F
     weight_g: 21.3

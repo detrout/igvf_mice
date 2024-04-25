@@ -80,6 +80,7 @@ class TestModels(TestCase):
         self.mouse_strain_fake.save()
         self.mouse_male_fake = Mouse.objects.create(
             name="Brain",
+            dissection=15,
             strain=self.mouse_strain_fake,
             sex=SexEnum.MALE,
             weight_g=21.3,
@@ -98,6 +99,7 @@ class TestModels(TestCase):
         self.mouse_male_fake.save()
         self.mouse_female_fake = Mouse.objects.create(
             name="Dot",
+            dissection=16,
             strain=self.mouse_strain_fake,
             sex=SexEnum.FEMALE,
             weight_g=20.1,
@@ -296,6 +298,7 @@ class TestModels(TestCase):
     def test_mouse(self):
         male_mouse = Mouse(
             name="SG2",
+            dissection=18,
             strain=self.mouse_strain_fake,
             sex=SexEnum.MALE,
             weight_g=21.3,
@@ -319,6 +322,7 @@ class TestModels(TestCase):
 
         female_mouse = Mouse(
             name="C1",
+            dissection=19,
             strain=self.mouse_strain_fake,
             sex=SexEnum.FEMALE,
             weight_g=19.5,
@@ -343,6 +347,7 @@ class TestModels(TestCase):
     def test_genderqueer_mouse(self):
         genderqueer_mouse = Mouse(
             name="B2",
+            dissection=20,
             strain=self.mouse_strain_fake,
             sex=SexEnum.MALE,
             weight_g=21.3,

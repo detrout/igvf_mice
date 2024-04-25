@@ -170,6 +170,7 @@ class MouseSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             "@id",
             "name",
+            "dissection",
             "strain",
             "sex",
             "weight_g",

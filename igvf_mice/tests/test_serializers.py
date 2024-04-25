@@ -155,6 +155,7 @@ class TestSerializers(APITestCase):
         mouse_strain = self.create_mouse_strain()
         payload = {
             "name": "016_B6J_10F",
+            "dissection": 16,
             "sex": "F",
             "estrus_cycle": "D",
             "weight_g": 21.1,
