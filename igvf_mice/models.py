@@ -241,11 +241,11 @@ class LifeStageEnum(models.TextChoices):
     ADULT = ("A", "adult")
 
 
-class TimepointEnum(models.TextChoices):
-    DAY = ("D", "Day")
-    WEEK = ("W", "Week")
-    MONTH = ("M", "Month")
-    YEAR = ("Y", "Year")
+class TimeUnitsEnum(models.TextChoices):
+    DAY = ("D", "day")
+    WEEK = ("W", "week")
+    MONTH = ("M", "month")
+    YEAR = ("Y", "year")
 
 
 # this represents an individual donor
@@ -290,8 +290,8 @@ class Mouse(models.Model):
     )
     timepoint_unit = models.CharField(
         max_length=2,
-        choices=TimepointEnum.choices,
-        default=TimepointEnum.WEEK,
+        choices=TimeUnitsEnum.choices,
+        default=TimeUnitsEnum.WEEK,
         null=True,
         help_text="the unit of time for timepoint"
     )
@@ -381,13 +381,6 @@ class OntologyTerm(models.Model):
         )
 
 
-class AgeUnitsEnum(models.TextChoices):
-    DAY = ("d", "day")
-    WEEK = ("w", "week")
-    MONTH = ("m", "month")
-    YEAR = ("y", "year")
-
-
 def require_3_underscores(value):
     if isinstance(value, str):
         underscores = 0
@@ -438,12 +431,6 @@ class Tissue(models.Model):
     dissection_end_time = models.DateTimeField(
         blank=True, null=True, help_text="when did disection happen"
     )
-    # We have the age on the mouse object.
-    # But in the spreadsheet this was used to group samples
-    # age = models.FloatField()
-    # age_units = models.CharField(
-    #    max_length=1, choices=AgeUnitsEnum.choices, default=AgeUnitsEnum.WEEK
-    # )
     # tissue_weight = models.FloatField()
     tube_label = models.CharField(
         max_length=50, help_text="human identifier for tube containing sample"
