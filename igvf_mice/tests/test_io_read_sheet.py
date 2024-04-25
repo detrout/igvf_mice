@@ -56,7 +56,8 @@ def get_test_mice_sheet():
             "DOB": [dob_aug16, dob_aug16, dob_jun20],
             "Dissection start time": [start_016, start_017, start_144],
             "Dissection finish time": [None, None, finish_144],
-            "Timepoint": ["10 weeks"] * 3,
+            "Timepoint": [10] * 3,
+            "Timepoint unit": ["weeks"] * 3,
             "estrus_cycle": ["D", "NA", "DP"],
             "Operator": ["T1", "T2", "T1"],
             "Comments": ["", "", ""],
@@ -247,7 +248,8 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.date_of_birth, mice.iloc[mouse_i]["DOB"])
             self.assertEqual(row.dissection_start_time, dissection_start_time)
             self.assertEqual(row.dissection_end_time, dissection_end_time)
-            self.assertEqual(row.timepoint_description, mice.iloc[mouse_i]["Timepoint"])
+            self.assertEqual(row.timepoint, mice.iloc[mouse_i]["Timepoint"])
+            self.assertEqual(row.timepoint_unit, mice.iloc[mouse_i]["Timepoint unit"])
             self.assertEqual(row.estrus_cycle, mice.iloc[mouse_i]["estrus_cycle"])
             self.assertEqual(row.operator, mice.iloc[mouse_i]["Operator"])
             self.assertEqual(row.notes, mice.iloc[mouse_i]["Comments"])

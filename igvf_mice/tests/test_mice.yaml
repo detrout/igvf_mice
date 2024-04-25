@@ -8,7 +8,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 16:01:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/SK/HL/ER/GF
@@ -25,7 +26,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 18:44:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/HL/ER/GF
@@ -42,7 +44,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 16:38:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: GM/SK/HL/ER/GF
@@ -59,7 +62,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 19:12:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/HL/ER/GF
@@ -76,7 +80,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 17:14:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/SK/HL/ER/GF
@@ -93,7 +98,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 19:38:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/HL/ER/GF
@@ -110,7 +116,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 17:43:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/SK/HL/ER/GF
@@ -127,7 +134,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 20:06:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/HL/ER/GF
@@ -144,7 +152,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 18:13:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/SK/HL/ER/GF
@@ -161,7 +170,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-27 20:39:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/HL/ER/GF
@@ -178,7 +188,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 16:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -195,7 +206,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 19:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -212,7 +224,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 17:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -229,7 +242,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 19:20:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -246,7 +260,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 17:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -263,7 +278,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 19:40:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -280,7 +296,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 18:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -297,7 +314,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 20:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -314,7 +332,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 18:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -331,7 +350,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-03 20:20:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -349,7 +369,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 15:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -366,7 +387,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 17:40:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -384,7 +406,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 16:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -402,7 +425,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 18:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -419,7 +443,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 16:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -436,7 +461,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 18:20:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -453,7 +479,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 16:50:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -470,7 +497,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 18:40:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -487,7 +515,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 17:20:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -504,7 +533,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-06 19:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -521,7 +551,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 18:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -538,7 +569,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 21:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -555,7 +587,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 18:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -572,7 +605,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 22:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -589,7 +623,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 19:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -606,7 +641,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 22:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -623,7 +659,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 19:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/HL/ER/GF
@@ -640,7 +677,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 23:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -657,7 +695,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 20:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -674,7 +713,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -691,7 +731,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 16:11:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: GM/BW/SK/HL/ER/GF
@@ -708,7 +749,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 18:07:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -725,7 +767,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 16:46:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -742,7 +785,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 18:28:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -759,7 +803,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 17:14:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -776,7 +821,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 19:10:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -793,7 +839,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 17:38:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -810,7 +857,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 19:31:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -827,7 +875,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 20:20:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -846,7 +895,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-31 18:48:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK//ER/GF
@@ -863,7 +913,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 16:07:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: GM/BW/SK/HL/ER/GF
@@ -880,7 +931,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 17:42:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -897,7 +949,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 16:29:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -914,7 +967,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 18:10:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -931,7 +985,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 16:54:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -948,7 +1003,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 18:36:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -965,7 +1021,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 17:18:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/BW/SK/HL/ER/GF
@@ -982,7 +1039,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 19:02:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -999,7 +1057,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-31 18:13:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: GM/SK//ER/GF
@@ -1016,7 +1075,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-31 19:22:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK//ER/GF
@@ -1033,7 +1093,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 16:32:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/ER/GF
@@ -1050,7 +1111,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 18:21:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/ER/GF
@@ -1067,7 +1129,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 16:58:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/ER/GF
@@ -1084,7 +1147,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 18:47:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/ER/GF
@@ -1101,7 +1165,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 17:23:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: GM/BW/SK/ER/GF
@@ -1118,7 +1183,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 19:15:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/ER/GF
@@ -1135,7 +1201,8 @@
     date_obtained: null
     dissection_start_time: 2022-12-01 18:32:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/SK/GF
@@ -1153,7 +1220,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 19:43:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/ER/GF
@@ -1170,7 +1238,8 @@
     date_obtained: null
     dissection_start_time: 2022-11-21 18:31:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: GM/SK/ER/GF
@@ -1188,7 +1257,8 @@
     date_obtained: null
     dissection_start_time: 2022-11-21 19:05:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/SK/ER/GF
@@ -1205,7 +1275,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 16:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -1222,7 +1293,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 19:57:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -1239,7 +1311,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 17:00:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/HL/ER/GF
@@ -1256,7 +1329,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-17 20:43:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -1273,7 +1347,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 17:30:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: DP
     operator: GM/BW/SK/HL/ER/GF
@@ -1290,7 +1365,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 19:38:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -1307,7 +1383,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-10 23:40:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: DP
     operator: GM/BW/SK/HL/ER/GF
@@ -1325,7 +1402,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 20:05:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -1342,7 +1420,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-24 17:48:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: GM/BW/SK/ER/GF
@@ -1359,7 +1438,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-20 20:31:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: GM/BW/SK/HL/ER/GF
@@ -1376,7 +1456,8 @@
     date_obtained: null
     dissection_start_time: 2022-10-31 17:35:00+00:00
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: GM/SK/ER/GF
@@ -1393,7 +1474,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1410,7 +1492,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: SK/ER/GF
@@ -1427,7 +1510,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1444,7 +1528,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: P
     operator: SK/ER/GF
@@ -1461,7 +1546,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1478,7 +1564,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: U
     operator: SK/ER/GF
@@ -1495,7 +1582,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1512,7 +1600,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: SK/ER/GF
@@ -1529,7 +1618,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1546,7 +1636,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: D
     operator: SK/ER/GF
@@ -1563,7 +1654,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/ER/GF
@@ -1580,7 +1672,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: SK/ER/GF
@@ -1597,7 +1690,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1614,7 +1708,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: SK/HL/GF
@@ -1631,7 +1726,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1648,7 +1744,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: SK/HL/GF
@@ -1665,7 +1762,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1682,7 +1780,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: E
     operator: SK/HL/GF
@@ -1699,7 +1798,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1716,7 +1816,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: SK/HL/GF
@@ -1733,7 +1834,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1750,7 +1852,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: SK/HL/GF
@@ -1767,7 +1870,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: NA
     operator: SK/HL/GF
@@ -1784,7 +1888,8 @@
     date_obtained: null
     dissection_start_time: null
     dissection_end_time: null
-    timepoint_description: 10 weeks
+    timepoint: 10
+    timepoint_unit: W
     life_stage: A
     estrus_cycle: M
     operator: SK/HL/GF
