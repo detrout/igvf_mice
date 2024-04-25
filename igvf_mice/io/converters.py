@@ -44,7 +44,7 @@ def float_or_none(x):
 
     
 def int_or_none(x):
-    if x in ("N/A", '#DIV/0!', '-'):
+    if x in ("N/A", "#DIV/0!", "#VALUE!", "-"):
         return None
     elif pandas.isnull(x):
         return None
