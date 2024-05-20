@@ -242,7 +242,7 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.strain.name, mice.iloc[mouse_i]["Strain code"])
             self.assertEqual(row.sex, mice.iloc[mouse_i]["Sex"])
             self.assertEqual(row.weight_g, mice.iloc[mouse_i]["Weight (g)"])
-            self.assertEqual(row.date_of_birth, mice.iloc[mouse_i]["DOB"])
+            self.assertEqual(row.date_of_birth, mice.iloc[mouse_i]["DOB"].date())
             self.assertEqual(row.dissection_start_time, dissection_start_time)
             self.assertEqual(row.dissection_end_time, dissection_end_time)
             self.assertEqual(row.timepoint, mice.iloc[mouse_i]["Timepoint"])
