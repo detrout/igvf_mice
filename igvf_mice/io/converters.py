@@ -101,18 +101,31 @@ def normalize_plate_name(name):
     return name
 
 
+genotype_to_strain = {
+    "129S1/SvImJ": "129S1J",
+    "B6129SF1/J": "B6129S1F1J",
+    "B6CASTF1/J": "B6CASTF1J",
+    "B6NODF1/J": "B6NODF1J",
+    "B6PWKF1/J": "B6PWKF1J",
+    "B6WSBF1/J": "B6WSBF1J",
+    "CAST/EiJ": "CASTJ",
+    "C57BL/6J": "B6J",
+    "NOD/ShiLtJ": "NODJ",
+    "NZO/HlLtJ": "NZOJ",
+    "PWK/PhJ": "PWKJ",
+    "TREM2R47HNSS_HO": "TREM2",
+    "WSB/EiJ": "WSBJ",
+}
 def normalize_strain(strain):
-    replacements = {
-        "F1/J": "F1J",
-        "B6129SF1J": "B6129S1F1J",
-    }
-    for current, desired in replacements.items():
-        strain = strain.replace(current, desired)
+    """Adapter to convert name
+    """
+    return genotype_to_strain.get(strain, strain)
 
-    return strain
-
-    return strain
-
+strain_to_genotype = {genotype_to_strain[k]: k for k in genotype_to_strain}
+def get_genotype_from_mouse_tissue(mouse_tissue):
+    fields = parse_mouse_tissue(mouse_tissue)
+    strain = fields[1]
+    return strain_to_genotype.get(strain, strain)
 
 def normalize_subpool_submission_status(value):
     if pandas.isnull(value):
@@ -205,8 +218,6 @@ def parse_mouse_tissue(mouse_tissue):
 
     mouse_id = fields.pop(0)
     mouse_strain = fields.pop(0)
-    if mouse_strain in ("TREM2R47HNSS",):
-        mouse_strain = "_".join([mouse_strain, fields.pop(0)])
     mouse_strain = normalize_strain(mouse_strain)
     mouse_age_sex = fields.pop(0)
     mouse_age, mouse_sex = parse_mouse_age_sex(mouse_age_sex)
@@ -219,6 +230,8 @@ def parse_mouse_tissue(mouse_tissue):
 
 
 def join_mouse_tissue(value):
+    """Covert a set of mouse tissue attributes into a formatted string
+    """
     if isinstance(value, mouse_tissue_tuple):
         mouse_id = value.mouse_id
         mouse_strain = value.mouse_strain
@@ -240,7 +253,7 @@ def join_mouse_tissue(value):
     return "_".join([mouse_id, mouse_strain, mouse_age_sex, mouse_tissue])
 
 
-def get_genotype_from_mouse_tissue(mouse_tissue):
+def get_strain_from_mouse_tissue(mouse_tissue):
     fields = parse_mouse_tissue(mouse_tissue)
 
     return fields[1]

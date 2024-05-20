@@ -12,7 +12,7 @@ from .. import models
 from .converters import (
     normalize_plate_name,
     parse_mouse_tissue,
-    get_genotype_from_mouse_tissue,
+    get_strain_from_mouse_tissue,
 )
 
 WellContent = namedtuple("well_content", ["genotype", "tissue_id"])
@@ -156,9 +156,9 @@ class PlateLayoutParser:
                         if not column_validators[col_offset](cell):
                             validation_errors += 1
                             print(f"Failed column_validator[{row_offset},{col_offset}]({cell}) rule {row_validators[row_offset]}")
-                    genotype = get_genotype_from_mouse_tissue(cell)
+                    strain = get_strain_from_mouse_tissue(cell)
 
-                    well_contents.setdefault(well_id, []).append(WellContent(genotype, cell))
+                    well_contents.setdefault(well_id, []).append(WellContent(strain, cell))
                 row_offset += 1
 
         if validation_errors > 0:
@@ -269,11 +269,11 @@ class PlateLayoutParser:
                     if not column_validators[col_offset](cell):
                         print(f"Failed column_validator[{row_offset},{col_offset}]({cell})")
                         validation_errors += 1
-                genotype = get_genotype_from_mouse_tissue(cell)
+                strain = get_strain_from_mouse_tissue(cell)
 
                 row_id = str(row_ids[row_offset])
                 col_id = str(column_ids[col_offset])
-                well_contents[row_id, col_id] = [WellContent(genotype, cell)]
+                well_contents[row_id, col_id] = [WellContent(strain, cell)]
 
         well_contents.update(self.get_merged_well_contents(plate_name, sheet, plate_start))
 

@@ -158,7 +158,7 @@
     source: jackson-labs
     strain_type: MB
   model: igvf_mice.mousestrain
-  pk: TREM2R47HNSS_HO
+  pk: TREM2
 - fields:
     display_name: CC001
     igvf_id: CC001/Unc
