@@ -208,7 +208,6 @@ def join_mouse_name(value):
     else:
         raise ValueError("{} does not look like a parsed mouse_name".format(value))
 
-    #mouse_strain = reverse_normalize_strain(mouse_strain)
     mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
     return "_".join([mouse_id, mouse_strain, mouse_age_sex])
 
@@ -248,7 +247,6 @@ def join_mouse_tissue(value):
         raise ValueError(
             "{} does not look like a parsed mouse_name".format(value))
 
-    mouse_strain = reverse_normalize_strain(mouse_strain)
     mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
     return "_".join([mouse_id, mouse_strain, mouse_age_sex, mouse_tissue])
 
