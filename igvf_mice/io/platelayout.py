@@ -83,10 +83,12 @@ class PlateLayoutParser:
         """
         data_start_row = block_row_start + 2
 
-        for col_offset in range(self.well_start_column, 255):
+        for col_offset in range(self.well_start_column, sheet.shape[1]):
             cell = sheet.iloc[data_start_row, col_offset]
             if pandas.isnull(cell) or self._pooled_well_re.match(cell):
                 return col_offset
+
+        return sheet.shape[1]
 
     def get_block_row_ids(self, sheet, block_row_start):
         label_start_row = block_row_start + 2
