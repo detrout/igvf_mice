@@ -612,6 +612,7 @@ class SublibrarySelectionTypeEnum(models.TextChoices):
 class SubcellularComponentEnum(models.TextChoices):
     nuclei = ("N", "Nuclear")
     cellular = ("C", "Cellular")
+    nuclei_and_cells = ("NC", "Nuclei/Cells")
 
 
 class Subpool(models.Model):
