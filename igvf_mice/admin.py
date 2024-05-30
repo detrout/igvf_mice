@@ -10,7 +10,7 @@ from .models import (
     Mouse,
     OntologyTerm,
     Tissue,
-    FixedSample,
+    ParseFixedSample,
     SplitSeqPlate,
     SplitSeqWell,
     Subpool,
@@ -104,8 +104,8 @@ class TissueOptions(admin.ModelAdmin):
     autocomplete_fields = ["ontology_term", "accession",]
 
 
-class FixedSampleOptions(admin.ModelAdmin):
-    model = FixedSample
+class ParseFixedSampleOptions(admin.ModelAdmin):
+    model = ParseFixedSample
 
     search_fields = ("name",)
     list_display = (
@@ -247,7 +247,7 @@ admin.site.register(MouseStrain, MouseStrainOptions)
 admin.site.register(Mouse, MouseOptions)
 admin.site.register(OntologyTerm, OntologyTermOptions)
 admin.site.register(Tissue, TissueOptions)
-admin.site.register(FixedSample, FixedSampleOptions)
+admin.site.register(ParseFixedSample, ParseFixedSampleOptions)
 admin.site.register(SplitSeqPlate, SplitSeqPlateOptions)
 admin.site.register(SplitSeqWell, SplitSeqWellOptions)
 admin.site.register(Subpool, SubpoolOptions)

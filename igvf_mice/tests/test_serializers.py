@@ -473,7 +473,7 @@ class TestSerializers(APITestCase):
         payload = self.create_fixed_sample_lung()
 
         name = payload["name"]
-        fixed_sample = models.FixedSample.objects.get(name=name)
+        fixed_sample = models.ParseFixedSample.objects.get(name=name)
 
         self.assertEqual(fixed_sample.name, name)
         self.assertEqual(fixed_sample.tissue.first().name, name)

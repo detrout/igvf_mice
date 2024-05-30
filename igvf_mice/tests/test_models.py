@@ -17,7 +17,7 @@ from ..models import (
     TimeUnitsEnum,
     require_3_underscores,
     Tissue,
-    FixedSample,
+    ParseFixedSample,
     PlateSizeEnum,
     SplitSeqPlate,
     SplitSeqWell,
@@ -143,7 +143,7 @@ class TestModels(TestCase):
         self.tissue_tail.ontology_term.set([self.ontology_term_tail])
         self.tissue_tail.save()
 
-        self.fixed_sample_tail = FixedSample(
+        self.fixed_sample_tail = ParseFixedSample(
             name="108_CASTJ_10M_21",
             tube_label="108_21",
             fixation_name="imaginary test",
@@ -411,7 +411,7 @@ class TestModels(TestCase):
 
     def test_fixed_sample(self):
         name = "107_CASTJ_10F_21"
-        fixed_sample = FixedSample.objects.create(
+        fixed_sample = ParseFixedSample.objects.create(
             name=name,
             tube_label="107_21",
             fixation_name="imaginary test",

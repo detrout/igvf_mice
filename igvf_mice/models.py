@@ -401,7 +401,7 @@ class Tissue(models.Model):
 
     A :model:`igvf_mice.Mouse` is dissected into several
     :model:`igvf_mice.Tissue` objects after, the Tissue objects are
-    disassociated into :model:`igvf_mice.FixedSample`
+    disassociated into :model:`igvf_mice.ParseFixedSample`
     """
 
     # This is heavily inspired by Samples - 8 founders tab
@@ -475,6 +475,7 @@ class Tissue(models.Model):
 
 
 class FixedSample(models.Model):
+class ParseFixedSample(models.Model):
     """Samples whose cells/nuclei have that have been disassociated
 
     The next step for a :model:`igvf_mice.Tissue` sample is for it to
@@ -507,7 +508,7 @@ class SplitSeqPlate(models.Model):
     """a plate of wells used to start labeling nuclei.
 
     A plate contains many :model:`igvf_mice.SplitSeqWell` objects that
-    are linked to :model:`igvf_mice.FixedSample` objects.
+    are linked to :model:`igvf_mice.ParseFixedSample` objects.
 
     We track when and by whom a plate was built, and then how many
     aliquots were made from this reaction.
@@ -569,7 +570,7 @@ class SplitSeqWell(models.Model):
     """A well that samples are placed into that will be labeled
 
     A :model:`igvf_mice.SplitSeqWell` contains
-    :model:`igvf_mice.FixedSample` that will be labeled with a known
+    :model:`igvf_mice.ParseFixedSample` that will be labeled with a known
     barcode and then two rounds of random barcode.
 
     Eventually all the wells will poured into a pool will be stored in
@@ -588,7 +589,7 @@ class SplitSeqWell(models.Model):
     # Sina had index7, index5 fields
     # should we be tracking the parse protocol here?
 
-    biosample = models.ManyToManyField(FixedSample)
+    biosample = models.ManyToManyField(ParseFixedSample)
 
     barcode_filter = models.Q(barcode_type="R") | models.Q(barcode_type="T")
     barcode = models.ManyToManyField(

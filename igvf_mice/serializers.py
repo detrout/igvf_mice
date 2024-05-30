@@ -17,7 +17,7 @@ from igvf_mice.models import (
     OntologyTerm,
     LifeStageEnum,
     Tissue,
-    FixedSample,
+    ParseFixedSample,
     SplitSeqPlate,
     SplitSeqWell,
     SublibrarySelectionTypeEnum,
@@ -250,9 +250,9 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
-class FixedSampleSerializer(serializers.HyperlinkedModelSerializer):
+class ParseFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = FixedSample
+        model = ParseFixedSample
         fields = [
             "@id",
             "name",
@@ -675,7 +675,7 @@ class IgvfSeqSpecDetailSerializer(serializers.HyperlinkedModelSerializer):
 
 class PipelineBiosampleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = FixedSample
+        model = ParseFixedSample
         fields = [
             "@id",
             "tissue_name",
@@ -750,9 +750,9 @@ class PipelineTissueSerializer(serializers.HyperlinkedModelSerializer):
     accession = AccessionSerializer(many=True)
 
 
-class PipelineFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
+class PipelineParseFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = FixedSample
+        model = ParseFixedSample
         fields = [
             "tissue"
         ]
@@ -775,4 +775,4 @@ class PipelineSampleMetadataSerializer(serializers.HyperlinkedModelSerializer):
     plate_name = serializers.CharField(source="plate.name", read_only=True)
     well = serializers.CharField(read_only=True)
     barcode = LibraryBarcodeSerializer(many=True)
-    biosample = PipelineFixedSampleSerializer(many=True)
+    biosample = PipelineParseFixedSampleSerializer(many=True)
