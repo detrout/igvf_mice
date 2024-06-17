@@ -474,7 +474,121 @@ class Tissue(models.Model):
         return "{} {}".format(self.name, self.description)
 
 
-class FixedSample(models.Model):
+###
+# tube support functions for SampleExtraction and FixedSample
+def average_count(self):
+    """Return average of defined count values
+
+    or return nan if there is no data
+    """
+    values = []
+    for value in [self.count1, self.count2]:
+        if value is not None:
+            values.append(value)
+
+    if len(values) == 0:
+        return numpy.nan
+    else:
+        return sum(values)/len(values)
+
+
+def df_scaled_count(self):
+    """return average of counts weighted by the df factor
+
+    will return nan if there is no data.
+    """
+    values = []
+
+    factor = numpy.nan
+    for count, df in [(self.count1, self.df1), (self.count2, self.df2)]:
+        if df is not None:
+            factor = df
+        if count is not None:
+            values.append(count * factor)
+
+    if len(values) == 0:
+        return numpy.nan
+    else:
+        return sum(values)/len(values)
+
+
+def nuclei_per_ul(self):
+    """Return million nuclei per microliter
+
+    will return nan if there is no data
+    """
+    # .01 is for ml count * df * 10000 / 1000000
+    # .00001 is for ul count * df * 10000 / 1_000_000_000
+    cell_scale = .00001
+
+    if self.input_nuclei_per_ul is not None:
+        return self.input_nuclei_per_ul
+    else:
+        return self.df_scaled_count * cell_scale
+
+def nuclei_per_ml(self):
+    """Return million nuceli per mililiter
+    """
+
+    return self.nuclei_per_ul * 1000
+
+def total_nuclei(self):
+    if self.volume_ul is None:
+        return None
+
+    return self.nuclei_per_ul * self.volume_ul
+
+
+# This is the peach colored "before fixation" step of the spreadsheet tab
+class SampleExtraction(models.Model):
+    """Isolate cells or nuclei from the source tissue
+
+    First the nucleic acid of interest needs to be extracted from the
+    tissue, and then it can be built into a few different libraries.
+
+    The Parse/SHARE extraction & isolation path can produce either
+    cells or nuclei, while the nanopore methylation path extracts DNA.
+
+    This represents the orange area of the UCI spreadsheets
+    """
+    name = models.CharField(max_length=50, primary_key=True)
+    tube_label = models.CharField(max_length=20, null=True)
+    date = models.DateField(null=True)
+    technician = models.CharField(max_length=50, null=True)
+    tissue = models.ManyToManyField("Tissue")
+    volume_ul = models.FloatField()
+    count1 = models.FloatField(null=True)
+    df1 = models.FloatField(null=True)
+    count2 = models.FloatField(null=True)
+    df2 = models.FloatField(null=True)
+    input_nuclei_per_ul = models.FloatField(null=True, help_text="manual entered nuclei count")
+    parse_input_ul = models.FloatField(null=True)
+    share_input_ul = models.FloatField(null=True)
+    protocols = models.ManyToManyField("ProtocolLink")
+
+    average_count = property(average_count)
+    df_scaled_count = property(df_scaled_count)
+    nuclei_per_ul = property(nuclei_per_ul)
+    nuclei_per_ml = property(nuclei_per_ml)
+    total_nuclei = property(total_nuclei)
+
+    @property
+    def parse_input_ml(self):
+        if self.parse_input_ul is None:
+            return None
+        else:
+            return self.parse_input_ul * 1000
+
+    @property
+    def nuclei_into_parse(self):
+        return self.nuclei_per_ul * self.parse_input_ul
+
+    @property
+    def nuclei_into_share(self):
+        return self.nuclei_per_ul * self.share_input_ul
+
+
+# This represents the after fixation blue portion
 class ParseFixedSample(models.Model):
     """Samples whose cells/nuclei have that have been disassociated
 
@@ -483,20 +597,95 @@ class ParseFixedSample(models.Model):
     for being placed into :model:`igvf_mice.SplitSeqWell` associated with
     a :model:`igvf_mice.SplitSeqPlate`.
     """
-
     name = models.CharField(max_length=50, primary_key=True)
-    tube_label = models.CharField(max_length=20, null=True)
-    fixation_name = models.CharField(max_length=20)
-    fixation_date = models.DateField(null=True)
-    tissue = models.ManyToManyField("Tissue")
-    starting_nuclei = models.FloatField(null=True)
-    nuclei_into_fixation = models.FloatField(null=True)
-    fixed_nuclei = models.FloatField(null=True)
+    extraction = models.ForeignKey("SampleExtraction", on_delete=models.CASCADE)
+    technician = models.CharField(max_length=50, null=True)
+    volume_ul = models.FloatField(null=True)
+    count1 = models.FloatField(null=True)
+    df1 = models.FloatField(null=True)
+    count2 = models.FloatField(null=True)
+    df2 = models.FloatField(null=True)
+    input_nuclei_per_ul = models.FloatField(
+        null=True, help_text="manual entered nuclei count")
     aliquots_made = models.IntegerField(null=True)
     aliquot_volume_ul = models.FloatField(null=True)
+    comments = models.TextField(null=True)
+
+    average_count = property(average_count)
+    df_scaled_count = property(df_scaled_count)
+    nuclei_per_ul = property(nuclei_per_ul)
+    total_nuclei = property(total_nuclei)
+
+    @property
+    def fraction_recovered(self):
+        return self.total_nuclei / self.extraction.nuclei_into_parse
 
     def __str__(self):
         return self.name
+
+
+class NucleicAcidExtraction(models.Model):
+    name = models.CharField(max_length=50, primary_key=True)
+    date = models.DateField(null=True)
+    technician = models.CharField(max_length=50, null=True)
+    tissue = models.ManyToManyField("Tissue")
+    subpool = models.ManyToManyField("Subpool")
+    volume_ul = models.FloatField()
+    concentration1 = models.FloatField(null=True)
+    concentration2 = models.FloatField(null=True)
+    input_ng_per_ul = models.FloatField(
+        null=True, help_text="manually entered density")
+    passed_qc = models.BooleanField()
+    comments = models.TextField(null=True)
+    protocols = models.ManyToManyField("ProtocolLink")
+
+    @property
+    def average_concentration(self):
+        if self.input_ng_per_ul is not None:
+            return self.input_ng_per_ul
+
+        values = []
+        for v in [self.concentration1, self.concentration2]:
+            if v is not None:
+                values.append(v)
+
+        if len(values) == 0:
+            return numpy.nan
+        else:
+            return sum(values)/len(values)
+
+    @property
+    def total(self):
+        return self.average_concentration * self.volume_ul
+
+
+class NanoporeLibrary(models.Model):
+    """Represent a long read (ONT) library
+
+    It can be built from a DNA extraction or a split-seq subpool
+    """
+    name = models.CharField(max_length=50, primary_key=True)
+    nucleic_acid_extraction = models.ManyToManyField(
+        NucleicAcidExtraction, related_name="nanopore_library")
+    nucleic_acid = models.CharField(
+        max_length=2, choices=NucleicAcidEnum.choices)
+    technician = models.CharField(max_length=50)
+    build_date = models.DateField()
+    ng_per_ul = models.FloatField(null=True)
+    volume_ul = models.FloatField(null=True)
+
+    notes = models.TextField(
+        null=True, help_text="extended information about the extraction"
+    )
+
+    @property
+    def total(self):
+        if self.ng_per_ul is None:
+            return None
+        elif self.volume_ul is None:
+            return None
+        else:
+            return self.ng_per_ul * self.volume_ul
 
 
 class PlateSizeEnum(models.TextChoices):

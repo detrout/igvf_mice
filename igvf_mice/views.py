@@ -12,6 +12,7 @@ from igvf_mice.models import (
     Mouse,
     OntologyTerm,
     Tissue,
+    SampleExtraction,
     ParseFixedSample,
     SplitSeqPlate,
     SplitSeqWell,
@@ -32,6 +33,7 @@ from igvf_mice.serializers import (
     MouseSerializer,
     OntologyTermSerializer,
     TissueSerializer,
+    SampleExtractionSerializer,
     ParseFixedSampleSerializer,
     SplitSeqPlateSerializer,
     SplitSeqWellSerializer,
@@ -106,6 +108,10 @@ class TissueViewSet(viewsets.ModelViewSet):
     filterset_fields = ("mouse", "ontology_term",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
+class SampleExtractionViewSet(viewsets.ModelViewSet):
+    queryset = SampleExtraction.objects.all()
+    serializer_class = SampleExtractionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class ParseFixedSampleViewSet(viewsets.ModelViewSet):
     queryset = ParseFixedSample.objects.all()

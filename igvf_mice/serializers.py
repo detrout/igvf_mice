@@ -17,6 +17,7 @@ from igvf_mice.models import (
     OntologyTerm,
     LifeStageEnum,
     Tissue,
+    SampleExtraction,
     ParseFixedSample,
     SplitSeqPlate,
     SplitSeqWell,
@@ -223,7 +224,7 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
             "mouse",
             "description",
             "ontology_term",
-            "fixedsample_set",
+            "sampleextraction_set",
             "dissection_start_time",
             "dissection_end_time",
             "tube_label",
@@ -236,7 +237,7 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
         ]
         extra_kwargs = {
             "accession": {"required": False, "allow_empty": True},
-            "fixedsample_set": {"required": False, "allow_empty": True},
+            "sampleextraction_set": {"required": False, "allow_empty": True},
         }
 
     def to_representation(self, value):
@@ -250,23 +251,104 @@ class TissueSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
+class SampleExtractionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = SampleExtraction
+        fields = [
+            "@id",
+            "name",
+            "date",
+            "tube_label",
+            "technician",
+            #"box_name",
+            "tissue",
+            "volume_ul",
+            "count1",
+            "df1",
+            "count2",
+            "df2",
+            "input_nuclei_per_ul",
+            "parse_input_ul",
+            "share_input_ul",
+            "nuclei_per_ul",
+            "total_nuclei",
+            "protocols",
+        ]
+        extra_kwargs = {"protocols": {"required": False, "allow_empty": True}}
+
+    nuclei_per_ul = serializers.SerializerMethodField()
+    total_nuclei = serializers.SerializerMethodField()
+
+    def get_nuclei_per_ul(self, obj):
+        value = obj.nuclei_per_ul
+
+        if value is None or numpy.isnan(value):
+            return None
+        else:
+            return value
+
+    def get_total_nuclei(self, obj):
+        value = obj.total_nuclei
+
+        if value is None or numpy.isnan(value):
+            return None
+        else:
+            return value
+
+    #def to_representation(self, value):
+    #    data = super().to_representation(value)
+    #    request = self.context.get("request")
+    #
+    #    if "tissue" in data:
+    #        data["tissue"] = expand_field(data["tissue"], Tissue, TissueSerializer, request)
+    #    return data
+
+
 class ParseFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = ParseFixedSample
         fields = [
             "@id",
             "name",
-            "tube_label",
-            "fixation_name",
-            "fixation_date",
-            "tissue",
-            "starting_nuclei",
-            "nuclei_into_fixation",
-            "fixed_nuclei",
+            "extraction",
+            #"tube_label",
+            #"box_name",
+            #"date",
+            #"tissue",
+            #"starting_nuclei",
+            #"nuclei_into_fixation",
+            #"fixed_nuclei",
+            "volume_ul",
+            "count1",
+            "df1",
+            "count2",
+            "df2",
+            "input_nuclei_per_ul",
+            "nuclei_per_ul",
+            "total_nuclei",
             "aliquots_made",
             "aliquot_volume_ul",
             "splitseqwell_set",
         ]
+
+    nuclei_per_ul = serializers.SerializerMethodField()
+    total_nuclei = serializers.SerializerMethodField()
+
+    def get_nuclei_per_ul(self, obj):
+        value = obj.nuclei_per_ul
+
+        if value is None or numpy.isnan(value):
+            return None
+        else:
+            return value
+
+    def get_total_nuclei(self, obj):
+        value = obj.total_nuclei
+
+        if value is None or numpy.isnan(value):
+            return None
+        else:
+            return value
 
     def to_representation(self, value):
         data = super().to_representation(value)
@@ -733,7 +815,7 @@ class PipelineTissueSerializer(serializers.HyperlinkedModelSerializer):
             "mouse",
             "description",
             "ontology_term",
-            "fixedsample_set",
+            "parsefixedsample_set",
             "dissection_start_time",
             "dissection_end_time",
             "tube_label",

@@ -143,20 +143,36 @@ class TestModels(TestCase):
         self.tissue_tail.ontology_term.set([self.ontology_term_tail])
         self.tissue_tail.save()
 
-        self.fixed_sample_tail = ParseFixedSample(
+        self.sample_extraction_tail = SampleExtraction(
             name="108_CASTJ_10M_21",
             tube_label="108_21",
-            fixation_name="imaginary test",
-            fixation_date="2023-1-1",
-            starting_nuclei=17,
-            nuclei_into_fixation=4,
-            fixed_nuclei=3,
+            #box_name="stuff",
+            date="2023-1-1",
+            volume_ul=3000,
+            count1=50,
+            df1=11,
+            count2=60,
+            parse_input_ul=660,
+            share_input_ul=165,
+        )
+        self.sample_extraction_tail.save()
+        self.sample_extraction_tail.tissue.set([self.tissue_tail])
+        self.sample_extraction_tail.save()
+
+        self.fixed_sample_tail = ParseFixedSample(
+            name="108_CASTJ_10M_21",
+            extraction=self.sample_extraction_tail,
+            #tube_label="108_21",
+            #box_name="stuff",
+            volume_ul=3000,
+            count1=48,
+            df1=11,
             aliquots_made=2,
             aliquot_volume_ul=150,
         )
         self.fixed_sample_tail.save()
-        self.fixed_sample_tail.tissue.set([self.tissue_tail])
-        self.fixed_sample_tail.save()
+        #self.fixed_sample_tail.tissue.set([self.tissue_tail])
+        #self.fixed_sample_tail.save()
         self.plate_fake = SplitSeqPlate(
             name="TEST_002",
             size=PlateSizeEnum.size_96,
@@ -409,23 +425,52 @@ class TestModels(TestCase):
             tissue.ontology_names, "peripheral blood mononuclear cell, tail"
         )
 
+    def test_sample_extraction(self):
+        name = "107_CASTJ_10F_21"
+        extraction = SampleExtraction.objects.create(
+            name=name,
+            tube_label="107_21",
+            date="2023-1-1",
+            volume_ul=3000,
+            count1=109,
+            df1=11,
+            count2=92,
+            parse_input_ul=400,
+            share_input_ul=90,
+        )
+        extraction.save()
+        extraction.tissue.set([self.tissue_tail])
+        extraction.save()
+
+        self.assertEqual(extraction.nuclei_per_ul, .011055)
+        self.assertEqual(extraction.nuclei_per_ml, 11.055)
+        self.assertEqual(extraction.total_nuclei, 33.165)
+        self.assertAlmostEqual(extraction.nuclei_into_parse, 4.422)
+        self.assertAlmostEqual(extraction.nuclei_into_share, 0.99495)
+
     def test_fixed_sample(self):
+        # Data from IGVF_Splitseq ? Samples into experiment
         name = "107_CASTJ_10F_21"
         fixed_sample = ParseFixedSample.objects.create(
             name=name,
-            tube_label="107_21",
-            fixation_name="imaginary test",
-            fixation_date="2023-1-1",
-            starting_nuclei=17,
-            nuclei_into_fixation=4,
-            fixed_nuclei=3,
+            extraction=self.sample_extraction_tail,
+            technician="GF",
+            # before fixation volume rsb mL (M) converted to ul.
+            volume_ul=300,
+            # before fixation count 1 (N)
+            count1=82,
+            # before fixation DF1 (P)
+            df1=11,
+            # before fixation count 2 (O)
+            count2=60,
+            # after fixation # aliquots (AO)
             aliquots_made=2,
+            # after fixation uL per aliquot (AP)
             aliquot_volume_ul=150,
         )
         fixed_sample.save()
-        fixed_sample.tissue.set([self.tissue_tail])
-
         self.assertEqual(str(fixed_sample), name)
+        self.assertAlmostEqual(fixed_sample.fraction_recovered, 0.5867768595)
 
     def test_split_seq_plate(self):
         plate = SplitSeqPlate.objects.create(

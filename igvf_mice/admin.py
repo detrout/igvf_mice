@@ -110,21 +110,22 @@ class ParseFixedSampleOptions(admin.ModelAdmin):
     search_fields = ("name",)
     list_display = (
         "name",
-        "tube_label",
-        "fixation_name",
-        "fixation_date",
+        "aliquots_made",
+        "aliquot_volume_ul",
+        "nuclei_per_ul",
     )
     ordering = ("-name",)
 
     fields = (
-        ("name", "tube_label"),
-        ("fixation_name", "fixation_date"),
+        ("name", "tube_label", "date", "technician"),
+        ("volume_ml", "count1", "df1", "count2", "df2"),
         ("starting_nuclei", "nuclei_into_fixation", "fixed_nuclei"),
         ("aliquots_made", "aliquot_volume_ul"),
-        "tissue",
+        "comments",
+        #"tissue",
     )
 
-    filter_horizontal = ["tissue",]
+    #filter_horizontal = ["tissue",]
 
 
 class SplitSeqWellInline(admin.StackedInline):

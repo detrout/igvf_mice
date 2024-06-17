@@ -201,7 +201,7 @@ class TestSerializers(APITestCase):
         url = reverse("tissue-list")
         return self.create_object(url, payload, expected_status)
 
-    def create_fixed_sample_lung(self, expected_status=status.HTTP_201_CREATED):
+    def create_sample_extraction_lung(self, expected_status=status.HTTP_201_CREATED):
         lung = self.create_tissue_lung()
 
         payload = {
@@ -209,14 +209,28 @@ class TestSerializers(APITestCase):
             "tube_label": "016-17",
             "fixation_name": "IGVF_FIX_30",
             "fixation_date": "2023-10-28",
-            "starting_nuclei": 100000,
-            "fixed_nuclei": 67000,
-            "aliquots_made": 1,
-            "aliquot_volume_ul": 50,
+            "volume_ul": 3000,
+            "input_nuclei_per_ul": .00528,
+            "parse_input_ul": 750,
+            "share_input_ul": 189,
             "tissue": [lung["@id"]],
         }
 
-        url = reverse("fixedsample-list")
+        url = reverse("sampleextraction-list")
+        return self.create_object(url, payload, expected_status)
+
+    def create_fixed_sample_lung(self, expected_status=status.HTTP_201_CREATED):
+        lung = self.create_sample_extraction_lung()
+
+        payload = {
+            "name": lung["name"],
+            "extraction": lung["@id"],
+            "input_nuclei_ml": 100000,
+            "aliquots_made": 1,
+            "aliquot_volume_ul": 50,
+        }
+
+        url = reverse("parsefixedsample-list")
         return self.create_object(url, payload, expected_status)
 
     def create_split_seq_plate(self, expected_status=status.HTTP_201_CREATED):
@@ -467,6 +481,17 @@ class TestSerializers(APITestCase):
         updated_tissue = response.json()
         self.assertEqual(len(updated_tissue["accession"]), 1)
         self.assertEqual(updated_tissue["accession"][0], accession)
+
+    def test_sample_extractionserializer(self):
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_sample_extraction_lung()
+
+        name = payload["name"]
+        extract = models.SampleExtraction.objects.get(name=name)
+
+        self.assertEqual(extract.name, name)
+        self.assertEqual(extract.tissue.first().name, name)
+        self.assertIn("@id", payload)
 
     def test_fixed_sample_serializer(self):
         self.client.force_authenticate(user=self.user)

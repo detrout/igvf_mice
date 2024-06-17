@@ -334,7 +334,7 @@ class PlateLayoutParser:
                 plate_name, len(plate_contents)))
 
     def import_plates(self, sheet):
-        biosample_table = {x.name: x for x in models.FixedSample.objects.all()}
+        biosample_table = {x.name: x for x in models.ParseFixedSample.objects.all()}
         with transaction.atomic():
             for plate_name, plate_contents in self.parse_plates(sheet):
                 plate = self._get_or_create_plate(plate_name)
