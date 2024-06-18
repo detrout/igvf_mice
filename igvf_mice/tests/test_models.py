@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from ..models import (
+    NucleicAcidEnum,
     Accession,
     Source,
     LibraryConstructionReagent,
@@ -17,7 +18,10 @@ from ..models import (
     TimeUnitsEnum,
     require_3_underscores,
     Tissue,
+    SampleExtraction,
     ParseFixedSample,
+    NucleicAcidExtraction,
+    NanoporeLibrary,
     PlateSizeEnum,
     SplitSeqPlate,
     SplitSeqWell,
@@ -231,6 +235,36 @@ class TestModels(TestCase):
             # measurement_set=
         )
 
+        # ont sequenced subpools
+        self.ont_subpool_extraction = NucleicAcidExtraction.objects.create(
+            name="ONT003",
+            date="2022-08-12",
+            # in ONT sequencing this is 150 / input_ng_per_ul.
+            volume_ul=1.1538461538461537,
+            # this is column M of ONT sequencing IGVF_Splitseq
+            input_ng_per_ul=130,
+            passed_qc=True,
+        )
+        self.ont_subpool_extraction.save()
+        self.ont_subpool_extraction.tissue.set([self.tissue_tail])
+        self.ont_subpool_extraction.save()
+
+        self.ont_subpool_library = NanoporeLibrary.objects.create(
+            name="ONT003",
+            nucleic_acid=NucleicAcidEnum.rna,
+            technician="Jay",
+            build_date="2022-08-12",
+            # this is [library] (ng/nl) (O) on ONT sequencing
+            ng_per_ul=3.82,
+            # this is from sample loading vol (S) on ONT sequencing
+            volume_ul=2.0942408377,
+        )
+
+        self.ont_subpool_library.save()
+        self.ont_subpool_library.nucleic_acid_extraction.set([self.ont_subpool_extraction])
+        self.ont_subpool_library.save()
+
+    # Test cases some of which depend on the above preseeded object tree
     def test_accession_with_uuid(self):
         test016_B6J_10F = Accession.objects.create(
             accession_prefix="igvftst",
@@ -528,8 +562,45 @@ class TestModels(TestCase):
         subpool.barcode.set([self.library_barcode_fake_illumina])
         subpool.save()
 
+        subpool.clean()
         self.assertEqual(subpool.plate_name(), self.plate_fake.name)
         self.assertEqual(str(subpool), subpool.name)
+
+    def test_subpool_no_gene_capture(self):
+        subpool = Subpool.objects.create(
+            name="002_13A",
+            plate=self.plate_fake,
+            nuclei=67000,
+            selection_type="NO",
+            cdna_pcr_rounds="5 + 7",
+            cdna_ng_per_ul=22.0,
+            cdna_volume=25,
+            bioanalyzer_date="2023-1-1",
+            gene_capture_ng_per_ul=17.5,
+            index_pcr_number=11,
+            index=1,
+            library_ng_per_ul=25.0,
+            library_average_bp_length=430,
+        )
+        self.assertRaises(ValidationError, subpool.clean)
+
+    def test_subpool_was_gene_capture(self):
+        subpool = Subpool.objects.create(
+            name="002_13A",
+            plate=self.plate_fake,
+            nuclei=67000,
+            selection_type="EX",
+            cdna_pcr_rounds="5 + 7",
+            cdna_ng_per_ul=22.0,
+            cdna_volume=25,
+            bioanalyzer_date="2023-1-1",
+            gene_capture_ng_per_ul=17.5,
+            index_pcr_number=11,
+            index=1,
+            library_ng_per_ul=25.0,
+            library_average_bp_length=430,
+        )
+        subpool.clean()
 
     def test_platform(self):
         name = "novaseq6000"
@@ -590,3 +661,249 @@ class TestModels(TestCase):
 
         self.assertEqual(str(sequencing_file_r1), filename_r1)
 
+    # testing nanopore tables
+    # we've got two kinds of nanopore data, one derived from the splitseq
+    # subpools, and one from a fresh isolation from different tissues.
+
+    def test_ont_sample_extraction_from_tissue(self):
+        name = "ONT002"
+        extraction = NucleicAcidExtraction.objects.create(
+            name=name,
+            date="2022-08-12",
+            # in ONT sequencing this is computed from 150 / input_ng_per_ul.
+            # The spreadsheet is visually rounded to 2 digits, and as it's
+            # something pipetted there's a limit to how accurately it can be
+            # moved
+            volume_ul=1.15,
+            # this is column M of ONT sequencing IGVF_Splitseq
+            input_ng_per_ul=130,
+            passed_qc=True,
+        )
+        extraction.save()
+        extraction.tissue.set([self.tissue_tail])
+        extraction.save()
+
+        self.assertAlmostEqual(extraction.total, 149.5)
+
+    def test_ont_sample_extraction_from_subpool(self):
+        extraction = NucleicAcidExtraction.objects.create(
+            name="ONT002",
+            date="2022-08-12",
+            # in ONT sequencing this is computed from 150 / input_ng_per_ul.
+            # this is the actual value of the calculation which has more
+            # significant digit than can be used.
+            volume_ul=6.8181818181,
+            # this is column M of ONT sequencing IGVF_Splitseq
+            input_ng_per_ul=22,
+            passed_qc=True,
+        )
+        extraction.save()
+        extraction.subpool.set([self.subpool_fake])
+        extraction.save()
+
+        # our recorded concentration should match subpool
+        # cdna_ng_per_ul or gene_capture_ng_per_ul (for gene capture
+        # experiments)
+        self.assertAlmostEqual(self.subpool_fake.cdna_ng_per_ul, extraction.input_ng_per_ul)
+        self.assertAlmostEqual(extraction.total, 150)
+
+    def test_ont_subpool_library(self):
+        name = "ONT002"
+        extraction = NucleicAcidExtraction.objects.create(
+            name=name,
+            date="2022-08-12",
+            # in ONT sequencing this is 150 / input_ng_per_ul.
+            volume_ul=1.1538461538461537,
+            # this is column M of ONT sequencing IGVF_Splitseq
+            input_ng_per_ul=130,
+            passed_qc=True,
+        )
+        extraction.save()
+        extraction.tissue.set([self.tissue_tail])
+        extraction.save()
+
+        library = NanoporeLibrary.objects.create(
+            name="ONT002",
+            nucleic_acid=NucleicAcidEnum.rna,
+            technician="Jay",
+            build_date="2022-08-12",
+            # this is [library] (ng/nl) (O) on ONT sequencing
+            ng_per_ul=3.82,
+            # this is from sample loading vol (S) on ONT sequencing
+            volume_ul=2.0942408377,
+        )
+        library.save()
+        library.nucleic_acid_extraction.set([extraction])
+        library.save()
+
+        self.assertAlmostEqual(library.total, 8)
+
+    def test_ont_subpool_sequencing(self):
+        run = SequencingRun.objects.create(
+            run_date="2022-12-13",
+            platform=self.platform_gridion,
+            flowcell_kit="SQK-LSK114-XL",
+            flowcell_type="FLO-PRO114M",
+            flowcell_id="FAU21462",
+            sequencing_software="23.04.05",
+        )
+
+        library_in_run = LibraryInRun.objects.create(
+            nanopore=self.ont_subpool_library,
+            sequencing_run=run,
+            status="P",
+        )
+
+        pod5 = SequencingFile.objects.create(
+            sequencing_run=run,
+            library_in_run=library_in_run,
+            filename="igvf003_13A-gc_lig-ss_p2_1.pod5",
+            md5sum="3d76177a266b86aa588e49c4109c08cd",
+        )
+
+        fastq = SequencingFile.objects.create(
+            sequencing_run=run,
+            library_in_run=library_in_run,
+            filename="igvf003_13A-gc_lig-ss_p2_1.fastq.gz",
+            md5sum="1034404a43366a41b6840ad95b6ac439",
+        )
+
+        # These are more properties associated with generating a nanopore
+        # fastq file
+        #    basecaller_version="0.5.0",
+        #    basecalling_mode="Super Accurate",
+        #    basecalling_config="dna_r10.4.1_e8.2_400bps_sup@v4.1.0",
+        #    q_score=10,
+
+    def test_methylation_nucleic_acid_extraction(self):
+        # These examples are coming from IGVF_methylation
+        # Meth_DNA tab
+        extraction = NucleicAcidExtraction.objects.create(
+            # Tube ID (I)
+            name="B02",
+            # DNA Ext. Date (H)
+            date="2023-08-23",
+            # this is inferred from the formula of Avg * 50 = Total
+            volume_ul=50,
+            # DNA extraction 1 (J)
+            concentration1=17.9,
+            # DNA extraction 2 (K)
+            concentration2=18.3,
+            # Made into Lib? Or Disposed (O)
+            passed_qc=True,
+            # DNA extraction: Notes (N)
+            comments="Elute incubation done for 1h instead of 30 min"
+        )
+        extraction.save()
+        extraction.tissue.set([self.tissue_tail])
+        extraction.save()
+
+        self.assertAlmostEqual(extraction.average_concentration, 18.1)
+        self.assertAlmostEqual(extraction.total, 905)
+
+    def test_methylation_nanopore_library(self):
+        # Libraries can be the result of pooling several tubes
+        # Several examples taken from Meth_DNA
+        # The spreadsheet has the same note applying to several rows.
+        tubes = [
+            ("B01", "2023-08-23", 50, 18.5, 18.5, True, None),
+            ("B02", "2023-08-23", 50, 17.9, 18.3, True, "Elute incubation"),
+            ("B03", "2023-08-23", 50, 17.9, 17.7, True, None),
+        ]
+
+        extractions = []
+        for name, ext_date, volume, c1, c2, qc, note in tubes:
+            e = NucleicAcidExtraction.objects.create(
+                name=name,
+                date=ext_date,
+                volume_ul=volume,
+                concentration1=c1,
+                concentration2=c2,
+                passed_qc=qc,
+                comments=note,
+            )
+            e.save()
+            e.tissue.set([self.tissue_tail])
+            e.save()
+            extractions.append(e)
+
+        concentration = sum([e.average_concentration for e in extractions])/len(extractions)
+        volume = sum([e.total for e in extractions])
+
+        # This object is coming from Meth_Lib
+        library = NanoporeLibrary.objects.create(
+            # Tube ID (J)
+            name="B01+B02+B03",
+            # inferred from spreadsheet
+            nucleic_acid=NucleicAcidEnum.dna,
+            # Technician (B)
+            technician="Yes",
+            # Lib Exp Date (A)
+            build_date="2023-08-23",
+            # the calculated value is in Library (ng/uL) Avg (S)
+            ng_per_ul=concentration,
+            # the calculated value is in Library (ng/uL)  Total (T)
+            volume_ul=volume,
+        )
+        library.save()
+        library.nucleic_acid_extraction.set(extractions)
+        library.save()
+
+    def test_ont_methylation_sequencing(self):
+        extraction = NucleicAcidExtraction.objects.create(
+            name="C01",
+            date="2023-08-26",
+            volume_ul=50,
+            concentration1=39.4,
+            concentration2=41.6,
+            passed_qc=True,
+        )
+        extraction.save()
+        extraction.tissue.set([self.tissue_tail])
+        extraction.save()
+
+        # This object is coming from Meth_Lib
+        library = NanoporeLibrary.objects.create(
+            # Tube ID (J)
+            name="C01",
+            # inferred from spreadsheet
+            nucleic_acid=NucleicAcidEnum.dna,
+            # Technician (B)
+            technician="Yes",
+            # Lib Exp Date (A)
+            build_date="2023-08-22",
+            ng_per_ul=46,
+            volume_ul=12,
+        )
+        library.save()
+        library.nucleic_acid_extraction.set([extraction])
+        library.save()
+
+        run = SequencingRun.objects.create(
+            run_date="2023-08-12",
+            platform=self.platform_gridion,
+            flowcell_kit="SQK-LSK114-XL",
+            flowcell_type="FLO-PRO114M",
+            flowcell_id="FAU21462",
+            sequencing_software="23.04.05",
+        )
+
+        library_in_run = LibraryInRun.objects.create(
+            nanopore=self.ont_subpool_library,
+            sequencing_run=run,
+            status="P",
+        )
+
+        pod5 = SequencingFile.objects.create(
+            sequencing_run=run,
+            library_in_run=library_in_run,
+            filename="igvfm003_03_lig-dna_p2_2.pod5",
+            md5sum="3d76177a266b86aa588e49c4109c08cd",
+        )
+
+        fastq = SequencingFile.objects.create(
+            sequencing_run=run,
+            library_in_run=library_in_run,
+            filename="igvf003_13A-gc_lig-ss_p2_1.fastq.gz",
+            md5sum="1034404a43366a41b6840ad95b6ac439",
+        )
