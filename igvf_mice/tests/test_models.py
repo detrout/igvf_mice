@@ -205,16 +205,22 @@ class TestModels(TestCase):
         self.subpool_fake.save()
         self.subpool_fake.barcode.set([self.library_barcode_fake_illumina])
         self.subpool_fake.save()
-        self.platform = Platform.objects.create(
+        self.platform_novaseq = Platform.objects.create(
             name="novaseq2000",
             igvf_id="/platform-terms/EFO_0010963/",
             display_name="Novaseq 2000",
             family="illumina",
         )
+        self.platform_gridion = Platform.objects.create(
+            name="gridion",
+            igvf_id="/platform-terms/EFO_0008633/",
+            display_name="ONT GridION",
+            family="nanopore",
+        )
         self.sequencing_run_fake = SequencingRun.objects.create(
             name="next02",
             run_date="1991-08-25",
-            platform=self.platform,
+            platform=self.platform_novaseq,
             plate=self.plate_fake,
             stranded=StrandedEnum.REVERSE,
         )
@@ -543,13 +549,13 @@ class TestModels(TestCase):
         run = SequencingRun.objects.create(
             name=name,
             run_date="1066-10-14",
-            platform=self.platform,
+            platform=self.platform_novaseq,
             plate=self.plate_fake,
             stranded=StrandedEnum.REVERSE,
         )
 
         self.assertEqual(str(run), name)
-        self.assertEqual(run.platform_name, self.platform.name)
+        self.assertEqual(run.platform_name, self.platform_novaseq.name)
         self.assertEqual(run.plate_name, self.plate_fake.name)
 
     def test_subpool_in_run(self):
