@@ -379,14 +379,14 @@ class TestModels(TestCase):
 
         self.assertRaises(ValidationError, genderqueer_mouse.full_clean)
 
-
     def test_ontology_term(self):
         curie = "UBERON:0001385"
         name = "tibialis anterior"
         term = OntologyTerm.objects.create(
             curie=curie,
             name=name,
-            description="A muscle that originates in the upper two-thirds of the lateral surface of the tibia",
+            description="A muscle that originates in the upper two-thirds of"
+                        "the lateral surface of the tibia",
         )
 
         term.full_clean()

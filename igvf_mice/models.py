@@ -928,9 +928,12 @@ class SequencingRun(models.Model):
     name = models.CharField(max_length=50, unique=True)
     run_date = models.DateField(null=True)
     platform = models.ForeignKey(Platform, on_delete=models.PROTECT)
-    plate = models.ForeignKey(SplitSeqPlate, on_delete=models.PROTECT)
+    plate = models.ForeignKey(
+        SplitSeqPlate, on_delete=models.PROTECT, null=True)
     stranded = models.CharField(
-        max_length=1, choices=StrandedEnum.choices, default=StrandedEnum.REVERSE
+        max_length=1,
+        choices=StrandedEnum.choices,
+        default=StrandedEnum.REVERSE
     )
 
     def __str__(self):
