@@ -1,4 +1,5 @@
 import os
+import numpy
 from urllib.parse import urlsplit
 
 from django.conf import settings
