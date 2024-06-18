@@ -850,6 +850,7 @@ class Subpool(models.Model):
 
     bioanalyzer_date = models.DateField(null=True)
     cdna_average_bp_length = models.IntegerField(null=True)
+    gene_capture_ng_per_ul = models.FloatField(null=True)
     index_pcr_number = models.IntegerField(null=True)
     index = models.CharField(max_length=20, null=True, blank=False)
 
@@ -874,6 +875,13 @@ class Subpool(models.Model):
 
     def __str__(self):
         return self.name
+
+    def clean(self):
+        super().clean()
+        has_gene_captured = self.gene_capture_ng_per_ul is not None
+        is_exome_capture = self.selection_type == LibrarySelectionTypeEnum.exome_capture
+        if has_gene_captured and not is_exome_capture:
+            raise ValidationError("Only exome captured libraries can have a gene captured concentration")
 
 
 class Platform(models.Model):
