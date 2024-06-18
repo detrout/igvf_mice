@@ -578,7 +578,6 @@ class TestModels(TestCase):
             library_in_run=self.subpool_run,
             md5sum="68b329da9893e34099c7d8ad5cb9c940",
             filename=filename_r1,
-            flowcell_id="AAC0JNKHV",
             lane=1,
             read="R1",
         )

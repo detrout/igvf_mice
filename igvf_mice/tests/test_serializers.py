@@ -306,6 +306,7 @@ class TestSerializers(APITestCase):
             "run_date": "2010-10-1",
             "platform": platform["@id"],
             "plate": subpool["plate"],
+            "flowcell_id": "AAATMGFHV",
             "stranded": str(models.StrandedEnum.REVERSE),
         }
 
@@ -332,7 +333,6 @@ class TestSerializers(APITestCase):
         payload = {
             "md5sum": "d41d8cd98f00b204e9800998ecf8427e",
             "filename": "igvf_003/next1/003_67B_R2.fastq.gz",
-            "flowcell_id": "AAATMGFHV",
             "read": "R2",
             "sequencing_run": sequencing_run["@id"],
             "library_in_run": subpool_run["@id"],
@@ -552,6 +552,7 @@ class TestSerializers(APITestCase):
 
         run = models.SequencingRun.objects.get(name=payload["name"])
         self.assertEqual(run.plate.name, payload["plate"]["name"])
+        self.assertEqual(payload["flowcell_id"], run.flowcell_id)
 
     def test_create_library_in_run(self):
         self.client.force_authenticate(user=self.user)
@@ -569,7 +570,6 @@ class TestSerializers(APITestCase):
         pk = get_pk_from_id(payload["@id"])
         sequencing_file = models.SequencingFile.objects.get(pk=pk)
 
-        self.assertEqual(payload["flowcell_id"], subpool_file.flowcell_id)
         self.assertIsNone(sequencing_file.lane)
         self.assertEqual(sequencing_file.accession.count(), 0)
 

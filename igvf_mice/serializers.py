@@ -403,6 +403,10 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
             "stranded",
             "platform",
             "plate",
+            "flowcell_id",
+            "flowcell_kit",
+            "flowcell_type",
+            "sequencing_software",
         ]
 
     def to_representation(self, value):
@@ -472,7 +476,6 @@ class SequencingFileSerializer(serializers.HyperlinkedModelSerializer):
             "@id",
             "md5sum",
             "filename",
-            "flowcell_id",
             "lane",
             "read",
             "sequencing_run",

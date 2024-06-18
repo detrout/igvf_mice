@@ -935,6 +935,10 @@ class SequencingRun(models.Model):
         choices=StrandedEnum.choices,
         default=StrandedEnum.REVERSE
     )
+    flowcell_kit = models.CharField(max_length=50, null=True)
+    flowcell_type = models.CharField(max_length=50, null=True)
+    flowcell_id = models.CharField(max_length=50, null=True)
+    sequencing_software = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         return self.name
@@ -1020,7 +1024,6 @@ class SequencingFile(models.Model):
     library_in_run = models.ForeignKey(LibraryInRun, on_delete=models.PROTECT)
     md5sum = models.CharField(max_length=32, null=True, blank=False)
     filename = models.CharField(max_length=255, null=False, blank=False)
-    flowcell_id = models.CharField(max_length=100, null=False, blank=False)
     lane = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
     accession = models.ManyToManyField(Accession)
