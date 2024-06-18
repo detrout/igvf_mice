@@ -16,8 +16,8 @@ from .models import (
     Subpool,
     Platform,
     SequencingRun,
-    SubpoolInRun,
-    SubpoolInRunFile,
+    LibraryInRun,
+    SequencingFile,
     MeasurementSet,
 )
 
@@ -196,8 +196,8 @@ class PlatformOptions(admin.ModelAdmin):
     model = Platform
 
 
-class SubpoolInRunInline(admin.StackedInline):
-    model = SubpoolInRun
+class LibraryInRunInline(admin.StackedInline):
+    model = LibraryInRun
 
     search_fields = "subpool"
     fields = (
@@ -215,21 +215,21 @@ class SequencingRunOptions(admin.ModelAdmin):
         ("name", "plate"),
         ("platform", "run_date", "stranded"),
     )
-    inlines = [SubpoolInRunInline,]
+    inlines = [LibraryInRunInline,]
 
 
-class SubpoolInRunOptions(admin.ModelAdmin):
-    model = SubpoolInRun
+class LibraryInRunOptions(admin.ModelAdmin):
+    model = LibraryInRun
 
     list_filter = ("subpool__plate",)
     list_display = ("subpool", "status", "measurement_set")
 
 
-class SubpoolInRunFileOptions(admin.ModelAdmin):
-    model = SubpoolInRunFile
+class SequencingFileOptions(admin.ModelAdmin):
+    model = SequencingFile
 
-    list_display = ("filename", "md5sum", "subpool_run")
-    list_filter = ("subpool_run__sequencing_run",)
+    list_display = ("filename", "md5sum", "library_in_run")
+    list_filter = ("library_in_run__sequencing_run",)
 
     autocomplete_fields = ["accession",]
 
@@ -254,6 +254,6 @@ admin.site.register(SplitSeqWell, SplitSeqWellOptions)
 admin.site.register(Subpool, SubpoolOptions)
 admin.site.register(Platform, PlatformOptions)
 admin.site.register(SequencingRun, SequencingRunOptions)
-admin.site.register(SubpoolInRun, SubpoolInRunOptions)
-admin.site.register(SubpoolInRunFile, SubpoolInRunFileOptions)
+admin.site.register(LibraryInRun, LibraryInRunOptions)
+admin.site.register(SequencingFile, SequencingFileOptions)
 admin.site.register(MeasurementSet, MeasurementSetOptions)

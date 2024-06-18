@@ -19,8 +19,8 @@ from igvf_mice.models import (
     Subpool,
     Platform,
     SequencingRun,
-    SubpoolInRun,
-    SubpoolInRunFile,
+    LibraryInRun,
+    SequencingFile,
     MeasurementSet,
 )
 from igvf_mice.serializers import (
@@ -40,8 +40,8 @@ from igvf_mice.serializers import (
     SubpoolSerializer,
     PlatformSerializer,
     SequencingRunRootSerializer,
-    SubpoolInRunSerializer,
-    SubpoolInRunFileSerializer,
+    LibraryInRunSerializer,
+    SequencingFileSerializer,
     MeasurementSetSerializer,
     IgvfRodentDonorSerializer,
     IgvfSequenceFileSerializer,
@@ -153,17 +153,17 @@ class SequencingRunViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class SubpoolInRunViewSet(viewsets.ModelViewSet):
-    queryset = SubpoolInRun.objects.all()
-    serializer_class = SubpoolInRunSerializer
+class LibraryInRunViewSet(viewsets.ModelViewSet):
+    queryset = LibraryInRun.objects.all()
+    serializer_class = LibraryInRunSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_fields = ("subpool", "measurement_set", "sequencing_run",)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
-class SubpoolInRunFileViewSet(viewsets.ModelViewSet):
-    queryset = SubpoolInRunFile.objects.all()
-    serializer_class = SubpoolInRunFileSerializer
+class SequencingFileViewSet(viewsets.ModelViewSet):
+    queryset = SequencingFile.objects.all()
+    serializer_class = SequencingFileSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
@@ -186,7 +186,7 @@ class IgvfSequenceFileViewSet(viewsets.ModelViewSet):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
     def get_queryset(self):
-        return SubpoolInRunFile.objects.all()
+        return SequencingFile.objects.all()
 
 
 class PipelineSampleMetadataViewSet(viewsets.ModelViewSet):

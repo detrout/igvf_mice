@@ -21,14 +21,14 @@ from igvf_mice.models import (
     ParseFixedSample,
     SplitSeqPlate,
     SplitSeqWell,
-    SublibrarySelectionTypeEnum,
-    SubcellularComponentEnum,
+    LibrarySelectionTypeEnum,
+    CellularComponentEnum,
     Subpool,
     StrandedEnum,
     Platform,
     SequencingRun,
-    SubpoolInRun,
-    SubpoolInRunFile,
+    LibraryInRun,
+    SequencingFile,
     MeasurementSet,
 )
 
@@ -437,9 +437,9 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
     selection_type = serializers.ChoiceField(
-        choices=SublibrarySelectionTypeEnum.choices)
+        choices=LibrarySelectionTypeEnum.choices)
     subcellular_component = serializers.ChoiceField(
-        choices=SubcellularComponentEnum.choices)
+        choices=CellularComponentEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
 
     def to_representation(self, value):
@@ -451,9 +451,9 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
         return data
 
 
-class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
+class LibraryInRunSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = SubpoolInRun
+        model = LibraryInRun
         fields = [
             "@id",
             "subpool",
@@ -464,9 +464,9 @@ class SubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
         ]
 
 
-class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
+class SequencingFileSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = SubpoolInRunFile
+        model = SequencingFile
         fields = [
             "@id",
             "md5sum",
@@ -475,7 +475,7 @@ class SubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer):
             "lane",
             "read",
             "sequencing_run",
-            "subpool_run",
+            "library_in_run",
             "accession",
         ]
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
@@ -496,7 +496,7 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
             "@id",
             "name",
             "accession",
-            "subpoolinrun_set",
+            "libraryinrun_set",
         ]
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
 
@@ -506,8 +506,8 @@ class MeasurementSetSerializer(serializers.HyperlinkedModelSerializer):
 
         if "accession" in data:
             data["accession"] = expand_field(data["accession"], Accession, AccessionSerializer, request)
-        if "subpoolinrun_set" in data:
-            data["subpoolinrun_set"] = expand_field(data["subpoolinrun_set"], SubpoolInRun, SubpoolInRunSerializer, request, pkname="id")
+        if "libraryinrun_set" in data:
+            data["libraryinrun_set"] = expand_field(data["libraryinrun_set"], LibraryInRun, LibraryInRunSerializer, request, pkname="id")
         return data
 
 
@@ -564,9 +564,9 @@ class IgvfRodentDonorSerializer(serializers.HyperlinkedModelSerializer, IgvfLabI
         return 1
 
 
-class IgvfSubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer, IgvfLabInfoMixin):
+class IgvfSequencingFileSerializer(serializers.HyperlinkedModelSerializer, IgvfLabInfoMixin):
     class Meta:
-        model = SubpoolInRunFile
+        model = SequencingFile
         fields = [
             "award",
             "lab",
@@ -606,21 +606,21 @@ class IgvfSubpoolInRunFileSerializer(serializers.HyperlinkedModelSerializer, Igv
         return file_type
 
 
-class IgvfSubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
+class IgvfLibraryInRunSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = SubpoolInRun
+        model = LibraryInRun
         fields = [
             "files",
             #"sequencing_run",
             #"platform",
         ]
 
-    files = IgvfSubpoolInRunFileSerializer(source="subpoolinrunfile_set", many=True)
+    files = IgvfSequencingFileSerializer(source="sequencingfile_set", many=True)
     #sequencing_run = serializers.CharField(source="sequencing_run.name")
     #platform = serializers.CharField(source="sequencing_run.platform.igvf_id")
     
     #files = serializers.ListField(
-    #    IgvfSubpoolInRunFileSerializer(source="subpoolinrunfile_set")
+    #    IgvfSequencingFileSerializer(source="sequencingfile_set")
     #)
 
 
@@ -629,16 +629,16 @@ class IgvfSubpoolInRunSerializer(serializers.HyperlinkedModelSerializer):
 #        model = Subpool
 #        fields = [
 #            "name",
-#            "subpoolinrun",
+#            "libraryinrun",
 #        ]
 #        #depth = 3
 #
 #    name = serializers.CharField()
-#    subpoolinrun = IgvfSubpoolInRunSerializer(source="subpoolinrun_set", many=True)
+#    libraryinrun = IgvfLibraryInRunSerializer(source="libraryinrun_set", many=True)
 
 class IgvfSequenceFileSerializer(serializers.HyperlinkedModelSerializer, IgvfLabInfoMixin):
     class Meta:
-        model = SubpoolInRunFile
+        model = SequencingFile
         fields = [
             "accession",
             #"aliases",
@@ -686,7 +686,7 @@ class IgvfSeqSpecSequenceRegionSerializer(serializers.Serializer):
 
 class IgvfSeqSpecListSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = SubpoolInRunFile
+        model = SequencingFile
         fields = [
             "id",
             "md5sum",
@@ -699,7 +699,7 @@ class IgvfSeqSpecListSerializer(serializers.HyperlinkedModelSerializer):
 
 class IgvfSeqSpecDetailSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = SubpoolInRunFile
+        model = SequencingFile
         fields = [
             "object_type",
             "seqspec_version",

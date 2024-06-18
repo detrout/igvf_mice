@@ -26,8 +26,8 @@ from ..models import (
     StrandedEnum,
     SequencingRun,
     RunStatusEnum,
-    SubpoolInRun,
-    SubpoolInRunFile,
+    LibraryInRun,
+    SequencingFile,
     MeasurementSet,
 )
 
@@ -218,7 +218,7 @@ class TestModels(TestCase):
             plate=self.plate_fake,
             stranded=StrandedEnum.REVERSE,
         )
-        self.subpool_run = SubpoolInRun.objects.create(
+        self.subpool_run = LibraryInRun.objects.create(
             subpool=self.subpool_fake,
             sequencing_run=self.sequencing_run_fake,
             status=RunStatusEnum.PASS,
@@ -553,7 +553,7 @@ class TestModels(TestCase):
         self.assertEqual(run.plate_name, self.plate_fake.name)
 
     def test_subpool_in_run(self):
-        subpool_run = SubpoolInRun.objects.create(
+        subpool_run = LibraryInRun.objects.create(
             subpool=self.subpool_fake,
             sequencing_run=self.sequencing_run_fake,
             status=RunStatusEnum.PASS,
@@ -573,9 +573,9 @@ class TestModels(TestCase):
 
     def test_subpool_in_run_file(self):
         filename_r1 = "next02/002_13B_R1.fastq.gz"
-        subpool_run_file_r1 = SubpoolInRunFile.objects.create(
+        sequencing_file_r1 = SequencingFile.objects.create(
             sequencing_run=self.sequencing_run_fake,
-            subpool_run=self.subpool_run,
+            library_in_run=self.subpool_run,
             md5sum="68b329da9893e34099c7d8ad5cb9c940",
             filename=filename_r1,
             flowcell_id="AAC0JNKHV",
@@ -583,4 +583,5 @@ class TestModels(TestCase):
             read="R1",
         )
 
-        self.assertEqual(str(subpool_run_file_r1), filename_r1)
+        self.assertEqual(str(sequencing_file_r1), filename_r1)
+

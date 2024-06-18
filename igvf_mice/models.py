@@ -14,6 +14,29 @@ class AccessionNamespacesEnum(models.TextChoices):
     IGVF_TEST = ("igvftst", "IGVF sandbox")
 
 
+class LibrarySelectionTypeEnum(models.TextChoices):
+    """Possible selection types applied to a sample
+    """
+    no_selection = ("NO", "No selection done")
+    exome_capture = ("EX", "Exome capture")
+
+
+class CellularComponentEnum(models.TextChoices):
+    """What portion of the cell are we processing
+    """
+    nucleus = ("N", "Nucleus")
+    cell = ("C", "Cell")
+
+
+class NucleicAcidEnum(models.TextChoices):
+    rna = ("R", "RNA")
+    mirna = ("MI", "miRNA")
+    polya_rna = ("PR", "polyadenylated mRNA")
+    capped_rna = ("CR", "capped mRNA")
+    dna = ("D", "DNA")
+    protein = ("P", "protein")
+
+
 class Accession(models.Model):
     """An accession ID name and what url it expands to
 
@@ -794,17 +817,6 @@ class SplitSeqWell(models.Model):
         return "{}{}".format(self.row, self.column)
 
 
-class SublibrarySelectionTypeEnum(models.TextChoices):
-    no_selection = ("NO", "No selection done")
-    exome_capture = ("EX", "Exome capture")
-
-
-class SubcellularComponentEnum(models.TextChoices):
-    nuclei = ("N", "Nuclear")
-    cellular = ("C", "Cellular")
-    nuclei_and_cells = ("NC", "Nuclei/Cells")
-
-
 class Subpool(models.Model):
     """aloquots of cells that have had an illumina multiplexing barcode added.
 
@@ -824,13 +836,13 @@ class Subpool(models.Model):
     nuclei = models.IntegerField()
     selection_type = models.CharField(
         max_length=2,
-        choices=SublibrarySelectionTypeEnum.choices,
-        default=SublibrarySelectionTypeEnum.no_selection
+        choices=LibrarySelectionTypeEnum.choices,
+        default=LibrarySelectionTypeEnum.no_selection
     )
     subcellular_component = models.CharField(
         max_length=2,
-        choices=SubcellularComponentEnum.choices,
-        default=SubcellularComponentEnum.nuclei,
+        choices=CellularComponentEnum.choices,
+        default=CellularComponentEnum.nucleus,
     )
     cdna_pcr_rounds = models.CharField(max_length=50, null=True)
     cdna_ng_per_ul = models.FloatField(null=True)
@@ -933,12 +945,20 @@ class RunStatusEnum(models.TextChoices):
     FAILED = ("F", "Failed")
 
 
-class SubpoolInRun(models.Model):
-    """Link Subpools to Sequencing runs
+class LibraryInRun(models.Model):
+    """Link Libraries to Sequencing runs
 
-    Since a sequencing run can contain many subpools, this table links
-    :model:`igvf_mice.Subpool` to the :model:`igvf_mice.SequencingRun`
-    it was run on.
+    A sequencing run can contain different types of libraries depending
+    on the sequencer platform. On Illumina that are the traditional
+    bulk multiplexed samples, and for this project the parse split-seq
+    subpools. We also have nanopore long reads derived from the split-seq
+    experiment or nanopore from genomic DNA.
+
+    For Illumina runs which typically have several subpools on one
+    run, we link the :model:`igvf_mice.Subpool` to the
+    :model:`igvf_mice.SequencingRun` it was run on.
+
+    For nanopore libraries we we link to :model:`igvf_mice.NanoporeLibrary`
 
     The result of a sequencing run is a collection of files which are
     tracked as model:`igvf_mice.SubpoolInRunFile`.
@@ -949,12 +969,17 @@ class SubpoolInRun(models.Model):
     Eventually all of the subpools from with the same logical set of
     barcodes are submitted to the DACC as a
     :model:`igvf_mice.MeasurementSet`.
-
     """
 
     subpool = models.ForeignKey(
         Subpool,
         on_delete=models.PROTECT,
+        null=True
+    )
+    nanopore = models.ForeignKey(
+        NanoporeLibrary,
+        on_delete=models.PROTECT,
+        null=True
     )
     sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
     raw_reads = models.IntegerField(null=True)
@@ -967,7 +992,7 @@ class SubpoolInRun(models.Model):
         return "{} {}".format(self.subpool.name, self.sequencing_run.name)
 
 
-class SubpoolInRunFile(models.Model):
+class SequencingFile(models.Model):
     """Describes a file produced by a SequencingRun
 
     Since the :model:`igvf_mice.Subpool` objects are described by an Illumina barcode the
@@ -980,9 +1005,8 @@ class SubpoolInRunFile(models.Model):
     :model:`igvf_mice.Accession` IDs.
 
     """
-
     sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
-    subpool_run = models.ForeignKey(SubpoolInRun, on_delete=models.PROTECT)
+    library_in_run = models.ForeignKey(LibraryInRun, on_delete=models.PROTECT)
     md5sum = models.CharField(max_length=32, null=True, blank=False)
     filename = models.CharField(max_length=255, null=False, blank=False)
     flowcell_id = models.CharField(max_length=100, null=False, blank=False)

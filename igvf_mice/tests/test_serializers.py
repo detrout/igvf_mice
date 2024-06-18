@@ -312,7 +312,7 @@ class TestSerializers(APITestCase):
         url = reverse("sequencingrun-list")
         return self.create_object(url, payload, expected_status)
 
-    def create_subpool_in_run(self, expected_status=status.HTTP_201_CREATED):
+    def create_library_in_run(self, expected_status=status.HTTP_201_CREATED):
         subpool = self.create_subpool(expected_status=expected_status)
         sequencing_run = self.create_sequencing_run(expected_status=expected_status)
 
@@ -322,12 +322,12 @@ class TestSerializers(APITestCase):
             "raw_reads": 1000000,
             "status": str(models.RunStatusEnum.PASS),
         }
-        url = reverse("subpoolinrun-list")
+        url = reverse("libraryinrun-list")
         return self.create_object(url, payload, expected_status)
 
-    def create_subpool_in_run_file(self, expected_status=status.HTTP_201_CREATED):
+    def create_sequencing_file(self, expected_status=status.HTTP_201_CREATED):
         sequencing_run = self.create_sequencing_run(expected_status)
-        subpool_run = self.create_subpool_in_run(expected_status)
+        subpool_run = self.create_library_in_run(expected_status)
 
         payload = {
             "md5sum": "d41d8cd98f00b204e9800998ecf8427e",
@@ -335,17 +335,17 @@ class TestSerializers(APITestCase):
             "flowcell_id": "AAATMGFHV",
             "read": "R2",
             "sequencing_run": sequencing_run["@id"],
-            "subpool_run": subpool_run["@id"],
+            "library_in_run": subpool_run["@id"],
         }
-        url = reverse("subpoolinrunfile-list")
+        url = reverse("sequencingfile-list")
         return self.create_object(url, payload, expected_status)
 
     def create_measurement_set(self, expected_status=status.HTTP_201_CREATED):
-        subpool_in_run = self.create_subpool_in_run(expected_status)
+        library_in_run = self.create_library_in_run(expected_status)
 
         payload = {
             "name": "subpool_013_13A",
-            "subpoolinrun_set": [subpool_in_run["@id"]],
+            "libraryinrun_set": [library_in_run["@id"]],
         }
 
         url = reverse("measurementset-list")
@@ -553,29 +553,29 @@ class TestSerializers(APITestCase):
         run = models.SequencingRun.objects.get(name=payload["name"])
         self.assertEqual(run.plate.name, payload["plate"]["name"])
 
-    def test_create_subpool_in_run(self):
+    def test_create_library_in_run(self):
         self.client.force_authenticate(user=self.user)
-        payload = self.create_subpool_in_run()
+        payload = self.create_library_in_run()
 
         pk = get_pk_from_id(payload["@id"])
-        subpool_in_run = models.SubpoolInRun.objects.get(pk=pk)
+        subpool_in_run = models.LibraryInRun.objects.get(pk=pk)
 
         self.assertEqual(subpool_in_run.status, str(models.RunStatusEnum.PASS))
 
-    def test_create_subpool_in_run_file(self):
+    def test_create_sequencing_file(self):
         self.client.force_authenticate(user=self.user)
-        payload = self.create_subpool_in_run_file()
+        payload = self.create_sequencing_file()
 
         pk = get_pk_from_id(payload["@id"])
-        subpool_file = models.SubpoolInRunFile.objects.get(pk=pk)
+        sequencing_file = models.SequencingFile.objects.get(pk=pk)
 
         self.assertEqual(payload["flowcell_id"], subpool_file.flowcell_id)
-        self.assertIsNone(subpool_file.lane)
-        self.assertEqual(subpool_file.accession.count(), 0)
+        self.assertIsNone(sequencing_file.lane)
+        self.assertEqual(sequencing_file.accession.count(), 0)
 
         # Can we add an accession?
         # start with no accessions
-        self.assertEqual(subpool_file.accession.count(), 0)
+        self.assertEqual(sequencing_file.accession.count(), 0)
         # create the accession
         accession = {
             "accession_prefix": "igvf",
@@ -590,9 +590,11 @@ class TestSerializers(APITestCase):
         response = self.client.patch(payload["@id"], {"accession": [accession["@id"]]})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # is the accession now in the database
-        self.assertEqual(subpool_file.accession.count(), 1)
-        self.assertEqual(subpool_file.accession.first().name, accession["name"])
-        self.assertEqual(subpool_file.accession.first().see_also, accession["see_also"])
+        self.assertEqual(sequencing_file.accession.count(), 1)
+        self.assertEqual(
+            sequencing_file.accession.first().name, accession["name"])
+        self.assertEqual(
+            sequencing_file.accession.first().see_also, accession["see_also"])
 
         # does it also show up in the API?
         response = self.client.get(payload["@id"])
@@ -607,7 +609,7 @@ class TestSerializers(APITestCase):
 
         pk = get_pk_from_id(payload["@id"])
         measurement_set = models.MeasurementSet.objects.get(pk=pk)
-        self.assertEqual(measurement_set.subpoolinrun_set.count(), 1)
+        self.assertEqual(measurement_set.libraryinrun_set.count(), 1)
 
         # Can we add an accession?
         # start with no accessions
