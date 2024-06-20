@@ -30,13 +30,13 @@
     family: nanopore
 - model: igvf_mice.platform
   pk: gridion
-  field:
+  fields:
     igvf_id: /platform-terms/EFO_0008633/
     display_name: ONT GridION
     family: nanopore
 - model: igvf_mice.platform
   pk: p2solo
-  field:
+  fields:
     igvf_id: /platform-terms/EFO_0700019/
     display_name: ONT P2 Solo
     family: nanopore
