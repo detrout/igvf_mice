@@ -501,7 +501,7 @@ class TestSerializers(APITestCase):
         fixed_sample = models.ParseFixedSample.objects.get(name=name)
 
         self.assertEqual(fixed_sample.name, name)
-        self.assertEqual(fixed_sample.tissue.first().name, name)
+        self.assertEqual(fixed_sample.extraction.tissue.first().name, name)
         self.assertIn("@id", payload)
 
     def test_split_seq_plate(self):
