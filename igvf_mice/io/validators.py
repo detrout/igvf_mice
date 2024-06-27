@@ -1,3 +1,4 @@
+import pandas
 import re
 
 def validate_alias(alias):
@@ -21,3 +22,18 @@ def validate_mouse_age_sex(value):
         raise ValueError("Age must be an integer or in {}".format(valid_ages))
 
     return True
+
+
+def validate_splitseq_cap_label(cap_label, sample_id, line_no=None):
+    if not (pandas.isnull(cap_label) or pandas.isnull(sample_id)):
+        sample_fields = sample_id.split("_")
+        predicted_label = "_".join([sample_fields[0], sample_fields[-1]])
+        if predicted_label != cap_label:
+            if line_no is not None:
+                line_err = f" line {line_no}"
+            else:
+                line_err = ""
+            print(f"{cap_label} should equal {predicted_label}{line_err}")
+            return False
+        else:
+            return True
