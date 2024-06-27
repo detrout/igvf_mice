@@ -33,6 +33,7 @@ class NucleicAcidEnum(models.TextChoices):
     mirna = ("MI", "miRNA")
     polya_rna = ("PR", "polyadenylated mRNA")
     capped_rna = ("CR", "capped mRNA")
+    cdna = ("CD", "cDNA")
     dna = ("D", "DNA")
     protein = ("P", "protein")
 
