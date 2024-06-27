@@ -493,6 +493,7 @@ class TestSerializers(APITestCase):
         self.assertEqual(extract.tissue.first().name, name)
         self.assertIn("@id", payload)
 
+
     def test_fixed_sample_serializer(self):
         self.client.force_authenticate(user=self.user)
         payload = self.create_fixed_sample_lung()

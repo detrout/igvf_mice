@@ -43,7 +43,7 @@ def float_or_none(x):
     else:
         return float(x)
 
-    
+
 def int_or_none(x):
     if x in ("N/A", "#DIV/0!", "#VALUE!", "-"):
         return None
@@ -65,7 +65,7 @@ def positive_int_or_none(x):
         else:
             return x
 
-    
+
 def int_or_0(x):
     if pandas.isnull(x):
         return 0
@@ -85,7 +85,7 @@ def str_or_none(x):
         return None
     else:
         return x
-    
+
 
 def normalize_barcode_index(value):
     if isinstance(value, str):
@@ -116,16 +116,22 @@ genotype_to_strain = {
     "TREM2R47HNSS_HO": "TREM2",
     "WSB/EiJ": "WSBJ",
 }
+
+
 def normalize_strain(strain):
     """Adapter to convert name
     """
     return genotype_to_strain.get(strain, strain)
 
+
 strain_to_genotype = {genotype_to_strain[k]: k for k in genotype_to_strain}
+
+
 def get_genotype_from_mouse_tissue(mouse_tissue):
     fields = parse_mouse_tissue(mouse_tissue)
     strain = fields[1]
     return strain_to_genotype.get(strain, strain)
+
 
 def normalize_subpool_submission_status(value):
     if pandas.isnull(value):
@@ -136,7 +142,8 @@ def normalize_subpool_submission_status(value):
         return str(models.RunStatusEnum.PASS)
 
 
-mouse_age_sex_tuple = namedtuple("mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
+mouse_age_sex_tuple = namedtuple(
+    "mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
 
 
 mouse_name_tuple = namedtuple(

@@ -549,11 +549,13 @@ def nuclei_per_ul(self):
     else:
         return self.df_scaled_count * cell_scale
 
+
 def nuclei_per_ml(self):
     """Return million nuceli per mililiter
     """
 
     return self.nuclei_per_ul * 1000
+
 
 def total_nuclei(self):
     if self.volume_ul is None:
