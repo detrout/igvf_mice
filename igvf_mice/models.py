@@ -24,8 +24,8 @@ class LibrarySelectionTypeEnum(models.TextChoices):
 class CellularComponentEnum(models.TextChoices):
     """What portion of the cell are we processing
     """
-    nucleus = ("N", "Nucleus")
-    cell = ("C", "Cell")
+    nuclei = ("N", "Nuclei")
+    cellular = ("C", "Cellular")
 
 
 class NucleicAcidEnum(models.TextChoices):
