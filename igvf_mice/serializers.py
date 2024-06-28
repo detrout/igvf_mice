@@ -273,12 +273,15 @@ class SampleExtractionSerializer(serializers.HyperlinkedModelSerializer):
             "share_input_ul",
             "nuclei_per_ul",
             "total_nuclei",
+            "cellular_component",
             "protocols",
         ]
         extra_kwargs = {"protocols": {"required": False, "allow_empty": True}}
 
     nuclei_per_ul = serializers.SerializerMethodField()
     total_nuclei = serializers.SerializerMethodField()
+    cellular_component = serializers.ChoiceField(
+        choices=CellularComponentEnum.choices)
 
     def get_nuclei_per_ul(self, obj):
         value = obj.nuclei_per_ul
@@ -426,7 +429,6 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
             "name",
             "nuclei",
             "selection_type",
-            "subcellular_component",
             "cdna_ng_per_ul",
             "cdna_volume",
             "bioanalyzer_date",
@@ -443,8 +445,6 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
 
     selection_type = serializers.ChoiceField(
         choices=LibrarySelectionTypeEnum.choices)
-    subcellular_component = serializers.ChoiceField(
-        choices=CellularComponentEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
 
     def to_representation(self, value):

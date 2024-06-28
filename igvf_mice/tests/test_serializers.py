@@ -214,6 +214,7 @@ class TestSerializers(APITestCase):
             "parse_input_ul": 750,
             "share_input_ul": 189,
             "tissue": [lung["@id"]],
+            "cellular_component": "N",
         }
 
         url = reverse("sampleextraction-list")
@@ -269,7 +270,6 @@ class TestSerializers(APITestCase):
             "name": "003_8A",
             "nuclei": 8000,
             "selection_type": "NO",
-            "subcellular_component": "N",
             "cdna_pcr_rounds": "5 + 9",
             "cdna_ng_per_ul": 130.0,
             "cdna_volume": 25.0,
@@ -491,6 +491,9 @@ class TestSerializers(APITestCase):
 
         self.assertEqual(extract.name, name)
         self.assertEqual(extract.tissue.first().name, name)
+        self.assertEqual(extract.cellular_component, "N")
+        self.assertIn("@id", payload)
+
         self.assertIn("@id", payload)
 
 

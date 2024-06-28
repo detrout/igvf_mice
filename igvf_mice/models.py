@@ -590,6 +590,11 @@ class SampleExtraction(models.Model):
     input_nuclei_per_ul = models.FloatField(null=True, help_text="manual entered nuclei count")
     parse_input_ul = models.FloatField(null=True)
     share_input_ul = models.FloatField(null=True)
+    cellular_component = models.CharField(
+        max_length=2,
+        choices=CellularComponentEnum.choices,
+        default=CellularComponentEnum.nuclei,
+    )
     protocols = models.ManyToManyField("ProtocolLink")
 
     average_count = property(average_count)
@@ -841,11 +846,6 @@ class Subpool(models.Model):
         max_length=2,
         choices=LibrarySelectionTypeEnum.choices,
         default=LibrarySelectionTypeEnum.no_selection
-    )
-    subcellular_component = models.CharField(
-        max_length=2,
-        choices=CellularComponentEnum.choices,
-        default=CellularComponentEnum.nucleus,
     )
     cdna_pcr_rounds = models.CharField(max_length=50, null=True)
     cdna_ng_per_ul = models.FloatField(null=True)
