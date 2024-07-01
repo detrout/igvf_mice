@@ -190,4 +190,7 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
 
     if failed > 0:
         raise ValidationError(f"Check warning messages. {failed} records failed")
+
+    return added
+
     return added
