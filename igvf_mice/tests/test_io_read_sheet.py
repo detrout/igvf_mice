@@ -9,6 +9,8 @@ from ..io.read_sheet import (
     import_mice,
     import_protocols,
     import_tissues,
+    import_splitseq_samples,
+    import_splitseq_ont_samples,
 )
 from ..io.converters import (
     str_or_none,
@@ -43,8 +45,7 @@ def get_test_mice_sheet():
     start_144 = datetime.datetime(2023, 8, 28, 11, 15)#, tzinfo=los_angeles)
     finish_144 = datetime.datetime(2023, 8, 28, 11, 33)#, tzinfo=los_angeles)
 
-    mice = pandas.DataFrame(
-        {
+    mice = pandas.DataFrame({
             "Mouse Name": ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F"],
             "Dissection ID": ["16", "17", "144"],
             "Strain code": ["B6J", "B6J", "B6129S1F1J"],
@@ -197,7 +198,7 @@ def get_test_splitseq_ont_sequencing_sheet():
 
 
 class TestReadSheet(TestCase):
-    fixtures = ["source", "mousestrain", "ontologyterm"]
+    fixtures = ["source", "mousestrain", "ontologyterm", "platform"]
 
     def test_import_protocol(self):
         self.assertEqual(models.ProtocolLink.objects.count(), 0)
@@ -275,18 +276,26 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.dissection_start_time, dissection_start_time)
             self.assertEqual(row.dissection_end_time, dissection_end_time)
             self.assertEqual(row.timepoint, mice.iloc[mouse_i]["Timepoint"])
-            self.assertEqual(row.timepoint_unit, mice.iloc[mouse_i]["Timepoint unit"])
-            self.assertEqual(row.estrus_cycle, mice.iloc[mouse_i]["estrus_cycle"])
+            self.assertEqual(
+                row.timepoint_unit, mice.iloc[mouse_i]["Timepoint unit"])
+            self.assertEqual(
+                row.estrus_cycle, mice.iloc[mouse_i]["estrus_cycle"])
             self.assertEqual(row.operator, mice.iloc[mouse_i]["Operator"])
             self.assertEqual(row.notes, mice.iloc[mouse_i]["Comments"])
-            self.assertEqual(row.housing_number, str_or_none(mice.iloc[mouse_i]["Housing number"]))
+            self.assertEqual(
+                row.housing_number,
+                str_or_none(mice.iloc[mouse_i]["Housing number"])
+            )
 
             submitted_accessions = {x["name"]: x for x in submitted.get(row.name, [])}
 
             # the order of the accessions is not preserved.
             for accession in row.accession.all():
                 expected = submitted_accessions[accession.name]
-                self.assertEqual(accession.accession_prefix, expected["accession_prefix"])
+                self.assertEqual(
+                    accession.accession_prefix,
+                    expected["accession_prefix"]
+                )
                 self.assertEqual(accession.name, expected["name"])
                 self.assertEqual(str(accession.uuid), expected["uuid"])
                 self.assertEqual(accession.see_also, expected["see_also"])
@@ -319,3 +328,53 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.tube_label, tissues.iloc[tissue_i]["Tube label"])
             self.assertEqual(row.mouse.strain.name, tissues.iloc[tissue_i]["Genotype"])
             self.assertEqual(row.mouse.weight_g, tissues.iloc[tissue_i]["Body weight (g)"])
+
+    def test_import_splitseq_samples(self):
+        mice = get_test_mice_sheet()
+        import_mice(mice)
+
+        tissues = get_test_tissue_sheet()
+        import_tissues(tissues)
+
+        self.assertEqual(models.SampleExtraction.objects.count(), 0)
+        self.assertEqual(models.ParseFixedSample.objects.count(), 0)
+
+        samples = get_test_splitseq_samples()
+        import_splitseq_samples(samples)
+
+        self.assertEqual(models.SampleExtraction.objects.count(), 3)
+        self.assertEqual(models.ParseFixedSample.objects.count(), 3)
+
+    def test_import_splitseq_ont_samples(self):
+        mice = get_test_mice_sheet()
+        import_mice(mice)
+
+        tissues = get_test_tissue_sheet()
+        import_tissues(tissues)
+
+        # Create plates
+        igvf003 = models.SplitSeqPlate(
+            name="IGVF003",
+        )
+        igvf003.save()
+        subpool_003_13a = models.Subpool.objects.create(
+            name="003_13A",
+            plate=igvf003,
+            nuclei=13000,
+            selection_type="EX",
+        )
+        subpool_003_13a.save()
+        igvf004 = models.SplitSeqPlate(
+            name="IGVF004",
+        )
+        igvf004.save()
+        subpool_004_8a = models.Subpool.objects.create(
+            name="004_8A",
+            plate=igvf004,
+            nuclei=8000,
+            selection_type="NO",
+        )
+        subpool_004_8a.save()
+
+        ont = get_test_splitseq_ont_sequencing_sheet()
+        import_splitseq_ont_samples(ont)
