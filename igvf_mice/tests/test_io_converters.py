@@ -22,6 +22,7 @@ from ..io.converters import (
     parse_mouse_tissue,
     join_mouse_tissue,
     get_genotype_from_mouse_tissue,
+    instrument_name_to_platform_id,
 )
 
 
@@ -126,3 +127,11 @@ class TestConverters(TestCase):
                 ("198_B6CASTF1J_10F_20", "B6CASTF1/J"),
                 ("239_TREM2_10M_01", "TREM2R47HNSS_HO")]:
             self.assertEqual(get_genotype_from_mouse_tissue(name), genotype)
+
+    def test_instrument_name_to_platform_id(self):
+        for friendly, expected in [
+                ("P2 Solo", "p2solo"),
+                ("Promethion", "promethion"),
+                ("MinION", "minion")]:
+            self.assertEqual(
+                instrument_name_to_platform_id(friendly), expected)

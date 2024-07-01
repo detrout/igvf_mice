@@ -273,3 +273,12 @@ def uci_tz_or_none(value):
         return value.tz_localize("America/Los_Angeles")
     elif isinstance(value, datetime.datetime):
         return value.astimezone(los_angeles_tz)
+
+
+def instrument_name_to_platform_id(value):
+    """Convert human friendly nanopore machine names to platform ids
+    """
+    if pandas.isnull(value):
+        return None
+
+    return value.replace(" ", "").lower()
