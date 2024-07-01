@@ -161,18 +161,18 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
             dissection_notes=str_or_empty(row["comment"]),
         )
 
-        if not pandas.isnull(row["dissection start"]):
+        if pandas.notnull(row["dissection start"]):
             record.dissection_start_time = uci_tz_or_none(row["dissection start"])
 
-        if not pandas.isnull(row["dissection end"]):
+        if pandas.notnull(row["dissection end"]):
             record.dissection_end_time = uci_tz_or_none(row["dissection end"])
 
         tube_weight_label = "tube weight (g)"
-        if not pandas.isnull(row[tube_weight_label]):
+        if pandas.notnull(row[tube_weight_label]):
             record.tube_weight_g = float(row[tube_weight_label])
 
         total_weight_label = "tube+tissue weight (g)"
-        if not pandas.isnull(row[total_weight_label]):
+        if pandas.notnull(row[total_weight_label]):
             record.total_weight_g = float(row[total_weight_label])
 
         record.save()
