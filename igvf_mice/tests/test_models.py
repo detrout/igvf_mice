@@ -465,6 +465,21 @@ class TestModels(TestCase):
             tissue.ontology_names, "peripheral blood mononuclear cell, tail"
         )
 
+    def test_mouse_tissue_pbmc(self):
+        total_cells = 3.25
+        tissue = Tissue.objects.create(
+            mouse=self.mouse_female_fake,
+            name="016_B6J_10F_020",
+            description="PBMC",
+            tube_label="016_020",
+            volume_ul=400,
+            input_total_cells=total_cells,
+            dissection_notes="Blood contains black holes",
+        )
+        tissue.ontology_term.set([self.ontology_term_pbmc])
+        tissue.full_clean()
+        self.assertEqual(tissue.input_total_cells, total_cells)
+
     def test_sample_extraction(self):
         name = "107_CASTJ_10F_21"
         extraction = SampleExtraction.objects.create(

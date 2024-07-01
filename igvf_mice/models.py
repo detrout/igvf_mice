@@ -459,13 +459,29 @@ class Tissue(models.Model):
     tube_label = models.CharField(
         max_length=50, help_text="human identifier for tube containing sample"
     )
-    tube_weight_g = models.FloatField(null=True, verbose_name="tube weight (grams)")
-    total_weight_g = models.FloatField(null=True, verbose_name="total weight (grams)")
+    tube_weight_g = models.FloatField(
+        null=True,
+        blank=True,
+        verbose_name="tube weight (grams). Only use one of weight or volume")
+    total_weight_g = models.FloatField(
+        null=True, blank=True, verbose_name="total weight (grams)")
+    volume_ul = models.FloatField(
+        null=True, blank=True,
+        verbose_name="volume of material in tube. only use one of weight or volume")
+    input_total_cells = models.FloatField(
+        null=True,
+        blank=True,
+        help_text="manual entered total cells")
     dissector = models.CharField(
-        max_length=40, null=True, help_text="Identifier for person doing disection"
+        max_length=40,
+        null=True,
+        blank=True,
+        help_text="Identifier for person doing disection"
     )
     dissection_notes = models.TextField(
-        null=True, help_text="Qualitative information about diesections"
+        null=True,
+        blank=True,
+        help_text="Qualitative information about diesections"
     )
     accession = models.ManyToManyField(
         Accession, help_text="Accession IDs assigned to this sample"
