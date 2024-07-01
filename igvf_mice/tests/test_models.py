@@ -727,7 +727,7 @@ class TestModels(TestCase):
         extraction = NucleicAcidExtraction.objects.create(
             name=name,
             date="2022-08-12",
-            # in ONT sequencing this is 150 / input_ng_per_ul.
+            # in ONT sequencing this is cdna input (ng) (Col L) / input_ng_per_ul. (Col M)
             volume_ul=1.1538461538461537,
             # this is column M of ONT sequencing IGVF_Splitseq
             input_ng_per_ul=130,
