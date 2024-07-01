@@ -492,18 +492,20 @@ class Tissue(models.Model):
         """Calculate weight of tissue from final and initial tube weights"""
         if not (self.tube_weight_g is None or self.total_weight_g is None):
             return self.total_weight_g - self.tube_weight_g
+        else:
+            return None
 
     @property
     def weight_mg(self):
         """Convert weight calculated in grams to miligrams rounded to 3 decimals"""
         precision = 3
         weight = self.weight_g
-        if weight is None:
-            return weight
-        else:
+        if weight is not None:
             # the total weights in grams frequently lead to slight numeric
             # instability like 231.99999999999997.
             return numpy.round(weight * 1000, precision)
+        else:
+            return None
 
     @property
     def ontology_names(self):
