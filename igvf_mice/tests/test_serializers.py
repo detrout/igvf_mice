@@ -181,6 +181,15 @@ class TestSerializers(APITestCase):
         url = reverse("ontologyterm-list")
         return self.create_object(url, payload, expected_status)
 
+    def create_ontology_term_pbmc(self, expected_status=status.HTTP_201_CREATED):
+        payload = {
+            "curie": "CL:2000001",
+            "name": "PBMC",
+        }
+
+        url = reverse("ontologyterm-list")
+        return self.create_object(url, payload, expected_status)
+
     def create_tissue_lung(self, expected_status=status.HTTP_201_CREATED):
         mouse = self.create_mouse()
         lung = self.create_ontology_term_lung()
@@ -201,20 +210,58 @@ class TestSerializers(APITestCase):
         url = reverse("tissue-list")
         return self.create_object(url, payload, expected_status)
 
+    def create_tissue_pbmc(self, expected_status=status.HTTP_201_CREATED):
+        mouse = self.create_mouse()
+        pbmc = self.create_ontology_term_pbmc()
+
+        payload = {
+            "name": "239_TREM2_10M_20",
+            "mouse": mouse["@id"],
+            "dissection_time": "2023-8-14T10:33:30-07:00",
+            "description": "pbmc",
+            "ontology_term": [pbmc["@id"]],
+            "tube_label": "239-20",
+            "total_weight_g": 1.03,
+        }
+        tissue = serializers.TissueSerializer(data=payload)
+        if not tissue.is_valid():
+            print(tissue.errors)
+
+        url = reverse("tissue-list")
+        return self.create_object(url, payload, expected_status)
+
     def create_sample_extraction_lung(self, expected_status=status.HTTP_201_CREATED):
         lung = self.create_tissue_lung()
 
         payload = {
             "name": lung["name"],
             "tube_label": "016-17",
-            "fixation_name": "IGVF_FIX_30",
-            "fixation_date": "2023-10-28",
+            "tissue": [lung["@id"]],
+#            "fixation_name": "IGVF_FIX_30",
+            "date": "2023-10-28",
             "volume_ul": 3000,
             "input_nuclei_per_ul": .00528,
             "parse_input_ul": 750,
             "share_input_ul": 189,
-            "tissue": [lung["@id"]],
             "cellular_component": "N",
+        }
+
+        url = reverse("sampleextraction-list")
+        return self.create_object(url, payload, expected_status)
+
+    def create_sample_extraction_pbmc(self, expected_status=status.HTTP_201_CREATED):
+        pbmc = self.create_tissue_pbmc()
+
+        payload = {
+            "name": pbmc["name"],
+            "tube_label": "239_20",
+            "tissue": [pbmc["@id"]],
+#            "fixation_name": "IGVF_FIX_30",
+            "date": "2023-08-14",
+            "volume_ul": 500,
+            "input_nuclei_per_ul": .00095,
+            "parse_input_ul": 0.48,
+            "cellular_component": "C",
         }
 
         url = reverse("sampleextraction-list")
@@ -482,7 +529,7 @@ class TestSerializers(APITestCase):
         self.assertEqual(len(updated_tissue["accession"]), 1)
         self.assertEqual(updated_tissue["accession"][0], accession)
 
-    def test_sample_extractionserializer(self):
+    def test_sample_extractionserializer_lung(self):
         self.client.force_authenticate(user=self.user)
         payload = self.create_sample_extraction_lung()
 
@@ -494,6 +541,17 @@ class TestSerializers(APITestCase):
         self.assertEqual(extract.cellular_component, "N")
         self.assertIn("@id", payload)
 
+    def test_sample_extractionserializer_pbmc(self):
+        # Test that we can set cellular component to cells
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_sample_extraction_pbmc()
+
+        name = payload["name"]
+        extract = models.SampleExtraction.objects.get(name=name)
+
+        self.assertEqual(extract.name, name)
+        self.assertEqual(extract.tissue.first().name, name)
+        self.assertEqual(extract.cellular_component, "C")
         self.assertIn("@id", payload)
 
 
