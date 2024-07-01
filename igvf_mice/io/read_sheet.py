@@ -175,6 +175,12 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
         if pandas.notnull(row[total_weight_label]):
             record.total_weight_g = float(row[total_weight_label])
 
+        if pandas.notnull(row.get("volume (mL)")):
+            record.volume_ul = float(row["volume (mL)"]) * 1000
+
+        if pandas.notnull(row.get("cells before fixation (x 10^6)")):
+            record.input_total
+
         record.save()
         record.ontology_term.set(tissue_terms)
         record.save()
