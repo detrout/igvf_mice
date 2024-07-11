@@ -612,6 +612,7 @@ class TestSerializers(APITestCase):
         subpools = body["results"]
         self.assertEqual(len(subpools), 1)
         self.assertEqual(payload["@id"], subpools[0]["@id"])
+        self.assertEqual(subpools[0]["subpool_name"], "8A")
 
     def test_create_platform(self):
         self.client.force_authenticate(user=self.user)

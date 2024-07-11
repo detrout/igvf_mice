@@ -856,7 +856,6 @@ class Subpool(models.Model):
     :model:`igvf_mice.SubpoolInRunFile` items to their source subpools
     and runs.
     """
-
     name = models.CharField(max_length=50, primary_key=True)
     plate = models.ForeignKey("SplitSeqPlate", on_delete=models.PROTECT)
     nuclei = models.IntegerField()
@@ -893,6 +892,13 @@ class Subpool(models.Model):
     def plate_name(self):
         """Helper to return the SplitSeqPlate name in admin pages"""
         return self.plate.name
+
+    def subpool_name(self):
+        plate_name = self.plate.name
+        if self.name.startswith(self.plate.name):
+            return self.name[len(plate_name + 1):]
+        else:
+            return None
 
     def __str__(self):
         return self.name

@@ -580,6 +580,7 @@ class TestModels(TestCase):
         subpool.clean()
         self.assertEqual(subpool.plate_name(), self.plate_fake.name)
         self.assertEqual(str(subpool), subpool.name)
+        self.assertEqual(subpool.subpool_name, "13A")
 
     def test_subpool_no_gene_capture(self):
         subpool = Subpool.objects.create(
@@ -598,6 +599,7 @@ class TestModels(TestCase):
             library_average_bp_length=430,
         )
         self.assertRaises(ValidationError, subpool.clean)
+        self.assertEqual(subpool.subpool_name, "13A")
 
     def test_subpool_was_gene_capture(self):
         subpool = Subpool.objects.create(

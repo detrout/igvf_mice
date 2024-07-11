@@ -427,6 +427,7 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
         fields = [
             "@id",
             "name",
+            "subpool_name",
             "nuclei",
             "selection_type",
             "cdna_ng_per_ul",
@@ -446,6 +447,10 @@ class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
     selection_type = serializers.ChoiceField(
         choices=LibrarySelectionTypeEnum.choices)
     subpool_runs = serializers.StringRelatedField(source="subpoolrun_set", required=False)
+    subpool_name = serializers.SerializerMethodField()
+
+    def subpool_name(self, obj):
+        return obj.subpool_name
 
     def to_representation(self, value):
         data = super().to_representation(value)
