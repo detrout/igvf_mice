@@ -600,6 +600,19 @@ class TestSerializers(APITestCase):
             db_id = urljoin(protocol_link, db.name) + "/"
             self.assertTrue(json_id.endswith(db_id))
 
+    def test_subpool_filter(self):
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_subpool()
+
+        subpool_link = reverse("subpool-list")
+        response = self.client.get(subpool_link, {"plate__name": "IGVF_TEST_01", "index": "UDI01"})
+        self.assertEqual(response.status_code, 200)
+        body = response.json()
+        self.assertEqual(body["count"], 1)
+        subpools = body["results"]
+        self.assertEqual(len(subpools), 1)
+        self.assertEqual(payload["@id"], subpools[0]["@id"])
+
     def test_create_platform(self):
         self.client.force_authenticate(user=self.user)
         payload = self.create_platform()

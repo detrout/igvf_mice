@@ -137,7 +137,7 @@ class SubpoolViewSet(viewsets.ModelViewSet):
     queryset = Subpool.objects.all()
     serializer_class = SubpoolSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filterset_fields = ("plate",)
+    filterset_fields = ("plate", "index")
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
