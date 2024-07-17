@@ -191,7 +191,7 @@ class LibraryBarcode(models.Model):
             print("invalid database record {} no sequence".format(self.id))
             name.append("Error-no-sequence")
         elif self.i7_sequence is not None and self.i5_sequence is not None:
-            name.append("{}+{}".format(self.i7_sequence, self.i7_sequence))
+            name.append("{}+{}".format(self.i7_sequence, self.i5_reverse_compliment))
         elif self.i7_sequence is not None:
             name.append(self.i7_sequence)
         else:
