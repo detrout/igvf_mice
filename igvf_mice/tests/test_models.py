@@ -71,6 +71,14 @@ class TestModels(TestCase):
             i7_sequence="TTCATGT",
         )
         self.library_barcode_fake_illumina.save()
+        self.library_barcode_fake_dual_illumina = LibraryBarcode(
+            reagent=self.library_construction_reagent_fake,
+            name="UDI03",
+            code="UDI03",
+            i7_sequence="GATCAGTC",
+            i5_sequence="TTGACTCT",
+        )
+        self.library_barcode_fake_dual_illumina.save()
         self.mouse_strain_fake = MouseStrain.objects.create(
             name="CASTHUMAN",
             display_name="CASTJ/human glial cells",
@@ -335,6 +343,14 @@ class TestModels(TestCase):
         barcode.full_clean()
         self.assertEqual(barcode.reagent_name, reagent.name)
         self.assertEqual(str(barcode), f"{name} {code} {sequence} {barcode_type}")
+
+    def test_library_barcode_fake_dual_illumina_reverse_compliment(self):
+        barcode = self.library_barcode_fake_dual_illumina
+
+        self.assertEqual(barcode.code, "UDI03")
+        self.assertEqual(barcode.i7_sequence, "GATCAGTC")
+        self.assertEqual(barcode.i5_sequence, "TTGACTCT")
+        self.assertEqual(barcode.i5_reverse_compliment, "AGAGTCAA")
 
     def test_mouse_strain(self):
         strain = MouseStrain(
