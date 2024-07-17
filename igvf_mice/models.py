@@ -913,6 +913,7 @@ class Subpool(models.Model):
         """Helper to return the SplitSeqPlate name in admin pages"""
         return self.plate.name
 
+    @property
     def subpool_name(self):
         plate_name = self.plate.name
         if self.name.startswith(self.plate.name):
