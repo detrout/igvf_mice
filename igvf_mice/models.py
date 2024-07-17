@@ -8,6 +8,22 @@ from urllib import parse
 
 import numpy
 
+__RC_TRANSLATE = str.maketrans({
+    "A": "T",
+    "a": "t",
+    "T": "A",
+    "t": "a",
+    "G": "C",
+    "g": "g",
+    "C": "G",
+    "c": "g",
+    "N": "N",
+    "n": "n",
+})
+
+def reverse_compliment(sequence):
+    return sequence[::-1].translate(__RC_TRANSLATE)
+
 
 class AccessionNamespacesEnum(models.TextChoices):
     IGVF = ("igvf", "IGVF")
@@ -164,6 +180,10 @@ class LibraryBarcode(models.Model):
     def reagent_name(self):
         """Helper property to quickly access the kit name property in the admin pages"""
         return self.reagent.name
+
+    @property
+    def i5_reverse_compliment(self):
+        return reverse_compliment(self.i5_sequence)
 
     def __str__(self):
         name = [self.name, self.code]
