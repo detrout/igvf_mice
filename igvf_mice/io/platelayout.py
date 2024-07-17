@@ -280,7 +280,7 @@ class PlateLayoutParser:
         well_contents.update(self.get_merged_well_contents(plate_name, sheet, plate_start))
 
         if validation_errors > 0:
-            raise ValidationError(f"there were {validation_errors} reading the block at {block_row_start}")
+            raise ValidationError(f"there were {validation_errors} reading the block at {data_row_start}")
 
         return well_contents
 
