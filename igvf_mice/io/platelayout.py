@@ -230,7 +230,15 @@ class PlateLayoutParser:
     def get_validation_label_rules(self, plate_name, labels):
         tissue_overrides = {
             "IGVF_003": {"092_CASTJ_10F_03": "CASTJ"},
-            "IGVF_005": {"092_CASTJ_10F_01": "CASTJ"},
+            "IGVF_004": {
+                "044_129S1J_10F_05": "129S1J",
+                "084_PWKJ_10F_05": "PWKJ",
+            },
+            "IGVF_005": {
+                "044_129S1J_10F_05": "129S1J",
+                "084_PWKJ_10F_05": "PWKJ",
+                "092_CASTJ_10F_01": "CASTJ"
+            },
             "IGVF_006": {"092_CASTJ_10F_01": "CASTJ"},
             "IGVF_007": {"092_CASTJ_10F_01": "CASTJ"},
             "IGVF_011": {"092_CASTJ_10F_03": "CASTJ"},
