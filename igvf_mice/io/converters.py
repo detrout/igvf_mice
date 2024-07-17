@@ -38,7 +38,7 @@ def datetime_or_none(x):
 def float_or_none(x):
     if pandas.isnull(x):
         return None
-    elif x in ("N/A", "-",):
+    elif x in ("N/A", "#DIV/0!", "#VALUE!", "-",):
         return None
     else:
         return float(x)
