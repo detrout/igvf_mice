@@ -14,6 +14,8 @@ from igvf_mice.models import (
     Tissue,
     SampleExtraction,
     ParseFixedSample,
+    NucleicAcidExtraction,
+    NanoporeLibrary,
     SplitSeqPlate,
     SplitSeqWell,
     Subpool,
@@ -35,6 +37,8 @@ from igvf_mice.serializers import (
     TissueSerializer,
     SampleExtractionSerializer,
     ParseFixedSampleSerializer,
+    NucleicAcidExtractionSerializer,
+    NanoporeLibrarySerializer,
     SplitSeqPlateSerializer,
     SplitSeqWellSerializer,
     SubpoolSerializer,
@@ -116,6 +120,18 @@ class SampleExtractionViewSet(viewsets.ModelViewSet):
 class ParseFixedSampleViewSet(viewsets.ModelViewSet):
     queryset = ParseFixedSample.objects.all()
     serializer_class = ParseFixedSampleSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class NucleicAcidExtractionViewSet(viewsets.ModelViewSet):
+    queryset = NucleicAcidExtraction.objects.all()
+    serializer_class = NucleicAcidExtractionSerializer
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
+
+class NanoporeLibraryViewSet(viewsets.ModelViewSet):
+    queryset = NanoporeLibrary.objects.all()
+    serializer_class = NanoporeLibrarySerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 

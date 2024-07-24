@@ -281,6 +281,37 @@ class TestSerializers(APITestCase):
         url = reverse("parsefixedsample-list")
         return self.create_object(url, payload, expected_status)
 
+    def create_nucleic_acid_extraction_from_lung_tissue(self, expected_status=status.HTTP_201_CREATED):
+        lung = self.create_tissue_lung()
+
+        payload = {
+            "name": "ONT003",
+            "date": "2022-12-01",
+            "technician": "KH",
+            "tissue": [lung["@id"]],
+            "volume_ul": 1.3,
+            "input_ng_per_ul": 100,
+            "passed_qc": True,
+        }
+        url = reverse("nucleicacidextraction-list")
+        return self.create_object(url, payload, expected_status)
+
+    def create_nanopore_library_from_lung_tissue(self, expected_status=status.HTTP_201_CREATED):
+        lung = self.create_nucleic_acid_extraction_from_lung_tissue()
+
+        payload = {
+            "name": "ONT003",
+            "nucleic_acid_extraction": [lung["@id"]],
+            "nucleic_acid": "CD",
+            "technician": "KH",
+            "build_date": "2022-12-02",
+            "ng_per_ul": 2.4,
+            "volume_ul": 15,
+            "notes": "",
+        }
+        url = reverse("nanoporelibrary-list")
+        return self.create_object(url, payload, expected_status)
+
     def create_split_seq_plate(self, expected_status=status.HTTP_201_CREATED):
         payload = {
             "name": "IGVF_TEST_01",
@@ -565,6 +596,28 @@ class TestSerializers(APITestCase):
         self.assertEqual(fixed_sample.name, name)
         self.assertEqual(fixed_sample.extraction.tissue.first().name, name)
         self.assertIn("@id", payload)
+
+    def test_nucleic_acid_extraction_from_lung_tissue(self):
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_nucleic_acid_extraction_from_lung_tissue()
+
+        name = payload["name"]
+        extraction = models.NucleicAcidExtraction.objects.get(name=name)
+
+        self.assertEqual(extraction.name, name)
+        self.assertEqual(extraction.tissue.first().name, payload["tissue"][0]["name"])
+
+    def test_nanopore_library_from_lung_tissue(self):
+        self.client.force_authenticate(user=self.user)
+        payload = self.create_nanopore_library_from_lung_tissue()
+
+        name = payload["name"]
+        library = models.NanoporeLibrary.objects.get(name=name)
+
+        self.assertEqual(library.name, name)
+        self.assertEqual(
+            library.nucleic_acid_extraction.first().name,
+            payload["nucleic_acid_extraction"][0]["name"])
 
     def test_split_seq_plate(self):
         self.client.force_authenticate(user=self.user)

@@ -20,6 +20,8 @@ from igvf_mice.models import (
     Tissue,
     SampleExtraction,
     ParseFixedSample,
+    NucleicAcidExtraction,
+    NanoporeLibrary,
     SplitSeqPlate,
     SplitSeqWell,
     LibrarySelectionTypeEnum,
@@ -362,6 +364,87 @@ class ParseFixedSampleSerializer(serializers.HyperlinkedModelSerializer):
             data["tissue"] = expand_field(data["tissue"], Tissue, TissueSerializer, request)
         return data
 
+class NucleicAcidExtractionSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = NucleicAcidExtraction
+        fields = [
+            "@id",
+            "name",
+            "date",
+            "technician",
+            "tissue",
+            "subpool",
+            "volume_ul",
+            "concentration1",
+            "concentration2",
+            "input_ng_per_ul",
+            "passed_qc",
+            "comments",
+            "protocols",
+            "average_concentration",
+            "total",
+        ]
+
+        extra_kwargs = {
+            "tissue": {"required": False, "allow_empty": True},
+            "subpool": {"required": False, "allow_empty": True},
+            "protocols": {"required": False, "allow_empty": True},
+        }
+    average_concentration = serializers.SerializerMethodField()
+    total = serializers.SerializerMethodField()
+
+    def get_average_concentration(self, obj):
+        return numpy.round(obj.average_concentration, 2)
+
+    def get_total(self, obj):
+        return numpy.round(obj.total, 2)
+
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "tissue" in data:
+            data["tissue"] = expand_field(data["tissue"], Tissue, TissueSerializer, request)
+        if "subpool" in data:
+            data["subpool"] = expand_field(data["subpool"], Subpool, SubpoolSerializer, request)
+        return data
+
+class NanoporeLibrarySerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = NanoporeLibrary
+        fields = [
+            "@id",
+            "name",
+            "nucleic_acid_extraction",
+            "nucleic_acid",
+            "technician",
+            "build_date",
+            "ng_per_ul",
+            "volume_ul",
+            "notes",
+            "total",
+        ]
+
+        extra_kwargs = {
+            "nucleic_acid_extraction": {"required": False, "allow_empty": True},
+        }
+
+    total = serializers.SerializerMethodField()
+
+    def get_total(self, obj):
+        return numpy.round(obj.total, 2)
+
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "nucleic_acid_extraction" in data:
+            data["nucleic_acid_extraction"] = expand_field(
+                data["nucleic_acid_extraction"],
+                NucleicAcidExtraction,
+                NucleicAcidExtractionSerializer,
+                request)
+        return data
 
 class MinimalSplitSeqWellSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
