@@ -229,7 +229,7 @@ class SequencingFileOptions(admin.ModelAdmin):
     model = SequencingFile
 
     list_display = ("filename", "md5sum", "library_in_run")
-    list_filter = ("library_in_run__sequencing_run",)
+    list_filter = ("filename", "library_in_run",)
 
     autocomplete_fields = ["accession",]
 
