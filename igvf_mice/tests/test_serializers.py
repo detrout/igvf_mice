@@ -345,7 +345,7 @@ class TestSerializers(APITestCase):
         protocol = self.create_protocol_link(expected_status=expected_status)
 
         payload = {
-            "name": "003_8A",
+            "name": "01_8A",
             "nuclei": 8000,
             "selection_type": "NO",
             "cdna_pcr_rounds": "5 + 9",
