@@ -1099,6 +1099,7 @@ class SequencingFile(models.Model):
         max_length=4, choices=FileType.choices, null=True, blank=False)
     md5sum = models.CharField(
         max_length=32, null=True, blank=False, db_index=True)
+    filesize = models.BigIntegerField(null=True)
     lane = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
     accession = models.ManyToManyField(Accession)
