@@ -182,7 +182,13 @@ class LibraryInRunViewSet(viewsets.ModelViewSet):
     queryset = LibraryInRun.objects.all()
     serializer_class = LibraryInRunSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filterset_fields = ("subpool", "measurement_set", "sequencing_run",)
+    filterset_fields = (
+        "subpool",
+        "nanopore",
+        "measurement_set",
+        "sequencing_run",
+        "status",
+    )
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
