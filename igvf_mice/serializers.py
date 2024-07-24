@@ -495,14 +495,6 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
             "sequencing_software",
         ]
 
-    def to_representation(self, value):
-        data = super().to_representation(value)
-        request = self.context.get("request")
-
-        if "plate" in data:
-            data["plate"] = expand_field(data["plate"], SplitSeqPlate, SplitSeqPlateSerializer, request)
-        return data
-
 
 class SubpoolSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

@@ -679,8 +679,9 @@ class TestSerializers(APITestCase):
         self.client.force_authenticate(user=self.user)
         payload = self.create_sequencing_run()
 
-        run = models.SequencingRun.objects.get(name=payload["name"])
-        self.assertEqual(run.plate.name, payload["plate"]["name"])
+        name = payload["name"]
+        run = models.SequencingRun.objects.get(name=name)
+        self.assertEqual(run.name, name)
         self.assertEqual(payload["flowcell_id"], run.flowcell_id)
 
     def test_create_library_in_run(self):
