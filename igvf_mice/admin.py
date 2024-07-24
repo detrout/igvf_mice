@@ -228,8 +228,8 @@ class LibraryInRunOptions(admin.ModelAdmin):
 class SequencingFileOptions(admin.ModelAdmin):
     model = SequencingFile
 
-    list_display = ("filename", "md5sum", "library_in_run")
-    list_filter = ("filename", "library_in_run",)
+    list_display = ("filename", "host", "md5sum", "library_in_run")
+    list_filter = ("filename", "host", "library_in_run",)
 
     autocomplete_fields = ["accession",]
 

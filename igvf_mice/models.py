@@ -1103,6 +1103,12 @@ class SequencingFile(models.Model):
     lane = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
     derived_from = models.ManyToManyField("SequencingFile")
+    host = models.CharField(
+        max_length=50,
+        null=True,
+        blank=False,
+        help_text="which server is this file on"
+    )
     accession = models.ManyToManyField(Accession)
 
     def __str__(self):

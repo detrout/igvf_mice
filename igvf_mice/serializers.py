@@ -485,6 +485,7 @@ class SequencingFileSerializer(serializers.HyperlinkedModelSerializer):
             "read",
             "sequencing_run",
             "library_in_run",
+            "host",
             "accession",
         ]
         extra_kwargs = {"accession": {"required": False, "allow_empty": True}}
