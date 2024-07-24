@@ -171,6 +171,10 @@ class PlatformViewSet(viewsets.ModelViewSet):
 class SequencingRunViewSet(viewsets.ModelViewSet):
     queryset = SequencingRun.objects.all()
     serializer_class = SequencingRunRootSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = (
+        "plate",
+    )
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
