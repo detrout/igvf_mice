@@ -835,6 +835,11 @@ class SplitSeqPlate(models.Model):
         else:
             return self.barcoded_cell_counter * self.volume_of_nuclei
 
+    @property
+    def subpool_prefix(self):
+        """What prefix should be used with this in subpools attached to this plate
+        """
+        return self.name.split("_")[-1]
 
 
 #   H (96 well plate)
@@ -940,9 +945,14 @@ class Subpool(models.Model):
     @property
     def subpool_name(self):
         plate_name = self.plate.name
-        if self.name.startswith(self.plate.name):
-            return self.name[len(plate_name + 1):]
+        subpool_prefix = self.plate.subpool_prefix
+        if self.name.startswith(subpool_prefix):
+            return self.name[len(subpool_prefix) + 1:]
         else:
+            print(
+                "Warning, subpool name {} does not start with plate id {} from name {}".format(
+                    self.name, subpool_prefix, plate_name)
+            )
             return None
 
     def __str__(self):

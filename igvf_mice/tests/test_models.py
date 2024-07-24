@@ -565,6 +565,7 @@ class TestModels(TestCase):
         self.assertIsNone(plate.total_nuclei)
         plate.volume_of_nuclei = 1000
         self.assertEqual(plate.total_nuclei, 1000000)
+        self.assertEqual(plate.subpool_prefix, "001")
 
     def test_split_seq_well(self):
         row = "A"
