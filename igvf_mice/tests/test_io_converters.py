@@ -50,6 +50,8 @@ class TestConverters(TestCase):
     def test_int_or_none(self):
         for excelism in ["N/A", "#DIV/0!", "-", numpy.nan, None]:
             self.assertIsNone(int_or_none(excelism))
+        # me using blanks as no value
+        self.assertIsNone(int_or_none(""))
         self.assertEqual(int_or_none("3"), 3)
         
     def test_int_or_0(self):

@@ -49,6 +49,8 @@ def int_or_none(x):
         return None
     elif pandas.isnull(x):
         return None
+    elif isinstance(x, str) and len(x) == 0:
+        return None
     else:
         return int(x)
 
