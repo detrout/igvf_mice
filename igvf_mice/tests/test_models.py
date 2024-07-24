@@ -33,7 +33,16 @@ from ..models import (
     LibraryInRun,
     SequencingFile,
     MeasurementSet,
+    reverse_compliment,
 )
+
+
+class TestReverseCompliment(TestCase):
+    def test_reverse_complimentc(self):
+        query = "ATGCRYSWKMBVDN"
+        expected = "NHBVKMWSRYGCAT"
+        self.assertEqual(reverse_compliment(query), expected)
+        self.assertEqual(reverse_compliment(query.lower()), expected.lower())
 
 
 class TestModels(TestCase):
