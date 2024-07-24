@@ -62,6 +62,12 @@ class CellularComponentEnum(models.TextChoices):
     cellular = ("C", "Cellular")
 
 
+class FileType(models.TextChoices):
+    fastq = ("FQ", "fastq")
+    pod5 = ("P5", "pod5")
+    mtx = ("MTX", "matrix market")
+    h5ad = ("H5AD", "AnnData")
+
 class NucleicAcidEnum(models.TextChoices):
     rna = ("R", "RNA")
     mirna = ("MI", "miRNA")
@@ -1089,6 +1095,8 @@ class SequencingFile(models.Model):
     sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
     library_in_run = models.ForeignKey(LibraryInRun, on_delete=models.PROTECT)
     filename = models.CharField(max_length=255, null=False, blank=False)
+    file_type = models.CharField(
+        max_length=4, choices=FileType.choices, null=True, blank=False)
     md5sum = models.CharField(
         max_length=32, null=True, blank=False, db_index=True)
     lane = models.IntegerField(null=True)
