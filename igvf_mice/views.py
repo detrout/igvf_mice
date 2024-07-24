@@ -109,13 +109,18 @@ class TissueViewSet(viewsets.ModelViewSet):
     queryset = Tissue.objects.all()
     serializer_class = TissueSerializer
     filter_backends = (filters.DjangoFilterBackend,)
-    filterset_fields = ("mouse", "ontology_term",)
+    filterset_fields = (
+        "mouse",
+        "ontology_term",
+    )
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 class SampleExtractionViewSet(viewsets.ModelViewSet):
     queryset = SampleExtraction.objects.all()
     serializer_class = SampleExtractionSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+
 
 class ParseFixedSampleViewSet(viewsets.ModelViewSet):
     queryset = ParseFixedSample.objects.all()
