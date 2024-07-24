@@ -1088,8 +1088,9 @@ class SequencingFile(models.Model):
     """
     sequencing_run = models.ForeignKey(SequencingRun, on_delete=models.PROTECT)
     library_in_run = models.ForeignKey(LibraryInRun, on_delete=models.PROTECT)
-    md5sum = models.CharField(max_length=32, null=True, blank=False)
     filename = models.CharField(max_length=255, null=False, blank=False)
+    md5sum = models.CharField(
+        max_length=32, null=True, blank=False, db_index=True)
     lane = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
     accession = models.ManyToManyField(Accession)
