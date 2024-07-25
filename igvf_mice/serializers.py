@@ -489,6 +489,7 @@ class SequencingRunRootSerializer(serializers.HyperlinkedModelSerializer):
             "stranded",
             "platform",
             "plate",
+            "sequencer",
             "flowcell_id",
             "flowcell_kit",
             "flowcell_type",

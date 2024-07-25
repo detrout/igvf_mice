@@ -318,6 +318,7 @@ def get_or_create_ont_splitseq_sequencing_run(row):
             platform=platform,
             plate=plate,
             stranded="U",
+            sequencer=row["sequencing_run_platform"],
             flowcell_kit=row["flowcell_kit"],
             flowcell_type=row["flowcell_type"],
             flowcell_id=row["flowcell_id"],

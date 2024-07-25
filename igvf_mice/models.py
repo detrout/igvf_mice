@@ -1017,6 +1017,7 @@ class SequencingRun(models.Model):
         choices=StrandedEnum.choices,
         default=StrandedEnum.REVERSE
     )
+    sequencer = models.CharField(max_length=50, null=True)
     flowcell_kit = models.CharField(max_length=50, null=True)
     flowcell_type = models.CharField(max_length=50, null=True)
     flowcell_id = models.CharField(max_length=50, null=True)
