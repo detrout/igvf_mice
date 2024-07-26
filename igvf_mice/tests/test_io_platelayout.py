@@ -565,9 +565,23 @@ class TestPlateLayoutParser(TestCase):
         self.assertEqual(models.SplitSeqPlate.objects.count(), 1)
         self.assertEqual(models.SplitSeqWell.objects.count(), 96)
 
+        expected = {
+            "A1": ["016_B6J_10F_03"],
+            "A2": ["017_B6J_10M_03"],
+            "A3": ["018_B6J_10F_03"],
+            "H1": ["092_CASTJ_10F_03"],
+            "A9": ["016_B6J_10F_06", "066_NODJ_10F_06"],
+            "H12": ["063_WSBJ_10M_06", "053_NZOJ_10M_06"],
+        }
         # it should auto-detect the 96 well barcode set.
         wt_mega_2_reagent = models.LibraryConstructionReagent.objects.get(name="wt-mega-v2")
         for well in models.SplitSeqWell.objects.all():
+            # Really this should be checking against what biosamples we expect
+            # but given our data the most it could be is 2
+            if well.well in expected:
+                self.assertEqual({x.name for x in well.biosample.all()}, set(expected[well.well]))
+            self.assertGreater(well.biosample.count(), 0)
+            self.assertLessEqual(well.biosample.count(), 2)
             self.assertGreater(well.barcode.count(), 0)
             for barcode in well.barcode.all():
                 self.assertEqual(barcode.reagent, wt_mega_2_reagent)

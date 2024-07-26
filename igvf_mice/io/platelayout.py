@@ -347,11 +347,10 @@ class PlateLayoutParser:
             for plate_name, plate_contents in self.parse_plates(sheet):
                 plate = self._get_or_create_plate(plate_name)
 
-                biosamples = []
                 for well_id in plate_contents:
                     well_contents = plate_contents[well_id]
 
-                    biosamples.extend([biosample_table[item.tissue_id] for item in well_contents])
+                    biosamples = [biosample_table[item.tissue_id] for item in well_contents]
                     reagent = self._guess_barcode_reagent_from_plate(plate_name, plate_contents)
                     barcodes = models.LibraryBarcode.objects.filter(
                         reagent=reagent,
