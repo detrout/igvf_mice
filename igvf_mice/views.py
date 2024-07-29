@@ -195,6 +195,14 @@ class LibraryInRunViewSet(viewsets.ModelViewSet):
 class SequencingFileViewSet(viewsets.ModelViewSet):
     queryset = SequencingFile.objects.all()
     serializer_class = SequencingFileSerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = (
+        "md5sum",
+        "filename",
+        "host",
+        "sequencing_run__flowcell_id",
+        "library_in_run__subpool",
+    )
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
