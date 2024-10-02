@@ -6,6 +6,7 @@ conversion.
 from collections import namedtuple
 from collections.abc import Sequence
 import datetime
+import numpy
 import pandas
 import zoneinfo
 
@@ -42,6 +43,23 @@ def float_or_none(x):
         return None
     else:
         return float(x)
+
+def float_or_nan(x):
+    if pandas.isnull(x):
+        return numpy.nan
+    elif x in ("N/A", "#DIV/0!", "#VALUE!", "-",):
+        return numpy.nan
+    else:
+        return float(x)
+
+
+def is_excel_null(x):
+    if pandas.isnull(x):
+        return True
+    elif x in ("N/A", "#DIV/0!", "#VALUE!"):
+        return True
+    else:
+        return False
 
 
 def int_or_none(x):
