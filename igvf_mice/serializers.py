@@ -144,11 +144,20 @@ class SequencingRunChildSerializer(serializers.HyperlinkedModelSerializer):
             "stranded",
             "platform",
             "plate",
+            "libraryinrun_set",
         ]
 
     platform = PlatformSerializer()
     stranded = serializers.ChoiceField(choices=StrandedEnum.choices)
 
+    def to_representation(self, value):
+        data = super().to_representation(value)
+        request = self.context.get("request")
+
+        if "libraryinrun_set" in data:
+            data["libraryinrun_set"] = expand_field(
+                data["libraryinrun_set"], LibraryInRun, LibraryInRunSerializer, request, pkname="id")
+        return data
 
 class MouseStrainSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
