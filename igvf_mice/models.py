@@ -901,8 +901,8 @@ class Subpool(models.Model):
 
     Subpools can be sequenced via multiple
     :model:`igvf_mice.SequencingRun` producing several
-    :model:`igvf_mice.SubpoolInRun` objects linking
-    :model:`igvf_mice.SubpoolInRunFile` items to their source subpools
+    :model:`igvf_mice.LibraryInRun` objects linking
+    :model:`igvf_mice.SequencingFile` items to their source subpools
     and runs.
     """
     name = models.CharField(max_length=50, primary_key=True)
@@ -1059,7 +1059,7 @@ class LibraryInRun(models.Model):
     For nanopore libraries we we link to :model:`igvf_mice.NanoporeLibrary`
 
     The result of a sequencing run is a collection of files which are
-    tracked as model:`igvf_mice.SubpoolInRunFile`.
+    tracked as model:`igvf_mice.LibraryInRunFile`.
 
     Individual subpools may not perform well on a run so we have a
     status field.
@@ -1134,7 +1134,7 @@ class MeasurementSet(models.Model):
     together. It links the files to the source biosample objects.
 
     For us, a :model:`igvf_mice.MeasurementSet` is a one to many
-    relationship for :model:`igvf_mice.SubpoolInRun` objects.
+    relationship for :model:`igvf_mice.LibraryInRun` objects.
 
     """
 
