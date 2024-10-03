@@ -240,17 +240,20 @@ class MouseStrain(models.Model):
 
     We order :model:`igvf_mouse.Mouse` from MouseStrains.
     """
-
     name = models.CharField(
         max_length=50, primary_key=True, help_text="short mouse strain code"
     )
     display_name = models.CharField(
         max_length=50, unique=True, help_text="Name of mouse type")
-    igvf_id = models.CharField(
+    igvf_strain_background = models.CharField(
         max_length=50,
-        unique=True,
         null=True,
         help_text="Name of mouse strain at IGVF portal"
+    )
+    igvf_genotype = models.CharField(
+        max_length=50,
+        null=True,
+        help_text="Description of mouse genotype"
     )
     strain_type = models.CharField(
         max_length=2,

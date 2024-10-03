@@ -1,6 +1,6 @@
 - fields:
     display_name: AJ
-    igvf_id: A/J (AJ)
+    igvf_strain_background: A/J (AJ)
     jax_catalog_number: '000646'
     notes: Yellower adrenal gland.
     see_also: https://www.jax.org/strain/000646
@@ -10,7 +10,7 @@
   pk: AJ
 - fields:
     display_name: C57BL/6J
-    igvf_id: C57BL/6J (B6)
+    igvf_strain_background: C57BL/6J (B6)
     jax_catalog_number: '000664'
     notes: ''
     see_also: https://www.jax.org/strain/000664
@@ -20,7 +20,7 @@
   pk: B6J
 - fields:
     display_name: 129S1/SvImJ
-    igvf_id: 129S1/SvImJ (129)
+    igvf_strain_background: 129S1/SvImJ (129)
     jax_catalog_number: 002448
     notes: Male skin is tougher than female skin. Gallbladder is more filled in this
       strain. Adrenals are pale and smaller than A6J.
@@ -31,7 +31,7 @@
   pk: 129S1J
 - fields:
     display_name: NOD/ShiLtJ
-    igvf_id: NOD/ShiLtJ (NOD)
+    igvf_strain_background: NOD/ShiLtJ (NOD)
     jax_catalog_number: 001976
     notes: ''
     see_also: https://www.jax.org/strain/001976
@@ -41,7 +41,7 @@
   pk: NODJ
 - fields:
     display_name: NZO/HlLtJ
-    igvf_id: NZO/HlLtJ (NZO)
+    igvf_strain_background: NZO/HlLtJ (NZO)
     jax_catalog_number: '002105'
     notes: ''
     see_also: https://www.jax.org/strain/002105
@@ -51,7 +51,7 @@
   pk: NZOJ
 - fields:
     display_name: CAST/EiJ
-    igvf_id: CAST/EiJ (CAST)
+    igvf_strain_background: CAST/EiJ (CAST)
     jax_catalog_number: 000928
     notes: ''
     see_also: https://www.jax.org/strain/000928
@@ -61,7 +61,7 @@
   pk: CASTJ
 - fields:
     display_name: PWK/PhJ
-    igvf_id: PWK/PhJ (PWK)
+    igvf_strain_background: PWK/PhJ (PWK)
     jax_catalog_number: '003715'
     notes: ''
     see_also: https://www.jax.org/strain/003715
@@ -71,7 +71,7 @@
   pk: PWKJ
 - fields:
     display_name: WSB/EiJ
-    igvf_id: WSB/EiJ (WSB)
+    igvf_strain_background: WSB/EiJ (WSB)
     jax_catalog_number: '001145'
     notes: ''
     see_also: https://www.jax.org/strain/001145
@@ -81,7 +81,7 @@
   pk: WSBJ
 - fields:
     display_name: B6129S1F1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: '101043'
     notes: ''
     see_also: https://www.jax.org/strain/101043
@@ -91,7 +91,7 @@
   pk: B6129S1F1J
 - fields:
     display_name: B6AF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: '101043'
     notes: ''
     see_also: https://www.jax.org/strain/100002
@@ -101,7 +101,7 @@
   pk: B6AF1J
 - fields:
     display_name: B6CASTF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed CAST/EiJ
     notes: ''
     see_also: null
@@ -111,7 +111,7 @@
   pk: B6CASTF1J
 - fields:
     display_name: B6NODF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed NOD/ShiLtJ
     notes: ''
     see_also: null
@@ -121,7 +121,7 @@
   pk: B6NODF1J
 - fields:
     display_name: B6NZOF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed NZO/HlLtJ
     notes: ''
     see_also: null
@@ -131,7 +131,7 @@
   pk: B6NZOF1J
 - fields:
     display_name: B6PWKF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed PWK/PhJ
     notes: ''
     see_also: null
@@ -141,7 +141,7 @@
   pk: B6PWKF1J
 - fields:
     display_name: B6WSBF1/J
-    igvf_id: null
+    igvf_strain_background: null
     jax_catalog_number: 019019
     notes: ''
     see_also: https://www.jax.org/strain/019019
@@ -151,18 +151,19 @@
   pk: B6WSBF1J
 - fields:
     display_name: TREM2R47HNSS_HO
-    igvf_id: B6(SJL)-Trem2<em1Aduci>/J
-    jax_catalog_number: 033781
+    igvf_strain_background: 'C57BL/6J (B6)'
+    igvf_genotype: 'B6(SJL)-Trem2ᵉᵐ¹ᴬᵈᵘᶜⁱ/J' 
+    jax_catalog_number: '034036'
     notes: ''
-    see_also: https://www.jax.org/strain/033781
+    see_also: https://www.jax.org/strain/034036
     source: jackson-labs
     strain_type: MB
   model: igvf_mice.mousestrain
   pk: TREM2
 - fields:
     display_name: CC001
-    igvf_id: CC001/Unc
-    jax_catalog_number: 021238
+    igvf_strain_background: CC001/Unc
+    jax_catalog_number: '021238'
     notes: ''
     see_also: https://www.jax.org/strain/021238
     source: unc-csbio
@@ -171,7 +172,7 @@
   pk: CC001
 - fields:
     display_name: CC002
-    igvf_id: CC002/Unc
+    igvf_strain_background: CC002/Unc
     jax_catalog_number: '021236'
     notes: ''
     see_also: https://www.jax.org/strain/021236
@@ -181,7 +182,7 @@
   pk: CC002
 - fields:
     display_name: CC003
-    igvf_id: CC003/Unc
+    igvf_strain_background: CC003/Unc
     jax_catalog_number: '021237'
     notes: ''
     see_also: https://www.jax.org/strain/021237
@@ -191,7 +192,7 @@
   pk: CC003
 - fields:
     display_name: CC004
-    igvf_id: CC004/TauUnc
+    igvf_strain_background: CC004/TauUnc
     jax_catalog_number: 020944
     notes: ''
     see_also: https://www.jax.org/strain/020944
@@ -201,7 +202,7 @@
   pk: CC004
 - fields:
     display_name: CC005
-    igvf_id: CC005/TauUnc
+    igvf_strain_background: CC005/TauUnc
     jax_catalog_number: 020945
     notes: ''
     see_also: https://www.jax.org/strain/020945
@@ -211,7 +212,7 @@
   pk: CC005
 - fields:
     display_name: CC006
-    igvf_id: CC006/TauUnc
+    igvf_strain_background: CC006/TauUnc
     jax_catalog_number: 022869
     notes: ''
     see_also: https://www.jax.org/strain/022869
@@ -221,7 +222,7 @@
   pk: CC006
 - fields:
     display_name: CC007
-    igvf_id: CC007/Unc
+    igvf_strain_background: CC007/Unc
     jax_catalog_number: 029625
     notes: ''
     see_also: https://www.jax.org/strain/029625
@@ -231,7 +232,7 @@
   pk: CC007
 - fields:
     display_name: CC008
-    igvf_id: CC008/GeniUnc
+    igvf_strain_background: CC008/GeniUnc
     jax_catalog_number: 026971
     notes: ''
     see_also: https://www.jax.org/strain/026971
@@ -241,7 +242,7 @@
   pk: CC008
 - fields:
     display_name: CC009
-    igvf_id: CC009/Unc
+    igvf_strain_background: CC009/Unc
     jax_catalog_number: 018856
     notes: ''
     see_also: https://www.jax.org/strain/018856
@@ -251,7 +252,7 @@
   pk: CC009
 - fields:
     display_name: CC010
-    igvf_id: CC010/GeniUnc
+    igvf_strain_background: CC010/GeniUnc
     jax_catalog_number: 021889
     notes: ''
     see_also: https://www.jax.org/strain/021889
@@ -261,7 +262,7 @@
   pk: CC010
 - fields:
     display_name: CC011
-    igvf_id: CC011/Unc
+    igvf_strain_background: CC011/Unc
     jax_catalog_number: 018854
     notes: ''
     see_also: https://www.jax.org/strain/018854
@@ -271,7 +272,7 @@
   pk: CC011
 - fields:
     display_name: CC012
-    igvf_id: CC012/GeniUnc
+    igvf_strain_background: CC012/GeniUnc
     jax_catalog_number: 028409
     notes: ''
     see_also: https://www.jax.org/strain/028409
@@ -281,7 +282,7 @@
   pk: CC012
 - fields:
     display_name: CC013
-    igvf_id: CC013/GeniUnc
+    igvf_strain_background: CC013/GeniUnc
     jax_catalog_number: 021892
     notes: ''
     see_also: https://www.jax.org/strain/021892
@@ -291,7 +292,7 @@
   pk: CC013
 - fields:
     display_name: CC015
-    igvf_id: CC015/Unc
+    igvf_strain_background: CC015/Unc
     jax_catalog_number: 018859
     notes: ''
     see_also: https://www.jax.org/strain/018859
@@ -301,7 +302,7 @@
   pk: CC015
 - fields:
     display_name: CC017
-    igvf_id: CC017/Unc
+    igvf_strain_background: CC017/Unc
     jax_catalog_number: 022870
     notes: ''
     see_also: https://www.jax.org/strain/022870
@@ -311,7 +312,7 @@
   pk: CC017
 - fields:
     display_name: CC018
-    igvf_id: CC018/Unc
+    igvf_strain_background: CC018/Unc
     jax_catalog_number: 021890
     notes: ''
     see_also: https://www.jax.org/strain/021890
@@ -321,7 +322,7 @@
   pk: CC018
 - fields:
     display_name: CC024
-    igvf_id: CC024/GeniUnc
+    igvf_strain_background: CC024/GeniUnc
     jax_catalog_number: 021891
     notes: ''
     see_also: https://www.jax.org/strain/021891
@@ -331,7 +332,7 @@
   pk: CC024
 - fields:
     display_name: CC025
-    igvf_id: CC025/GeniUnc
+    igvf_strain_background: CC025/GeniUnc
     jax_catalog_number: 018857
     notes: ''
     see_also: https://www.jax.org/strain/018857
@@ -341,7 +342,7 @@
   pk: CC025
 - fields:
     display_name: CC028
-    igvf_id: CC028/GeniUnc
+    igvf_strain_background: CC028/GeniUnc
     jax_catalog_number: '025126'
     notes: ''
     see_also: https://www.jax.org/strain/025126
@@ -351,7 +352,7 @@
   pk: CC028
 - fields:
     display_name: CC029
-    igvf_id: CC029/Unc
+    igvf_strain_background: CC029/Unc
     jax_catalog_number: 026972
     notes: ''
     see_also: https://www.jax.org/strain/026972
@@ -361,7 +362,7 @@
   pk: CC029
 - fields:
     display_name: CC030
-    igvf_id: CC030/GeniUnc
+    igvf_strain_background: CC030/GeniUnc
     jax_catalog_number: '025426'
     notes: ''
     see_also: https://www.jax.org/strain/025426
@@ -371,7 +372,7 @@
   pk: CC030
 - fields:
     display_name: CC032
-    igvf_id: CC032/GeniUnc
+    igvf_strain_background: CC032/GeniUnc
     jax_catalog_number: 020946
     notes: ''
     see_also: https://www.jax.org/strain/020946
@@ -381,7 +382,7 @@
   pk: CC032
 - fields:
     display_name: CC036
-    igvf_id: CC036/Unc
+    igvf_strain_background: CC036/Unc
     jax_catalog_number: '025127'
     notes: ''
     see_also: https://www.jax.org/strain/025127
@@ -391,7 +392,7 @@
   pk: CC036
 - fields:
     display_name: CC037
-    igvf_id: CC037/TauUnc
+    igvf_strain_background: CC037/TauUnc
     jax_catalog_number: '025423'
     notes: ''
     see_also: https://www.jax.org/strain/025423
@@ -401,7 +402,7 @@
   pk: CC037
 - fields:
     display_name: CC038
-    igvf_id: CC038/GeniUnc
+    igvf_strain_background: CC038/GeniUnc
     jax_catalog_number: ''
     notes: ''
     see_also: null
@@ -411,7 +412,7 @@
   pk: CC038
 - fields:
     display_name: CC041
-    igvf_id: CC041/TauUnc
+    igvf_strain_background: CC041/TauUnc
     jax_catalog_number: 021893
     notes: ''
     see_also: https://www.jax.org/strain/021893
@@ -421,7 +422,7 @@
   pk: CC041
 - fields:
     display_name: CC043
-    igvf_id: CC043/GeniUnc
+    igvf_strain_background: CC043/GeniUnc
     jax_catalog_number: 023828
     notes: ''
     see_also: https://www.jax.org/strain/023828
@@ -431,7 +432,7 @@
   pk: CC043
 - fields:
     display_name: CC055
-    igvf_id: CC055/TauUnc
+    igvf_strain_background: CC055/TauUnc
     jax_catalog_number: ''
     notes: ''
     see_also: null
@@ -441,7 +442,7 @@
   pk: CC055
 - fields:
     display_name: CC057
-    igvf_id: CC057/Unc
+    igvf_strain_background: CC057/Unc
     jax_catalog_number: 024683
     notes: ''
     see_also: https://www.jax.org/strain/024683
@@ -451,7 +452,7 @@
   pk: CC057
 - fields:
     display_name: CC060
-    igvf_id: CC060/Unc
+    igvf_strain_background: CC060/Unc
     jax_catalog_number: '026427'
     notes: ''
     see_also: https://www.jax.org/strain/026427
@@ -461,7 +462,7 @@
   pk: CC060
 - fields:
     display_name: CC062
-    igvf_id: CC062/Unc
+    igvf_strain_background: CC062/Unc
     jax_catalog_number: ''
     notes: ''
     see_also: null
@@ -471,7 +472,7 @@
   pk: CC062
 - fields:
     display_name: CC065
-    igvf_id: CC065/Unc
+    igvf_strain_background: CC065/Unc
     jax_catalog_number: ''
     notes: ''
     see_also: null
@@ -481,7 +482,7 @@
   pk: CC065
 - fields:
     display_name: CC071
-    igvf_id: CC071/TauUnc
+    igvf_strain_background: CC071/TauUnc
     jax_catalog_number: ''
     notes: ''
     see_also: null
@@ -491,7 +492,7 @@
   pk: CC071
 - fields:
     display_name: CC074
-    igvf_id: CC074/Unc
+    igvf_strain_background: CC074/Unc
     jax_catalog_number: 018855
     notes: ''
     see_also: https://www.jax.org/strain/018855
