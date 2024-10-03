@@ -248,12 +248,17 @@ class MouseStrain(models.Model):
     igvf_strain_background = models.CharField(
         max_length=50,
         null=True,
-        help_text="Name of mouse strain at IGVF portal"
+        help_text="The general strain name to group comparable mouse strains at the IGVF portal"
+    )
+    igvf_strain = models.CharField(
+        max_length=50,
+        null=True,
+        help_text="The specific strain name for this mouse strain at the IGVF portal"
     )
     igvf_genotype = models.CharField(
         max_length=50,
         null=True,
-        help_text="Description of mouse genotype"
+        help_text="Description of the intentional genetic modifications on this mouse strain"
     )
     strain_type = models.CharField(
         max_length=2,

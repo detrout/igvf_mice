@@ -1,6 +1,7 @@
 - fields:
     display_name: AJ
-    igvf_strain_background: A/J (AJ)
+    igvf_strain_background: 'A/J (AJ)'
+    igvf_strain: 'AJ'
     jax_catalog_number: '000646'
     notes: Yellower adrenal gland.
     see_also: https://www.jax.org/strain/000646
@@ -11,6 +12,7 @@
 - fields:
     display_name: C57BL/6J
     igvf_strain_background: C57BL/6J (B6)
+    igvf_strain: 'C57BL/6J'
     jax_catalog_number: '000664'
     notes: ''
     see_also: https://www.jax.org/strain/000664
@@ -21,6 +23,7 @@
 - fields:
     display_name: 129S1/SvImJ
     igvf_strain_background: 129S1/SvImJ (129)
+    igvf_strain: 129S1/SvImJ
     jax_catalog_number: 002448
     notes: Male skin is tougher than female skin. Gallbladder is more filled in this
       strain. Adrenals are pale and smaller than A6J.
@@ -32,6 +35,7 @@
 - fields:
     display_name: NOD/ShiLtJ
     igvf_strain_background: NOD/ShiLtJ (NOD)
+    igvf_strain: "NOD/ShiLtJ"
     jax_catalog_number: 001976
     notes: ''
     see_also: https://www.jax.org/strain/001976
@@ -41,7 +45,8 @@
   pk: NODJ
 - fields:
     display_name: NZO/HlLtJ
-    igvf_strain_background: NZO/HlLtJ (NZO)
+    igvf_strain_background: 'NZO/HlLtJ (NZO)'
+    igvf_strain: 'NZO/HlLtJ'
     jax_catalog_number: '002105'
     notes: ''
     see_also: https://www.jax.org/strain/002105
@@ -52,6 +57,7 @@
 - fields:
     display_name: CAST/EiJ
     igvf_strain_background: CAST/EiJ (CAST)
+    igvf_strain: 'CAST/EiJ'
     jax_catalog_number: 000928
     notes: ''
     see_also: https://www.jax.org/strain/000928
@@ -62,6 +68,7 @@
 - fields:
     display_name: PWK/PhJ
     igvf_strain_background: PWK/PhJ (PWK)
+    igvf_strain: 'PWK/PhJ'
     jax_catalog_number: '003715'
     notes: ''
     see_also: https://www.jax.org/strain/003715
@@ -72,6 +79,7 @@
 - fields:
     display_name: WSB/EiJ
     igvf_strain_background: WSB/EiJ (WSB)
+    igvf_strain: WSB/EiJ
     jax_catalog_number: '001145'
     notes: ''
     see_also: https://www.jax.org/strain/001145
@@ -152,7 +160,8 @@
 - fields:
     display_name: TREM2R47HNSS_HO
     igvf_strain_background: 'C57BL/6J (B6)'
-    igvf_genotype: 'B6(SJL)-Trem2ᵉᵐ¹ᴬᵈᵘᶜⁱ/J' 
+    igvf_strain: 'B6(SJL)-Trem2ᵉᵐ¹ᴬᵈᵘᶜⁱ/J'
+    igvf_genotype: 'Trem2 gene carrying the R47H mutation'
     jax_catalog_number: '034036'
     notes: ''
     see_also: https://www.jax.org/strain/034036
