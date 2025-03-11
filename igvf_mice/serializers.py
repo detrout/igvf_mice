@@ -166,7 +166,7 @@ class MouseStrainSerializer(serializers.HyperlinkedModelSerializer):
             "@id",
             "name",
             "display_name",
-            "igvf_id",
+            "igvf_strain_background",
             "strain_type",
             "jax_catalog_number",
             "see_also",

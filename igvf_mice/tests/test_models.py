@@ -91,7 +91,7 @@ class TestModels(TestCase):
         self.mouse_strain_fake = MouseStrain.objects.create(
             name="CASTHUMAN",
             display_name="CASTJ/human glial cells",
-            igvf_id="CASTJ/human glial cells (CASTHUMAN)",
+            igvf_strain_background="CASTJ/human glial cells (CASTHUMAN)",
             strain_type=StrainType.FOUNDER,
             jax_catalog_number="[redacted]",
             see_also="https://www.wikidata.org/wiki/Q1500726",
@@ -365,7 +365,7 @@ class TestModels(TestCase):
         strain = MouseStrain(
             name="SG1",
             display_name="Super brain 1",
-            igvf_id="Super brain 1 (SG1)",
+            igvf_strain_background="Super brain 1 (SG1)",
             strain_type=StrainType.FOUNDER,
             jax_catalog_number="[redacted]",
             see_also="https://www.wikidata.org/wiki/Q1500726",

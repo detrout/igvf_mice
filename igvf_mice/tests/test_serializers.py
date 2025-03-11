@@ -141,7 +141,7 @@ class TestSerializers(APITestCase):
         payload = {
             "name": "B6J",
             "display_name": "C57BL/6J",
-            "igvf_id": "C57BL/6J (B6)",
+            "igvf_strain_background": "C57BL/6J (B6)",
             "strain_type": "FO",
             "jax_catalog_number": "000664",
             "see_also": "https://www.jax.org/strain/000664",
