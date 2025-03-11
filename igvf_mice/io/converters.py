@@ -56,7 +56,7 @@ def float_or_nan(x):
 def is_excel_null(x):
     if pandas.isnull(x):
         return True
-    elif x in ("N/A", "#DIV/0!", "#VALUE!"):
+    elif x in ("#DIV/0!", "#VALUE!"):
         return True
     else:
         return False
