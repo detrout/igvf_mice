@@ -17,6 +17,12 @@
     display_name: Novaseq 6000
     family: illumina
 - model: igvf_mice.platform
+  pk: novaseqx
+  fields:
+    igvf_id: /platform-terms/EFO_0022840/
+    display_name: Novaseq X
+    family: illumina    
+- model: igvf_mice.platform
   pk: pacbio
   fields:
     igvf_id: null
