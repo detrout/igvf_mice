@@ -90,6 +90,7 @@
 - fields:
     display_name: B6129S1F1/J
     igvf_strain_background: null
+    igvf_strain: "B6129S1F1/J"
     jax_catalog_number: '101043'
     notes: ''
     see_also: https://www.jax.org/strain/101043
@@ -100,6 +101,7 @@
 - fields:
     display_name: B6AF1/J
     igvf_strain_background: null
+    igvf_strain: "B6AF1/J"
     jax_catalog_number: '101043'
     notes: ''
     see_also: https://www.jax.org/strain/100002
@@ -110,6 +112,7 @@
 - fields:
     display_name: B6CASTF1/J
     igvf_strain_background: null
+    igvf_strain: "B6CASTF1/J"
     jax_catalog_number: Custom C56BL/6J crossed CAST/EiJ
     notes: ''
     see_also: null
@@ -119,6 +122,7 @@
   pk: B6CASTF1J
 - fields:
     display_name: B6NODF1/J
+    igvf_strain: "B6NODF1/J"
     igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed NOD/ShiLtJ
     notes: ''
@@ -129,6 +133,7 @@
   pk: B6NODF1J
 - fields:
     display_name: B6NZOF1/J
+    igvf_strain: "B6NZOF1/J"
     igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed NZO/HlLtJ
     notes: ''
@@ -139,6 +144,7 @@
   pk: B6NZOF1J
 - fields:
     display_name: B6PWKF1/J
+    igvf_strain: "B6PWKF1/J"
     igvf_strain_background: null
     jax_catalog_number: Custom C56BL/6J crossed PWK/PhJ
     notes: ''
@@ -149,6 +155,7 @@
   pk: B6PWKF1J
 - fields:
     display_name: B6WSBF1/J
+    igvf_strain: "B6WSBF1/J"
     igvf_strain_background: null
     jax_catalog_number: 019019
     notes: ''
@@ -160,7 +167,7 @@
 - fields:
     display_name: TREM2R47HNSS_HO
     igvf_strain_background: 'C57BL/6J (B6)'
-    igvf_strain: 'B6(SJL)-Trem2ᵉᵐ¹ᴬᵈᵘᶜⁱ/J'
+    igvf_strain: 'B6(SJL)-Trem2<em1Aduci>/J'
     igvf_genotype: 'Trem2 gene carrying the R47H mutation'
     jax_catalog_number: '034036'
     notes: ''
