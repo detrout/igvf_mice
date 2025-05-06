@@ -13,7 +13,7 @@ from .converters import (
 )
 
 
-def import_accessions(submitted_accessions, record):
+def load_accessions(submitted_accessions, record):
     if submitted_accessions is None:
         return
 
@@ -39,7 +39,7 @@ def import_accessions(submitted_accessions, record):
         record.save()
 
 
-def import_protocols(sheet):
+def load_protocols(sheet):
     current_protocols = {x.name for x in models.ProtocolLink.objects.all()}
 
     for i, row in sheet.iterrows():
@@ -53,7 +53,7 @@ def import_protocols(sheet):
             record.save()
 
 
-def import_mice(mice, submitted_accessions=None):
+def load_mice(mice, submitted_accessions=None):
     if submitted_accessions is None:
         submitted_accessions = {}
 
@@ -107,7 +107,7 @@ def import_mice(mice, submitted_accessions=None):
             record = models.Mouse.objects.get(pk=name)
 
         # import accession skips if submitted_accessions.get is None
-        import_accessions(submitted_accessions.get(name), record)
+        load_accessions(submitted_accessions.get(name), record)
 
     print("Currently have {} mice loaded".format(models.Mouse.objects.count()))
     assert not failed, "Check warning messages"
@@ -115,7 +115,7 @@ def import_mice(mice, submitted_accessions=None):
     return added
 
 
-def import_tissues(tissue_sheets, submitted_tissues=None):
+def load_tissues(tissue_sheets, submitted_tissues=None):
     if submitted_tissues is None:
         submitted_tissues = {}
 
@@ -190,7 +190,7 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
         record.save()
         added += 1
 
-        import_accessions(submitted_tissues.get(tissue_name), record)
+        load_accessions(submitted_tissues.get(tissue_name), record)
 
     if failed > 0:
         raise ValidationError(f"Check warning messages. {failed} records failed")
@@ -198,7 +198,7 @@ def import_tissues(tissue_sheets, submitted_tissues=None):
     return added
 
 
-def import_splitseq_samples(fixed_samples):
+def load_splitseq_samples(fixed_samples):
     """Import splitseq SampleExtraction and ParseFixedSample records
 
     In the spreadsheet these are one row, but because the cell/nuclei
@@ -327,7 +327,7 @@ def get_or_create_ont_splitseq_sequencing_run(row):
     return run
 
 
-def import_splitseq_ont_samples(samples):
+def load_splitseq_ont_samples(samples):
     for i, row in samples.iterrows():
         subpool = models.Subpool.objects.get(pk=row["subpool"])
 

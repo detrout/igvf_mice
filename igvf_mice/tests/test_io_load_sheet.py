@@ -4,13 +4,13 @@ import pandas
 from django.test import TestCase
 
 from .. import models
-from ..io.read_sheet import (
-    import_accessions,
-    import_mice,
-    import_protocols,
-    import_tissues,
-    import_splitseq_samples,
-    import_splitseq_ont_samples,
+from ..io.load_sheet import (
+    load_accessions,
+    load_mice,
+    load_protocols,
+    load_tissues,
+    load_splitseq_samples,
+    load_splitseq_ont_samples,
 )
 from ..io.converters import (
     str_or_none,
@@ -200,7 +200,7 @@ def get_test_splitseq_ont_sequencing_sheet():
 class TestReadSheet(TestCase):
     fixtures = ["source", "mousestrain", "ontologyterm", "platform"]
 
-    def test_import_protocol(self):
+    def test_load_protocol(self):
         self.assertEqual(models.ProtocolLink.objects.count(), 0)
 
         protocols = get_test_protocols_sheet()
@@ -208,10 +208,10 @@ class TestReadSheet(TestCase):
         first = protocols[protocols["Protocol"] == "splitseq_100k"]
         self.assertEqual(first.shape[0], 1)
 
-        import_protocols(first)
+        load_protocols(first)
         self.assertEqual(models.ProtocolLink.objects.count(), 1)
 
-        import_protocols(protocols)
+        load_protocols(protocols)
         self.assertEqual(models.ProtocolLink.objects.count(), 2)
 
         for i, row in enumerate(models.ProtocolLink.objects.all()):
@@ -220,7 +220,7 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.see_also, protocols.iloc[i]["Link"])
             self.assertEqual(row.description, protocols.iloc[i]["Description"])
 
-    def test_import_mice(self):
+    def test_load_mice(self):
         self.assertEqual(models.Mouse.objects.count(), 0)
 
         mice = get_test_mice_sheet()
@@ -251,17 +251,17 @@ class TestReadSheet(TestCase):
         }
 
         first = mice[mice["Mouse Name"] == "016_B6J_10F"]
-        added = import_mice(first)
+        added = load_mice(first)
 
         self.assertEqual(models.Mouse.objects.count(), 1)
         self.assertEqual(added, 1)
 
         record = models.Mouse.objects.get(name="016_B6J_10F")
         self.assertEqual(record.accession.count(), 0)
-        import_accessions(submitted["016_B6J_10F"], record)
+        load_accessions(submitted["016_B6J_10F"], record)
         self.assertEqual(record.accession.count(), 2)
 
-        added = import_mice(mice, submitted)
+        added = load_mice(mice, submitted)
         self.assertEqual(added, 2)
 
         for mouse_i, row in enumerate(models.Mouse.objects.all()):
@@ -300,21 +300,21 @@ class TestReadSheet(TestCase):
                 self.assertEqual(str(accession.uuid), expected["uuid"])
                 self.assertEqual(accession.see_also, expected["see_also"])
 
-        added = import_mice(mice, submitted)
+        added = load_mice(mice, submitted)
         self.assertEqual(added, 0)
 
-    def test_import_tissues(self):
+    def test_load_tissues(self):
         mice = get_test_mice_sheet()
-        import_mice(mice)
+        load_mice(mice)
         self.assertEqual(models.Tissue.objects.count(), 0)
 
         tissues = get_test_tissue_sheet()
 
         first = tissues[tissues["Mouse_Tissue ID"] == "016_B6J_10F_01"]
-        import_tissues(first)
+        load_tissues(first)
         self.assertEqual(models.Tissue.objects.count(), 1)
 
-        import_tissues(tissues)
+        load_tissues(tissues)
         self.assertEqual(models.Tissue.objects.count(), 6)
 
         for tissue_i, row in enumerate(models.Tissue.objects.all()):
@@ -329,28 +329,28 @@ class TestReadSheet(TestCase):
             self.assertEqual(row.mouse.strain.name, tissues.iloc[tissue_i]["Genotype"])
             self.assertEqual(row.mouse.weight_g, tissues.iloc[tissue_i]["Body weight (g)"])
 
-    def test_import_splitseq_samples(self):
+    def test_load_splitseq_samples(self):
         mice = get_test_mice_sheet()
-        import_mice(mice)
+        load_mice(mice)
 
         tissues = get_test_tissue_sheet()
-        import_tissues(tissues)
+        load_tissues(tissues)
 
         self.assertEqual(models.SampleExtraction.objects.count(), 0)
         self.assertEqual(models.ParseFixedSample.objects.count(), 0)
 
         samples = get_test_splitseq_samples()
-        import_splitseq_samples(samples)
+        load_splitseq_samples(samples)
 
         self.assertEqual(models.SampleExtraction.objects.count(), 3)
         self.assertEqual(models.ParseFixedSample.objects.count(), 3)
 
-    def test_import_splitseq_ont_samples(self):
+    def test_load_splitseq_ont_samples(self):
         mice = get_test_mice_sheet()
-        import_mice(mice)
+        load_mice(mice)
 
         tissues = get_test_tissue_sheet()
-        import_tissues(tissues)
+        load_tissues(tissues)
 
         # Create plates
         igvf003 = models.SplitSeqPlate(
@@ -377,4 +377,4 @@ class TestReadSheet(TestCase):
         subpool_004_8a.save()
 
         ont = get_test_splitseq_ont_sequencing_sheet()
-        import_splitseq_ont_samples(ont)
+        load_splitseq_ont_samples(ont)
