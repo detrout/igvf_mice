@@ -11,11 +11,15 @@ from ..models import (
     StrainType,
     MouseStrain,
     SexEnum,
+    get_sex_code,
     EstrusCycle,
+    get_estrus_cycle_code,
     Mouse,
     OntologyTerm,
     LifeStageEnum,
     TimeUnitsEnum,
+    get_timepoint_value_from_timepoint,
+    get_timepoint_units_from_timepoint,
     require_3_underscores,
     Tissue,
     SampleExtraction,
@@ -950,3 +954,45 @@ class TestModels(TestCase):
             filename="igvf003_13A-gc_lig-ss_p2_1.fastq.gz",
             md5sum="1034404a43366a41b6840ad95b6ac439",
         )
+
+
+class TestSexCode(TestCase):
+    def test_none(self):
+        self.assertIs(get_sex_code(""), None)
+        self.assertIs(get_sex_code(None), None)
+
+    def test_sex_lookup(self):
+        self.assertEqual(get_sex_code("Male"), "M")
+        self.assertEqual(get_sex_code("male"), "M")
+        self.assertEqual(get_sex_code("female"), "F")
+        self.assertEqual(get_sex_code("other"), "O")
+
+
+class TestEstrusCycle(TestCase):
+    def test_none_cycle(self):
+        self.assertEqual(get_estrus_cycle_code(""), "NA")
+        self.assertEqual(get_estrus_cycle_code(None), "NA")
+
+    def test_anestrus_to_proestrus(self):
+        self.assertEqual(get_estrus_cycle_code("anestrus>proestrus"), "AP")
+
+    def test_estrus_question(self):
+        self.assertEqual(get_estrus_cycle_code("estrus?"), "E")
+
+
+class TestTimepointConversions(TestCase):
+    def test_none(self):
+        self.assertIs(get_timepoint_units_from_timepoint(""), None)
+        self.assertIs(get_timepoint_units_from_timepoint(None), None)
+
+    def test_weeks(self):
+        self.assertEqual(get_timepoint_value_from_timepoint("10 weeks"), 10)
+        self.assertEqual(get_timepoint_value_from_timepoint("2 weeks"), 2)
+
+        self.assertEqual(get_timepoint_units_from_timepoint("10 weeks"), "W")
+        self.assertEqual(get_timepoint_units_from_timepoint("2 weeks"), "W")
+
+    def test_months(self):
+        self.assertEqual(get_timepoint_value_from_timepoint("6 months"), 6)
+
+        self.assertEqual(get_timepoint_units_from_timepoint("6 months"), "M")

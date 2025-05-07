@@ -6,6 +6,10 @@ from django.utils.html import format_html
 
 from urllib import parse
 
+from .io.converters import (
+    int_or_none,
+)
+import pandas
 import numpy
 
 __RC_TRANSLATE = str.maketrans({
@@ -298,6 +302,17 @@ class SexEnum(models.TextChoices):
     OTHER = ("O", "other")
 
 
+def get_sex_code(x):
+    if pandas.isnull(x) or len(x) == 0:
+        return None
+    else:
+        return {
+            "female": str(SexEnum.FEMALE),
+            "male": str(SexEnum.MALE),
+            "other": str(SexEnum.OTHER),
+        }[x.lower()]
+
+
 class EstrusCycle(models.TextChoices):
     NA = ("NA", "Not applicable")
     UNKNOWN = ("U", "Unknown")
@@ -313,6 +328,35 @@ class EstrusCycle(models.TextChoices):
     DIESTRUS_PROESTRUS = ("DP", "Diestrus>Proestrus")
 
 
+def get_estrus_cycle_code(x):
+    estrus_stage = {
+        "unknown": str(EstrusCycle.UNKNOWN),
+        "anestrus": str(EstrusCycle.ANESTRUS),
+        "anestrus>proestrus": str(EstrusCycle.ANESTRUS_PROESTRUS),
+        "proestrus": str(EstrusCycle.PROESTRUS),
+        "proestrus/proestrus": str(EstrusCycle.PROESTRUS),
+        "proestrus>estrus": str(EstrusCycle.PROESTRUS_ESTRUS),
+        "estrus": str(EstrusCycle.ESTRUS),
+        "estrus?": str(EstrusCycle.ESTRUS),
+        "estrus/estrus": str(EstrusCycle.ESTRUS),
+        "estrus/mestrus": str(EstrusCycle.ESTRUS_METESTRUS),
+        "mestrus": str(EstrusCycle.ESTRUS_METESTRUS),
+        "metestrus": str(EstrusCycle.METESTRUS),
+        "metestrus/metestrus": str(EstrusCycle.METESTRUS),
+        "metestrus>diestrus": str(EstrusCycle.METESTRUS_DIESTRUS),
+        "metestrus/diestrus": str(EstrusCycle.METESTRUS_DIESTRUS),
+        "diestrus/mestrus": str(EstrusCycle.METESTRUS_DIESTRUS),
+        "diestrus": str(EstrusCycle.DIESTRUS),
+        "diestrus/diestrus": str(EstrusCycle.DIESTRUS),
+        "diestrus>proestrus": str(EstrusCycle.DIESTRUS_PROESTRUS),
+    }
+
+    if pandas.isnull(x) or len(x) == 0:
+        return "NA"
+    else:
+        return estrus_stage[x.lower()]
+
+
 class LifeStageEnum(models.TextChoices):
     EMBRYONIC = ("EM", "embryonic")
     POST_NATAL = ("PN", "post-natal")
@@ -324,6 +368,29 @@ class TimeUnitsEnum(models.TextChoices):
     WEEK = ("W", "week")
     MONTH = ("M", "month")
     YEAR = ("Y", "year")
+
+
+def get_timepoint_value_from_timepoint(x):
+    """Extract number from timepoints like 10 weeks"""
+    if pandas.isnull(x) or len(x) == 0:
+        return None
+    else:
+        return int_or_none(x.split()[0])
+
+
+def get_timepoint_units_from_timepoint(x):
+    """Extract weeks from timepoints like 10 weeks"""
+    timepoints = {
+        "days": str(TimeUnitsEnum.DAY),
+        "weeks": str(TimeUnitsEnum.WEEK),
+        "months": str(TimeUnitsEnum.MONTH),
+        "years": str(TimeUnitsEnum.YEAR),
+    }
+
+    if pandas.isnull(x) or len(x) == 0:
+        return None
+    else:
+        return timepoints[x.split()[1]]
 
 
 # this represents an individual donor
