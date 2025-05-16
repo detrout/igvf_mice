@@ -75,7 +75,7 @@ def load_mice(mice, submitted_accessions=None):
         raise KeyError(f"Missing column names {missing_columns}")
 
     mouse_strains = {x.name: x for x in models.MouseStrain.objects.all()}
-    current_mice  = {x.name for x in models.Mouse.objects.all()}
+    current_mice = {x.name for x in models.Mouse.objects.all()}
     failed = 0
     added = 0
 
