@@ -69,7 +69,9 @@ def get_test_mice_sheet():
 def get_test_tissue_sheet():
     start_016 = datetime.datetime(2022, 10, 27, 9, 1)#, tzinfo=los_angeles)
     start_aug28 = datetime.datetime(2023, 8, 28, 11, 15)
+    start_268 = datetime.datetime(2024, 2, 21, 9, 38)
     finish_aug28 = datetime.datetime(2023, 8, 28, 11, 33)
+    finish_268 = datetime.datetime(2024, 2, 21, 9, 57)
 
     tissues = pandas.DataFrame({
         "Mouse_Tissue ID": [
@@ -78,7 +80,8 @@ def get_test_tissue_sheet():
             "017_B6J_10M_01",
             "017_B6J_10M_02",
             "144_B6129S1F1J_10F_01",
-            "144_B6129S1F1J_10F_03"
+            "144_B6129S1F1J_10F_03",
+            "268_CC001_10F_01",
         ],
         "Mouse name": [
             "016_B6J_10F",
@@ -86,7 +89,8 @@ def get_test_tissue_sheet():
             "017_B6J_10M",
             "017_B6J_10M",
             "144_B6129S1F1J_10F",
-            "144_B6129S1F1J_10F"
+            "144_B6129S1F1J_10F",
+            "268_CC001_10F",
         ],
         "tissue": [
             "Hypothalamus/Pituitary",
@@ -95,6 +99,7 @@ def get_test_tissue_sheet():
             "Cerebellum",
             "Hypothalamus/Pituitary",
             "Cortex/Hippocampus left",
+            "Diencephelon/Pituitary",
         ],
         "tissue_id": [
             ["UBERON:0001898","UBERON:0000007"],
@@ -103,23 +108,25 @@ def get_test_tissue_sheet():
             ["UBERON:0002037"],
             ["UBERON:0001898","UBERON:0000007"],
             ["NTR:0000646","NTR:0000750"],
+            ["UBERON:0001894", "UBERON:0000007"],
         ],
-        "Genotype": ["B6J", "B6J", "B6J", "B6J", "B6129S1F1J", "B6129S1F1J"],
-        "Tube label": ["016-01", "016-02", "017-01", "017-02", "144-01", "144-02"],
-        "tube weight (g)": [1.046, 1.046, 1.041, 1.041, 1.043, 1.037],
-        "tube+tissue weight (g)": [1.118, None, 1.126, None, 1.132, 1.181],
+        "Genotype": ["B6J", "B6J", "B6J", "B6J", "B6129S1F1J", "B6129S1F1J", "CC001"],
+        "Tube label": ["016-01", "016-02", "017-01", "017-02", "144-01", "144-02", "268-01"],
+        "tube weight (g)": [1.046, 1.046, 1.041, 1.041, 1.043, 1.037, 1.031],
+        "tube+tissue weight (g)": [1.118, None, 1.126, None, 1.132, 1.181, 1.103],
         "Dissection start": [
             start_016,
             start_016,
             start_016,
             start_016,
             start_aug28,
-            start_aug28
+            start_aug28,
+            start_268,
         ],
-        "Dissection end": [None, None, None, None, finish_aug28, finish_aug28],
-        "Body weight (g)": [21.1, 21.1, 26.3, 26.3, 19.9, 19.9],
-        "Dissector": ["AA", "AA", "BB", None, "CC", "CC"],
-        "comment": ["comment", None, None, "", "comment", None]
+        "Dissection end": [None, None, None, None, finish_aug28, finish_aug28, finish_268],
+        "Body weight (g)": [21.1, 21.1, 26.3, 26.3, 19.9, 19.9, 18.7],
+        "Dissector": ["AA", "AA", "BB", None, "CC", "CC", "HH"],
+        "comment": ["comment", None, None, "", "comment", None, None]
     })
     return tissues
 
@@ -262,7 +269,8 @@ class TestReadSheet(TestCase):
         self.assertEqual(record.accession.count(), 2)
 
         added = load_mice(mice, submitted)
-        self.assertEqual(added, 2)
+        # expected is whatever else wasn't added in the first call
+        self.assertEqual(added, mice.shape[0]-1)
 
         for mouse_i, row in enumerate(models.Mouse.objects.all()):
             dissection_start_time = uci_tz_or_none(mice.iloc[mouse_i]["Dissection start time"])
@@ -315,7 +323,7 @@ class TestReadSheet(TestCase):
         self.assertEqual(models.Tissue.objects.count(), 1)
 
         load_tissues(tissues)
-        self.assertEqual(models.Tissue.objects.count(), 6)
+        self.assertEqual(models.Tissue.objects.count(), tissues.shape[0])
 
         for tissue_i, row in enumerate(models.Tissue.objects.all()):
             dissection_start_time = uci_tz_or_none(tissues.iloc[tissue_i]["Dissection start"])
