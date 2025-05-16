@@ -8,6 +8,11 @@
   model: igvf_mice.ontologyterm
   pk: UBERON:0001898
 - fields:
+    description: The division of the forebrain that develops from the foremost primary cerebral vesicle.
+    name: Diencephalon
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0001894
+- fields:
     description: The pituitary gland is an endocrine gland that secretes hormones
       that regulate many other glands [GO]. An endocrine gland located ventral to
       the diencephalon and derived from mixed neuroectodermal and non neuroectodermal
