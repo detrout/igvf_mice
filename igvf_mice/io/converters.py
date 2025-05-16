@@ -47,7 +47,7 @@ def float_or_none(x):
 def float_or_nan(x):
     if pandas.isnull(x):
         return numpy.nan
-    elif x in ("N/A", "#DIV/0!", "#VALUE!", "-",):
+    elif isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", ""):
         return numpy.nan
     else:
         return float(x)
@@ -63,7 +63,7 @@ def is_excel_null(x):
 
 
 def int_or_none(x):
-    if x in ("N/A", "#DIV/0!", "#VALUE!", "-"):
+    if isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", ""):
         return None
     elif pandas.isnull(x):
         return None
@@ -74,7 +74,7 @@ def int_or_none(x):
 
 
 def positive_int_or_none(x):
-    if x in ("N/A", "#DIV/0!", "#VALUE!", "-"):
+    if isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", ""):
         return None
     elif pandas.isnull(x):
         return None
