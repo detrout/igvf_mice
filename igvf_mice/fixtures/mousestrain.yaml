@@ -110,6 +110,17 @@
   model: igvf_mice.mousestrain
   pk: B6AF1J
 - fields:
+    display_name: AB6F1
+    igvf_strain_background: null
+    igvf_strain: "AB6F1"
+    jax_catalog_number: 'Custom AJ crossed with C56BL/6J'
+    notes: ''
+    see_also: null
+    source: mortazavi
+    strain_type: F1
+  model: igvf_mice.mousestrain
+  pk: AB6F1
+- fields:
     display_name: B6CASTF1/J
     igvf_strain_background: null
     igvf_strain: "B6CASTF1/J"
