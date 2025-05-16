@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date, time
 from unittest import TestCase
 import numpy
 import pandas
@@ -13,6 +13,7 @@ from ..io.converters import (
     str_or_none,
     normalize_barcode_index,
     normalize_plate_name,
+    normalize_mice_date,
     normalize_strain,
     normalize_subpool_submission_status,
     parse_mouse_age_sex,
@@ -78,6 +79,33 @@ class TestConverters(TestCase):
     def test_normalize_plate_name(self):
         self.assertEqual(normalize_plate_name("igvf_003"), "IGVF_003")
         self.assertEqual(normalize_plate_name("IGVF_008B"), "IGVF_008B")
+
+    def test_normalize_mice_date_null(self):
+        dates = [None, 123, None, "-", 123]
+        times = [None, None, 123, 123, "-"]
+
+        for i, dt in enumerate(normalize_mice_date(dates, times)):
+            self.assertIs(dt, None, msg=f"Failed on step {i}")
+
+    def test_normalize_mice_date_fail_types(self):
+        dates = ["asdf"]
+        times = [time(12,30)]
+        self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
+
+        dates = [time(12,30)]
+        times = [time(12,30)]
+        self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
+
+        dates = [date(1970,1,1)]
+        times = ["asdf"]
+        self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
+
+    def test_normalize_mice_date_valid_date_types(self):
+        dates = [date(1970,1,1)]
+        times = [time(12,30)]
+        expected = [datetime(1970,1,1,12,30)]
+
+        self.assertEqual(list(normalize_mice_date(dates, times)), expected)
 
     def test_normalize_strain(self):
         # normalize strain now only works on the strain name and

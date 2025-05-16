@@ -121,6 +121,27 @@ def normalize_plate_name(name):
     return name
 
 
+def normalize_mice_date(date_column, time_column):
+    for i, (date, time) in enumerate(zip(date_column, time_column)):
+        if pandas.isnull(date):
+            yield None
+        elif pandas.isnull(time):
+            yield None
+        elif date == "-" or time == "-":
+            yield None
+        elif isinstance(date, str):
+            raise ValueError(f"Invalid type in date row {i} {date} {type(date)}")
+            yield None
+        elif isinstance(date, datetime.time):
+            raise ValueError(f"Time in date field on row {i} {date} {type(date)}")
+            yield None
+        elif isinstance(time, str):
+            raise ValueError(f"Invalid type in time row {i} {time} {type(time)}")
+            yield None
+        else:
+            yield datetime.datetime.combine(date, time)
+
+
 genotype_to_strain = {
     "129S1/SvImJ": "129S1J",
     "B6129SF1/J": "B6129S1F1J",
