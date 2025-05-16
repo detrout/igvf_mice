@@ -39,27 +39,35 @@ def get_test_protocols_sheet():
 def get_test_mice_sheet():
     dob_aug16 = datetime.datetime(2022, 8, 16)#, tzinfo=los_angeles)
     dob_jun20 = datetime.datetime(2023, 6, 20)#, tzinfo=los_angeles)
+    dob_dec15 = datetime.datetime(2023, 12, 15)
+    dob_dec10 = datetime.datetime(2024, 12, 10)
 
     start_016 = datetime.datetime(2022, 10, 27, 9, 1)#, tzinfo=los_angeles)
     start_017 = datetime.datetime(2022, 10, 27, 11, 44)#, tzinfo=los_angeles)
     start_144 = datetime.datetime(2023, 8, 28, 11, 15)#, tzinfo=los_angeles)
+    start_268 = datetime.datetime(2024, 2, 21, 9, 38)
+    start_778 = datetime.datetime(2024, 3, 3, 9, 6)
     finish_144 = datetime.datetime(2023, 8, 28, 11, 33)#, tzinfo=los_angeles)
+    finish_268 = datetime.datetime(2024, 2, 21, 9, 57)
+    finish_778 = datetime.datetime(2024, 3, 3, 9, 21)
 
+    mouse_names = ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F", "268_CC001_10F", "778_B6J_L_12F"]
     mice = pandas.DataFrame({
-            "Mouse Name": ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F"],
-            "Dissection ID": ["16", "17", "144"],
-            "Strain code": ["B6J", "B6J", "B6129S1F1J"],
-            "Sex": ["M", "F", "F"],
-            "Weight (g)": [21.1, 26.3, 19.9],
-            "DOB": [dob_aug16, dob_aug16, dob_jun20],
-            "Dissection start time": [start_016, start_017, start_144],
-            "Dissection finish time": [None, None, finish_144],
-            "Timepoint": [10] * 3,
-            "Timepoint unit": ["weeks"] * 3,
-            "estrus_cycle": ["D", "NA", "DP"],
-            "Operator": ["T1", "T2", "T1"],
-            "Comments": ["", "", ""],
-            "Housing number": [14669, 14670, None],
+            "Mouse Name": mouse_names,
+            "Dissection ID": ["16", "17", "144", "268", "778"],
+            "Strain code": ["B6J", "B6J", "B6129S1F1J", "CC001", "B6J"],
+            "Sex": ["M", "F", "F", "F", "F"],
+            "Weight (g)": [21.1, 26.3, 19.9, 18.7, 18.66],
+            "DOB": [dob_aug16, dob_aug16, dob_jun20, dob_dec15, dob_dec10],
+            "Dissection start time": [start_016, start_017, start_144, start_268, start_778],
+            "Dissection finish time": [None, None, finish_144, finish_268, finish_778],
+            "Timepoint": [10, 10, 10, 10, 12],
+            "Timepoint unit": ["weeks"] * len(mouse_names),
+            "Light status": ["NA", "NA", "NA", "NA", "L"],
+            "estrus_cycle": ["D", "NA", "DP", "NA", "NA"],
+            "Operator": ["T1", "T2", "T1", "T1", "T3"],
+            "Comments": ["", "", "", "brains weird", ""],
+            "Housing number": [14669, 14670, None, None, None],
         }
     )
 

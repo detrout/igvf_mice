@@ -96,6 +96,7 @@ def load_mice(mice, submitted_accessions=None):
                 timepoint=row["Timepoint"],
                 timepoint_unit=row["Timepoint unit"],
                 life_stage=models.LifeStageEnum.ADULT,
+                light_status=row["Light status"],
                 estrus_cycle=row["estrus_cycle"],
                 operator=str_or_empty(row["Operator"]),
                 notes=str_or_empty(row["Comments"]),

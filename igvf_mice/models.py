@@ -392,6 +392,10 @@ def get_timepoint_units_from_timepoint(x):
     else:
         return timepoints[x.split()[1]]
 
+class LightStatusEnum(models.TextChoices):
+    NA = ("NA", "NA")
+    LIGHT = ("L", "light")
+    DARK = ("D", "dark")
 
 # this represents an individual donor
 class Mouse(models.Model):
@@ -446,6 +450,12 @@ class Mouse(models.Model):
         default=LifeStageEnum.POST_NATAL,
         help_text="broad life stage of mouse",
     )
+    light_status = models.CharField(
+        max_length=2,
+        choices=LightStatusEnum.choices,
+        default=LightStatusEnum.NA,
+        help_text="Light status for mice in circadian experiment. "
+        "NA for mice not in experiment")
     estrus_cycle = models.CharField(
         max_length=2,
         choices=EstrusCycle.choices,
