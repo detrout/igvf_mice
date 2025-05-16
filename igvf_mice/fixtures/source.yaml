@@ -22,3 +22,9 @@
     display_name: 'UNC Systems Genetics'
     homepage: https://csbio.unc.edu
     igvf_id: /sources/unc-csbio/
+- model: igvf_mice.source
+  pk: mortazavi
+  fields:
+    display_name: 'Mortazavi Lab, UCI'
+    homepage: https://mortazavilab.github.io/
+    igvf_id: /sources/ali-mortazavi/
