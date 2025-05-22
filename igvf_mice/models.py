@@ -873,6 +873,13 @@ class PlateSizeEnum(models.TextChoices):
     size_384 = (384, "384")
 
 
+# TODO: the IGVF_EX2 plate broke my model as it is made of pools from
+# several other plates but then had illumina subpool barcodes added
+# for this specific plate and not reused from the earlier subpools
+# made. I think this means I need a separate SplitseqPool object
+# represent the mixture and the end of of a plate construction step,
+# but before it gets illumina barcodes for final sequeinging.
+
 class SplitSeqPlate(models.Model):
     """a plate of wells used to start labeling nuclei.
 
