@@ -4,6 +4,7 @@ import numpy
 import pandas
 from .. import models
 from ..io.converters import (
+    convert_plate_id_to_name,
     date_or_none,
     datetime_or_none,
     float_or_none,
@@ -28,6 +29,17 @@ from ..io.converters import (
 
 
 class TestConverters(TestCase):
+    def test_convert_plate_id_to_name(self):
+        data = [
+            ("008b", "IGVF_008B"),
+            ("EX1", "IGVF_EX1"),
+            ("IGVF_003", "IGVF_003"),
+        ]
+
+        for source, expected in data:
+            self.assertEqual(
+                convert_plate_id_to_name(source), expected)
+
     def test_date_or_none(self):
         self.assertIsNone(date_or_none(numpy.nan))
         self.assertIsNone(date_or_none(None))

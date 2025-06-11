@@ -14,6 +14,15 @@ from .. import models
 from .validators import validate_mouse_age_sex
 
 
+def convert_plate_id_to_name(value):
+    if pandas.notnull(value):
+        value = normalize_plate_name(value)
+        if value.startswith("IGVF_"):
+            return value
+        else:
+            return "IGVF_{}".format(value)
+
+
 def date_or_none(x):
     if pandas.isnull(x):
         return None
