@@ -32,15 +32,15 @@ class TestConverters(TestCase):
         self.assertIsNone(date_or_none(numpy.nan))
         self.assertIsNone(date_or_none(None))
         self.assertIsNone(date_or_none("-"))
-        x = datetime(2022,1,2,3,4,5)
+        x = datetime(2022, 1, 2, 3, 4, 5)
         self.assertEqual(date_or_none(x), x.date())
         self.assertEqual(date_or_none("foo"), "foo")
-        
+
     def test_datetime_or_none(self):
         self.assertIsNone(datetime_or_none(numpy.nan))
         self.assertIsNone(datetime_or_none(None))
         self.assertIsNone(datetime_or_none("-"))
-        x = datetime(2022,1,2,3,4,5)
+        x = datetime(2022, 1, 2, 3, 4, 5)
         self.assertEqual(datetime_or_none(x), x)
         self.assertEqual(datetime_or_none("foo"), "foo")
 
@@ -54,7 +54,7 @@ class TestConverters(TestCase):
         # me using blanks as no value
         self.assertIsNone(int_or_none(""))
         self.assertEqual(int_or_none("3"), 3)
-        
+
     def test_int_or_0(self):
         for value in [numpy.nan, None]:
             self.assertEqual(int_or_0(value), 0)
@@ -64,7 +64,7 @@ class TestConverters(TestCase):
         for value in [numpy.nan, None]:
             self.assertEqual(str_or_empty(value), "")
         self.assertEqual(str_or_empty("hello"), "hello")
-        
+
     def test_str_or_none(self):
         for value in [numpy.nan, None]:
             self.assertIsNone(str_or_none(value))
@@ -89,21 +89,21 @@ class TestConverters(TestCase):
 
     def test_normalize_mice_date_fail_types(self):
         dates = ["asdf"]
-        times = [time(12,30)]
+        times = [time(12, 30)]
         self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
 
-        dates = [time(12,30)]
-        times = [time(12,30)]
+        dates = [time(12, 30)]
+        times = [time(12, 30)]
         self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
 
-        dates = [date(1970,1,1)]
+        dates = [date(1970, 1, 1)]
         times = ["asdf"]
         self.assertRaises(ValueError, list, normalize_mice_date(dates, times))
 
     def test_normalize_mice_date_valid_date_types(self):
-        dates = [date(1970,1,1)]
-        times = [time(12,30)]
-        expected = [datetime(1970,1,1,12,30)]
+        dates = [date(1970, 1, 1)]
+        times = [time(12, 30)]
+        expected = [datetime(1970, 1, 1, 12, 30)]
 
         self.assertEqual(list(normalize_mice_date(dates, times)), expected)
 
@@ -116,10 +116,14 @@ class TestConverters(TestCase):
 
     def test_normalize_subpool_submission_status(self):
         for falsy in (None, numpy.nan, 0, False, "no"):
-            self.assertEqual(normalize_subpool_submission_status(falsy), str(models.RunStatusEnum.FAILED))
+            self.assertEqual(
+                normalize_subpool_submission_status(falsy),
+                str(models.RunStatusEnum.FAILED))
 
         for truthy in (1, True, "yes", "Yes"):
-            self.assertEqual(normalize_subpool_submission_status(truthy), str(models.RunStatusEnum.PASS))
+            self.assertEqual(
+                normalize_subpool_submission_status(truthy),
+                str(models.RunStatusEnum.PASS))
 
     def test_parse_mouse_age_sex(self):
         for name, split in [

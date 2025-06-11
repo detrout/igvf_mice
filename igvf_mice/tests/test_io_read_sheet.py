@@ -4,8 +4,8 @@ from ..io.read_sheet import (
     normalize_mice_strain_name,
     strain_code_to_name,
     strain_name_to_code,
-    
 )
+
 
 class TestNormalizeMiceName(TestCase):
     fixtures = ["source", "mousestrain"]
@@ -30,7 +30,7 @@ class TestNormalizeMiceName(TestCase):
         names = ["874_B6AF1_10F", "882_AB6F1_10F"]
         for n in names:
             self.assertEqual(normalize_mice_name(n), n)
-        
+
     def test_normalize_mice_name_cc(self):
         names = ["381_CC012_10M", "575_CC065_10M"]
         for n in names:
@@ -40,7 +40,7 @@ class TestNormalizeMiceName(TestCase):
         names = ["634_B6AF1J_6moF", "697_B6WSBF1J_6moM"]
         for n in names:
             self.assertEqual(normalize_mice_name(n), n)
-        
+
     def test_normalize_mice_name_circadian(self):
         names = ["781_B6J_L_12M", "799_CASTJ_D_12M"]
 
