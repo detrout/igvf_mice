@@ -708,6 +708,93 @@ class TestModels(TestCase):
 
         self.assertEqual(str(sequencing_file_r1), filename_r1)
 
+    # testing if we can handle a subpool built on one plate, but
+    # sequenced under an experiment with a different name.  this does
+    # show that a plate used as an experiment name can be different
+    # from plate used by the libraries that were loaded onto that run
+    # Q: where does the illumina barcode get added?
+    #
+    # the constraint that EX2 violated is same subpool name with
+    # different illumina barcodes
+    def test_new_subpools_from_previous_mix(self):
+        plate_004 = SplitSeqPlate.objects.create(
+            name="TEST_004",
+            size=PlateSizeEnum.size_96,
+            pool_location="missing",
+            date_performed="2023-02-28",
+        )
+
+        well_single = SplitSeqWell(
+            plate=plate_004,
+            row="A",
+            column="1",
+        )
+        well_single.save()
+        well_single.biosample.set([self.fixed_sample_tail])
+        well_single.barcode.set(
+            [self.library_barcode_fake_r, self.library_barcode_fake_t]
+        )
+        subpool = Subpool.objects.create(
+            name="004_13A",
+            plate=plate_004,
+            nuclei=67000,
+            selection_type="EX",
+            cdna_pcr_rounds="5 + 7",
+            cdna_ng_per_ul=22.0,
+            cdna_volume=25,
+            bioanalyzer_date="2023-1-1",
+            index_pcr_number=11,
+            index=2,
+            library_ng_per_ul=30.0,
+            library_average_bp_length=410,
+        )
+        subpool.save()
+        subpool.barcode.set([self.library_barcode_fake_illumina])
+        subpool.save()
+
+        plate_ex1 = SplitSeqPlate.objects.create(
+            name="TEST_EX1",
+            size=PlateSizeEnum.size_96,
+            pool_location="missing",
+            date_performed="2024-02-28",
+        )
+
+        run = SequencingRun.objects.create(
+            name="igvf_ex1/nova1",
+            run_date="1066-10-14",
+            platform=self.platform_novaseq,
+            plate=plate_ex1,
+            stranded=StrandedEnum.REVERSE,
+        )
+
+        libraryinrun = LibraryInRun.objects.create(
+            subpool=subpool,
+            sequencing_run=run,
+            status=RunStatusEnum.PASS,
+        )
+
+        sequencing_file = SequencingFile.objects.create(
+            sequencing_run=run,
+            library_in_run=libraryinrun,
+            filename="igvf_ex1/nova1/004_13A_L001_R1.fastq.gz",
+            lane=1,
+            read="R1",
+        )
+
+        test_ex1 = SplitSeqPlate.objects.get(name="TEST_EX1")
+        test_ex1_run = test_ex1.sequencingrun_set.first()
+        self.assertEqual(test_ex1_run.name, "igvf_ex1/nova1")
+        self.assertEqual(test_ex1_run.libraryinrun_set.count(), 1)
+        test_libraryinrun = test_ex1_run.libraryinrun_set.first()
+        self.assertEqual(test_libraryinrun.subpool.plate.name, subpool.plate.name)
+        self.assertEqual(test_libraryinrun.subpool.plate.name, plate_004.name)
+        self.assertEqual(test_libraryinrun.sequencing_run.plate.name, plate_ex1.name)
+        self.assertEqual(test_ex1_run.sequencingfile_set.count(), 1)
+        test_ex1_file = test_ex1_run.sequencingfile_set.first()
+        self.assertEqual(test_ex1_file.filename, sequencing_file.filename)
+        test_subpool = test_ex1_file.library_in_run.subpool
+        self.assertEqual(test_subpool.name, subpool.name)
+
     # testing nanopore tables
     # we've got two kinds of nanopore data, one derived from the splitseq
     # subpools, and one from a fresh isolation from different tissues.
