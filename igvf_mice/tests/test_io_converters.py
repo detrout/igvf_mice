@@ -1,7 +1,6 @@
 from datetime import datetime, date, time
 from unittest import TestCase
 import numpy
-import pandas
 from .. import models
 from ..io.converters import (
     convert_plate_id_to_name,
