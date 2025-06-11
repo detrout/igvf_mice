@@ -1,0 +1,248 @@
+- model: igvf_mice.splitseqplate
+  pk: IGVF_003
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_004
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_005
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_006
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_007
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_008
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_008B
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_009
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_010
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_011
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_012
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_013
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_014
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_015
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_016
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_017
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_018
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_019
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_020
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_021
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_022
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_023
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_024A
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_024B
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_024C
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_025A
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_025B
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_025C
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_B01
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: null
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_EX1
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: 2025-06-09
+    barcoded_cell_counter: null
+    volume_of_nuclei: null
+- model: igvf_mice.splitseqplate
+  pk: IGVF_EX2
+  fields:
+    size: 96
+    pool_location: null
+    date_performed: 2025-06-09
+    barcoded_cell_counter: null
+    volume_of_nuclei: null

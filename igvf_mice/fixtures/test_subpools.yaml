@@ -1,0 +1,100 @@
+- model: igvf_mice.subpool
+  pk: 003_13A
+  fields:
+    plate: IGVF_EX1
+    nuclei: 13000
+    selection_type: EX
+    cdna_pcr_rounds: 5 + 8
+    cdna_ng_per_ul: 66.4
+    cdna_volume: 25.0
+    bioanalyzer_date: null
+    cdna_average_bp_length: null
+    gene_capture_ng_per_ul: 48.2
+    index_pcr_number: 12
+    index: '1'
+    library_ng_per_ul: 19.0
+    library_average_bp_length: null
+    barcode:
+    - 193
+    protocols:
+    - cdna_exome_capture
+    - cortex_hipp_nuclei_prep
+    - heart_nuclei_prep
+    - ont_library_prep
+    - splitseq_1M_v2
+    - splitseq_single_index
+    accession: []
+- model: igvf_mice.subpool
+  pk: 003_67A
+  fields:
+    plate: IGVF_003
+    nuclei: 67000
+    selection_type: 'NO'
+    cdna_pcr_rounds: 5 + 7
+    cdna_ng_per_ul: 239.0
+    cdna_volume: 25.0
+    bioanalyzer_date: 2022-12-05
+    cdna_average_bp_length: 1149
+    gene_capture_ng_per_ul: null
+    index_pcr_number: 12
+    index: '2'
+    library_ng_per_ul: 30.6
+    library_average_bp_length: 413
+    barcode:
+    - 194
+    protocols:
+    - cortex_hipp_nuclei_prep
+    - heart_nuclei_prep
+    - splitseq_1M_v2
+    - splitseq_single_index
+    accession: []
+- model: igvf_mice.subpool
+  pk: 008B_13A
+  fields:
+    plate: IGVF_008B
+    nuclei: 67000
+    selection_type: NO
+    cdna_pcr_rounds: 5 + 7
+    cdna_ng_per_ul: 207.0
+    cdna_volume: 25.0
+    bioanalyzer_date: 2023-4-21
+    cdna_average_bp_length: null
+    gene_capture_ng_per_ul: 48.2
+    index_pcr_number: 11
+    index: '2'
+    library_ng_per_ul: 18.5
+    library_average_bp_length: 434
+    barcode:
+    - 194
+    protocols:
+    - adrenal_nuclei_prep
+    - female_gonads_nuclei_prep
+    - male_gonads_nuclei_prep
+    - splitseq_1M_v2
+    - splitseq_single_index
+    accession: []
+- model: igvf_mice.subpool
+  pk: 016_13A
+  fields:
+    plate: IGVF_016
+    nuclei: 13000
+    selection_type: EX
+    cdna_pcr_rounds: 5 + 8
+    cdna_ng_per_ul: 61.5
+    cdna_volume: 25.0
+    bioanalyzer_date: 2023-12-11
+    cdna_average_bp_length: 1326
+    gene_capture_ng_per_ul: 86.8
+    index_pcr_number: 12
+    index: UDI33
+    library_ng_per_ul: 36.0
+    library_average_bp_length: null
+    barcode:
+    - 345
+    protocols:
+    - cdna_exome_capture
+    - cortex_hipp_nuclei_prep
+    - ont_library_prep
+    - splitseq_1M_v2
+    - splitseq_dual_index
+    accession: []

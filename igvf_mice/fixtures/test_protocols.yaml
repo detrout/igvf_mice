@@ -1,0 +1,135 @@
+- model: igvf_mice.protocollink
+  pk: adrenal_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-81wgbxzdylpk/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse adrenal gland and fixation
+      using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: cdna_exome_capture
+  fields:
+    see_also: https://www.protocols.io/view/cdna-exome-capture-v1-0-1-36wgq3b83lk5/v1
+    version: 1
+    description: Modifiied version of Parse Bio Gene Capure kit for Exome Capture
+      on cDNA using Twist exome panels for mouse or human
+- model: igvf_mice.protocollink
+  pk: cortex_hipp_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-eq2lyj17rlx9/v1
+    version: 1
+    description: Nuclei isolation from flash-frozen mouse cortex and hippocampus and
+      fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: female_gonads_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-36wgq3e3ylk5/v1
+    version: 1
+    description: Nuclei isolation from flash-frozen mouse ovaries and oviducts and
+      fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: gastroc_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-n2bvj3noplk5/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse gastrocnemius muscle and
+      fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: heart_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-dm6gp3zedvzp/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse heart and fixation using
+      Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: hypo_pit_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-n92ldm8b8l5b/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse hypothalamus and pituitary
+      and fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: kidney_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-14egn334ml5d/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse kidneys and fixation using
+      Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: left_cortex_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-cryopreser-4r3l22y2pl1y/v1
+    version: 1
+    description: Nuclei isolation from mouse left cortex stored in Bambanker media
+      and fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: liver_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-kxygx396zg8j/v2
+    version: 2
+    description: Nuclei isolation from flash-frozen mouse liver and fixation using
+      Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: male_gonads_nuclei_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-and-fix-nuclei-from-flash-froz-5qpvo3837v4o/v1
+    version: 1
+    description: Nuclei isolation from flash-frozen mouse testes and epididymis and
+      fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: mrna_purification
+  fields:
+    see_also: https://www.protocols.io/view/dynabeads-mrna-purification-e6nvwb6kwvmk/v1
+    version: 1
+    description: Dynabeads protocol for mRNA purification from total RNA, used for
+      direct RNA sequencing
+- model: igvf_mice.protocollink
+  pk: ont_drna_library_prep
+  fields:
+    see_also: https://www.protocols.io/view/direct-rna-sequencing-sqk-rna004-for-ont-promethio-dqwz5xf6
+    version: 1
+    description: Oxford Nanopore library prep for direct RNA sequencing to detect
+      RNA modifications
+- model: igvf_mice.protocollink
+  pk: ont_library_prep
+  fields:
+    see_also: https://www.protocols.io/view/ont-library-prep-for-split-seq-cdna-eq2lyj1xmlx9/v1
+    version: 1
+    description: Oxford Nanopore Library Prep for Parse Bio cDNA
+- model: igvf_mice.protocollink
+  pk: pbmc_cell_prep
+  fields:
+    see_also: https://www.protocols.io/view/protocol-to-isolate-cryopreserve-and-fix-mouse-pbm-5qpvo3kx7v4o/v2
+    version: 2
+    description: PBMC isolation from whole mouse blood, cryopreservation, thawing,
+      and fixation using Parse Bio kit
+- model: igvf_mice.protocollink
+  pk: rna_extraction
+  fields:
+    see_also: https://www.protocols.io/view/purification-of-total-rna-from-animal-tissues-with-dqxd5xi6
+    version: 1
+    description: Qiagen protocol for total RNA extraction from tissue using QIAcube
+      liquid handler
+- model: igvf_mice.protocollink
+  pk: splitseq_100k_v2
+  fields:
+    see_also: https://www.protocols.io/view/evercode-wt-v2-2-1-eq2lyj9relx9/v1
+    version: 1
+    description: Parse Bio snRNA-seq for 100,000 cells or nuclei using v2 reagents
+- model: igvf_mice.protocollink
+  pk: splitseq_1M_v2
+  fields:
+    see_also: https://www.protocols.io/view/evercode-wt-mega-v2-2-1-8epv5xxrng1b/v1
+    version: 1
+    description: Parse Bio snRNA-seq for 1M cells or nuclei using v2 reagents
+- model: igvf_mice.protocollink
+  pk: splitseq_dual_index
+  fields:
+    see_also: https://www.protocols.io/view/evercode-dual-index-pcr-yxmvmeqe5g3p/v1
+    version: 1
+    description: Parse Bio snRNA-seq Dual Indexing
+- model: igvf_mice.protocollink
+  pk: splitseq_single_index
+  fields:
+    see_also: https://www.protocols.io/view/evercode-single-index-pcr-5jyl82k9rl2w/v1
+    version: 1
+    description: Parse Bio snRNA-seq Single Indexing
