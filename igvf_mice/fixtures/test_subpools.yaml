@@ -49,6 +49,56 @@
     - splitseq_single_index
     accession: []
 - model: igvf_mice.subpool
+  pk: 004_13A
+  fields:
+    plate: IGVF_004
+    nuclei: 13000
+    selection_type: EX
+    cdna_pcr_rounds: 5 + 8
+    cdna_ng_per_ul: 23.8
+    cdna_volume: 25.0
+    bioanalyzer_date: null
+    cdna_average_bp_length: null
+    gene_capture_ng_per_ul: 51.5
+    index_pcr_number: 12
+    index: '2'
+    library_ng_per_ul: 24.4
+    library_average_bp_length: null
+    barcode:
+    - 194
+    protocols:
+    - cdna_exome_capture
+    - heart_nuclei_prep
+    - liver_nuclei_prep
+    - ont_library_prep
+    - splitseq_1M_v2
+    - splitseq_single_index
+    accession: []
+- model: igvf_mice.subpool
+  pk: 004_67A
+  fields:
+    plate: IGVF_004
+    nuclei: 67000
+    selection_type: 'NO'
+    cdna_pcr_rounds: 5 + 7
+    cdna_ng_per_ul: 136.0
+    cdna_volume: 25.0
+    bioanalyzer_date: 2022-12-16
+    cdna_average_bp_length: 1089
+    gene_capture_ng_per_ul: null
+    index_pcr_number: 12
+    index: '2'
+    library_ng_per_ul: 33.2
+    library_average_bp_length: 426
+    barcode:
+    - 194
+    protocols:
+    - heart_nuclei_prep
+    - liver_nuclei_prep
+    - splitseq_1M_v2
+    - splitseq_single_index
+    accession: []
+- model: igvf_mice.subpool
   pk: 008B_13A
   fields:
     plate: IGVF_008B

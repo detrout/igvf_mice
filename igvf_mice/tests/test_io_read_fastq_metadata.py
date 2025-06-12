@@ -55,6 +55,97 @@ class TestReadFastqMetadata(TestCase):
             "003_13A"
         )
 
+    # Adding tests for 004_13A/004_67A since they have colliding illumina barcodes
+    def test_fastq_metadata_row_to_subpool_004_13A(self):
+        fastqs = pandas.DataFrame({
+            "experiment": ["igvf_004"],
+            "run_name": ["nextseq"],
+            "plate_id": ["004"],
+            "filename": ["igvf_004/nextseq/004_13A_R1.fastq.gz"],
+            "file_type": ["fastq"],
+            "compression": ["gz"],
+            "lane": [None],
+            "read": ["R1"],
+            "fragment": [None],
+            "protocol": [None],
+            "subpool_name": ["13A"],
+            "sequencer": ["VH0582"],
+            "sequencer_run": ["1"],
+            "flowcell_id": ["AAATJF3HV"],
+            "barcode_id": ["2"],
+            "barcode": ["ACTTGA"],
+            "read_length": ["140"],
+            "size": [None],
+            "ctime": ["2023-06-13"],
+            "exists": [True],
+            "md5sum": ["e3032740ef0d720818f582027f8e43ab"],
+        })
+
+        self.assertEqual(
+            fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
+            "004_13A"
+        )
+
+    def test_fastq_metadata_row_to_subpool_004_67A(self):
+        fastqs = pandas.DataFrame({
+            "experiment": ["igvf_004"],
+            "run_name": ["nextseq"],
+            "plate_id": ["004"],
+            "filename": ["igvf_004/nextseq/004_67A_R1.fastq.gz"],
+            "file_type": ["fastq"],
+            "compression": ["gz"],
+            "lane": [None],
+            "read": ["R1"],
+            "fragment": [None],
+            "protocol": [None],
+            "subpool_name": ["67A"],
+            "sequencer": ["VH0582"],
+            "sequencer_run": ["1"],
+            "flowcell_id": ["AAATJF3HV"],
+            "barcode_id": ["2"],
+            "barcode": ["ACTTGA"],
+            "read_length": ["140"],
+            "size": [None],
+            "ctime": ["2023-06-13"],
+            "exists": [True],
+            "md5sum": ["b37eb5352cdc612eaa64099ff61fb255"],
+        })
+
+        self.assertEqual(
+            fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
+            "004_67A"
+        )
+
+    def test_fastq_metadata_row_to_subpool_004_67A_nova(self):
+        fastqs = pandas.DataFrame({
+            "experiment": ["igvf_004"],
+            "run_name": ["nova2"],
+            "plate_id": ["004"],
+            "filename": ["igvf_004/nova2/Sublibrary_2_S1_L004_R2_001.fastq.gz"],
+            "file_type": ["fastq"],
+            "compression": ["gz"],
+            "lane": ["L004"],
+            "read": ["R2"],
+            "fragment": ["001"],
+            "protocol": [None],
+            "subpool_name": [None],
+            "sequencer": ["A00850"],
+            "sequencer_run": ["254"],
+            "flowcell_id": ["HTGM5DSX5"],
+            "barcode_id": ["2"],
+            "barcode": ["ACTTGA"],
+            "read_length": ["86"],
+            "size": [None],
+            "ctime": ["2023-06-13"],
+            "exists": [True],
+            "md5sum": ["310343ca4eeaee652e4b23b1a4d117cf"],
+        })
+
+        self.assertEqual(
+            fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
+            "004_67A"
+        )
+
     def test_fastq_metadata_row_to_subpool_name_nova_008b(self):
         fastqs = pandas.DataFrame({
             "experiment": ["igvf_008b"],

@@ -27,6 +27,41 @@ def is_subpool_exome(subpool_name):
     return False
 
 
+def get_unique_subpool(plate_name, barcode_id):
+    # this is a stupid brute force solution
+    # but since it's only occasionally some runs where we get the raw
+    # sequencer filename that doesn't have the subpool name in it,
+    # this is the easiest way to force which
+    overrides = {
+        #plate_name, barcode_id
+        ("IGVF_004", "2"): "004_67A",
+        ("IGVF_005", "3"): "005_67B",
+        ("IGVF_007", "4"): "007_67C",
+        ("IGVF_008B", "5"): "008B_67D",
+        ("IGVF_009", "6"): "009_67E",
+        ("IGVF_010", "7"): "010_67F",
+        ("IGVF_011", "8"): "011_67G",
+        ("IGVF_019", "UDI20"): "019_67I",
+        ("IGVF_021", "UDI22"): "022_67F",
+    }
+    if (plate_name, barcode_id) in overrides:
+        return overrides[(plate_name, barcode_id)]
+
+    candidates = Subpool.objects.filter(
+        plate__name=plate_name,
+        barcode__code=barcode_id)
+    if candidates.count() == 0:
+        logger.warn("Nothing matched {} {}".format(
+            plate_name, barcode_id))
+        assert False
+    elif candidates.count() == 1:
+        return candidates.first().name
+    else:
+        logger.warn("Too many subpools {} matched {} {}".format(
+            candidates, plate_name, barcode_id))
+        assert False
+
+
 def fastq_metadata_row_to_subpool_name(row):
     if pandas.isnull(row.subpool_name):
         # Can we infer the subpool name
@@ -37,19 +72,7 @@ def fastq_metadata_row_to_subpool_name(row):
             return None
         else:
             plate_name = convert_plate_id_to_name(row.plate_id)
-            candidates = Subpool.objects.filter(
-                plate__name=plate_name,
-                barcode__code=row.barcode_id)
-            if candidates.count() == 0:
-                logger.warn("Nothing matched {} {}".format(
-                    plate_name, row.barcode_id))
-                assert False
-            elif candidates.count() == 1:
-                return candidates.first().name
-            else:
-                logger.warn("Too many subpools {} matched {} {}".format(
-                    candidates, plate_name, row.barcode_id))
-                assert False
+            return get_unique_subpool(plate_name, row.barcode_id)
 
         return None
     else:
