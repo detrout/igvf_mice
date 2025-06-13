@@ -394,3 +394,17 @@ class TestReadSheet(TestCase):
 
         ont = get_test_splitseq_ont_sequencing_sheet()
         load_splitseq_ont_samples(ont)
+
+        ont18 = models.NanoporeLibrary.objects.get(name="ONT018")
+        self.assertEqual(
+            ont18.build_date.isoformat(), ont.iloc[0]["library_build_date"])
+        self.assertEqual(
+            ont18.ng_per_ul, ont.iloc[0]["library_input_ng_per_ul"])
+
+        self.assertEqual(ont18.nucleic_acid_extraction.count(), 1)
+        ont18_extraction = ont18.nucleic_acid_extraction.first()
+        self.assertEqual(ont18_extraction.name, ont.iloc[0]["name"])
+        self.assertEqual(ont18_extraction.passed_qc, ont.iloc[0]["passed_qc"])
+        self.assertEqual(ont18_extraction.subpool.count(), 1)
+        ont18_subpool = ont18_extraction.subpool.first()
+        self.assertEqual(ont18_subpool.name, ont.iloc[0]["subpool"])

@@ -283,10 +283,12 @@ def get_or_create_splitseq_ont_nucleic_acid_extraction(row, subpool):
         )
         extraction.save()
         extraction.subpool.set([subpool])
-    return extraction
+    # we're not handling the case where there could be multiple extractions pooled
+    # like ONT020&026, this pretends the merged samples are one pool
+    return [extraction]
 
 
-def get_or_create_splitseq_ont_library(row):
+def get_or_create_splitseq_ont_library(row, extractions):
     name = row["name"]
     try:
         library = models.NanoporeLibrary.objects.get(name=name)
@@ -298,6 +300,7 @@ def get_or_create_splitseq_ont_library(row):
             ng_per_ul=row["library_input_ng_per_ul"],
             volume_ul=row["library_volume_ul"],
         )
+        library.nucleic_acid_extraction.set(extractions)
         library.save()
     return library
 
@@ -334,7 +337,7 @@ def load_splitseq_ont_samples(samples):
 
         extraction = get_or_create_splitseq_ont_nucleic_acid_extraction(
             row, subpool)
-        library = get_or_create_splitseq_ont_library(row)
+        library = get_or_create_splitseq_ont_library(row, extraction)
         run = get_or_create_ont_splitseq_sequencing_run(row)
 
         try:
