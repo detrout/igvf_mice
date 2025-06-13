@@ -24,6 +24,8 @@ class TestReadFastqMetadata(TestCase):
         self.assertEqual(is_subpool_exome("003_13A"), True)
         self.assertEqual(is_subpool_exome("003_67A"), False)
         self.assertEqual(is_subpool_exome("016_13A"), True)
+        self.assertEqual(is_subpool_exome("001_ABC"), None)
+
 
     def test_fastq_metadata_row_to_subpool_name_nanopore(self):
         fastqs = pandas.DataFrame({

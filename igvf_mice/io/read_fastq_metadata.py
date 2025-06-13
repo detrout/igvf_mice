@@ -18,7 +18,8 @@ def is_subpool_exome(subpool_name):
     try:
         subpool = Subpool.objects.get(name=subpool_name)
     except Subpool.DoesNotExist:
-        raise Subpool.DoesNotExist("Subpool {} does not exist".format(subpool_name))
+        logger.warn("Subpool {} does not exist".format(subpool_name))
+        return None
 
     for protocol in subpool.protocols.all():
         if protocol.name == "cdna_exome_capture":
@@ -83,8 +84,13 @@ def get_subpool_from_fastq_row(row):
     plate_name = normalize_plate_name(row.experiment)
     subpool_name = fastq_metadata_row_to_subpool_name(row)
 
-    if is_subpool_exome(subpool_name):
-        row.protocol = "E"
+    match is_subpool_exome(subpool_name):
+        case True:
+            row.protocol = "E"
+        case False:
+            row.protocol = None
+        case None:
+            return None
 
     # if subpool_name in ["003_13A", "004_13A", "005_13A", "007_13A", "008B_13A", "009_13A", "010_13A", "011_13A"]:
     #    plate_name = "IGVF_EX1"
