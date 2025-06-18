@@ -6,6 +6,7 @@ from ..io.read_fastq_metadata import (
     get_subpool_from_fastq_row,
     check_fastq_barcode_is_equal,
 )
+from ..models import Subpool
 
 
 class TestReadFastqMetadata(TestCase):
@@ -26,8 +27,7 @@ class TestReadFastqMetadata(TestCase):
         self.assertEqual(is_subpool_exome("016_13A"), True)
         self.assertEqual(is_subpool_exome("001_ABC"), None)
 
-
-    def test_fastq_metadata_row_to_subpool_name_nanopore(self):
+    def test_get_subpool_name_nanopore(self):
         fastqs = pandas.DataFrame({
             "experiment": ["igvf_003"],
             "run_name": ["nanopore_p2/igvf003_13A-gc_lig-ss_p2_2"],
@@ -52,13 +52,18 @@ class TestReadFastqMetadata(TestCase):
             "md5sum": ["7e9832c3a33438b20b954ef8dbc1c300"],
         })
 
+        subpool_name = "003_13A"
         self.assertEqual(
             fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
-            "003_13A"
+            subpool_name
         )
 
+        subpool = Subpool.objects.get(name=subpool_name)
+        self.assertEqual(
+            get_subpool_from_fastq_row(fastqs.iloc[0]), subpool)
+
     # Adding tests for 004_13A/004_67A since they have colliding illumina barcodes
-    def test_fastq_metadata_row_to_subpool_004_13A(self):
+    def test_get_subpool_004_13A(self):
         fastqs = pandas.DataFrame({
             "experiment": ["igvf_004"],
             "run_name": ["nextseq"],
@@ -83,12 +88,16 @@ class TestReadFastqMetadata(TestCase):
             "md5sum": ["e3032740ef0d720818f582027f8e43ab"],
         })
 
+        subpool_name = "004_13A"
         self.assertEqual(
             fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
-            "004_13A"
+            subpool_name
         )
 
-    def test_fastq_metadata_row_to_subpool_004_67A(self):
+        subpool = Subpool.objects.get(name=subpool_name)
+        self.assertEqual(get_subpool_from_fastq_row(fastqs.iloc[0]), subpool)
+
+    def test_get_subpool_004_67A(self):
         fastqs = pandas.DataFrame({
             "experiment": ["igvf_004"],
             "run_name": ["nextseq"],
@@ -113,10 +122,14 @@ class TestReadFastqMetadata(TestCase):
             "md5sum": ["b37eb5352cdc612eaa64099ff61fb255"],
         })
 
+        subpool_name = "004_67A"
         self.assertEqual(
             fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
-            "004_67A"
+            subpool_name
         )
+
+        subpool = Subpool.objects.get(name=subpool_name)
+        self.assertEqual(get_subpool_from_fastq_row(fastqs.iloc[0]), subpool)
 
     def test_fastq_metadata_row_to_subpool_004_67A_nova(self):
         fastqs = pandas.DataFrame({
@@ -143,10 +156,14 @@ class TestReadFastqMetadata(TestCase):
             "md5sum": ["310343ca4eeaee652e4b23b1a4d117cf"],
         })
 
+        subpool_name = "004_67A"
         self.assertEqual(
             fastq_metadata_row_to_subpool_name(fastqs.iloc[0]),
-            "004_67A"
+            subpool_name
         )
+
+        subpool = Subpool.objects.get(name=subpool_name)
+        self.assertEqual(get_subpool_from_fastq_row(fastqs.iloc[0]), subpool)
 
     def test_fastq_metadata_row_to_subpool_name_nova_008b(self):
         fastqs = pandas.DataFrame({
@@ -173,8 +190,12 @@ class TestReadFastqMetadata(TestCase):
             "md5sum": ["c0f9661d21c2b0c3f73ff5b46c75888e"],
         })
 
+        subpool_name = "008B_13A"
         self.assertEqual(
-            fastq_metadata_row_to_subpool_name(fastqs.iloc[0]), "008B_13A")
+            fastq_metadata_row_to_subpool_name(fastqs.iloc[0]), subpool_name)
+
+        subpool = Subpool.objects.get(name=subpool_name)
+        self.assertEqual(get_subpool_from_fastq_row(fastqs.iloc[0]), subpool)
 
     def test_check_fastq_barcode_is_equal(self):
         self.assertTrue(check_fastq_barcode_is_equal("ACTTGA", None, "ACTTGA"))

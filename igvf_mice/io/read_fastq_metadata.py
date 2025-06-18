@@ -81,9 +81,15 @@ def fastq_metadata_row_to_subpool_name(row):
 
 
 def get_subpool_from_fastq_row(row):
-    plate_name = normalize_plate_name(row.experiment)
+    # if we have a valid subpool name, just return the subpool
     subpool_name = fastq_metadata_row_to_subpool_name(row)
 
+    candidates = Subpool.objects.filter(name=subpool_name)
+    if candidates.count() == 1:
+        return candidates.first()
+
+    # if we don't have a valid subpool name, try to find one.
+    plate_name = normalize_plate_name(row.experiment)
     match is_subpool_exome(subpool_name):
         case True:
             row.protocol = "E"
