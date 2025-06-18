@@ -1214,6 +1214,7 @@ class SequencingFile(models.Model):
     filesize = models.BigIntegerField(null=True)
     lane = models.IntegerField(null=True)
     read = models.CharField(max_length=4, null=True, blank=False)
+    fragment = models.CharField(max_length=8, null=True, blank=False)
     derived_from = models.ManyToManyField("SequencingFile")
     host = models.CharField(
         max_length=50,
