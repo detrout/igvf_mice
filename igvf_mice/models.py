@@ -160,6 +160,13 @@ class ProtocolLink(models.Model):
     version = models.PositiveIntegerField(help_text="integer protocol version number")
     description = models.TextField(help_text="Summary of the protocol")
 
+def get_protocol_from_url(protocol_url):
+    protocol = ProtocolLink.objects.get(see_also=protocol_url)
+    return protocol
+
+def get_protocol_name_from_url(protocol_url):
+    protocol = ProtocolLink.objects.get(see_also=protocol_url)
+    return protocol.name
 
 class LibraryConstructionReagent(models.Model):
     """Reference to describe a library construction kit used to make libraries.

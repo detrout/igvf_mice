@@ -6,6 +6,9 @@ from ..models import (
     NucleicAcidEnum,
     Accession,
     Source,
+    ProtocolLink,
+    get_protocol_from_url,
+    get_protocol_name_from_url,
     LibraryConstructionReagent,
     LibraryBarcode,
     StrainType,
@@ -1083,3 +1086,18 @@ class TestTimepointConversions(TestCase):
         self.assertEqual(get_timepoint_value_from_timepoint("6 months"), 6)
 
         self.assertEqual(get_timepoint_units_from_timepoint("6 months"), "M")
+
+
+class TestProtocolLink(TestCase):
+    fixtures = ["test_protocols"]
+
+    def test_get_protocol_from_url(self):
+        url = "https://www.protocols.io/view/evercode-wt-v2-2-1-eq2lyj9relx9/v1"
+        protocol_by_url = get_protocol_from_url(url)
+        expected = "splitseq_100k_v2"
+        protocol = ProtocolLink.objects.get(name=expected)
+
+        self.assertEqual(protocol_by_url, protocol)
+
+        protocol_name = get_protocol_name_from_url(url)
+        self.assertEqual(protocol_name, expected)
