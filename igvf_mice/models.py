@@ -72,6 +72,7 @@ class FileType(models.TextChoices):
     mtx = ("MTX", "matrix market")
     h5ad = ("H5AD", "AnnData")
 
+
 class NucleicAcidEnum(models.TextChoices):
     rna = ("R", "RNA")
     mirna = ("MI", "miRNA")
