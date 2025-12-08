@@ -46,3 +46,10 @@ class TestNormalizeMiceName(TestCase):
 
         for n in names:
             self.assertEqual(normalize_mice_name(n), n)
+
+    def test_normalize_mice_name_reverse_cross(self):
+        names = ["958_CASTB6F1_10F"]
+
+        for n in names:
+            self.assertEqual(normalize_mice_name(n), n)
+

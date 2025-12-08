@@ -165,6 +165,7 @@ genotype_to_strain = {
     "PWK/PhJ": "PWKJ",
     "TREM2R47HNSS_HO": "TREM2",
     "WSB/EiJ": "WSBJ",
+    "CASTB6F1": "CASTB6F1",
 }
 
 

@@ -527,3 +527,14 @@
     strain_type: CR
   model: igvf_mice.mousestrain
   pk: CC074
+- fields:
+    display_name: CASTB6F1
+    igvf_strain_background: null
+    igvf_strain: "CASTB6F1"
+    jax_catalog_number: Custom CAST/EiJ crossed with C56BL/6J
+    notes: ''
+    see_also: null
+    source: mortazavi
+    strain_type: F1
+  model: igvf_mice.mousestrain
+  pk: CASTB6F1
