@@ -21,7 +21,7 @@
   fields:
     display_name: 'UNC Systems Genetics'
     homepage: https://csbio.unc.edu
-    igvf_id: /sources/unc-csbio/
+    igvf_id: /sources/unc-systems-genetics-core/
 - model: igvf_mice.source
   pk: mortazavi
   fields:
