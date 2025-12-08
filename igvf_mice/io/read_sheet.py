@@ -24,7 +24,7 @@ class StrainCode(Mapping):
 
     def __iter__(self):
         for strain in models.MouseStrain.objects.all():
-            return strain.name
+            yield strain.name
 
 
 class StrainName(Mapping):
@@ -43,7 +43,7 @@ class StrainName(Mapping):
 
     def __iter__(self):
         for strain in models.MouseStrain.objects.all():
-            return strain.display_name
+            yield strain.display_name
 
 
 strain_code_to_name = StrainCode()
