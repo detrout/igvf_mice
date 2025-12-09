@@ -242,6 +242,16 @@ class PlateLayoutParser:
             "IGVF_006": {"092_CASTJ_10F_01": "CASTJ"},
             "IGVF_007": {"092_CASTJ_10F_01": "CASTJ"},
             "IGVF_011": {"092_CASTJ_10F_03": "CASTJ"},
+            # Ryan reported sample swap for this plate
+            "IGVF_018": {
+                "204_B6CASTF1J_10F_05": "B6CASTF1J",
+                "238_B6WSBF1J_10F_05": "B6WSBF1J",
+            },
+            # Ryan reported a sample swap for this plate
+            "IGVF_022": {
+                "210_B6PWKF1J_10F_31": "B6PWKF1J",
+                "698_B6J_10F_31": "B6J",
+            }
         }.get(plate_name)
 
         for l in labels:
