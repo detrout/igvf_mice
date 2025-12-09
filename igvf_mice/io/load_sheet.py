@@ -87,7 +87,7 @@ def load_mice(mice, submitted_accessions=None):
             record = models.Mouse(
                 # should i use liz's disection id?
                 name=name,
-                dissection=int_or_none(row["Dissection ID"]),
+                dissection=int_or_none(row["Mouse ID"]),
                 strain=mouse_strains[row["Strain code"]],
                 sex=row["Sex"],
                 weight_g=row["Weight (g)"],

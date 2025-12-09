@@ -54,7 +54,7 @@ def get_test_mice_sheet():
     mouse_names = ["016_B6J_10F", "017_B6J_10M", "144_B6129S1F1J_10F", "268_CC001_10F", "778_B6J_L_12F"]
     mice = pandas.DataFrame({
             "Mouse Name": mouse_names,
-            "Dissection ID": ["16", "17", "144", "268", "778"],
+            "Mouse ID": ["16", "17", "144", "268", "778"],
             "Strain code": ["B6J", "B6J", "B6129S1F1J", "CC001", "B6J"],
             "Sex": ["M", "F", "F", "F", "F"],
             "Weight (g)": [21.1, 26.3, 19.9, 18.7, 18.66],
