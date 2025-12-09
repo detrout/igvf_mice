@@ -4,6 +4,7 @@ import numpy
 from .. import models
 from .converters import (
     date_or_none,
+    float_or_nan,
     float_or_none,
     normalize_strain,
     int_or_none,
@@ -174,14 +175,14 @@ def load_tissues(tissue_sheets, submitted_tissues=None):
 
         tube_weight_label = "tube weight (g)"
         if pandas.notnull(row[tube_weight_label]):
-            record.tube_weight_g = float(row[tube_weight_label])
+            record.tube_weight_g = float_or_nan(row[tube_weight_label])
 
         total_weight_label = "tube+tissue weight (g)"
         if pandas.notnull(row[total_weight_label]):
-            record.total_weight_g = float(row[total_weight_label])
+            record.total_weight_g = float_or_nan(row[total_weight_label])
 
         if pandas.notnull(row.get("volume (mL)")):
-            record.volume_ul = float(row["volume (mL)"]) * 1000
+            record.volume_ul = float_or_nan(row["volume (mL)"]) * 1000
 
         if pandas.notnull(row.get("cells before fixation (x 10^6)")):
             record.input_total

@@ -56,7 +56,7 @@ def float_or_none(x):
 def float_or_nan(x):
     if pandas.isnull(x):
         return numpy.nan
-    elif isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", ""):
+    elif isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", "", "missing"):
         return numpy.nan
     else:
         return float(x)

@@ -6,6 +6,7 @@ from ..io.converters import (
     convert_plate_id_to_name,
     date_or_none,
     datetime_or_none,
+    float_or_nan,
     float_or_none,
     int_or_none,
     int_or_0,
@@ -54,6 +55,12 @@ class TestConverters(TestCase):
         x = datetime(2022, 1, 2, 3, 4, 5)
         self.assertEqual(datetime_or_none(x), x)
         self.assertEqual(datetime_or_none("foo"), "foo")
+
+    def test_float_or_nan(self):
+        self.assertTrue(numpy.isnan(float_or_nan(numpy.nan)))
+        for empty in ["N/A", "#VALUE!", "missing"]:
+            self.assertTrue(numpy.isnan(float_or_nan(empty)))
+        self.assertAlmostEqual(float_or_nan("4.0"), 4.0)
 
     def test_float_or_none(self):
         self.assertIsNone(float_or_none(numpy.nan))
