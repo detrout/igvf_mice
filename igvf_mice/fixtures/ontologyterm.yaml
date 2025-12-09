@@ -323,3 +323,13 @@
     name: Lungs
   model: igvf_mice.ontologyterm
   pk: UBERON:0002048
+- fields:
+    description: An eye that is part of a left side of organism [Automatically generated definition].
+    name: Left eye
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0004548
+- fields:
+    description: An eye that is part of a right side of organism [Automatically generated definition].
+    name: Right eye
+  model: igvf_mice.ontologyterm
+  pk: UBERON:0004549
