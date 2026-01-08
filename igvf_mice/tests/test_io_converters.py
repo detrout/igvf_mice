@@ -145,39 +145,68 @@ class TestConverters(TestCase):
 
     def test_parse_mouse_age_sex(self):
         for name, split in [
-                ("10M", ("10", "M")),
-                ("10M", ("10", "M")),
-                ("10F", ("10", "F")),
-                ("6moF", ("6mo", "F"))]:
+            ("10M", ("10", "M")),
+            ("10M", ("10", "M")),
+            ("10F", ("10", "F")),
+            ("6moF", ("6mo", "F")),
+        ]:
             self.assertEqual(parse_mouse_age_sex(name), split)
             self.assertEqual(join_mouse_age_sex(split), name)
             self.assertEqual(join_mouse_age_sex(parse_mouse_age_sex(name)), name)
 
     def test_parse_mouse_name(self):
         for name, split in [
-                ("477_CC030_10M", ("477", "CC030", "10", "M")),
-                ("239_TREM2_10M", ("239", "TREM2", "10", "M")),
-                ("238_B6WSBF1J_10F", ("238", "B6WSBF1J", "10", "F")),
-                ("656_B6NODF1J_6moF", ("656", "B6NODF1J", "6mo", "F"))]:
+            ("477_CC030_10M", ("477", "CC030", None, "10", "M")),
+            ("239_TREM2_10M", ("239", "TREM2", None, "10", "M")),
+            ("238_B6WSBF1J_10F", ("238", "B6WSBF1J", None, "10", "F")),
+            ("656_B6NODF1J_6moF", ("656", "B6NODF1J", None, "6mo", "F")),
+            ("778_B6J_L_12F", ("778", "B6J", "L", "12", "F")),
+            ("797_CASTJ_D_12M", ("797", "CASTJ", "D", "12", "M")),
+        ]:
             self.assertEqual(parse_mouse_name(name), split)
             self.assertEqual(join_mouse_name(split), name)
             self.assertEqual(join_mouse_name(parse_mouse_name(name)), name)
 
+    def test_obsolete_join_mouse_name(self):
+        for name, split in [
+            ("477_CC030_10M", ("477", "CC030", "10", "M")),
+            ("239_TREM2_10M", ("239", "TREM2", "10", "M")),
+            ("238_B6WSBF1J_10F", ("238", "B6WSBF1J", "10", "F")),
+            ("656_B6NODF1J_6moF", ("656", "B6NODF1J", "6mo", "F")),
+            ("778_B6J_L_12F", ("778", "B6J", "L", "12", "F")),
+            ("797_CASTJ_D_12M", ("797", "CASTJ", "D", "12", "M")),
+        ]:
+            self.assertEqual(join_mouse_name(split), name)
+
     def test_parse_mouse_tissue(self):
         for name, split in [
-                ("096_WSBJ_10F_15", ("096", "WSBJ", "10", "F", "15")),
-                ("239_TREM2_10M_01", ("239", "TREM2", "10", "M", "01")),
-                ("656_B6NODF1J_6moF_10", ("656", "B6NODF1J", "6mo", "F", "10"))]:
+            ("096_WSBJ_10F_15", ("096", "WSBJ", None, "10", "F", "15")),
+            ("239_TREM2_10M_01", ("239", "TREM2", None, "10", "M", "01")),
+            ("656_B6NODF1J_6moF_10", ("656", "B6NODF1J", None, "6mo", "F", "10")),
+            ("778_B6J_L_12F_03", ("778", "B6J", "L", "12", "F", "03")),
+            ("797_CASTJ_D_12M_05", ("797", "CASTJ", "D", "12", "M", "05")),
+        ]:
             self.assertEqual(parse_mouse_tissue(name), split)
             self.assertEqual(join_mouse_tissue(split), name)
             self.assertEqual(join_mouse_tissue(parse_mouse_tissue(name)), name)
 
+    def test_obsolete_join_mouse_tissue(self):
+        for name, split in [
+            ("096_WSBJ_10F_15", ("096", "WSBJ", "10", "F", "15")),
+            ("239_TREM2_10M_01", ("239", "TREM2", "10", "M", "01")),
+            ("656_B6NODF1J_6moF_10", ("656", "B6NODF1J", "6mo", "F", "10")),
+            ("778_B6J_L_12F_03", ("778", "B6J", "L", "12", "F", "03")),
+            ("797_CASTJ_D_12M_05", ("797", "CASTJ", "D", "12", "M", "05")),
+        ]:
+            self.assertEqual(join_mouse_tissue(split), name)
+
     def test_get_genotype_from_mouse_tissue(self):
         for name, genotype in [
-                ("016_B6J_10F_20", "C57BL/6J"),
-                ("046_NZOJ_10F_03", "NZO/HlLtJ"),
-                ("198_B6CASTF1J_10F_20", "B6CASTF1/J"),
-                ("239_TREM2_10M_01", "TREM2R47HNSS_HO")]:
+            ("016_B6J_10F_20", "C57BL/6J"),
+            ("046_NZOJ_10F_03", "NZO/HlLtJ"),
+            ("198_B6CASTF1J_10F_20", "B6CASTF1/J"),
+            ("239_TREM2_10M_01", "TREM2R47HNSS_HO"),
+        ]:
             self.assertEqual(get_genotype_from_mouse_tissue(name), genotype)
 
     def test_instrument_name_to_platform_id(self):

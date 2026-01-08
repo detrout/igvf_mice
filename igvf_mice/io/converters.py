@@ -195,16 +195,19 @@ def normalize_subpool_submission_status(value):
 
 mouse_age_sex_tuple = namedtuple(
     "mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
+mouse_age_sex_tuple_lens = {len(mouse_age_sex_tuple._fields)}
 
 
 mouse_name_tuple = namedtuple(
     "mouse_name_tuple",
-    ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex"])
+    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex"])
+mouse_name_tuple_lens = {len(mouse_name_tuple._fields)-1, len(mouse_name_tuple._fields)}
 
 
 mouse_tissue_tuple = namedtuple(
     "mouse_tissue_tuple",
-    ["mouse_id", "mouse_strain", "mouse_age", "mouse_sex", "tissue_id"])
+    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex", "tissue_id"])
+mouse_tissue_tuple_lens = {len(mouse_tissue_tuple._fields)-1, len(mouse_tissue_tuple._fields)}
 
 
 def parse_mouse_age_sex(mouse_age_sex):
@@ -227,7 +230,7 @@ def join_mouse_age_sex(value):
     if isinstance(value, mouse_age_sex_tuple):
         mouse_age = str(value.mouse_age)
         mouse_sex = str(value.mouse_sex)
-    elif isinstance(value, Sequence) and len(value) == 2:
+    elif isinstance(value, Sequence) and len(value) in mouse_age_sex_tuple_lens:
         mouse_age = str(value[0])
         mouse_sex = str(value[1])
     else:
@@ -238,36 +241,62 @@ def join_mouse_age_sex(value):
 
 
 def parse_mouse_name(mouse_name):
-    mouse_id_end = mouse_name.find("_")
-    mouse_age_sex_start = mouse_name.rfind("_") + 1
+    #mouse_id_end = mouse_name.find("_")
+    #mouse_age_sex_start = mouse_name.rfind("_") + 1
 
-    mouse_id = mouse_name[0:mouse_id_end]
-    mouse_strain = normalize_strain(mouse_name[mouse_id_end+1:mouse_age_sex_start-1])
-    mouse_age, mouse_sex = parse_mouse_age_sex(mouse_name[mouse_age_sex_start:])
-    return mouse_name_tuple(mouse_id, mouse_strain, mouse_age, mouse_sex)
+    #mouse_id = mouse_name[0:mouse_id_end]
+    #mouse_strain = normalize_strain(mouse_name[mouse_id_end+1:mouse_age_sex_start-1])
+    #mouse_age, mouse_sex = parse_mouse_age_sex(mouse_name[mouse_age_sex_start:])
+    #return mouse_name_tuple(mouse_id, mouse_strain, mouse_age, mouse_sex)
+
+    fields = mouse_name.split("_")
+
+    mouse_id = fields.pop(0)
+    mouse_strain = fields.pop(0)
+    mouse_strain = normalize_strain(mouse_strain)
+    if fields[0] in ("L", "D"):
+        light_status = fields.pop(0)
+    else:
+        light_status = None
+    mouse_age_sex = fields.pop(0)
+    mouse_age, mouse_sex = parse_mouse_age_sex(mouse_age_sex)
+    validate_mouse_age_sex(mouse_age_sex)
+    assert len(fields) == 0
+
+    return mouse_name_tuple(
+        mouse_id, mouse_strain, light_status, mouse_age, mouse_sex)
 
 
 def join_mouse_name(value):
+    fields = []
     if isinstance(value, mouse_name_tuple):
-        mouse_id = value.mouse_id
-        mouse_strain = value.mouse_strain
-        mouse_age = value.mouse_age
-        mouse_sex = value.mouse_sex
+        fields.append(value.mouse_id)
+        fields.append(value.mouse_strain)
+        if value.light_status is not None:
+            fields.append(value.light_status)
+        fields.append(join_mouse_age_sex((value.mouse_age, value.mouse_sex)))
     elif isinstance(value, mouse_tissue_tuple):
-        mouse_id = value.mouse_id
-        mouse_strain = value.mouse_strain
-        mouse_age = value.mouse_age
-        mouse_sex = value.mouse_sex
-    elif isinstance(value, Sequence) and len(value) == 4:
-        mouse_id = value[0]
-        mouse_strain = value[1]
-        mouse_age = value[2]
-        mouse_sex = value[3]
+        fields.append(value.mouse_id)
+        fields.append(value.mouse_strain)
+        if value.light_status is not None:
+            fields.append(value.light_status)
+        fields.append(join_mouse_age_sex(value.mouse_age, value.mouse_sex))
+    elif isinstance(value, Sequence) and len(value) in mouse_name_tuple_lens:
+        value_fields = list(value)
+        fields.append(value_fields.pop(0))
+        fields.append(value_fields.pop(0))
+        # optional light status
+        if value_fields[0] is None:
+            value_fields.pop(0)
+        elif value_fields[0] in {"L", "D"}:
+            fields.append(value_fields.pop(0))
+        mouse_age = value_fields.pop(0)
+        mouse_sex = value_fields.pop(0)
+        fields.append(join_mouse_age_sex((mouse_age, mouse_sex)))
     else:
         raise ValueError("{} does not look like a parsed mouse_name".format(value))
 
-    mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
-    return "_".join([mouse_id, mouse_strain, mouse_age_sex])
+    return "_".join(fields)
 
 
 def parse_mouse_tissue(mouse_tissue):
@@ -276,6 +305,10 @@ def parse_mouse_tissue(mouse_tissue):
     mouse_id = fields.pop(0)
     mouse_strain = fields.pop(0)
     mouse_strain = normalize_strain(mouse_strain)
+    if fields[0] in ("L", "D"):
+        light_status = fields.pop(0)
+    else:
+        light_status = None
     mouse_age_sex = fields.pop(0)
     mouse_age, mouse_sex = parse_mouse_age_sex(mouse_age_sex)
     validate_mouse_age_sex(mouse_age_sex)
@@ -283,30 +316,37 @@ def parse_mouse_tissue(mouse_tissue):
     assert len(fields) == 0
 
     return mouse_tissue_tuple(
-        mouse_id, mouse_strain, mouse_age, mouse_sex, tissue_id)
+        mouse_id, mouse_strain, light_status, mouse_age, mouse_sex, tissue_id)
 
 
 def join_mouse_tissue(value):
     """Covert a set of mouse tissue attributes into a formatted string
     """
+    fields = []
     if isinstance(value, mouse_tissue_tuple):
-        mouse_id = value.mouse_id
-        mouse_strain = value.mouse_strain
-        mouse_age = value.mouse_age
-        mouse_sex = value.mouse_sex
-        mouse_tissue = value.tissue_id
-    elif isinstance(value, Sequence) and len(value) == 5:
-        mouse_id = value[0]
-        mouse_strain = value[1]
-        mouse_age = value[2]
-        mouse_sex = value[3]
-        mouse_tissue = value[4]
+        fields.append(value.mouse_id)
+        fields.append(value.mouse_strain)
+        if value.light_status is not None:
+            fields.append(value.light_status)
+        fields.append(join_mouse_age_sex((value.mouse_age, value.mouse_sex)))
+        fields.append(value.tissue_id)
+    elif isinstance(value, Sequence) and len(value) in mouse_tissue_tuple_lens:
+        value_fields = list(value)
+        fields.append(value_fields.pop(0))
+        fields.append(value_fields.pop(0))
+        if value_fields[0] is None:
+            value_fields.pop(0)
+        elif value_fields[0] in {"L", "D"}:
+            fields.append(value_fields.pop(0))
+        mouse_age = value_fields.pop(0)
+        mouse_sex = value_fields.pop(0)
+        fields.append(join_mouse_age_sex((mouse_age, mouse_sex)))
+        fields.append(value_fields.pop(0))
     else:
         raise ValueError(
             "{} does not look like a parsed mouse_name".format(value))
 
-    mouse_age_sex = join_mouse_age_sex((mouse_age, mouse_sex))
-    return "_".join([mouse_id, mouse_strain, mouse_age_sex, mouse_tissue])
+    return "_".join(fields)
 
 
 def get_strain_from_mouse_tissue(mouse_tissue):
