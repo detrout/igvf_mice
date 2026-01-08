@@ -212,7 +212,7 @@ def parse_mouse_age_sex(mouse_age_sex):
     sex = mouse_age_sex[-1]
     age = mouse_age_sex[0:-1]
 
-    if not sex in models.SexEnum.values:
+    if sex not in models.SexEnum.values:
         raise ValueError(
             "Invalid sex value {}. Allowed values {}".format(sex, models.SexEnum.values))
 
