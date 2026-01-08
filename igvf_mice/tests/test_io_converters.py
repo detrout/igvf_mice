@@ -37,8 +37,7 @@ class TestConverters(TestCase):
         ]
 
         for source, expected in data:
-            self.assertEqual(
-                convert_plate_id_to_name(source), expected)
+            self.assertEqual(convert_plate_id_to_name(source), expected)
 
     def test_date_or_none(self):
         self.assertIsNone(date_or_none(numpy.nan))
@@ -136,12 +135,14 @@ class TestConverters(TestCase):
         for falsy in (None, numpy.nan, 0, False, "no"):
             self.assertEqual(
                 normalize_subpool_submission_status(falsy),
-                str(models.RunStatusEnum.FAILED))
+                str(models.RunStatusEnum.FAILED),
+            )
 
         for truthy in (1, True, "yes", "Yes"):
             self.assertEqual(
                 normalize_subpool_submission_status(truthy),
-                str(models.RunStatusEnum.PASS))
+                str(models.RunStatusEnum.PASS),
+            )
 
     def test_parse_mouse_age_sex(self):
         for name, split in [
@@ -211,8 +212,8 @@ class TestConverters(TestCase):
 
     def test_instrument_name_to_platform_id(self):
         for friendly, expected in [
-                ("P2 Solo", "p2solo"),
-                ("Promethion", "promethion"),
-                ("MinION", "minion")]:
-            self.assertEqual(
-                instrument_name_to_platform_id(friendly), expected)
+            ("P2 Solo", "p2solo"),
+            ("Promethion", "promethion"),
+            ("MinION", "minion"),
+        ]:
+            self.assertEqual(instrument_name_to_platform_id(friendly), expected)

@@ -3,6 +3,7 @@
 The way that pandas and django represent missing data needs a bits of
 conversion.
 """
+
 from collections import namedtuple
 from collections.abc import Sequence
 import datetime
@@ -48,15 +49,28 @@ def datetime_or_none(x):
 def float_or_none(x):
     if pandas.isnull(x):
         return None
-    elif x in ("N/A", "#DIV/0!", "#VALUE!", "-",):
+    elif x in (
+        "N/A",
+        "#DIV/0!",
+        "#VALUE!",
+        "-",
+    ):
         return None
     else:
         return float(x)
 
+
 def float_or_nan(x):
     if pandas.isnull(x):
         return numpy.nan
-    elif isinstance(x, str) and x.strip() in ("N/A", "#DIV/0!", "#VALUE!", "-", "", "missing"):
+    elif isinstance(x, str) and x.strip() in (
+        "N/A",
+        "#DIV/0!",
+        "#VALUE!",
+        "-",
+        "",
+        "missing",
+    ):
         return numpy.nan
     else:
         return float(x)
@@ -119,7 +133,7 @@ def str_or_none(x):
 def normalize_barcode_index(value):
     if isinstance(value, str):
         if value.startswith("UDI_WT_"):
-            return "UDI{}".format(value[len("UDI_WT_"):])
+            return "UDI{}".format(value[len("UDI_WT_") :])
 
     return value
 
@@ -170,8 +184,7 @@ genotype_to_strain = {
 
 
 def normalize_strain(strain):
-    """Adapter to convert name
-    """
+    """Adapter to convert name"""
     return genotype_to_strain.get(strain, strain)
 
 
@@ -193,21 +206,28 @@ def normalize_subpool_submission_status(value):
         return str(models.RunStatusEnum.PASS)
 
 
-mouse_age_sex_tuple = namedtuple(
-    "mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
+mouse_age_sex_tuple = namedtuple("mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
 mouse_age_sex_tuple_lens = {len(mouse_age_sex_tuple._fields)}
 
 
 mouse_name_tuple = namedtuple(
     "mouse_name_tuple",
-    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex"])
-mouse_name_tuple_lens = {len(mouse_name_tuple._fields)-1, len(mouse_name_tuple._fields)}
+    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex"],
+)
+mouse_name_tuple_lens = {
+    len(mouse_name_tuple._fields) - 1,
+    len(mouse_name_tuple._fields),
+}
 
 
 mouse_tissue_tuple = namedtuple(
     "mouse_tissue_tuple",
-    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex", "tissue_id"])
-mouse_tissue_tuple_lens = {len(mouse_tissue_tuple._fields)-1, len(mouse_tissue_tuple._fields)}
+    ["mouse_id", "mouse_strain", "light_status", "mouse_age", "mouse_sex", "tissue_id"],
+)
+mouse_tissue_tuple_lens = {
+    len(mouse_tissue_tuple._fields) - 1,
+    len(mouse_tissue_tuple._fields),
+}
 
 
 def parse_mouse_age_sex(mouse_age_sex):
@@ -217,7 +237,8 @@ def parse_mouse_age_sex(mouse_age_sex):
 
     if sex not in models.SexEnum.values:
         raise ValueError(
-            "Invalid sex value {}. Allowed values {}".format(sex, models.SexEnum.values))
+            "Invalid sex value {}. Allowed values {}".format(sex, models.SexEnum.values)
+        )
 
     valid_ages = ("6mo",)
     if not (age in valid_ages or isinstance(int(age), int)):
@@ -234,20 +255,22 @@ def join_mouse_age_sex(value):
         mouse_age = str(value[0])
         mouse_sex = str(value[1])
     else:
-        raise ValueError("Value {} not compatible with mouse_age_sex_tuple".format(value))
+        raise ValueError(
+            "Value {} not compatible with mouse_age_sex_tuple".format(value)
+        )
 
     # TODO: Could probably add validators here too
     return mouse_age + mouse_sex
 
 
 def parse_mouse_name(mouse_name):
-    #mouse_id_end = mouse_name.find("_")
-    #mouse_age_sex_start = mouse_name.rfind("_") + 1
+    # mouse_id_end = mouse_name.find("_")
+    # mouse_age_sex_start = mouse_name.rfind("_") + 1
 
-    #mouse_id = mouse_name[0:mouse_id_end]
-    #mouse_strain = normalize_strain(mouse_name[mouse_id_end+1:mouse_age_sex_start-1])
-    #mouse_age, mouse_sex = parse_mouse_age_sex(mouse_name[mouse_age_sex_start:])
-    #return mouse_name_tuple(mouse_id, mouse_strain, mouse_age, mouse_sex)
+    # mouse_id = mouse_name[0:mouse_id_end]
+    # mouse_strain = normalize_strain(mouse_name[mouse_id_end+1:mouse_age_sex_start-1])
+    # mouse_age, mouse_sex = parse_mouse_age_sex(mouse_name[mouse_age_sex_start:])
+    # return mouse_name_tuple(mouse_id, mouse_strain, mouse_age, mouse_sex)
 
     fields = mouse_name.split("_")
 
@@ -263,8 +286,7 @@ def parse_mouse_name(mouse_name):
     validate_mouse_age_sex(mouse_age_sex)
     assert len(fields) == 0
 
-    return mouse_name_tuple(
-        mouse_id, mouse_strain, light_status, mouse_age, mouse_sex)
+    return mouse_name_tuple(mouse_id, mouse_strain, light_status, mouse_age, mouse_sex)
 
 
 def join_mouse_name(value):
@@ -316,12 +338,12 @@ def parse_mouse_tissue(mouse_tissue):
     assert len(fields) == 0
 
     return mouse_tissue_tuple(
-        mouse_id, mouse_strain, light_status, mouse_age, mouse_sex, tissue_id)
+        mouse_id, mouse_strain, light_status, mouse_age, mouse_sex, tissue_id
+    )
 
 
 def join_mouse_tissue(value):
-    """Covert a set of mouse tissue attributes into a formatted string
-    """
+    """Covert a set of mouse tissue attributes into a formatted string"""
     fields = []
     if isinstance(value, mouse_tissue_tuple):
         fields.append(value.mouse_id)
@@ -343,8 +365,7 @@ def join_mouse_tissue(value):
         fields.append(join_mouse_age_sex((mouse_age, mouse_sex)))
         fields.append(value_fields.pop(0))
     else:
-        raise ValueError(
-            "{} does not look like a parsed mouse_name".format(value))
+        raise ValueError("{} does not look like a parsed mouse_name".format(value))
 
     return "_".join(fields)
 
@@ -367,8 +388,7 @@ def uci_tz_or_none(value):
 
 
 def instrument_name_to_platform_id(value):
-    """Convert human friendly nanopore machine names to platform ids
-    """
+    """Convert human friendly nanopore machine names to platform ids"""
     if pandas.isnull(value):
         return None
 
