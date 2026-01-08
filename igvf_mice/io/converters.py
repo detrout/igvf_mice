@@ -11,7 +11,6 @@ import numpy
 import pandas
 import zoneinfo
 
-from .. import models
 from .validators import validate_mouse_age_sex
 
 
@@ -198,12 +197,14 @@ def get_genotype_from_mouse_tissue(mouse_tissue):
 
 
 def normalize_subpool_submission_status(value):
+    from ..models import RunStatusEnum
+
     if pandas.isnull(value):
-        return str(models.RunStatusEnum.FAILED)
+        return str(RunStatusEnum.FAILED)
     elif value in (0, False, "no", "No"):
-        return str(models.RunStatusEnum.FAILED)
+        return str(RunStatusEnum.FAILED)
     elif value in (1, True, "yes", "Yes"):
-        return str(models.RunStatusEnum.PASS)
+        return str(RunStatusEnum.PASS)
 
 
 mouse_age_sex_tuple = namedtuple("mouse_age_sex_tuple", ["mouse_age", "mouse_sex"])
@@ -232,12 +233,14 @@ mouse_tissue_tuple_lens = {
 
 def parse_mouse_age_sex(mouse_age_sex):
     """Parse age/sex combined files like 10F or 6moM"""
+    from ..models import SexEnum
+
     sex = mouse_age_sex[-1]
     age = mouse_age_sex[0:-1]
 
-    if sex not in models.SexEnum.values:
+    if sex not in SexEnum.values:
         raise ValueError(
-            "Invalid sex value {}. Allowed values {}".format(sex, models.SexEnum.values)
+            "Invalid sex value {}. Allowed values {}".format(sex, SexEnum.values)
         )
 
     valid_ages = ("6mo",)
