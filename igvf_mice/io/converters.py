@@ -294,6 +294,7 @@ def parse_mouse_name(mouse_name):
 
 def join_mouse_name(value):
     fields = []
+    all_mouse_tuple_lens = mouse_name_tuple_lens.union(mouse_tissue_tuple_lens)
     if isinstance(value, mouse_name_tuple):
         fields.append(value.mouse_id)
         fields.append(value.mouse_strain)
@@ -305,8 +306,8 @@ def join_mouse_name(value):
         fields.append(value.mouse_strain)
         if value.light_status is not None:
             fields.append(value.light_status)
-        fields.append(join_mouse_age_sex(value.mouse_age, value.mouse_sex))
-    elif isinstance(value, Sequence) and len(value) in mouse_name_tuple_lens:
+        fields.append(join_mouse_age_sex((value.mouse_age, value.mouse_sex)))
+    elif isinstance(value, Sequence) and len(value) in all_mouse_tuple_lens:
         value_fields = list(value)
         fields.append(value_fields.pop(0))
         fields.append(value_fields.pop(0))

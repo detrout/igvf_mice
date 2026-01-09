@@ -12,6 +12,7 @@ from ..io.converters import (
     int_or_0,
     str_or_empty,
     str_or_none,
+    mouse_tissue_tuple,
     normalize_barcode_index,
     normalize_plate_name,
     normalize_mice_date,
@@ -177,6 +178,20 @@ class TestConverters(TestCase):
             ("778_B6J_L_12F", ("778", "B6J", "L", "12", "F")),
             ("797_CASTJ_D_12M", ("797", "CASTJ", "D", "12", "M")),
         ]:
+            self.assertEqual(join_mouse_name(split), name)
+
+    def test_join_mouse_name_with_tissue(self):
+        for name, split in [
+            ("096_WSBJ_10F", ("096", "WSBJ", None, "10", "F", "15")),
+            ("239_TREM2_10M", ("239", "TREM2", None, "10", "M", "01")),
+            ("656_B6NODF1J_6moF", ("656", "B6NODF1J", None, "6mo", "F", "10")),
+            ("778_B6J_L_12F", ("778", "B6J", "L", "12", "F", "03")),
+            ("797_CASTJ_D_12M", ("797", "CASTJ", "D", "12", "M", "05")),
+        ]:
+            # test using the named mouse tissue tuple
+            mouse_id = mouse_tissue_tuple(*split)
+            self.assertEqual(join_mouse_name(mouse_id), name)
+            # do the same test with a raw tuple of the right length
             self.assertEqual(join_mouse_name(split), name)
 
     def test_parse_mouse_tissue(self):
