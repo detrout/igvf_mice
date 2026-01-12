@@ -28,6 +28,8 @@ def date_or_none(x):
         return None
     elif x in ("-",):
         return None
+    elif x == 0:
+        return None
     elif isinstance(x, (datetime.datetime, datetime.date)):
         return x.date()
     else:
