@@ -1,0 +1,138 @@
+<!doctype html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    :root {
+        color-scheme: light dark;
+    }
+    body {
+        max-width: 60em;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2em;
+    }
+    table {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        border: 2px solid;
+        border-spacing: 0px;
+        width: 95%;
+    }
+    th {
+        border-bottom: 2px solid;
+    }
+    @media (prefers-color-scheme: light) {
+        tr:nth-child(odd) {
+            background-color: #f2f2f2
+        }
+    }
+    @media (prefers-color-scheme: dark) {
+        tr:nth-child(odd) {
+            background-color: #444444
+        }
+    }
+    td {
+        padding-right: 2em;
+    }
+    table caption {
+        font-size: 2.5em;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contents of the AnnData h5ad file</h1>
+  <p>
+    The AnnData (annotated data, or adata) file contains detailed
+    sample metadata as well as cell type annotations in the
+    observation (obs) table and gene information in the variables
+    table (var). Unique cell IDs are located in adata.obs.index. The
+    AnnData file contains both raw and CellBender denoised gene counts
+    matrices in separate layers:
+    <code>adata.layers['raw_counts']</code>
+    and <code>adata.layers['cellbender_counts']</code>. Cells or
+    nuclei are always filtered by >0.5 cell_probability from
+    CellBender analysis along with additional QC filters which are
+    indicated in the attached documents.
+  </p>
+  <p>
+    After filtering, data for each tissue was normalized and clustered
+    using CellBender denoised counts. Normalization includes
+    regression of technical parameters (number of genes expressed per
+    cell and percent mitochondrial gene expression). The current
+    adata.X cell-by-gene counts matrix contains the normalized
+    data. Harmony was used to integrate exome capture and non-exome
+    capture subpools for annotation. A Leiden clustering resolution of
+    1 was used to define clusters. Cell type annotations were assigned
+    per Leiden cluster or subcluster (leiden_R) using expression of
+    canonical cell type marker genes.
+  </p>
+  {% if obs %}<table>
+    <caption>Description of cell metadata (“obs”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in obs %}
+      <tr><td>{{ key }}</td><td>{{ obs[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  {% if var %}<table>
+    <caption>Description of variables (“var”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in var %}
+      <tr><td>{{ key }}</td><td>{{ var[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  {% if uns %}<table>
+    <caption>Description of unstructured annotation (“uns”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in uns %}
+      <tr><td>{{ key }}</td><td>{{ uns[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  {% if obsm %}<table>
+    <caption>Description of multi-dimensional annotation of observations (“obsm”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in obsm %}
+      <tr><td>{{ key }}</td><td>{{ obsm[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  {% if layers %}<table>
+    <caption>Description of counts matrices (“layers”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in layers %}
+      <tr><td>{{ key }}</td><td>{{ layers[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  {% if obsp %}<table>
+    <caption>Description of pairwise annotation of observations (“obsp”)</caption>
+    <thead>
+      <tr><th>key</th><th>Description</th></tr>
+    </thead>
+    <tbody>{% for key in obsp %}
+      <tr><td>{{ key }}</td><td>{{ obsp[key] }}</td></tr>
+    {% endfor %}</tbody>
+  </table>{% endif %}
+  <p>
+    Additional documentation on the AnnData file format and structure can be found here:
+    <a href="https://anndata.readthedocs.io/">https://anndata.readthedocs.io/</a>.
+  </p>
+  <p>
+    Information about ScanPy is at
+    <a href="https://scanpy.readthedocs.io/">https://scanpy.readthedocs.io/</a>.
+  </p>
+  {% if "fraction_data_used_for_testing" in uns %}<p>
+    Information about CellBender can be found at
+    <a href="https://cellbender.readthedocs.io/">https://cellbender.readthedocs.io/</a>
+  </p>{% endif %}
+</body>
+</html>
