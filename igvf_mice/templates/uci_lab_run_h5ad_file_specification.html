@@ -62,11 +62,12 @@
     regression of technical parameters (number of genes expressed per
     cell and percent mitochondrial gene expression). The current
     adata.X cell-by-gene counts matrix contains the normalized
-    data. Harmony was used to integrate exome capture and non-exome
-    capture subpools for annotation. A Leiden clustering resolution of
-    1 was used to define clusters. Cell type annotations were assigned
-    per Leiden cluster or subcluster (leiden_R) using expression of
-    canonical cell type marker genes.
+    data. {% if harmony %}Harmony was used to integrate exome capture
+    and non-exome capture subpools for annotation. {% endif %} A
+    Leiden clustering resolution of 1 was used to define
+    clusters. Cell type annotations were assigned per Leiden cluster
+    or subcluster (leiden_R) using expression of canonical cell type
+    marker genes.
   </p>
   {% if obs %}<table>
     <caption>Description of cell metadata (“obs”)</caption>

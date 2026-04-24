@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import anndata
-from argparse import ArgumentParser
+from argparse import ArgumentParser, BooleanOptionalAction
 from jinja2 import Environment, PackageLoader, select_autoescape
 import numpy
 import pandas
@@ -189,12 +189,19 @@ def main(cmdline=None):
 def make_parser():
     parser = ArgumentParser()
     parser.add_argument("-o", "--output", help="target filename to write report to")
+    parser.add_argument(
+        "--harmony",
+        help="was harmony used",
+        required=True,
+        action=BooleanOptionalAction
+    )
     parser.add_argument("filename", help="h5ad file to read")
     return parser
 
 
-def generate_report(filename):
+def generate_report(filename, harmony=False):
     used_terms = get_h5ad_attributes(filename)
+    used_terms["harmony"] = harmony
 
     env = Environment(loader=PackageLoader("igvf_mice"), autoescape=select_autoescape())
     template = env.get_template("uci_lab_run_h5ad_file_specification.html")
