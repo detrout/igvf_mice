@@ -116,7 +116,10 @@ DEFINITIONS = {
     },
     "uns": {
         "hvg": "Method used to find HVGs, e.g. flavor: seurat.",
+        "leiden_colors": "Hex color mappings for each Leiden cluster identifier.",
+        "leiden_R": "Leiden clustering parameters.",
         "log1p": "Parameters used during log transformation.",
+        "plate_colors": "Hex color mappings for barcoding plate.",
         "neighbors": "Information on the k-nearest neighbors graph: includes connectivities, distances, and other parameters.",
         "umap": "Parameters used to compute the UMAP embedding.",
         "leiden": "leiden parameters",
