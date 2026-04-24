@@ -217,7 +217,7 @@ def get_h5ad_attributes(filename):
     used_terms = {}
     for table_name in table_names:
         table = getattr(adata, table_name)
-        for key in table.keys():
+        for key in sorted(table.keys()):
             if key not in DEFINITIONS[table_name]:
                 table_type = type(table[key])
                 if isinstance(table[key], pandas.core.series.Series):
