@@ -206,7 +206,7 @@ def make_parser():
     return parser
 
 
-def generate_report(filename, harmony=False):
+def generate_report(filename, add_filename=False, harmony=False):
     filename = Path(filename)
     used_terms = get_h5ad_attributes(filename)
     used_terms["harmony"] = harmony
