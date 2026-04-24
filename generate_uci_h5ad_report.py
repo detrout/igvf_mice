@@ -4,6 +4,7 @@ from argparse import ArgumentParser, BooleanOptionalAction
 from jinja2 import Environment, PackageLoader, select_autoescape
 import numpy
 import pandas
+from pathlib import Path
 
 
 DEFINITIONS = {
@@ -177,7 +178,8 @@ def main(cmdline=None):
     parser = make_parser()
     args = parser.parse_args(cmdline)
 
-    report = generate_report(args.filename)
+    filename = Path(args.filename)
+    report = generate_report(filename, args.add_filename, args.harmony)
 
     if args.output:
         with open(args.output, "wt") as outstream:
@@ -189,6 +191,11 @@ def main(cmdline=None):
 def make_parser():
     parser = ArgumentParser()
     parser.add_argument("-o", "--output", help="target filename to write report to")
+    parser.add_argument("--add-filename",
+                        action="store_true",
+                        default=False,
+                        help="Include filename in report"
+    )
     parser.add_argument(
         "--harmony",
         help="was harmony used",
@@ -200,8 +207,12 @@ def make_parser():
 
 
 def generate_report(filename, harmony=False):
+    filename = Path(filename)
     used_terms = get_h5ad_attributes(filename)
     used_terms["harmony"] = harmony
+
+    if add_filename:
+        used_terms["filename"] = filename.name
 
     env = Environment(loader=PackageLoader("igvf_mice"), autoescape=select_autoescape())
     template = env.get_template("uci_lab_run_h5ad_file_specification.html")

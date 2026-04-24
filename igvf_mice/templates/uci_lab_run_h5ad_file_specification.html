@@ -42,9 +42,10 @@
   </style>
 </head>
 <body>
-  <h1>Contents of the AnnData h5ad file</h1>
+  <h1>Contents of the AnnData h5ad file{% if filename %} {{ filename }}{% endif %}</h1>
   <p>
-    The AnnData (annotated data, or adata) file contains detailed
+    The AnnData (annotated data, or adata) file
+    {% if filename %} {{ filename }}{% endif %} contains detailed
     sample metadata as well as cell type annotations in the
     observation (obs) table and gene information in the variables
     table (var). Unique cell IDs are located in adata.obs.index. The
