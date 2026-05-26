@@ -9,6 +9,7 @@ from pathlib import Path
 
 DEFINITIONS = {
     "obs": {
+        "analysis_set_accession": "IGVF accession for the intermediate analysis set this cell was originally called in",
         "cellID": "Index of obs table. Includes barcoding wells for each round (1_2_3), subpool, and experiment.",
         "lab_sample_id": "Human-readable sample name used in-house.",
         "sample": "IGVF tissue accession.",
