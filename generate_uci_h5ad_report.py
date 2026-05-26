@@ -199,10 +199,12 @@ def main(cmdline=None):
 def make_parser():
     parser = ArgumentParser()
     parser.add_argument("-o", "--output", help="target filename to write report to")
-    parser.add_argument("--add-filename",
-                        action="store_true",
-                        default=False,
-                        help="Include filename in report"
+    parser.add_argument(
+        "--add-filename",
+        action="store_true",
+        default=False,
+        help="Include filename in report"
+    )
     )
     parser.add_argument(
         "--harmony",
