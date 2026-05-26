@@ -186,6 +186,11 @@ def main(cmdline=None):
     parser = make_parser()
     args = parser.parse_args(cmdline)
 
+    # unfortuantely the allele specific expression experiments use a
+    # slightly different name for gene_id.
+    if args.ase:
+        DEFINITIONS["var"]["gene_id"] = "ENSEMBL gene ID, e.g. ENSMUSG00000051951, appended with non-reference genotype allele if not the reference genotype"
+
     filename = Path(args.filename)
     report = generate_report(filename, args.add_filename, args.harmony)
 
@@ -205,6 +210,10 @@ def make_parser():
         default=False,
         help="Include filename in report"
     )
+    parser.add_argument(
+        "--ase",
+        help="Allele specific expression experiment",
+        action="store_true"
     )
     parser.add_argument(
         "--harmony",
